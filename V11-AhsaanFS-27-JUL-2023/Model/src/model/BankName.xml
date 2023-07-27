@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BankName"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="BANK_NAME"
+  AliasName="BankName"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="BankNameId"
+    ColumnName="BANK_NAME_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="BANK_NAME"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="BankName"
+    Precision="20"
+    ColumnName="BANK_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="BANK_NAME">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Transaction"
+    Association="model.BANKNAME_TNS_ASSOC"
+    AssociationEnd="model.BANKNAME_TNS_ASSOC.Transaction"
+    AssociationOtherEnd="model.BANKNAME_TNS_ASSOC.BankName"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GeneralLedgerEntry"
+    Association="model.Gle_Bank_Assoc"
+    AssociationEnd="model.Gle_Bank_Assoc.GeneralLedgerEntry"
+    AssociationOtherEnd="model.Gle_Bank_Assoc.BankName"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TnsUnClaimed"
+    Association="model.Unclaimed_BankName_assoc"
+    AssociationEnd="model.Unclaimed_BankName_assoc.TnsUnClaimed"
+    AssociationOtherEnd="model.Unclaimed_BankName_assoc.BankName"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TransactionLog"
+    Association="model.TNS_LOG_BANK_LOG_ASSOC"
+    AssociationEnd="model.TNS_LOG_BANK_LOG_ASSOC.TransactionLog"
+    AssociationOtherEnd="model.TNS_LOG_BANK_LOG_ASSOC.BankName"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="BankNamePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="BANK_NAME_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BankName.BankNameId"/>
+    </AttrArray>
+  </Key>
+</Entity>

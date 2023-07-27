@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="AccountOpening View" id="d1" binding="#{backingBeanScope.backing_MyHomeView.d1}"
+    smallIconSource="#{resource['images:adfdi_logo_16.png']}">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                <f:facet name="center">
+                    <af:panelStretchLayout id="psl1">
+                        <f:facet name="top">
+                            <af:toolbar id="t1">
+                                <af:button text="Opening Balance for Assets" id="b1"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Green; border-top-color:Maroon; border-bottom-color:Green;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           
+                                           icon="#{resource['images:label.png']}">
+                                    <af:setPropertyListener from="OpeningBalanceAssetsFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s1"/>
+                                <af:button text="Opening Balance For Product" id="b2"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Navy; border-right-color:Orange; border-top-color:Navy; border-bottom-color:Orange;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           
+                                           icon="#{resource['images:label.png']}">
+                                    <af:setPropertyListener from="OpeningBalanceForProductFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s2"/>
+                                <af:button text="Openeing Balance For Liabilities" id="b4"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Red; border-right-color:Red; border-top-color:Red; border-bottom-color:Red;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           
+                                           icon="#{resource['images:label.png']}">
+                                    <af:setPropertyListener from="OpeningBalanceForLiabilitiesFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s4"/>
+                                <af:button text="Opening Balance For OilTanker" id="b6"
+                                           icon="#{resource['images:label.png']}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Red; border-right-color:Red; border-top-color:Red; border-bottom-color:Red;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           >
+                                    <af:setPropertyListener from="OpeningBalanceForoiltankerFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="center">
+                            <af:switcher id="s5" binding="#{backingBeanScope.backing_MyHomeView.switcher}"
+                                         defaultFacet="DefaultOpeningBalanceFC" facetName="DefaultOpeningBalanceFC">
+                                <f:facet name="OpeningBalanceAssetsFc">
+                                    <af:region value="#{bindings.OpeningBalanceForAssetTF1.regionModel}" id="r1"/>
+                                </f:facet>
+                                <f:facet name="OpeningBalanceForProductFc">
+                                    <af:region value="#{bindings.OpeningBalanceForProductTF1.regionModel}" id="r2"/>
+                                </f:facet>
+                                <f:facet name="OpeningBalanceForRevenueCgsFC"/>
+                                <f:facet name="OpeningBalanceForoiltankerFc">
+                                    <af:region value="#{bindings.OpeningBalanceForOilTankerTf1.regionModel}" id="r5"/>
+                                </f:facet>
+                                <f:facet name="OpeningBalanceForLiabilitiesFc">
+                                    <af:region value="#{bindings.OpeningBalanceForLiabilitiesTF1.regionModel}" id="r3"/>
+                                </f:facet>
+                                <f:facet name="OpeningBalanceForExpenseAndRevenueFc"/>
+                                <f:facet name="DefaultOpeningBalanceFC">
+                                    <af:region value="#{bindings.DefaultOpeningBalanceTF1.regionModel}" id="r4"/>
+                                </f:facet>
+                            </af:switcher>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="header">
+                    <af:link text="HighPower Filling Station" id="l1"
+                             inlineStyle="color:Maroon; font-size:x-large; font-style:italic; font-weight:bold; border-bottom-style:dotted;"
+                             action="#{PageLoadBean.RedirecttoHome}"/>
+                </f:facet>
+                <f:facet name="status"/>
+                <f:attribute name="headerGlobalSize" value="35"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

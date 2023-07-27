@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="Expenseview2PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ExpenseView1" RangeSize="25" DataControl="VOAPPDataControl" id="ExpenseView1Iterator"/>
+    <searchRegion Binds="ExpenseView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ExpenseView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="ExpenseView1Iterator" StaticList="false" Uses="LOV_ExpcatName" id="ExpcatName"/>
+    <attributeValues IterBinding="ExpenseView1Iterator" id="ExpeId">
+      <AttrNames>
+        <Item Value="ExpeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ExpenseView1Iterator" id="ExpeName">
+      <AttrNames>
+        <Item Value="ExpeName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ExpenseView1Iterator" id="ExpeShortname">
+      <AttrNames>
+        <Item Value="ExpeShortname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ExpenseView1Iterator" id="ExpeExpcatId">
+      <AttrNames>
+        <Item Value="ExpeExpcatId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ExpenseView1Iterator" id="ExpeDate">
+      <AttrNames>
+        <Item Value="ExpeDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ExpenseView1Iterator" id="ExpcatId">
+      <AttrNames>
+        <Item Value="ExpcatId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ExpenseView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="ExpenseView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="ExpenseView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="ExpenseView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="ExpenseView1Iterator" id="ExpenseView1">
+      <nodeDefinition DefName="model.ExpenseView" Name="ExpenseView10">
+        <AttrNames>
+          <Item Value="ExpeDate"/>
+          <Item Value="ExpeId"/>
+          <Item Value="ExpeName"/>
+          <Item Value="ExpeShortname"/>
+          <Item Value="ExpcatName"/>
+          <Item Value="ExpcatId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ExpenseView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

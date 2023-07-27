@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Data_Loader_Retail_view"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  RowClass="model.Data_Loader_Retail_viewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.Data_Loader_Retail_view_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="CoaPartyAll1"
+    ViewObjectName="model.CoaPartyAll"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="COAProductOnly1"
+    ViewObjectName="model.COAProductOnly"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="COAProductOnly2"
+    ViewObjectName="model.COAProductOnly"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="Vehicle1View1"
+    ViewObjectName="model.Vehicle1View"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CoaName"
+    ListVOName="CoaPartyAll1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DlrPartyId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CoaName"/>
+      <Item Value="CoaActNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CoaName1"
+    ListVOName="COAProductOnly1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CoaName1"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DlrProdct1"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CoaName"/>
+      <Item Value="CoaActNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CoaName2"
+    ListVOName="COAProductOnly2"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CoaName2"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DlrProdct2"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CoaName"/>
+      <Item Value="CoaActNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_VehicleRegNo"
+    ListVOName="Vehicle1View1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="VehicleRegNo"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DlrVehicleId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="VehicleRegNo"/>
+      <Item Value="VehicleId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="VehicleRegNo"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="DataLoaderRetail"
+    Entity="model.DataLoaderRetail"/>
+  <EntityUsage
+    Name="ChartOfAccounts"
+    Entity="model.ChartOfAccounts"
+    Association="model.COA_party_DLR_Assoc"
+    AssociationEnd="model.COA_party_DLR_Assoc.ChartOfAccounts"
+    SourceUsage="model.Data_Loader_Retail_view.DataLoaderRetail"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.ChartOfAccounts.CoaActNumber"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.DataLoaderRetail.DlrPartyId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="ChartOfAccounts1"
+    Entity="model.ChartOfAccounts"
+    Association="model.COA_PDCT_1_DLR_Assoc"
+    AssociationEnd="model.COA_PDCT_1_DLR_Assoc.ChartOfAccounts1"
+    SourceUsage="model.Data_Loader_Retail_view.DataLoaderRetail"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.ChartOfAccounts.CoaActNumber"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.DataLoaderRetail.DlrProdct1"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="ChartOfAccounts2"
+    Entity="model.ChartOfAccounts"
+    Association="model.COA_PDCT_2_DLR_Assoc"
+    AssociationEnd="model.COA_PDCT_2_DLR_Assoc.ChartOfAccounts2"
+    SourceUsage="model.Data_Loader_Retail_view.DataLoaderRetail"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.ChartOfAccounts.CoaActNumber"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.DataLoaderRetail.DlrProdct2"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="Vehicle1"
+    Entity="model.Vehicle1"
+    Association="model.Vehicle_DLR_Assoc"
+    AssociationEnd="model.Vehicle_DLR_Assoc.Vehicle1"
+    SourceUsage="model.Data_Loader_Retail_view.DataLoaderRetail"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Vehicle1.VehicleId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.DataLoaderRetail.DlrVehicleId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="DlrAmt1"
+    PrecisionRule="true"
+    EntityAttrName="DlrAmt1"
+    EntityUsage="DataLoaderRetail"
+    AliasName="DLR_AMT1"
+    DefaultValue="0"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.DlrAmt1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DlrAmt2"
+    PrecisionRule="true"
+    EntityAttrName="DlrAmt2"
+    EntityUsage="DataLoaderRetail"
+    AliasName="DLR_AMT2"
+    DefaultValue="0"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.DlrAmt2_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DlrDate"
+    PrecisionRule="true"
+    EntityAttrName="DlrDate"
+    EntityUsage="DataLoaderRetail"
+    AliasName="DLR_DATE"
+    IsUpdateable="while_insert">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="Data_Loader_Retail_viewRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.DlrDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DlrId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="DlrId"
+    EntityUsage="DataLoaderRetail"
+    AliasName="DLR_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.DlrId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DlrPartyId"
+    PrecisionRule="true"
+    EntityAttrName="DlrPartyId"
+    EntityUsage="DataLoaderRetail"
+    AliasName="DLR_PARTY_ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="DlrPayAmt"
+    PrecisionRule="true"
+    EntityAttrName="DlrPayAmt"
+    EntityUsage="DataLoaderRetail"
+    AliasName="DLR_PAY_AMT"
+    DefaultValue="0"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.DlrPayAmt_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DlrProdct1"
+    PrecisionRule="true"
+    EntityAttrName="DlrProdct1"
+    EntityUsage="DataLoaderRetail"
+    AliasName="DLR_PRODCT1"
+    DefaultValue="2010107"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.DlrProdct1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DlrProdct2"
+    PrecisionRule="true"
+    EntityAttrName="DlrProdct2"
+    EntityUsage="DataLoaderRetail"
+    AliasName="DLR_PRODCT2"
+    DefaultValue="2010108"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.DlrProdct2_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DlrQty1"
+    PrecisionRule="true"
+    EntityAttrName="DlrQty1"
+    EntityUsage="DataLoaderRetail"
+    AliasName="DLR_QTY1"
+    DefaultValue="0"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.DlrQty1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DlrQty2"
+    PrecisionRule="true"
+    EntityAttrName="DlrQty2"
+    EntityUsage="DataLoaderRetail"
+    AliasName="DLR_QTY2"
+    DefaultValue="0"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.DlrQty2_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DlrRate1"
+    PrecisionRule="true"
+    EntityAttrName="DlrRate1"
+    EntityUsage="DataLoaderRetail"
+    AliasName="DLR_RATE1"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.DlrRate1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DlrRate2"
+    PrecisionRule="true"
+    EntityAttrName="DlrRate2"
+    EntityUsage="DataLoaderRetail"
+    AliasName="DLR_RATE2"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.DlrRate2_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DlrRecptAmt"
+    PrecisionRule="true"
+    EntityAttrName="DlrRecptAmt"
+    EntityUsage="DataLoaderRetail"
+    AliasName="DLR_RECPT_AMT"
+    DefaultValue="0"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.DlrRecptAmt_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DlrSlipNbr"
+    PrecisionRule="true"
+    EntityAttrName="DlrSlipNbr"
+    EntityUsage="DataLoaderRetail"
+    AliasName="DLR_SLIP_NBR"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.DlrSlipNbr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DlrVehicleId"
+    PrecisionRule="true"
+    EntityAttrName="DlrVehicleId"
+    EntityUsage="DataLoaderRetail"
+    AliasName="DLR_VEHICLE_ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="VehicleRegNo"
+    IsUnique="true"
+    PrecisionRule="true"
+    EntityAttrName="VehicleRegNo"
+    EntityUsage="Vehicle1"
+    AliasName="VEHICLE_REG_NO"
+    LOVName="LOV_VehicleRegNo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.VehicleRegNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VehicleId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="VehicleId"
+    EntityUsage="Vehicle1"
+    AliasName="VEHICLE_ID"/>
+  <ViewAttribute
+    Name="CoaName"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaName"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_NAME"
+    LOVName="LOV_CoaName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.CoaName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaActNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaActNumber"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_ACT_NUMBER"/>
+  <ViewAttribute
+    Name="CoaName1"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaName"
+    EntityUsage="ChartOfAccounts1"
+    AliasName="COA_NAME1"
+    LOVName="LOV_CoaName1">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.CoaName1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaActNumber1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaActNumber"
+    EntityUsage="ChartOfAccounts1"
+    AliasName="COA_ACT_NUMBER1"/>
+  <ViewAttribute
+    Name="CoaName2"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaName"
+    EntityUsage="ChartOfAccounts2"
+    AliasName="COA_NAME2"
+    LOVName="LOV_CoaName2">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.Data_Loader_Retail_view.CoaName2_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaActNumber2"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaActNumber"
+    EntityUsage="ChartOfAccounts2"
+    AliasName="COA_ACT_NUMBER2"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="DlrId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

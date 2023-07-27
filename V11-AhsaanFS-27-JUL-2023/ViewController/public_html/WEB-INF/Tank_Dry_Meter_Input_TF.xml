@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Tank_Dry_Meter_Input_TF">
+    <default-activity>Tank_Dry_Meter_Input_View</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="Tank_Dry_Meter_Input_View">
+      <page>/StockView_Tank_Dry_Meter_Input_View.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

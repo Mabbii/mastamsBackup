@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OpFinTns"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="OP_FIN_TNS"
+  AliasName="OpFinTns"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="OftId"
+    IsNotNull="true"
+    ColumnName="OFT_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="OP_FIN_TNS"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="OftDate"
+    ColumnName="OFT_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="OP_FIN_TNS"/>
+  <Attribute
+    Name="OftOp"
+    ColumnName="OFT_OP"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="OP_FIN_TNS"/>
+  <Key
+    Name="OpFinTnsPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="OP_FIN_TNS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.OpFinTns.OftId"/>
+    </AttrArray>
+  </Key>
+</Entity>

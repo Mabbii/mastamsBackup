@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LubeVehicleLubeCustomeFk1Link"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  EntityAssociation="model.LubeVehicleLubeCustomeFk1Assoc">
+  <ViewLinkDefEnd
+    Name="LubeCustomerView"
+    Cardinality="1"
+    Source="true"
+    Owner="model.LubeCustomerView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="LubeCustomerView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.LubeCustomerView.LcId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="LubeVehicleView"
+    Cardinality="-1"
+    Owner="model.LubeVehicleView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="LubeVehicleView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.LubeVehicleView.LcIdFk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ImagesTableVO"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Variable
+    Name="coaBind"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="CoaAllWithstatedCapital1"
+    ViewObjectName="model.CoaAllWithstatedCapital"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CoaName"
+    ListVOName="CoaAllWithstatedCapital1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CoaAccIdFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CoaNameD"/>
+      <Item Value="CoaActNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CoaNameD"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="ImagesTableEO"
+    Entity="model.ImagesTableEO"/>
+  <EntityUsage
+    Name="ChartOfAccounts"
+    Entity="model.ChartOfAccounts"
+    Association="model.ImageId_Coa_AccIdFk_Assoc"
+    AssociationEnd="model.ImageId_Coa_AccIdFk_Assoc.ChartOfAccounts"
+    SourceUsage="model.ImagesTableVO.ImagesTableEO"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.ChartOfAccounts.CoaActNumber"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.ImagesTableEO.CoaAccIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="ImageId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ImageId"
+    EntityUsage="ImagesTableEO"
+    AliasName="IMAGE_ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="ImageDescription"
+    PrecisionRule="true"
+    EntityAttrName="ImageDescription"
+    EntityUsage="ImagesTableEO"
+    AliasName="IMAGE_DESCRIPTION"/>
+  <ViewAttribute
+    Name="ImageBlob"
+    IsQueriable="false"
+    PrecisionRule="true"
+    EntityAttrName="ImageBlob"
+    EntityUsage="ImagesTableEO"
+    AliasName="IMAGE_BLOB"/>
+  <ViewAttribute
+    Name="CoaAccIdFk"
+    PrecisionRule="true"
+    EntityAttrName="CoaAccIdFk"
+    EntityUsage="ImagesTableEO"
+    AliasName="COA_ACC_ID_FK"/>
+  <ViewAttribute
+    Name="CoaName"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaName"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_NAME"
+    LOVName="LOV_CoaName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaActNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaActNumber"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_ACT_NUMBER"/>
+  <ViewCriteria
+    Name="ImagesTableVOCriteria"
+    ViewObjectName="model.ImagesTableVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ImagesTableVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="CoaName"
+        ViewAttribute="CoaName"
+        Operator="="
+        Conjunction="AND"
+        Value=":coaBind"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="ImageId"/>
+  </AttrArray>
+</ViewObject>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="RetailMy_Tank_Dip_Data_ViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TankDipDataView1" RangeSize="25" DataControl="VOAPPDataControl" id="TankDipDataView1Iterator"/>
+    <searchRegion Criteria="TankDipDataViewCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="TankDipDataView1Iterator" id="TankDipDataViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="TankDipDataView1Iterator" id="TankDipDataView1">
+      <nodeDefinition DefName="model.TankDipDataView" Name="TankDipDataView10">
+        <AttrNames>
+          <Item Value="TankDipValue"/>
+          <Item Value="TankInfoName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

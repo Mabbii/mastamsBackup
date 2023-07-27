@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="AccountsmyPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="partygenralTF1" taskFlowId="/WEB-INF/partygenralTF.xml#partygenralTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="productfrgenralTF1" taskFlowId="/WEB-INF/productfrallTF.xml#productfrgenralTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="BankAccountTF1" taskFlowId="/WEB-INF/BankAccountTF.xml#BankAccountTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="BankNameTF1" taskFlowId="/WEB-INF/ReferenceBankTF.xml#BankNameTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Expenseview2TF1" taskFlowId="/WEB-INF/Expenseview2TF.xml#Expenseview2TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="AccountRevenueTF1" taskFlowId="/WEB-INF/AccountRevenueTF.xml#AccountRevenueTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="AccountCapitalTF1" taskFlowId="/WEB-INF/AccountCapitalTF.xml#AccountCapitalTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="AccountRecieveAbleTF1" taskFlowId="/WEB-INF/AccountRecieveAbleTF.xml#AccountRecieveAbleTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="AccountPayAbleTF1" taskFlowId="/WEB-INF/AccountPayAbleTF.xml#AccountPayAbleTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

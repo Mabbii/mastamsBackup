@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ViewLinkpppp2"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  EntityAssociation="model.pppppppp2">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.ViewLinkpppp2_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="ProductForALL1"
+    Cardinality="-1"
+    Source="true"
+    Owner="model.ProductForALL">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ProductForALL1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ProductForALL.ProductId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="PartyAll"
+    Cardinality="-1"
+    Owner="model.PartyAll">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="PartyAll"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.PartyAll.PartyId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

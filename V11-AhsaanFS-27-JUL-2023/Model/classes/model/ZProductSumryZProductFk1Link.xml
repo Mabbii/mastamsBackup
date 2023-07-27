@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ZProductSumryZProductFk1Link"
+  Version="12.2.1.12.24"
+  InheritPersonalization="merge"
+  EntityAssociation="model.ZProductSumryZProductFk1Assoc">
+  <ViewLinkDefEnd
+    Name="ZProductSumryParamView"
+    Cardinality="1"
+    Source="true"
+    Owner="model.ZProductSumryParamView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_finderName" Value="ZProductSumryParamView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZProductSumryParamView.ZPdctSParamId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ZProductSumryView"
+    Cardinality="-1"
+    Owner="model.ZProductSumryView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ZProductSumryView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZProductSumryView.ZProductSumryParamIdFk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

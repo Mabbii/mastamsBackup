@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="LogingTreeViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="LUserSessionView3" RangeSize="25" DataControl="VOAPPDataControl" id="LUserSessionView3Iterator"/>
+    <searchRegion Binds="LUserSessionView3Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="LUserSessionView3Query"/>
+    <iterator Binds="LUserActivityView3" RangeSize="25" DataControl="VOAPPDataControl" id="LUserActivityView3Iterator"/>
+    <searchRegion Binds="LUserActivityView3Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="LUserActivityView3Query"/>
+    <iterator Binds="LUserOperationView3" RangeSize="25" DataControl="VOAPPDataControl"
+              id="LUserOperationView3Iterator"/>
+    <searchRegion Binds="LUserOperationView3Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="LUserOperationView3Query"/>
+    <iterator Binds="TransactionLogView3" RangeSize="25" DataControl="VOAPPDataControl"
+              id="TransactionLogView3Iterator"/>
+    <searchRegion Binds="TransactionLogView3Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TransactionLogView3Query"/>
+    <iterator Binds="LUsersView2" RangeSize="25" DataControl="VOAPPDataControl" id="LUsersView2Iterator"/>
+    <searchRegion Binds="LUsersView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="LUsersView2Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="LUserSessionView3Iterator" id="LUserSessionView3">
+      <nodeDefinition DefName="model.LUserSessionView" Name="LUserSessionView30">
+        <AttrNames>
+          <Item Value="UserLogInTime"/>
+          <Item Value="UserLogOutTime"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="LUserActivityView3Iterator" id="LUserActivityView3">
+      <nodeDefinition DefName="model.LUserActivityView" Name="LUserActivityView30">
+        <AttrNames>
+          <Item Value="ActivityTime"/>
+          <Item Value="ViewInfoName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="LUserOperationView3Iterator" id="LUserOperationView3">
+      <nodeDefinition DefName="model.LUserOperationView" Name="LUserOperationView30">
+        <AttrNames>
+          <Item Value="UserOpeEntityTnsId"/>
+          <Item Value="UserOpeTime"/>
+          <Item Value="EntityInfoName"/>
+          <Item Value="InfoDmlOpeName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="TransactionLogView3Iterator" id="TransactionLogView3">
+      <nodeDefinition DefName="model.TransactionLogView" Name="TransactionLogView30">
+        <AttrNames>
+          <Item Value="TnsDate"/>
+          <Item Value="TnsAmount"/>
+          <Item Value="TnsDetail"/>
+          <Item Value="TnsInfo"/>
+          <Item Value="TnsGroup"/>
+          <Item Value="TnsRate"/>
+          <Item Value="TnsQty"/>
+          <Item Value="TnsCoaDactNumber"/>
+          <Item Value="TnsCoaCactNumber"/>
+          <Item Value="TnsAdjDate"/>
+          <Item Value="TnsSlipNo"/>
+          <Item Value="TnsSlipDate"/>
+          <Item Value="TnsEtc"/>
+          <Item Value="TnsNewrate"/>
+          <Item Value="TnsIsDebit"/>
+          <Item Value="TnsReverseEntry"/>
+          <Item Value="TnsSDate"/>
+          <Item Value="TnsBrCode"/>
+          <Item Value="TnsOildLoadDate"/>
+          <Item Value="TnsInfoStart"/>
+          <Item Value="TnsLogDate"/>
+          <Item Value="TnsLogOpeF"/>
+          <Item Value="TnsLogOldNew"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaActNumber"/>
+          <Item Value="CoaName1"/>
+          <Item Value="CoaActNumber1"/>
+          <Item Value="BankName1"/>
+          <Item Value="BankNameId"/>
+          <Item Value="BankTnsTypeName"/>
+          <Item Value="BankTnsTypeId"/>
+          <Item Value="OildShortname"/>
+          <Item Value="OiltRegistration"/>
+          <Item Value="OildShortname1"/>
+          <Item Value="TnsTypeName"/>
+          <Item Value="InfoDmlOpeName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="LUsersView2Iterator" id="LUsersView2">
+      <nodeDefinition DefName="model.LUsersView" Name="LUsersView20">
+        <AttrNames>
+          <Item Value="LUsersUserName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

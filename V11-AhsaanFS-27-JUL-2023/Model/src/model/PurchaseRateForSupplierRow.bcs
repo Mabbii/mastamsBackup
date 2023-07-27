@@ -1,0 +1,26 @@
+//Groovy Scripts for model.PurchaseRateForSupplier
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="PurchaseRateDate")
+def PurchaseRateDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="PurchaseRateStartdate")
+def PurchaseRateStartdate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="PurchaseRateEnddate")
+def PurchaseRateEnddate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <f:view beforePhase="#{backingBeanScope.PrintPageBean.beforePhaseMethod}">
+        <af:panelBox id="pb1">
+            <f:facet name="toolbar">
+                <af:button id="b3" inlineStyle="padding-top:0px;" icon="#{resource['images:print.png']}">
+                    <af:showPrintablePageBehavior/>
+                </af:button>
+            </f:facet>
+            <af:image source="#{resource['images:Bandagi FS Logo.png']}" shortDesc="Bandagi Fs Logo" id="i1"/>
+            <af:panelSplitter orientation="vertical" splitterPosition="156" id="ps1"
+                              inlineStyle="width:1008px; height:723px;">
+                <f:facet name="first">
+                    <af:panelFormLayout id="pfl1">
+                        <af:outputText value="Product Summary" id="ot11"
+                                       inlineStyle="font-style:italic; font-size:large; font-weight:bold;"/>
+                        <af:inputText value="#{bindings.ZPdctSParamId.inputValue}"
+                                      label="#{bindings.ZPdctSParamId.hints.label}"
+                                      required="#{bindings.ZPdctSParamId.hints.mandatory}"
+                                      columns="#{bindings.ZPdctSParamId.hints.displayWidth}"
+                                      maximumLength="#{bindings.ZPdctSParamId.hints.precision}"
+                                      shortDesc="#{bindings.ZPdctSParamId.hints.tooltip}" id="it1" rendered="false">
+                            <f:validator binding="#{bindings.ZPdctSParamId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ZPdctSParamId.format}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.ZPdctSParamStartDate.inputValue}"
+                                      label="#{bindings.ZPdctSParamStartDate.hints.label}"
+                                      required="#{bindings.ZPdctSParamStartDate.hints.mandatory}"
+                                      columns="#{bindings.ZPdctSParamStartDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.ZPdctSParamStartDate.hints.tooltip}" id="id1">
+                            <f:validator binding="#{bindings.ZPdctSParamStartDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>
+                        <af:inputDate value="#{bindings.ZPdctSParamEndDate.inputValue}"
+                                      label="#{bindings.ZPdctSParamEndDate.hints.label}"
+                                      required="#{bindings.ZPdctSParamEndDate.hints.mandatory}"
+                                      columns="#{bindings.ZPdctSParamEndDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.ZPdctSParamEndDate.hints.tooltip}" id="id2">
+                            <f:validator binding="#{bindings.ZPdctSParamEndDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>
+                        <f:facet name="footer">
+                            <af:panelGroupLayout id="pgl1">
+                                <af:spacer width="73" height="10" id="s2"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Show" immediate="true" id="b2"
+                                           icon="#{resource['images:find.png']}">
+                                    <af:resetActionListener/>
+                                </af:button>
+                                <af:spacer width="40" height="10" id="s1"/>
+                                <af:button text="Submit" id="b1" actionListener="#{bindings.Commit.execute}"
+                                           icon="#{resource['images:commit.png']}"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelCollection id="pc1"
+                                        inlineStyle="border-right-color:Window; border-top-color:Window; border-bottom-color:Window;">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.ZProductSumryView2.collectionModel}" var="row"
+                                  rows="#{bindings.ZProductSumryView2.rangeSize}"
+                                  emptyText="#{bindings.ZProductSumryView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.ZProductSumryView2.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.ZProductSumryView2.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.ZProductSumryView2.rangeSize}"
+                                  filterModel="#{bindings.ZProductSumryView2Query.queryDescriptor}" filterVisible="true"
+                                  queryListener="#{bindings.ZProductSumryView2Query.processQuery}" varStatus="vs"
+                                  id="t1" width="900"
+                                  inlineStyle="border-right-color:White; background-color:Window; border-top-color:White; border-bottom-color:White;">
+                            <af:column sortProperty="#{bindings.ZProductSumryView2.hints.ZPdctSActNumber.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZProductSumryView2.hints.ZPdctSActNumber.label}" id="c1"
+                                       align="center"
+                                       inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                       width="90">
+                                <af:outputText value="#{row.ZPdctSActNumber}"
+                                               shortDesc="#{bindings.ZProductSumryView2.hints.ZPdctSActNumber.tooltip}"
+                                               id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZProductSumryView2.hints.ZPdctSActNumber.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZProductSumryView2.hints.ZCGleEtc.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZProductSumryView2.hints.ZCGleEtc.label}" id="c2"
+                                       align="center"
+                                       inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold; #{row.ZPdctSActNumber == null?'font-weight:bold;':''} #{row.ZPdctSActNumber == null?'font-size:large;':''}"
+                                       width="170">
+                                <af:outputText value="#{row.ZCGleEtc}"
+                                               shortDesc="#{bindings.ZProductSumryView2.hints.ZCGleEtc.tooltip}"
+                                               id="ot2"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZProductSumryView2.hints.ZPdctSOpQty.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZProductSumryView2.hints.ZPdctSOpQty.label}" id="c3"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                       width="80">
+                                <af:outputText value="#{row.ZPdctSOpQty}"
+                                               shortDesc="#{bindings.ZProductSumryView2.hints.ZPdctSOpQty.tooltip}"
+                                               id="ot3">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZProductSumryView2.hints.ZPdctSOpQty.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZProductSumryView2.hints.ZPdctSInQty.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZProductSumryView2.hints.ZPdctSInQty.label}" id="c4"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                       width="80">
+                                <af:outputText value="#{row.ZPdctSInQty}"
+                                               shortDesc="#{bindings.ZProductSumryView2.hints.ZPdctSInQty.tooltip}"
+                                               id="ot4">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZProductSumryView2.hints.ZPdctSInQty.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZProductSumryView2.hints.ZPdctSOutQty.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZProductSumryView2.hints.ZPdctSOutQty.label}" id="c5"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                       width="80">
+                                <af:outputText value="#{row.ZPdctSOutQty}"
+                                               shortDesc="#{bindings.ZProductSumryView2.hints.ZPdctSOutQty.tooltip}"
+                                               id="ot5">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZProductSumryView2.hints.ZPdctSOutQty.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZProductSumryView2.hints.ZPdctSCloseQty.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZProductSumryView2.hints.ZPdctSCloseQty.label}" id="c6"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                       width="80">
+                                <af:outputText value="#{row.ZPdctSCloseQty}"
+                                               shortDesc="#{bindings.ZProductSumryView2.hints.ZPdctSCloseQty.tooltip}"
+                                               id="ot6">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZProductSumryView2.hints.ZPdctSCloseQty.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZProductSumryView2.hints.ZPdctSCgsRate.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZProductSumryView2.hints.ZPdctSCgsRate.label}" id="c7"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                       width="60">
+                                <af:outputText value="#{row.ZPdctSCgsRate}"
+                                               shortDesc="#{bindings.ZProductSumryView2.hints.ZPdctSCgsRate.tooltip}"
+                                               id="ot7">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZProductSumryView2.hints.ZPdctSCgsRate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZProductSumryView2.hints.ZPdctSGleBalance.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZProductSumryView2.hints.ZPdctSGleBalance.label}" id="c8"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold; #{row.ZPdctSActNumber == null?'font-weight:bold;':''} #{row.ZPdctSActNumber == null?'font-size:large;':''}"
+                                       width="95">
+                                <af:outputText value="#{row.ZPdctSGleBalance}"
+                                               shortDesc="#{bindings.ZProductSumryView2.hints.ZPdctSGleBalance.tooltip}"
+                                               id="ot8">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZProductSumryView2.hints.ZPdctSGleBalance.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZProductSumryView2.hints.ZProductSumryParamIdFk.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZProductSumryView2.hints.ZProductSumryParamIdFk.label}"
+                                       id="c9" rendered="false">
+                                <af:outputText value="#{row.ZProductSumryParamIdFk}"
+                                               shortDesc="#{bindings.ZProductSumryView2.hints.ZProductSumryParamIdFk.tooltip}"
+                                               id="ot9">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZProductSumryView2.hints.ZProductSumryParamIdFk.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZProductSumryView2.hints.ZPdctSId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZProductSumryView2.hints.ZPdctSId.label}" id="c10"
+                                       rendered="false">
+                                <af:outputText value="#{row.ZPdctSId}"
+                                               shortDesc="#{bindings.ZProductSumryView2.hints.ZPdctSId.tooltip}"
+                                               id="ot10">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZProductSumryView2.hints.ZPdctSId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </f:facet>
+            </af:panelSplitter>
+        </af:panelBox>
+    </f:view>
+</ui:composition>

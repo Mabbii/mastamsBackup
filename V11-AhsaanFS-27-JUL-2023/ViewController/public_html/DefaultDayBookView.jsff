@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:decorativeBox id="db1">
+    <f:facet name="center">
+      <af:image source="#{resource['images:cash_book.png']}" shortDesc="Cash_book" id="i1"/>
+    </f:facet>
+  </af:decorativeBox>
+</ui:composition>

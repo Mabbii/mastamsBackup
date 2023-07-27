@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<markers xmlns="http://xmlns.oracle.com/jdeveloper/110000ide-markers">
+   <list n="markers">
+      <hash>
+         <value n="code" v="0"/>
+         <value n="column" v="1"/>
+         <value n="description" v="Error(10,1): [Static type checking] - Unknown attribute name: ad for type: Sale_Lube_Bulk&#xA; @ line 10, column 1."/>
+         <list n="events">
+            <hash>
+               <value n="event-description" v="Build"/>
+               <value n="event-id" v="a7a3040f-978b-4bb6-9c5c-b7da7ae847de"/>
+               <value n="event-timestamp" v="1599167011562"/>
+            </hash>
+         </list>
+         <value n="id" v="919e8f31-b105-4b54-a5af-a3e84962480b"/>
+         <value n="lastUpdated" v="1599167020993"/>
+         <value n="line" v="10"/>
+         <url n="markableURL" path="../VirkOil.jws"/>
+         <value n="severity" v="0"/>
+         <value n="timestamp" v="1599167020888"/>
+         <value n="type" v="oracle.jdeveloper.compiler.CompilerProblemMarker"/>
+      </hash>
+   </list>
+</markers>

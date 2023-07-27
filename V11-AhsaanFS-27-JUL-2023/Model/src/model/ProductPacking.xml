@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ProductPacking"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="PRODUCT_PACKING"
+  AliasName="ProductPacking"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="PdtPackingId"
+    ColumnName="PDT_PACKING_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="PRODUCT_PACKING"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="PdtPackingBoxVol"
+    IsNotNull="true"
+    ColumnName="PDT_PACKING_BOX_VOL"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="PRODUCT_PACKING"/>
+  <Attribute
+    Name="PdtPackingCanVol"
+    IsNotNull="true"
+    ColumnName="PDT_PACKING_CAN_VOL"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="PRODUCT_PACKING"/>
+  <Attribute
+    Name="PprodctId"
+    IsNotNull="true"
+    ColumnName="PPRODCT_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="PRODUCT_PACKING"/>
+  <Attribute
+    Name="PdtPackingBoxSpecs"
+    IsNotNull="true"
+    Precision="10"
+    ColumnName="PDT_PACKING_BOX_SPECS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PRODUCT_PACKING">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="ProductPackingPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRODUCT_PACKING_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ProductPacking.PdtPackingId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ProductProductpackgFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRODUCT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PRODUCT_PRODUCTPACKG_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ProductPacking.PprodctId"/>
+    </AttrArray>
+  </Key>
+</Entity>

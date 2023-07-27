@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="StockTransferViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TankStockTransferView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="TankStockTransferView1Iterator"/>
+    <searchRegion Binds="TankStockTransferView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TankStockTransferView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="TankStockTransferView1Iterator" StaticList="false" Uses="LOV_ProductShortname"
+                  id="ProductShortname"/>
+    <listOfValues IterBinding="TankStockTransferView1Iterator" StaticList="false" Uses="LOV_OiltRegistration"
+                  id="OiltRegistration"/>
+    <listOfValues IterBinding="TankStockTransferView1Iterator" StaticList="false" Uses="LOV_OiltRegistration1"
+                  id="OiltRegistration1"/>
+    <attributeValues IterBinding="TankStockTransferView1Iterator" id="TstId">
+      <AttrNames>
+        <Item Value="TstId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankStockTransferView1Iterator" id="TstDr">
+      <AttrNames>
+        <Item Value="TstDr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankStockTransferView1Iterator" id="TstCr">
+      <AttrNames>
+        <Item Value="TstCr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankStockTransferView1Iterator" id="TstQuentity">
+      <AttrNames>
+        <Item Value="TstQuentity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankStockTransferView1Iterator" id="TstDate">
+      <AttrNames>
+        <Item Value="TstDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankStockTransferView1Iterator" id="TstInfo">
+      <AttrNames>
+        <Item Value="TstInfo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankStockTransferView1Iterator" id="ProductIdFk">
+      <AttrNames>
+        <Item Value="ProductIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankStockTransferView1Iterator" id="ProductId">
+      <AttrNames>
+        <Item Value="ProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankStockTransferView1Iterator" id="OiltId">
+      <AttrNames>
+        <Item Value="OiltId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankStockTransferView1Iterator" id="OiltId1">
+      <AttrNames>
+        <Item Value="OiltId1"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="TankStockTransferView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="TankStockTransferView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="TankStockTransferView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="TankStockTransferView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="TankStockTransferView1Iterator" id="TankStockTransferView1">
+      <nodeDefinition DefName="model.TankStockTransferView" Name="TankStockTransferView10">
+        <AttrNames>
+          <Item Value="TstId"/>
+          <Item Value="TstDr"/>
+          <Item Value="TstCr"/>
+          <Item Value="TstQuentity"/>
+          <Item Value="TstDate"/>
+          <Item Value="TstInfo"/>
+          <Item Value="ProductIdFk"/>
+          <Item Value="ProductShortname"/>
+          <Item Value="ProductId"/>
+          <Item Value="OiltRegistration"/>
+          <Item Value="OiltId"/>
+          <Item Value="OiltRegistration1"/>
+          <Item Value="OiltId1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="TankStockTransferView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <action IterBinding="TankStockTransferView1Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

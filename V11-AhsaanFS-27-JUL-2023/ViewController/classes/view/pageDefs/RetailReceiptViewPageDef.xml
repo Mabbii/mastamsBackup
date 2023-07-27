@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="RetailReceiptViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Reciept_Retail1" RangeSize="15" DataControl="VOAPPDataControl" id="Reciept_Retail1Iterator"/>
+    <searchRegion Binds="Reciept_Retail1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="Reciept_Retail1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="Reciept_Retail1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <listOfValues IterBinding="Reciept_Retail1Iterator" StaticList="false" Uses="LOV_VehicleRegNo" id="VehicleRegNo"/>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="TnsDate">
+      <AttrNames>
+        <Item Value="TnsDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="TnsCoaCactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaCactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="TnsCoaDactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaDactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="TnsAmount">
+      <AttrNames>
+        <Item Value="TnsAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="TnsInfo">
+      <AttrNames>
+        <Item Value="TnsInfo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="TnsSlipDate">
+      <AttrNames>
+        <Item Value="TnsSlipDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="TnsSlipNo">
+      <AttrNames>
+        <Item Value="TnsSlipNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="TnsSpellAmount">
+      <AttrNames>
+        <Item Value="TnsSpellAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="TnsFormatAmount">
+      <AttrNames>
+        <Item Value="TnsFormatAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="TnsTnsTypeIdFk">
+      <AttrNames>
+        <Item Value="TnsTnsTypeIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="TnsTnsviewId">
+      <AttrNames>
+        <Item Value="TnsTnsviewId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="TnsId">
+      <AttrNames>
+        <Item Value="TnsId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="CoaBalance">
+      <AttrNames>
+        <Item Value="CoaBalance"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="TnsDetail">
+      <AttrNames>
+        <Item Value="TnsDetail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="VehicleIdFk">
+      <AttrNames>
+        <Item Value="VehicleIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="VehicleId">
+      <AttrNames>
+        <Item Value="VehicleId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Reciept_Retail1Iterator" id="TnsSDate">
+      <AttrNames>
+        <Item Value="TnsSDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Reciept_Retail1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="Reciept_Retail1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="Reciept_Retail1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="Reciept_Retail1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="Reciept_Retail1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <action IterBinding="Reciept_Retail1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="Reciept_Retail1Iterator" id="Reciept_Retail1">
+      <nodeDefinition DefName="model.Reciept_Retail" Name="Reciept_Retail10">
+        <AttrNames>
+          <Item Value="TnsDate"/>
+          <Item Value="CoaName"/>
+          <Item Value="TnsAmount"/>
+          <Item Value="TnsFormatAmount"/>
+          <Item Value="TnsSlipDate"/>
+          <Item Value="TnsSlipNo"/>
+          <Item Value="TnsInfo"/>
+          <Item Value="VehicleRegNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="Opening_and_Finanical_ViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OpFinTnsView1" RangeSize="25" DataControl="VOAPPDataControl" id="OpFinTnsView1Iterator"/>
+    <searchRegion Binds="OpFinTnsView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="OpFinTnsView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="OpFinTnsView1Iterator" id="OftId">
+      <AttrNames>
+        <Item Value="OftId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpFinTnsView1Iterator" id="OftDate">
+      <AttrNames>
+        <Item Value="OftDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="OpFinTnsView1Iterator" StaticList="false" Uses="LOV_OftOp" id="OftOp" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <action IterBinding="OpFinTnsView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="OpFinTnsView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="OpFinTnsView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="OpFinTnsView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="OpFinTnsView1Iterator" id="OpFinTnsView1">
+      <nodeDefinition DefName="model.OpFinTnsView" Name="OpFinTnsView10">
+        <AttrNames>
+          <Item Value="OftId"/>
+          <Item Value="OftDate"/>
+          <Item Value="OftOp"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

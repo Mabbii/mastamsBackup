@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PartyCustomerOnly"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.PartyCustomerOnly_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="PartyTypeForCustomerOnly1"
+    ViewObjectName="model.PartyTypeForCustomerOnly"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_PartyType1"
+    ListVOName="PartyTypeForCustomerOnly1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PartyType1"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="PtypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PartyType1"/>
+      <Item Value="PartyTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PartyType1"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Party"
+    Entity="model.Party"/>
+  <EntityUsage
+    Name="PartyType"
+    Entity="model.PartyType"
+    Association="model.PartyPartytyprFkAssoc"
+    AssociationEnd="model.PartyPartytyprFkAssoc.PartyType"
+    SourceUsage="model.PartyCustomerOnly.Party"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.PartyType.PartyTypeId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Party.PtypeId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="PartyId"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="PartyId"
+    EntityUsage="Party"
+    AliasName="PARTY_ID"/>
+  <ViewAttribute
+    Name="PartyName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PartyName"
+    EntityUsage="Party"
+    AliasName="PARTY_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PartyCustomerOnly.PartyName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PartyShortname"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PartyShortname"
+    EntityUsage="Party"
+    AliasName="PARTY_SHORTNAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PartyCustomerOnly.PartyShortname_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PartyCode"
+    PrecisionRule="true"
+    EntityAttrName="PartyCode"
+    EntityUsage="Party"
+    AliasName="PARTY_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PartyCustomerOnly.PartyCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PtypeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PtypeId"
+    EntityUsage="Party"
+    AliasName="PTYPE_ID"/>
+  <ViewAttribute
+    Name="PomcId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PomcId"
+    EntityUsage="Party"
+    AliasName="POMC_ID"
+    DefaultValue="4100001"/>
+  <ViewAttribute
+    Name="PartyTypeId"
+    PrecisionRule="true"
+    EntityAttrName="PartyTypeId"
+    EntityUsage="PartyType"
+    AliasName="PARTY_TYPE_ID"/>
+  <ViewAttribute
+    Name="PartyType1"
+    PrecisionRule="true"
+    EntityAttrName="PartyType"
+    EntityUsage="PartyType"
+    AliasName="PARTY_TYPE1"
+    LOVName="LOV_PartyType1">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.PartyCustomerOnly.PartyType1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="PartyId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+  <DeclarativeWhereClause
+    Name="DeclarativeWhereClause">
+    <ViewCriteria
+      Name="PartyCustomerOnlyWhereCriteria"
+      ViewObjectName="model.PartyCustomerOnly"
+      Conjunction="AND"
+      Mode="3">
+      <ViewCriteriaRow
+        Name="PartyCustomerOnlyWhereCriteria_row_0"
+        UpperColumns="1">
+        <ViewCriteriaItem
+          Name="PomcId"
+          ViewAttribute="PomcId"
+          Operator="="
+          Conjunction="AND"
+          Value="4100001"
+          Required="Optional"/>
+      </ViewCriteriaRow>
+      <ViewCriteriaRow
+        Name="PartyCustomerOnlyWhereCriteria_row_1"
+        UpperColumns="1">
+        <ViewCriteriaItemCompound
+          Name="PtypeId"
+          ViewAttribute="PtypeId">
+          <ViewCriteria
+            Name="PartyCustomerOnlyWhereCriteria_PartyCustomerOnlyWhereCriteria_row_1_PtypeId_itemHolder"
+            ViewObjectName="model.PartyCustomerOnly"
+            Conjunction="OR">
+            <ViewCriteriaRow
+              Name="PartyCustomerOnlyWhereCriteria_PartyCustomerOnlyWhereCriteria_row_1_PtypeId_itemHolder_row_0">
+              <ViewCriteriaItem
+                Name="PtypeId"
+                ViewAttribute="PtypeId"
+                Operator="="
+                Conjunction="OR"
+                Value="2"
+                Required="Optional"/>
+            </ViewCriteriaRow>
+            <ViewCriteriaRow
+              Name="PartyCustomerOnlyWhereCriteria_PartyCustomerOnlyWhereCriteria_row_1_PtypeId_itemHolder_row_1"
+              Conjunction="OR">
+              <ViewCriteriaItem
+                Name="PartyCustomerOnlyWhereCriteria_PartyCustomerOnlyWhereCriteria_row_1_PtypeId_PartyCustomerOnlyWhereCriteria_PartyCustomerOnlyWhereCriteria_row_1_PtypeId_itemHolder_PartyCustomerOnlyWhereCriteria_PartyCustomerOnlyWhereCriteria_row_1_PtypeId_itemHolder_row_1_PtypeId"
+                ViewAttribute="PtypeId"
+                Operator="="
+                Conjunction="OR"
+                Value="3"
+                Required="Optional"/>
+            </ViewCriteriaRow>
+            <ViewCriteriaRow
+              Name="PartyCustomerOnlyWhereCriteria_PartyCustomerOnlyWhereCriteria_row_1_PtypeId_itemHolder_row_2"
+              Conjunction="OR">
+              <ViewCriteriaItem
+                Name="PartyCustomerOnlyWhereCriteria_PartyCustomerOnlyWhereCriteria_row_1_PtypeId_PartyCustomerOnlyWhereCriteria_PartyCustomerOnlyWhereCriteria_row_1_PtypeId_itemHolder_PartyCustomerOnlyWhereCriteria_PartyCustomerOnlyWhereCriteria_row_1_PtypeId_itemHolder_row_2_PtypeId"
+                ViewAttribute="PtypeId"
+                Operator="="
+                Conjunction="OR"
+                Value="4"
+                Required="Optional"/>
+            </ViewCriteriaRow>
+          </ViewCriteria>
+        </ViewCriteriaItemCompound>
+      </ViewCriteriaRow>
+    </ViewCriteria>
+  </DeclarativeWhereClause>
+</ViewObject>

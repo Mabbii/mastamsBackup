@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ZRptSupPmpCrdLimitDFk1Link"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  EntityAssociation="model.ZRptSupPmpCrdLimitDFk1Assoc">
+  <ViewLinkDefEnd
+    Name="ZRptAllSupCrdLimitParamView"
+    Cardinality="1"
+    Source="true"
+    Owner="model.ZRptAllSupCrdLimitParamView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_finderName" Value="ZRptAllSupCrdLimitParamView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptAllSupCrdLimitParamView.SupCrdLmtParamId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ZRptAllSupCrdLimitDataView"
+    Cardinality="-1"
+    Owner="model.ZRptAllSupCrdLimitDataView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ZRptAllSupCrdLimitDataView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptAllSupCrdLimitDataView.SupPmpCrdLmtPartyIdFk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

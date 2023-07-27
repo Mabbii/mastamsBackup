@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="ReportsMy_AllWorking_ViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZAllWorkParamView1" RangeSize="25" DataControl="VOAPPDataControl" id="ZAllWorkParamView1Iterator"/>
+    <iterator Binds="ZAllWorkView2" RangeSize="25" DataControl="VOAPPDataControl" id="ZAllWorkView2Iterator"/>
+    <searchRegion Binds="ZAllWorkView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ZAllWorkView2Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ZAllWorkParamView1Iterator" id="ZAwpId">
+      <AttrNames>
+        <Item Value="ZAwpId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZAllWorkParamView1Iterator" id="ZAwpStartDate">
+      <AttrNames>
+        <Item Value="ZAwpStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZAllWorkParamView1Iterator" id="ZAwpEndDate">
+      <AttrNames>
+        <Item Value="ZAwpEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ZAllWorkParamView1Iterator" StaticList="false" Uses="LOV_ZAwpOption" id="ZAwpOption"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action IterBinding="ZAllWorkView2Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <tree IterBinding="ZAllWorkView2Iterator" id="ZAllWorkView2">
+      <nodeDefinition DefName="model.ZAllWorkView" Name="ZAllWorkView20">
+        <AttrNames>
+          <Item Value="ZAwId"/>
+          <Item Value="ZAwDate"/>
+          <Item Value="ZAwDetails"/>
+          <Item Value="ZAwTnsType"/>
+          <Item Value="ZAwCactNumber"/>
+          <Item Value="ZAwCactAcName"/>
+          <Item Value="ZAwDactNumber"/>
+          <Item Value="ZAwDactAcName"/>
+          <Item Value="ZAwQty"/>
+          <Item Value="ZAwRate"/>
+          <Item Value="ZAwAmount"/>
+          <Item Value="ZAwpIdFk"/>
+          <Item Value="ZAwTnsView"/>
+          <Item Value="ZAwHeadings"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

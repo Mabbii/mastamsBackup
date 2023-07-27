@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="PurchaseOMCReportviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZRptPurchaseOmcParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="ZRptPurchaseOmcParamView1Iterator"/>
+    <iterator Binds="ZRptPurchaseOmcDataView1" RangeSize="50" DataControl="VOAPPDataControl"
+              id="ZRptPurchaseOmcDataView1Iterator"/>
+    <searchRegion Binds="ZRptPurchaseOmcDataView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ZRptPurchaseOmcDataView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="ZRptPurchaseOmcParamView1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <attributeValues IterBinding="ZRptPurchaseOmcParamView1Iterator" id="PurchaseOmcParamId">
+      <AttrNames>
+        <Item Value="PurchaseOmcParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptPurchaseOmcParamView1Iterator" id="PurchaseOmcParamStartDate">
+      <AttrNames>
+        <Item Value="PurchaseOmcParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptPurchaseOmcParamView1Iterator" id="PurchaseOmcParamOmcId">
+      <AttrNames>
+        <Item Value="PurchaseOmcParamOmcId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptPurchaseOmcParamView1Iterator" id="PurchaseOmcParamEndDate">
+      <AttrNames>
+        <Item Value="PurchaseOmcParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptPurchaseOmcParamView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ZRptPurchaseOmcDataView1Iterator" id="ZRptPurchaseOmcDataView1">
+      <nodeDefinition DefName="model.ZRptPurchaseOmcDataView" Name="ZRptPurchaseOmcDataView10">
+        <AttrNames>
+          <Item Value="PurchaseAllDataCoa"/>
+          <Item Value="PurchaseAllDataCoaName"/>
+          <Item Value="PurchaseAllDataOmcName"/>
+          <Item Value="PurchaseAllDataHsd"/>
+          <Item Value="PurchaseAllDataHsdRate"/>
+          <Item Value="PurchaseAllDataHsdAmt"/>
+          <Item Value="PurchaseAllDataPmg"/>
+          <Item Value="PurchaseAllDataPmgRate"/>
+          <Item Value="PurchaseAllDataPmgAmt"/>
+          <Item Value="PurchaseAllDataSko"/>
+          <Item Value="PurchaseAllDataSkoRate"/>
+          <Item Value="PurchaseAllDataSkoAmt"/>
+          <Item Value="PurchaseAllDataHobc"/>
+          <Item Value="PurchaseAllDataHobcRate"/>
+          <Item Value="PurchaseAllDataHobcAmt"/>
+          <Item Value="PurchaseAllDataLdo"/>
+          <Item Value="PurchaseAllDataLdoRate"/>
+          <Item Value="PurchaseAllDataLdoAmt"/>
+          <Item Value="PurchaseAllDataCat"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ZRptPurchaseOmcDataView1Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,12 @@
+//Groovy Scripts for model.ISSEARCHVIEW
+
+package model
+
+import oracle.jbo.script.annotation.VariableExpression;
+
+@VariableExpression(path="BINDHDID")
+def BINDHDID_VariableScript_Variable()
+{
+adf.object.viewObject.retrieveFirestIsName()
+}
+

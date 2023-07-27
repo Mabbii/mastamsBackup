@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LubeVehicle"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="LUBE_VEHICLE"
+  AliasName="LubeVehicle"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="LvId"
+    ColumnName="LV_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="LUBE_VEHICLE"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="LvRegNo"
+    Precision="20"
+    ColumnName="LV_REG_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="LUBE_VEHICLE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LvMakeModel"
+    Precision="50"
+    ColumnName="LV_MAKE_MODEL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="LUBE_VEHICLE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LcIdFk"
+    ColumnName="LC_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="LUBE_VEHICLE"/>
+  <Attribute
+    Name="LvPerdayKms"
+    ColumnName="LV_PERDAY_KMS"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="LUBE_VEHICLE"/>
+  <Attribute
+    Name="LvDetails"
+    Precision="80"
+    ColumnName="LV_DETAILS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="LUBE_VEHICLE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LvMr"
+    ColumnName="LV_MR"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="LUBE_VEHICLE"/>
+  <AccessorAttribute
+    Name="LubeCustomer"
+    Association="model.LubeVehicleLubeCustomeFk1Assoc"
+    AssociationEnd="model.LubeVehicleLubeCustomeFk1Assoc.LubeCustomer"
+    AssociationOtherEnd="model.LubeVehicleLubeCustomeFk1Assoc.LubeVehicle"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="InvoicHead"
+    Association="model.LVEHICLE_INVOICEHEAD_ASSOC"
+    AssociationEnd="model.LVEHICLE_INVOICEHEAD_ASSOC.InvoicHead"
+    AssociationOtherEnd="model.LVEHICLE_INVOICEHEAD_ASSOC.LubeVehicle"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="LubeVehiclePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="LUBE_VEHICLE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.LubeVehicle.LvId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="LubeVehicleLubeCustomeFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="LUBE_CUSTOMER_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="LUBE_VEHICLE_LUBE_CUSTOME_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.LubeVehicle.LcIdFk"/>
+    </AttrArray>
+  </Key>
+</Entity>

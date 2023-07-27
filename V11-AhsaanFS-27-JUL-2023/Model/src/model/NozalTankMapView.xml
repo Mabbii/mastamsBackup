@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="NozalTankMapView"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="NozalView1"
+    ViewObjectName="model.NozalView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="TankInfoWithout_ExterTank1"
+    ViewObjectName="model.TankInfoWithout_ExterTank"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_NozalName"
+    ListVOName="NozalView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NozalName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="NTMapNazalIdFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="NozalName"/>
+      <Item Value="NozalId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NozalName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TankInfoName"
+    ListVOName="TankInfoWithout_ExterTank1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TankInfoName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="NTMapTankIdFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="TankInfoName"/>
+      <Item Value="TankInfoId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="TankInfoName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="NozalTankMap"
+    Entity="model.NozalTankMap"/>
+  <EntityUsage
+    Name="Nozal"
+    Entity="model.Nozal"
+    Association="model.NozalTankMapNozalFk1Assoc"
+    AssociationEnd="model.NozalTankMapNozalFk1Assoc.Nozal"
+    SourceUsage="model.NozalTankMapView.NozalTankMap"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Nozal.NozalId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.NozalTankMap.NTMapNazalIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="TankInfo"
+    Entity="model.TankInfo"
+    Association="model.NozalTankMapTankInfoFk1Assoc"
+    AssociationEnd="model.NozalTankMapTankInfoFk1Assoc.TankInfo"
+    SourceUsage="model.NozalTankMapView.NozalTankMap"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.TankInfo.TankInfoId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.NozalTankMap.NTMapTankIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="NTMapId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="NTMapId"
+    EntityUsage="NozalTankMap"
+    AliasName="N_T_MAP_ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="NTMapDate"
+    PrecisionRule="true"
+    EntityAttrName="NTMapDate"
+    EntityUsage="NozalTankMap"
+    AliasName="N_T_MAP_DATE"
+    IsUpdateable="while_insert">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="NozalTankMapViewRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="model.NozalTankMapView.NTMapDate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="model.NozalTankMapView.NTMapDate_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NTMapNazalIdFk"
+    PrecisionRule="true"
+    EntityAttrName="NTMapNazalIdFk"
+    EntityUsage="NozalTankMap"
+    AliasName="N_T_MAP_NAZAL_ID_FK"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="NTMapTankIdFk"
+    PrecisionRule="true"
+    EntityAttrName="NTMapTankIdFk"
+    EntityUsage="NozalTankMap"
+    AliasName="N_T_MAP_TANK_ID_FK"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="NozalName"
+    IsUnique="true"
+    PrecisionRule="true"
+    EntityAttrName="NozalName"
+    EntityUsage="Nozal"
+    AliasName="NOZAL_NAME"
+    LOVName="LOV_NozalName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NozalId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="NozalId"
+    EntityUsage="Nozal"
+    AliasName="NOZAL_ID"/>
+  <ViewAttribute
+    Name="TankInfoName"
+    PrecisionRule="true"
+    EntityAttrName="TankInfoName"
+    EntityUsage="TankInfo"
+    AliasName="TANK_INFO_NAME"
+    LOVName="LOV_TankInfoName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TankInfoId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="TankInfoId"
+    EntityUsage="TankInfo"
+    AliasName="TANK_INFO_ID"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="NTMapId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

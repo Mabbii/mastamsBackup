@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="LogingTree.jsf" id="d1" binding="#{backingBeanScope.backing_MyHomeView.d1}">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                <f:facet name="center">
+                    <af:panelStretchLayout id="psl1">
+                        <f:facet name="top">
+                            <af:toolbar id="t1">
+                                <af:button text="LOG TREE" id="b1"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}">
+                                    <af:setPropertyListener from="LogTreeFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s2"/>
+                                <af:button text="LOG TREE DATE" id="b2"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}">
+                                    <af:setPropertyListener from="LogTreeDateFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="center">
+                            <af:switcher id="s1" binding="#{backingBeanScope.backing_MyHomeView.switcher}">
+                                <f:facet name="LogTreeFC">
+                                    <af:region value="#{bindings.LogingTreeTF1.regionModel}" id="r1"/>
+                                </f:facet>
+                                <f:facet name="LogTreeDateFC">
+                                    <af:region value="#{bindings.TnsLogDateTF1.regionModel}" id="r2"/>
+                                </f:facet>
+                            </af:switcher>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="header">
+                <af:link text="Haider Filling Station" id="ll4" action="#{PageLoadBean.RedirecttoHome}"
+                             inlineStyle="color:Maroon; font-size:x-large; font-style:italic; font-weight:bold;"/>
+                </f:facet>
+                <f:facet name="branding"/>
+                <f:facet name="status"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

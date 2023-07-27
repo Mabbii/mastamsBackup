@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Nozal"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="NOZAL"
+  AliasName="Nozal"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="NozalId"
+    ColumnName="NOZAL_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="NOZAL"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="NozalName"
+    IsUnique="true"
+    Precision="80"
+    ColumnName="NOZAL_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="NOZAL"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ProductIdFk"
+    ColumnName="PRODUCT_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="NOZAL"/>
+  <Attribute
+    Name="NozalInitValue"
+    IsNotNull="true"
+    Precision="19"
+    Scale="4"
+    ColumnName="NOZAL_INIT_VALUE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="NOZAL"/>
+  <Attribute
+    Name="NozalActiveFlag"
+    ColumnName="NOZAL_ACTIVE_FLAG"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="NOZAL"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="PipeLineGroupIdFk"
+    ColumnName="PIPE_LINE_GROUP_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="NOZAL"/>
+  <AccessorAttribute
+    Name="NozalTankMap"
+    Association="model.NozalTankMapNozalFk1Assoc"
+    AssociationEnd="model.NozalTankMapNozalFk1Assoc.NozalTankMap"
+    AssociationOtherEnd="model.NozalTankMapNozalFk1Assoc.Nozal"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Product"
+    Association="model.Product_Nozal_Assoc"
+    AssociationEnd="model.Product_Nozal_Assoc.Product"
+    AssociationOtherEnd="model.Product_Nozal_Assoc.Nozal"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="MeterReadings"
+    Association="model.MREAD_NOZAL_Assoc"
+    AssociationEnd="model.MREAD_NOZAL_Assoc.MeterReadings"
+    AssociationOtherEnd="model.MREAD_NOZAL_Assoc.Nozal"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="MrInput"
+    Association="model.MrInput_Nozal_Assoc"
+    AssociationEnd="model.MrInput_Nozal_Assoc.MrInput"
+    AssociationOtherEnd="model.MrInput_Nozal_Assoc.Nozal"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TankStockLedger"
+    Association="model.Nozal_TankStockLedgerAssoc"
+    AssociationEnd="model.Nozal_TankStockLedgerAssoc.TankStockLedger"
+    AssociationOtherEnd="model.Nozal_TankStockLedgerAssoc.Nozal"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TankDryDataMInput"
+    Association="model.Nozal_Tank_DD_MInput_Assoc"
+    AssociationEnd="model.Nozal_Tank_DD_MInput_Assoc.TankDryDataMInput"
+    AssociationOtherEnd="model.Nozal_Tank_DD_MInput_Assoc.Nozal"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TankDryNozalData"
+    Association="model.Nozal_TankDNozalData_Assoc"
+    AssociationEnd="model.Nozal_TankDNozalData_Assoc.TankDryNozalData"
+    AssociationOtherEnd="model.Nozal_TankDNozalData_Assoc.Nozal"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="PipeLineGroup"
+    Association="model.PPLGROUP_NOZAL"
+    AssociationEnd="model.PPLGROUP_NOZAL.PipeLineGroup"
+    AssociationOtherEnd="model.PPLGROUP_NOZAL.Nozal"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="NozalPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="NOZAL_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Nozal.NozalId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="NozalUk1">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="NOZAL_UK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Nozal.NozalName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="NozalProductFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRODUCT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="NOZAL_PRODUCT_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Nozal.ProductIdFk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Nozal">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRODUCT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_NOZAL"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Nozal.ProductIdFk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Nozal1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PIPE_LINE_GROUP_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_NOZAL1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Nozal.PipeLineGroupIdFk"/>
+    </AttrArray>
+  </Key>
+</Entity>

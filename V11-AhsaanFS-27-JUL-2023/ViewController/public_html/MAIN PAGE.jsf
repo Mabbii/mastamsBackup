@@ -1,0 +1,1017 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Virk Oil Company " id="d1" binding="#{backingBeanScope.ChageSwither.d1}"
+                 smallIconSource="#{resource['images:adfdi_logo_16.png']}">
+        <af:messages id="m1" binding="#{backingBeanScope.ChageSwither.m1}"/>
+        <af:form id="f1" binding="#{backingBeanScope.ChageSwither.f1}" visible="true"
+                 inlineStyle="background-color:ButtonFace;" usesUpload="true">
+            <af:pageTemplate viewId="/oracle/templates/tabletFirstTemplate.jspx" id="pt1"
+                             binding="#{backingBeanScope.ChageSwither.pt1}">
+                <f:facet name="header">
+                    <af:outputText value="Virk Oil Company" id="ot1"/>
+                    
+                </f:facet>
+                <f:facet name="status"/>
+                <f:facet name="appNav">
+                    <af:outputText value="#{'X-DEPO PMG:&#160;'} #{bindings.XdrPmg.inputValue}"  id="ot3"/>
+                    <af:spacer width="10" height="10" id="s75"/>
+                    <af:outputText value="#{'X-DEPO HSD:&#160;'} #{bindings.XdrHsd.inputValue}"  id="ot4"/>
+                    <af:spacer width="10" height="10" id="s76"/>
+                    <af:button text="X" id="b2" binding="#{backingBeanScope.ChageSwither.b2}"
+                               actionListener="#{Refreshbean.RefreshAction}"/>
+                    <af:spacer width="10" height="10" id="s73"/>
+                    <af:outputText value="#{'Welcome&#160;'}#{securityContext.userName}#{',&#160;'}" id="ot2"/>
+                    <af:spacer width="10" height="10" id="s74"/>
+                    <af:commandLink text="Logout" id="cl2"   
+                        action="#{AuthBean.loggedoff}"  
+                       immediate="false"
+                                    inlineStyle="color:Navy; font-size:x-large; font-style:oblique; font-variant-caps:normal;">
+                        <?audit suppress oracle.ide.xml.validation-warning?>
+                    </af:commandLink>  
+                       
+                </f:facet>
+                   
+                <f:facet name="globalLinks"/>
+                <f:facet name="center">
+                    <af:decorativeBox id="db1" binding="#{backingBeanScope.ChageSwither.db1}">
+                        <f:facet name="center">
+                            <af:switcher id="s1" binding="#{backingBeanScope.ChageSwither.s1}" defaultFacet="DefaultFC">
+                                <f:facet name="omcfc">
+                                    <af:region value="#{bindings.OMCNONGENRALTF1.regionModel}" id="r1"/>
+                                </f:facet>
+                                <f:facet name="omcpumpFC">
+                                    <af:region value="#{bindings.omcpumpTF1.regionModel}" id="r19"/>
+                                </f:facet>
+                                <f:facet name="oiltankerFC">
+                                    <af:region value="#{bindings.OILTANKERtf1.regionModel}" id="r11"/>
+                                </f:facet>
+                                <f:facet name="oildepoFC">
+                                    <af:region value="#{bindings.oildepoTF1.regionModel}" id="r20"/>
+                                </f:facet>
+                                <f:facet name="Bank_NameFC">
+                                    <af:region value="#{bindings.BankNameTF1.regionModel}" id="r53"/>
+                                </f:facet>
+                                <f:facet name="Payment_receiept_omcpumpfc">
+                                    <af:region value="#{bindings.Payment_Receiept_Omcpump1.regionModel}" id="r23"/>
+                                </f:facet>
+                                <f:facet name="AccountCGSfc">
+                                    <af:region value="#{bindings.AccountCGStf1.regionModel}" id="r42"/>
+                                </f:facet>
+                                <f:facet name="productfc">
+                                    <af:region value="#{bindings.productfrgenralTF1.regionModel}" id="r6"/>
+                                </f:facet>
+                                <f:facet name="partygenralfc">
+                                    <af:region value="#{bindings.partygenralTF1.regionModel}" id="r5"/>
+                                </f:facet>
+                                <f:facet name="Trialbalancefc">
+                                    <af:region value="#{bindings.TrialBalanceTF1.regionModel}" id="r33"/>
+                                </f:facet>
+                                <f:facet name="PurchaseOmcPumpBackDatefc">
+                                    <af:region value="#{bindings.PurchaseOmcPumpBackDateTF1.regionModel}" id="r21"/>
+                                </f:facet>
+                                <f:facet name="BackJvoucherfc">
+                                    <af:region value="#{bindings.BackJvouchertf1.regionModel}" id="r25"/>
+                                </f:facet>
+                                <f:facet name="salessssslfc">
+                                    <af:region value="#{bindings.saleessssTF1.regionModel}" id="r2"/>
+                                </f:facet>
+                                <f:facet name="AccountREVNUEFC">
+                                    <af:region value="#{bindings.AccountRevenueTF1.regionModel}" id="r43"/>
+                                </f:facet>
+                                <f:facet name="glentryfc">
+                                    <af:region value="#{bindings.glentryTF1.regionModel}" id="r16"/>
+                                </f:facet>
+                                <f:facet name="paymentomcpumpfc">
+                                    <af:region value="#{bindings.paymentTF2.regionModel}" id="r15"/>
+                                </f:facet>
+                                <f:facet name="paymentfc">
+                                    <af:region value="#{bindings.paymentomcpumpTF1.regionModel}" id="r14"/>
+                                </f:facet>
+                                <f:facet name="receiptfc">
+                                    <af:region value="#{bindings.receiptTF1.regionModel}" id="r17"/>
+                                </f:facet>
+                                <f:facet name="purchaserateOMCPUMPFC">
+                                    <af:region value="#{bindings.purchaserateomcpmpTF1.regionModel}" id="r4"/>
+                                </f:facet>
+                                <f:facet name="receiptsupplierfc">
+                                    <af:region value="#{bindings.receiptsupplierTF1.regionModel}" id="r38"/>
+                                </f:facet>
+                                <f:facet name="purchaserateSupplierFC">
+                                    <af:region value="#{bindings.purchaseTF1.regionModel}" id="r22"/>
+                                </f:facet>
+                                <f:facet name="receiptomcfc">
+                                    <af:region value="#{bindings.receiptomcTF1.regionModel}" id="r32"/>
+                                </f:facet>
+                                <f:facet name="purchasefromOMCPUMPfc">
+                                    <af:region value="#{bindings.purchaseOMCPUMPtf1.regionModel}" id="r3"/>
+                                </f:facet>
+                                <f:facet name="purchasefromGsupplierfc">
+                                    <af:region value="#{bindings.PUchasefromGsupplierTF1.regionModel}" id="r34"/>
+                                </f:facet>
+                                <f:facet name="SALERATEfc">
+                                    <af:region value="#{bindings.salerateTF1.regionModel}" id="r31"/>
+                                </f:facet>
+                                <f:facet name="OpeningBalanceForAssetfc">
+                                    <af:region value="#{bindings.OpeningBalanceForAssetTF1.regionModel}" id="r7"/>
+                                </f:facet>
+                                <f:facet name="OpeningBalanceForProductfc">
+                                    <af:region value="#{bindings.OpeningBalanceForProductTF1.regionModel}" id="r8"/>
+                                </f:facet>
+                                <f:facet name="OpeningBalanceForRevenue&amp;CGSfc">
+                                    <af:region value="#{bindings.OpeningBalanceForRevenueCGSTF1.regionModel}" id="r9"/>
+                                </f:facet>
+                                <f:facet name="OpeningBalanceForLiabilitiesfc">
+                                    <af:region value="#{bindings.OpeningBalanceForLiabilitiesTF1.regionModel}"
+                                               id="r10"/>
+                                </f:facet>
+                                <f:facet name="OpeningBalanceForExpense&amp;Revenue ">
+                                    <af:region value="#{bindings.OpeningBalanceForExpenseRevenueTF1.regionModel}"
+                                               id="r12"/>
+                                </f:facet>
+                                <f:facet name="GsupplierpurchaseFC">
+                                    <af:region value="#{bindings.gsupplierPurchaseTF1.regionModel}" id="r13"/>
+                                </f:facet>
+                                <f:facet name="ExpenseFC">
+                                    <af:region value="#{bindings.ExpenseTF1.regionModel}" id="r18"/>
+                                </f:facet>
+                                <f:facet name="GournalVoucherFC">
+                                    <af:region value="#{bindings.GournalVoucherTF1.regionModel}" id="r24"/>
+                                </f:facet>
+                                <f:facet name="stocklossfc">
+                                    <af:region value="#{bindings.stocklossTF1.regionModel}" id="r26"/>
+                                </f:facet>
+                                <f:facet name="stockGainfc">
+                                    <af:region value="#{bindings.stockGainTF1.regionModel}" id="r27"/>
+                                </f:facet>
+                                <f:facet name="stockGainBACKDfc">
+                                    <af:region value="#{bindings.stockGainBACKDTF1.regionModel}" id="r28"/>
+                                </f:facet>
+                                <f:facet name="stocklossBACKDfc">
+                                    <af:region value="#{bindings.StockLB1.regionModel}" id="r29"/>
+                                </f:facet>
+                                <f:facet name="EXPENSE_backFC">
+                                    <af:region value="#{bindings.ExpenseBACKDtf1.regionModel}" id="r54"/>
+                                </f:facet>
+                                <f:facet name="DefaultFC">
+                                    <af:region value="#{bindings.DefaultTF1.regionModel}" id="r30"/>
+                                </f:facet>
+                                <f:facet name="BankAccountFC">
+                                    <af:region value="#{bindings.BankAccountTF1.regionModel}" id="r37"/>
+                                </f:facet>
+                                <f:facet name="AccountpayableFC">
+                                    <af:region value="#{bindings.AccountPayAbleTF1.regionModel}" id="r36"/>
+                                </f:facet>
+                                <f:facet name="AccountRecieveableFC">
+                                    <af:region value="#{bindings.AccountRecieveAbleTF1.regionModel}" id="r35"/>
+                                </f:facet>
+                                <f:facet name="journalLedgerFC">
+                                    <af:region value="#{bindings.GlerportTF1.regionModel}" id="r39"/>
+                                </f:facet>
+                                <f:facet name="AllTrancationFC">
+                                    <af:region value="#{bindings.AllTrancationTF1.regionModel}" id="r40"/>
+                                </f:facet>
+                                <f:facet name="AccountCapitalFC">
+                                    <af:region value="#{bindings.AccountCapitalTF2.regionModel}" id="r41"/>
+                                </f:facet>
+                                <f:facet name="ExpenseviewFC">
+                                    <af:region value="#{bindings.Expenseview2TF1.regionModel}" id="r44"/>
+                                </f:facet>
+                                <f:facet name="purchasefromsuppierbackDfc">
+                                    <af:region value="#{bindings.PurchaseFromSupplierBackDTF1.regionModel}" id="r45"/>
+                                </f:facet>
+                                <f:facet name="purchaseOmcPumpbackDfc">
+                                    <af:region value="#{bindings.PurchaseOmcPumpBackDateTF2.regionModel}" id="r46"/>
+                                </f:facet>
+                                <f:facet name="recieptOmcBackDfc">
+                                    <af:region value="#{bindings.RecieptOMCBackDateTF1.regionModel}" id="r47"/>
+                                </f:facet>
+                                <f:facet name="paymentRecieptBackDfc">
+                                    <af:region value="#{bindings.PAYMENT_RECIEPT_OMCPUMPBACKTF1.regionModel}" id="r48"/>
+                                </f:facet>
+                                <f:facet name="paymentOmcBackDfc">
+                                    <af:region value="#{bindings.PaymentOMCPumpBackDTF1.regionModel}" id="r49"/>
+                                </f:facet>
+                                <f:facet name="salesAllBackDfc">
+                                    <af:region value="#{bindings.SallesAllBackDTF1.regionModel}" id="r50"/>
+                                </f:facet>
+                                <f:facet name="recieptCustomerbackDfc">
+                                    <af:region value="#{bindings.RECEIPT_CUSTOMER_BACKtf1.regionModel}" id="r51"/>
+                                </f:facet>
+                                <f:facet name="paymentSupplierBackDfc">
+                                    <af:region value="#{bindings.PaymentSupplierBackDTF1.regionModel}" id="r52"/>
+                                </f:facet>
+                                <f:facet name="paymentsupplierFC">
+                                    <af:region value="#{bindings.paymentomcpumpTF2.regionModel}" id="r55"/>
+                                </f:facet>
+                                <f:facet name="ManageChartofAccountfc">
+                                    <af:region value="#{bindings.ManageChartofAccountTF1.regionModel}" id="r56"/>
+                                </f:facet>
+                                <f:facet name="ReceiptUnclaimedfc">
+                                    <af:region value="#{bindings.rebateTF1.regionModel}" id="r58"/>
+                                </f:facet>
+                                <f:facet name="Receiptclaimedfc">
+                                    <af:region value="#{bindings.productpckingTF1.regionModel}" id="r57"/>
+                                </f:facet>
+                                <f:facet name="ReferenceBankFC">
+                                    <af:region value="#{bindings.BankNameTF2.regionModel}" id="r59"/>
+                                </f:facet>
+                                <f:facet name="JournalLedgerDetaildFC">
+                                    <af:region value="#{bindings.GournalLedgerdetaildTF1.regionModel}" id="r60"/>
+                                </f:facet>
+                                <f:facet name="TrialBalanceShortFC">
+                                    <af:region value="#{bindings.TrialBalanceShortTF1.regionModel}" id="r61"/>
+                                </f:facet>
+                                <f:facet name="IncomecalculateFC">
+                                    <af:region value="#{bindings.IncomecalculateTF1.regionModel}" id="r66"/>
+                                </f:facet>
+                                <f:facet name="IncomeADJUSTMNTfc">
+                                    <af:region value="#{bindings.IncomeADJUSTMNTTF1.regionModel}" id="r65"/>
+                                </f:facet>
+                                <f:facet name="IncomeDetailedFC">
+                                    <af:region value="#{bindings.IncomeDetailedTF1.regionModel}" id="r62"/>
+                                </f:facet>
+                                <f:facet name="ReceiptClaimed(BD)FC">
+                                    <af:region value="#{bindings.ReceiptClaimedBackDateTF1.regionModel}" id="r63"/>
+                                </f:facet>
+                                <f:facet name="ReceiptUnClaimed(BD)FC">
+                                    <af:region value="#{bindings.ReceiptUnClaimedBACKDateTF1.regionModel}" id="r64"/>
+                                </f:facet>
+                                <f:facet name="SaleRateLogFC">
+                                    <af:region value="#{bindings.SaleRateLogTF1.regionModel}" id="r69"/>
+                                </f:facet>
+                                <f:facet name="PurchaseRateLogSupplierFC">
+                                    <af:region value="#{bindings.PurchaseRtaeLogSupplierTF1.regionModel}" id="r68"/>
+                                </f:facet>
+                                <f:facet name="PurchaseRateLogOMCPUMPfc">
+                                    <af:region value="#{bindings.PURCHASERATEOMCPUMPtf1.regionModel}" id="r67"/>
+                                </f:facet>
+                                <f:facet name="salesreportcustomerFC">
+                                    <af:region value="#{bindings.salesreportcustomerTF1.regionModel}" id="r70"/>
+                                </f:facet>
+                                <f:facet name="salesreportAllFC">
+                                    <af:region value="#{bindings.salesReportALLTF1.regionModel}" id="r71"/>
+                                </f:facet>
+                                <f:facet name="PurchaseAllDataReportFC">
+                                    <af:region value="#{bindings.PurchaseAllDataReportTF1.regionModel}" id="r72"/>
+                                </f:facet>
+                                <f:facet name="PurchaseOMCPumpreportFC">
+                                    <af:region value="#{bindings.PurchaseOMCPumpReportTF1.regionModel}" id="r74"/>
+                                </f:facet>
+                                <f:facet name="PurchaseReportFC">
+                                    <af:region value="#{bindings.PurchaseSupplierTF1.regionModel}" id="r73"/>
+                                </f:facet>
+                                <f:facet name="OmcCreditLimitFC">
+                                    <af:region value="#{bindings.NewOmcCreditLimit1.regionModel}" id="r75"/>
+                                </f:facet>
+                                <f:facet name="OmcPumpCreditLimitFC">
+                                    <af:region value="#{bindings.OmcPumpCreditLimitTF1.regionModel}" id="r76"/>
+                                </f:facet>
+                                <f:facet name="OmcOnlycreditLimitFC">
+                                    <af:region value="#{bindings.OmcOnlycreditLimitTF1.regionModel}" id="r77"/>
+                                </f:facet>
+                                <f:facet name="OmcPumpCreditLimitReportFC">
+                                    <af:region value="#{bindings.OmcPumpCreditLimitReportTF1.regionModel}" id="r78"/>
+                                </f:facet>
+                                <f:facet name="Supplier_credit_limitFc">
+                                    <af:region value="#{bindings.Supplier_Credit_LimitTF1.regionModel}" id="r79"/>
+                                </f:facet>
+                                <f:facet name="Debit_limits_CustomerORsupFC">
+                                    <af:region value="#{bindings.Customer_debit_limitTF1.regionModel}" id="r80"/>
+                                </f:facet>
+                                <f:facet name="OmcPumpOnlyCredit_limitReportFc">
+                                    <af:region value="#{bindings.OmcPump_OnlyCredit_limitReportTF1.regionModel}"
+                                               id="r81"/>
+                                </f:facet>
+                                <f:facet name="Supplier_Credit_limitReportFc">
+                                    <af:region value="#{bindings.Supplier_Credit_limitReportTF1.regionModel}" id="r82"/>
+                                </f:facet>
+                                <f:facet name="Suppliar_creditLimitReportDetailedFc">
+                                    <af:region value="#{bindings.Supplier_Credit_limit_DetailedReportTF1.regionModel}"
+                                               id="r83"/>
+                                </f:facet>
+                                <f:facet name="Customer_debit_limitReportFc">
+                                    <af:region value="#{bindings.Customer_Dedit_limit_ReportTF1.regionModel}" id="r84"/>
+                                </f:facet>
+                                <f:facet name="Customer_debit_limitDetailedReportFc">
+                                    <af:region value="#{bindings.Customer_Dedit_limit_DetailedReportTF1.regionModel}"
+                                               id="r85"/>
+                                </f:facet>
+                                <f:facet name="OmcReceiptReportFc">
+                                    <af:region value="#{bindings.ReceiptOmcReportTF1.regionModel}" id="r86"/>
+                                </f:facet>
+                                <f:facet name="IncomeCalculateDateToDateFC">
+                                    <af:region value="#{bindings.IncomeCalculateCustomDateToDateTF1.regionModel}"
+                                               id="r87"/>
+                                </f:facet>
+                                <f:facet name="LogtreeFC">
+                                    <af:region value="#{bindings.TreeTf1.regionModel}" id="r88"/>
+                                </f:facet>
+                                <f:facet name="TnsLogDateFC">
+                                    <af:region value="#{bindings.TnsLogDateTF1.regionModel}" id="r93"/>
+                                </f:facet>
+                                <f:facet name="ChangePassFC">
+                                    <af:region value="#{bindings.ChangePass1.regionModel}" id="r89"/>
+                                </f:facet>
+                                <f:facet name="ImageUploadFC">
+                                    <af:region value="#{bindings.Images_TableTF1.regionModel}" id="r90"/>
+                                </f:facet>
+                                <f:facet name="ImageLedgerFC">
+                                    <af:region value="#{bindings.Image_LadgerTF1.regionModel}" id="r92"/>
+                                </f:facet>
+                                <f:facet name="XDRPFC">
+                                    <af:region value="#{bindings.XDRP_TF1.regionModel}" id="r91"/>
+                                </f:facet>
+                                <f:facet name="Stock_Backfc">
+                                    <af:region value="#{bindings.Stock_Backtf1.regionModel}" id="r94"/>
+                                </f:facet>
+                                <f:facet name="DatedSelectedFC">
+                                    <af:region value="#{bindings.DateSelectedTF1.regionModel}" id="r95"/>
+                                </f:facet>
+                            </af:switcher>
+                        </f:facet>
+                    </af:decorativeBox>
+                </f:facet>
+                <f:facet name="start">
+                    <af:panelTabbed position="above" id="pt2" minTabSize="0px" maxTabSize="INFINITY"
+                                    inlineStyle="widows:2;">
+                        <af:showDetailItem id="tab1" text="MAIN MENU" inflexibleHeight="100">
+                            <af:panelAccordion discloseMany="false" id="pa1" binding="#{backingBeanScope.ChageSwither.pa1}">
+                                <af:showDetailItem id="pane1" text="SELECT YOUR OPTION"
+                                                   binding="#{backingBeanScope.ChageSwither.pane1}" styleClass="omcc"/>
+                                <af:showDetailItem text="OMC" id="sdi9" binding="#{backingBeanScope.ChageSwither.sdi9}">
+                                    <af:link text="OMC" id="l2" binding="#{backingBeanScope.ChageSwither.l2}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="omcfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="OMC PUMP" id="sdi1" binding="#{backingBeanScope.ChageSwither.sdi1}">
+                                    <af:link text="OMC PUMP" id="l5" binding="#{backingBeanScope.ChageSwither.l5}" 
+                                             
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}">
+                                        <af:setPropertyListener from="omcpumpFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="PARTY" id="sdi2" binding="#{backingBeanScope.ChageSwither.sdi2}">
+                                    <af:link text="ADD PARTY" id="l7" binding="#{backingBeanScope.ChageSwither.l7}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="partygenralfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="PRODUCTS" id="sdi3" binding="#{backingBeanScope.ChageSwither.sdi3}">
+                                    <af:link text="ADD PRODUCT" id="l9" binding="#{backingBeanScope.ChageSwither.l9}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="productfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="EXPENSE" id="sdi13" binding="#{backingBeanScope.ChageSwither.sdi13}">
+                                    <af:link text="ADD EXPENSE" id="l32" binding="#{backingBeanScope.ChageSwither.l32}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="ExpenseviewFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="CREDIT LIMITS" id="sdi18">
+                                    <af:link text="OMC CREDIT LIMIT" id="l68"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="OmcCreditLimitFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s66"/>
+                                    <af:link text="OMC PUMP CREDIT LIMIT" id="l69"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="OmcPumpCreditLimitFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s65"/>
+                                    <af:link text="SUPPLIER CREDIT LIMIT" id="l72"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="Supplier_credit_limitFc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="DEBIT LIMITS" id="sdi19">
+                                    <af:link text="DEBIT LIMIT CUSTOMER" id="l73"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="Debit_limits_CustomerORsupFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="JOURNAL VOUCHER" id="sdi14"
+                                                   binding="#{backingBeanScope.ChageSwither.sdi14}">
+                                    <af:link text="JOURNAL VOUCHER" id="l33" binding="#{backingBeanScope.ChageSwither.l33}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="GournalVoucherFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s31"/>
+                                    <af:link text="BACK DATE JOURNAL VOUCHER" id="l36"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                              >
+                                        <af:setPropertyListener from="BackJvoucherfc"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}" type="action"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="DAY BOOK BACK DATE " id="sdi4"
+                                                   binding="#{backingBeanScope.ChageSwither.sdi4}">
+                                    <af:link text="PAYMENT OMC PUMP  (BACK D)" id="l52"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="paymentOmcBackDfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s3"/>
+                                    <af:link text="PAYMENT_RECIEPT_OMCPUMP (BACK_D)" id="l10"
+                                             binding="#{backingBeanScope.ChageSwither.l10}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="paymentRecieptBackDfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s2"/>
+                                    <af:link text="PAYMENT SUPPLIER (BACK D)" id="l49"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="paymentSupplierBackDfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s4"/>
+                                    <af:link text="RECIEPT CUSTOMER (BACK D)" id="l50"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="recieptCustomerbackDfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s5"/>
+                                    <af:link text="RECIEPT OMC  (BACK D)" id="l51"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                              >
+                                        <af:setPropertyListener from="recieptOmcBackDfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s6"/>
+                                    <af:link text="PURCHASE OMCPUMP (BACK D)" id="l11"
+                                             binding="#{backingBeanScope.ChageSwither.l11}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="purchaseOmcPumpbackDfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s7"/>
+                                    <af:link text="PURCHASE FROM SUPPLIER  (BACK D)" id="l53"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="purchasefromsuppierbackDfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s8"/>
+                                    <af:link text="SALLES ALL  (BACK D)" id="l40"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="salesAllBackDfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s9"/>
+                                    <af:link text="EXPENSE (BACK D )" id="l20"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="EXPENSE_backFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s38"/>
+                                    <af:link text="RECEIPT UNCLAIMED (BACK D)" id="l60"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="ReceiptUnClaimed(BD)FC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s39"/>
+                                    <af:link text="RECEIPT CLAIMED (BACK D)" id="l61"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="ReceiptClaimed(BD)FC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="ACCOUNT MANAGMENT" id="sdi10"
+                                                   binding="#{backingBeanScope.ChageSwither.sdi10}">
+                                    <af:link text="MANAGE CHART OF ACCOUNT" id="l3"
+                                             binding="#{backingBeanScope.ChageSwither.l3}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="ManageChartofAccountfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="RATES" id="sdi5" binding="#{backingBeanScope.ChageSwither.sdi5}">
+                                    <af:separator id="s40"/>
+                                    <af:link text="PURCHASE RATE SUPPLIER" id="l62"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="PurchaseRateLogSupplierFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s43"/>
+                                    <af:link text="PURCHASE RATE OMCPUMP " id="l63"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="PurchaseRateLogOMCPUMPfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s44"/>
+                                    <af:link text="SALE RATE " id="l64"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                              >
+                                        <af:setPropertyListener from="SaleRateLogFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="OIL TANKER" id="sdi6" binding="#{backingBeanScope.ChageSwither.sdi6}">
+                                    <af:link text="OIL TANKER" id="l14" binding="#{backingBeanScope.ChageSwither.l14}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="oiltankerFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s45"/>
+                                    <af:link text="OIL DEPO" id="l31" binding="#{backingBeanScope.ChageSwither.l31}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="oildepoFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="BANK" id="sdi7" binding="#{backingBeanScope.ChageSwither.sdi7}">
+                                    <af:link text="ADD BANK ACCOUNT" id="l43"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="BankAccountFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s46"/>
+                                    <af:link text="ADD REFERENCE BANK" id="l54"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="ReferenceBankFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="DAY BOOK" id="sdi8" binding="#{backingBeanScope.ChageSwither.sdi8}">
+                                    <af:link text="PAYMENT OMCPUMP" id="l16" binding="#{backingBeanScope.ChageSwither.l16}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="paymentomcpumpfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s10"/>
+                                    <af:link text="PAYMENT_RECIEPT_OMCPUMP" id="l35"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                              >
+                                        <af:setPropertyListener from="Payment_receiept_omcpumpfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s11"/>
+                                    <af:link text="PAYMENT SUPPLIER" id="l21"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="paymentsupplierFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s12"/>
+                                    <af:link text="RECIEPT CUSTOMER" id="l19" binding="#{backingBeanScope.ChageSwither.l19}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="receiptfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s13"/>
+                                    <af:link text="RECIEPT OMC" id="l17"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="receiptomcfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s14"/>
+                                    <af:link text="PURCHASE FROM SUPPLIER" id="l22"
+                                             binding="#{backingBeanScope.ChageSwither.l22}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="purchasefromGsupplierfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s15"/>
+                                    <af:link text="PURCHASE OMCPUMP" id="l23" binding="#{backingBeanScope.ChageSwither.l23}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="purchasefromOMCPUMPfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s16"/>
+                                    <af:link text="SALES" id="l24" binding="#{backingBeanScope.ChageSwither.l24}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                              >
+                                        <af:setPropertyListener from="salessssslfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s17"/>
+                                    <af:link text="EXPENSE" id="l34" binding="#{backingBeanScope.ChageSwither.l34}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="ExpenseFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s32"/>
+                                    <af:link text="RECEIPT UNCLAIMED" id="l1"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="ReceiptUnclaimedfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s33"/>
+                                    <af:link text="RECEIPT CLAIMED" id="l4"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="Receiptclaimedfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="OPENING BALANCE" id="sdi12"
+                                                   binding="#{backingBeanScope.ChageSwither.sdi12}">
+                                    <af:link text="OPENING BALANCE ( ASSEST)" id="l25"
+                                             binding="#{backingBeanScope.ChageSwither.l25}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="OpeningBalanceForAssetfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s18"/>
+                                    <af:link text="OPENING BALANCE ( PRODUCT)" id="l26"
+                                             binding="#{backingBeanScope.ChageSwither.l26}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="OpeningBalanceForProductfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s19"/>
+                                    <af:link text="OPENING BALANCE (LIABILITIES)" id="l27"
+                                             binding="#{backingBeanScope.ChageSwither.l27}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="OpeningBalanceForLiabilitiesfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s20"/>
+                                    <af:link id="l28" binding="#{backingBeanScope.ChageSwither.l28}"
+                                             text="OPENING BALANCE ( REVENUE &amp; CGS)"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="OpeningBalanceForRevenue&amp;CGSfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s21"/>
+                                    <af:link text="OPENING BALANCE (EXPENSE &amp; REVENUE)" id="l29"
+                                             binding="#{backingBeanScope.ChageSwither.l29}"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="OpeningBalanceForExpense&amp;Revenue "
+                                                                type="action" to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="JOURNAL LEDGER" id="sdi22">
+                                    <af:link text="JOURNAL LEDGER SHORT" id="l12"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                              >
+                                        <af:setPropertyListener from="journalLedgerFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s41"/>
+                                    <af:spacer width="10" height="10" id="s42"/>
+                                    <af:link text="JOURNAL LEDGER DETAILED" id="l13"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="JournalLedgerDetaildFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="STOCK MANAGEMENT" id="sdi11"
+                                                   binding="#{backingBeanScope.ChageSwither.sdi11}">
+                                    <af:link text="STOCK GAIN" id="l37"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="stockGainfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s22"/>
+                                    <af:link text="STOCK GAIN BACK DATE" id="l38"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                              >
+                                        <af:setPropertyListener from="stockGainBACKDfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s23"/>
+                                    <af:link text="STOCK LOSS BACK DATE" id="l39"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="Stock_Backfc"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"
+                                                                type="action"/>
+                                    </af:link>
+                                    <af:separator id="s24"/>
+                                    <af:link text="STOCK LOSS" id="l18" binding="#{backingBeanScope.ChageSwither.l18}"
+                                             
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}">
+                                        <af:setPropertyListener from="stocklossfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="CHART OF ACCOUNT" id="sdi16">
+                                    <af:link text="ACCOUNT PAYABLE" id="l41"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                              >
+                                        <af:setPropertyListener from="AccountpayableFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s27"/>
+                                    <af:link text="ACCOUNT RECIEVEABLE" id="l42"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="AccountRecieveableFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s28"/>
+                                    <af:link text="ACCOUNT REVENUE" id="l46"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="AccountREVNUEFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s29"/>
+                                    <af:link text="ACCOUNT CAPITAL" id="l48"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="AccountCapitalFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s30"/>
+                                    <af:link text="ACCOUNT CGS" id="l47"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="AccountCGSfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                            </af:panelAccordion>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="tab2" text="REPORTS ">
+                            <af:panelAccordion discloseMany="false" id="pa2">
+                                <af:showDetailItem id="pane2" text="SELECT YOUR OPTION"/>
+                                <af:showDetailItem text="JOURNAL LEDGER" id="sdi23">
+                                    <af:link text="JOURNAL LEDGER SHORT" id="l44"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="journalLedgerFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s25"/>
+                                    <af:spacer width="10" height="10" id="s54"/>
+                                    <af:link text="JOURNAL LEDGER DETAILED" id="l55"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="JournalLedgerDetaildFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:spacer width="10" height="10" id="s55"/>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="TRIAL BALANCE" id="sdi24">
+                                    <af:link text="TRIAL BALANCE SHORT" id="l56"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="TrialBalanceShortFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s26"/>
+                                    <af:spacer width="10" height="10" id="s56"/>
+                                    <af:link text="TRIAL BALANCE DETAILED" id="l6"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="Trialbalancefc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:spacer width="10" height="10" id="s53"/>
+                                    <af:separator id="s35"/>
+                                    <af:link text="ALL WORKING" id="l45"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="AllTrancationFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s34"/>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="PURCHASE SALE" id="sdi25">
+                                    <af:link text="PURCHASE ALL" id="l65"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="PurchaseAllDataReportFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s50"/>
+                                    <af:spacer width="10" height="10" id="s58"/>
+                                    <af:link text="PURCHASE REPORT DETAILED" id="l66"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="PurchaseReportFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s47"/>
+                                    <af:spacer width="10" height="10" id="s60"/>
+                                    <af:link text="SALE CUSTOMER" id="l15"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="salesreportcustomerFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s48"/>
+                                    <af:spacer width="10" height="10" id="s61"/>
+                                    <af:link text="SALES ALL" id="l8"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="salesreportAllFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s49"/>
+                                    <af:spacer width="10" height="10" id="s57"/>
+                                    <af:link text="PURCHASE OMC" id="l67"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="PurchaseOMCPumpreportFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:spacer width="10" height="10" id="s59"/>
+                                    <af:separator id="s51"/>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="PAYMENT OMC" id="sdi15">
+                                    <af:link text="PAYMENT OMC" id="l30"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener type="action" from="OmcReceiptReportFc"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="CREDIT LIMIT REPORTS" id="sdi20">
+                                    <af:link text="OMC CREDIT LIMIT" id="l70"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="OmcOnlycreditLimitFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s52"/>
+                                    <af:spacer width="10" height="10" id="s62"/>
+                                    <af:link id="l71" text="OMC PUMP CREDIT LIMIT"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="OmcPumpCreditLimitReportFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s63"/>
+                                    <af:spacer width="10" height="10" id="s64"/>
+                                    <af:link text="OMCPUMP CREDIT LIMIT DETAILED" id="l74"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener type="action" from="OmcPumpOnlyCredit_limitReportFc"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s67"/>
+                                    <af:spacer width="10" height="10" id="s68"/>
+                                    <af:link text="SUPPLIER CREDIT LIMIT" id="l75"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="Supplier_Credit_limitReportFc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s69"/>
+                                    <af:spacer width="10" height="10" id="s70"/>
+                                    <af:link text="SUPPLIER CREDIT LIMIT DETAILED" id="l76"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="Suppliar_creditLimitReportDetailedFc"
+                                                                type="action" to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="DEBIT LIMIT REPORTS" id="sdi21">
+                                    <af:link text="CUSTOMER DEBIT LIMIT" id="l77"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="Customer_debit_limitReportFc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s71"/>
+                                    <af:spacer width="10" height="10" id="s72"/>
+                                    <af:link text="CUSTOMER DEBIT LIMIT DETAILED" id="l78"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="Customer_debit_limitDetailedReportFc"
+                                                                type="action" to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="INCOME STATEMENT" id="sdi17">
+                                    <af:link text="IS WITH DATE" id="l79"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="IncomeCalculateDateToDateFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s733"/>
+                                    <af:link text="IS (CALCULATE)" id="l58"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="IncomecalculateFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s36"/>
+                                    <af:link text="IS (DETAILED HISTORY)" id="l59"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="IncomeDetailedFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s37"/>
+                                    <af:link text="IS (ADJUSTMENT)" id="l57"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="IncomeADJUSTMNTfc" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="LOG" id="sdi26">
+                                    <af:link text="LOG TREE" id="l80"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="LogtreeFC" to="#{backingBeanScope.ChageSwither.facetname}"
+                                                                type="action"/>
+                                    </af:link>
+                                    <af:separator id="s78"/>
+                                    <af:link text="LOG TREE DATE" id="l81"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="TnsLogDateFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s79"/>
+                                    <af:link text="Date Selected" id="l85"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}">
+                                        <af:setPropertyListener from="DatedSelectedFC"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"
+                                                                type="action"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="Uplaod Image" id="sdi27">
+                                    <af:link text="UPLOAD IMAGE" id="l82"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener from="ImageUploadFC" type="action"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                    <af:separator id="s77"/>
+                                    <af:link text="Show Image Ledger" id="l84"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener type="action" from="ImageLedgerFC"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="X-depo Rate" id="sdi28">
+                                    <af:link text="Add X-Depo Rate" id="l83"
+                                             action="#{backingBeanScope.ChageSwither.ChangeSwitcher}"
+                                             >
+                                        <af:setPropertyListener type="action" from="XDRPFC"
+                                                                to="#{backingBeanScope.ChageSwither.facetname}"/>
+                                    </af:link>
+                                </af:showDetailItem>
+                            </af:panelAccordion>
+                        </af:showDetailItem>
+                    </af:panelTabbed>
+                </f:facet>
+                <f:facet name="end"/>
+                <f:attribute name="showFooter" value="true"/>
+                <f:attribute name="startWidth" value="220px"/>
+                <f:attribute name="endWidth" value="0px"/>
+                <f:attribute name="brandingMaxWidth" value="10240px"/>
+                <f:attribute name="minWidth" value="220px"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:home-->
+</f:view>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="ISTESTVIEWPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="IncomeStatementDetailsView2" RangeSize="25" DataControl="VOAPPDataControl"
+              id="IncomeStatementDetailsView2Iterator"/>
+    <searchRegion Binds="IncomeStatementDetailsView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="IncomeStatementDetailsView2Query"/>
+    <iterator Binds="IncomeStatementHeadView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="IncomeStatementHeadView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="IncomeStatementDetailsView2Iterator" id="IncomeStatementDetailsView2">
+      <nodeDefinition DefName="model.IncomeStatementDetailsView" Name="IncomeStatementDetailsView20">
+        <AttrNames>
+          <Item Value="IsId"/>
+          <Item Value="IsCoaName"/>
+          <Item Value="IsCoaId"/>
+          <Item Value="IsDebit"/>
+          <Item Value="IsCredit"/>
+          <Item Value="IsBalance"/>
+          <Item Value="IsCat"/>
+          <Item Value="IsHdIdFk"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues IterBinding="IncomeStatementHeadView1Iterator" StaticList="false" Uses="LOV_IsHdMonthYear"
+                  id="IsHdMonthYear"/>
+    <attributeValues IterBinding="IncomeStatementHeadView1Iterator" id="IsHdId">
+      <AttrNames>
+        <Item Value="IsHdId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

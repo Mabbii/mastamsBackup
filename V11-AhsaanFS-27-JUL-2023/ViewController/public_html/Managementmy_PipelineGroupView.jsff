@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="243" id="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1">
+                <af:outputText value="Tank Nozzle PipeLineGroup" id="ot5"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:selectOneChoice value="#{bindings.TankInfoName.inputValue}" label="Tank Name"
+                                    required="#{bindings.TankInfoName.hints.mandatory}"
+                                    shortDesc="#{bindings.TankInfoName.hints.tooltip}" id="soc1" autoSubmit="true">
+                    <f:selectItems value="#{bindings.TankInfoName.items}" id="si1"/>
+                    <f:validator binding="#{bindings.TankInfoName.validator}"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.PipeLineGroupCaption.inputValue}"
+                              label="Pipe Line Group"
+                              required="#{bindings.PipeLineGroupCaption.hints.mandatory}"
+                              columns="#{bindings.PipeLineGroupCaption.hints.displayWidth}"
+                              maximumLength="#{bindings.PipeLineGroupCaption.hints.precision}"
+                              shortDesc="#{bindings.PipeLineGroupCaption.hints.tooltip}" id="it1">
+                    <f:validator binding="#{bindings.PipeLineGroupCaption.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.PipeLineGroupId.inputValue}"
+                              label="#{bindings.PipeLineGroupId.hints.label}"
+                              required="#{bindings.PipeLineGroupId.hints.mandatory}"
+                              columns="#{bindings.PipeLineGroupId.hints.displayWidth}"
+                              maximumLength="#{bindings.PipeLineGroupId.hints.precision}"
+                              shortDesc="#{bindings.PipeLineGroupId.hints.tooltip}" id="it2" readOnly="true">
+                    <f:validator binding="#{bindings.PipeLineGroupId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.PipeLineGroupId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TankInfoId.inputValue}" label="#{bindings.TankInfoId.hints.label}"
+                              required="#{bindings.TankInfoId.hints.mandatory}"
+                              columns="#{bindings.TankInfoId.hints.displayWidth}"
+                              maximumLength="#{bindings.TankInfoId.hints.precision}"
+                              shortDesc="#{bindings.TankInfoId.hints.tooltip}" id="it3" readOnly="true"
+                              rendered="false">
+                    <f:validator binding="#{bindings.TankInfoId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TankInfoId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TankInfoIdFk.inputValue}" label="#{bindings.TankInfoIdFk.hints.label}"
+                              required="#{bindings.TankInfoIdFk.hints.mandatory}"
+                              columns="#{bindings.TankInfoIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.TankInfoIdFk.hints.precision}"
+                              shortDesc="#{bindings.TankInfoIdFk.hints.tooltip}" id="it4" rendered="false">
+                    <f:validator binding="#{bindings.TankInfoIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TankInfoIdFk.format}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl2">
+                        <af:panelGroupLayout layout="horizontal" id="pgl3">
+                            <af:button actionListener="#{bindings.First.execute}"
+                            icon="#{resource['images:first_hor_ena.png']}"
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                            <af:button actionListener="#{bindings.Previous.execute}"
+                            icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                            <af:button actionListener="#{bindings.Next.execute}"
+                            icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                            <af:button actionListener="#{bindings.Last.execute}"
+                            icon="#{resource['images:last_hor_ena.png']}"
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                        </af:panelGroupLayout>
+                        <af:outputText value="----------" id="ot61"/>
+                        <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                        icon="#{resource['images:commit.png']}"
+                                   disabled="#{!bindings.Commit.enabled}"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                        icon="#{resource['images:add.png']}"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b6"/>
+                                   <af:outputText value="--------------------" id="ot62"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                        icon="#{resource['images:rollback.png']}"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                            <af:resetActionListener/>
+                        </af:button>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar">
+                    <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot10"
+                                       inlineStyle="color:Maroon; font-style:italic; font-size:large;"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.PipeLineGroupView1.collectionModel}" var="row"
+                          rows="#{bindings.PipeLineGroupView1.rangeSize}"
+                          emptyText="#{bindings.PipeLineGroupView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.PipeLineGroupView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.PipeLineGroupView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.PipeLineGroupView1.rangeSize}"
+                          filterModel="#{bindings.PipeLineGroupView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.PipeLineGroupView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 :::b1 :::b2 :::b3 :::b4 :::b6">
+                    <af:column sortProperty="#{bindings.PipeLineGroupView1.hints.PipeLineGroupCaption.name}"
+                               filterable="true" sortable="true" headerText="Pipe Line Group" id="c1" width="174"
+                               align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.PipeLineGroupCaption}"
+                                       shortDesc="#{bindings.PipeLineGroupView1.hints.PipeLineGroupCaption.tooltip}"
+                                       id="ot1"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PipeLineGroupView1.hints.PipeLineGroupId.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PipeLineGroupView1.hints.PipeLineGroupId.label}" id="c2"
+                               width="130" align="center"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               rendered="false">
+                        <af:outputText value="#{row.PipeLineGroupId}"
+                                       shortDesc="#{bindings.PipeLineGroupView1.hints.PipeLineGroupId.tooltip}"
+                                       id="ot2">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PipeLineGroupView1.hints.PipeLineGroupId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PipeLineGroupView1.hints.TankInfoName.name}" filterable="true"
+                               sortable="true" headerText="Tank Name" id="c3" width="120" align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:selectOneChoice value="#{row.bindings.TankInfoName.inputValue}"
+                                            label="#{row.bindings.TankInfoName.label}"
+                                            required="#{bindings.PipeLineGroupView1.hints.TankInfoName.mandatory}"
+                                            shortDesc="#{bindings.PipeLineGroupView1.hints.TankInfoName.tooltip}"
+                                            readOnly="true" id="soc2">
+                            <f:selectItems value="#{row.bindings.TankInfoName.items}" id="si2"/>
+                            <f:validator binding="#{row.bindings.TankInfoName.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PipeLineGroupView1.hints.TankInfoId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PipeLineGroupView1.hints.TankInfoId.label}"
+                               id="c4" width="112" rendered="false">
+                        <af:outputText value="#{row.TankInfoId}"
+                                       shortDesc="#{bindings.PipeLineGroupView1.hints.TankInfoId.tooltip}" id="ot3">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PipeLineGroupView1.hints.TankInfoId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PipeLineGroupView1.hints.TankInfoIdFk.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PipeLineGroupView1.hints.TankInfoIdFk.label}"
+                               id="c5" width="157" rendered="false">
+                        <af:outputText value="#{row.TankInfoIdFk}"
+                                       shortDesc="#{bindings.PipeLineGroupView1.hints.TankInfoIdFk.tooltip}" id="ot4">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PipeLineGroupView1.hints.TankInfoIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

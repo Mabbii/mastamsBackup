@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CoaManage"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="COA_MANAGE"
+  AliasName="CoaManage"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CoaMngId"
+    ColumnName="COA_MNG_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="COA_MANAGE"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="CoaMngName"
+    Precision="200"
+    ColumnName="COA_MNG_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="COA_MANAGE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CoaMngSysDate"
+    ColumnName="COA_MNG_SYS_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="COA_MANAGE"/>
+  <Attribute
+    Name="CoaMngDrBlock"
+    ColumnName="COA_MNG_DR_BLOCK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="COA_MANAGE"/>
+  <Attribute
+    Name="CoaMngCrBlock"
+    ColumnName="COA_MNG_CR_BLOCK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="COA_MANAGE"/>
+  <Attribute
+    Name="CoaMngAllBlock"
+    ColumnName="COA_MNG_ALL_BLOCK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="COA_MANAGE"/>
+  <Attribute
+    Name="CoaMngShowBlock"
+    ColumnName="COA_MNG_SHOW_BLOCK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="COA_MANAGE"/>
+  <Attribute
+    Name="CoaMngBlockReason"
+    Precision="300"
+    ColumnName="COA_MNG_BLOCK_REASON"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="COA_MANAGE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CoaMngCoaIdFk"
+    ColumnName="COA_MNG_COA_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="COA_MANAGE"/>
+  <Attribute
+    Name="CoaMngShowAsBank"
+    ColumnName="COA_MNG_SHOW_AS_BANK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="COA_MANAGE"/>
+  <Attribute
+    Name="CoaMngExemptSalesPurchase"
+    ColumnName="COA_MNG_EXEMPT_SALES_PURCHASE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="COA_MANAGE"/>
+  <AccessorAttribute
+    Name="ChartOfAccounts"
+    Association="model.COA_COAMANAGE_ASSOC"
+    AssociationEnd="model.COA_COAMANAGE_ASSOC.ChartOfAccounts"
+    AssociationOtherEnd="model.COA_COAMANAGE_ASSOC.CoaManage"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="CoaManagePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="COA_MANAGE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.CoaManage.CoaMngId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CoaCoaManageFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CHART_OF_ACCOUNTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="COA_COA_MANAGE_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.CoaManage.CoaMngCoaIdFk"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="DateCounterSlectedViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DateCounterView1" RangeSize="25" DataControl="VOAPPDataControl" id="DateCounterView1Iterator"/>
+    <searchRegion Binds="DateCounterView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DateCounterView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DateCounterView1Iterator" id="DateCounterView1">
+      <nodeDefinition DefName="model.DateCounterView" Name="DateCounterView10">
+        <AttrNames>
+          <Item Value="DcId"/>
+          <Item Value="DcDate"/>
+          <Item Value="DcDateCounter"/>
+          <Item Value="DcStartDate"/>
+          <Item Value="DcEndDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

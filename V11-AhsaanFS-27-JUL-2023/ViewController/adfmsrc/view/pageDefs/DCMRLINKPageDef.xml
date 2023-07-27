@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="DCMRLINKPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DateCounterView1" RangeSize="25" DataControl="VOAPPDataControl" id="DateCounterView1Iterator"/>
+    <searchRegion Binds="DateCounterView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DateCounterView1Query"/>
+    <iterator Binds="MeterReadingsView2" RangeSize="25" DataControl="VOAPPDataControl" id="MeterReadingsView2Iterator"/>
+    <searchRegion Binds="MeterReadingsView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="MeterReadingsView2Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DateCounterView1Iterator" id="DateCounterView1">
+      <nodeDefinition DefName="model.DateCounterView" Name="DateCounterView10">
+        <AttrNames>
+          <Item Value="DcId"/>
+          <Item Value="DcDate"/>
+          <Item Value="DcDateCounter"/>
+          <Item Value="DcStartDate"/>
+          <Item Value="DcEndDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="MeterReadingsView2Iterator" id="MeterReadingsView2">
+      <nodeDefinition DefName="model.MeterReadingsView" Name="MeterReadingsView20">
+        <AttrNames>
+          <Item Value="MeterRId"/>
+          <Item Value="MeterRReadings"/>
+          <Item Value="MeterRNozalIdFk"/>
+          <Item Value="MeterRDate"/>
+          <Item Value="MeterRPrevious"/>
+          <Item Value="MeterRCurrent"/>
+          <Item Value="MeterRSale"/>
+          <Item Value="MeterRProductId"/>
+          <Item Value="DcIdFk"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

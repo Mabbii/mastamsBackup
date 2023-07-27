@@ -1,0 +1,452 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="366" id="ps1" partialTriggers="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_stockGainview.pfl1}" maxColumns="2"
+                                rows="2">
+                <af:outputText value="Stock Gain" id="ot16" binding="#{backingBeanScope.backing_stockGainview.ot16}"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:inputDate value="#{bindings.TnsDate.inputValue}" label="#{bindings.TnsDate.hints.label}"
+                              required="#{bindings.TnsDate.hints.mandatory}"
+                              columns="#{bindings.TnsDate.hints.displayWidth}"
+                              shortDesc="#{bindings.TnsDate.hints.tooltip}" id="id1"
+                              binding="#{backingBeanScope.backing_stockGainview.id1}">
+                    <f:validator binding="#{bindings.TnsDate.validator}"/>
+                    <af:convertDateTime pattern="dd-MMM-yyyy "/>
+                </af:inputDate>
+                <af:inputListOfValues id="coaName1Id" popupTitle="Search and Select: #{bindings.CoaName1.hints.label}"
+                                      value="#{bindings.CoaName1.inputValue}" label="#{bindings.CoaName1.hints.label}"
+                                      model="#{bindings.CoaName1.listOfValuesModel}"
+                                      required="#{bindings.CoaName1.hints.mandatory}"
+                                      columns="#{bindings.CoaName1.hints.displayWidth}"
+                                      shortDesc="#{bindings.CoaName1.hints.tooltip}"
+                                      binding="#{backingBeanScope.backing_stockGainview.coaName1Id}" autoSubmit="true">
+                    <f:validator binding="#{bindings.CoaName1.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName1.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputListOfValues id="coaNameId" popupTitle="Search and Select: #{bindings.CoaName.hints.label}"
+                                      value="#{bindings.CoaName.inputValue}" label="#{bindings.CoaName.hints.label}"
+                                      model="#{bindings.CoaName.listOfValuesModel}"
+                                      required="#{bindings.CoaName.hints.mandatory}"
+                                      columns="#{bindings.CoaName.hints.displayWidth}"
+                                      shortDesc="#{bindings.CoaName.hints.tooltip}"
+                                      binding="#{backingBeanScope.backing_stockGainview.coaNameId}" autoSubmit="true">
+                    <f:validator binding="#{bindings.CoaName.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputListOfValues id="oiltRegistrationId"
+                                      popupTitle="Search and Select: #{bindings.OiltRegistration.hints.label}"
+                                      value="#{bindings.OiltRegistration.inputValue}"
+                                      label="#{bindings.OiltRegistration.hints.label}"
+                                      model="#{bindings.OiltRegistration.listOfValuesModel}"
+                                      required="#{bindings.OiltRegistration.hints.mandatory}"
+                                      columns="#{bindings.OiltRegistration.hints.displayWidth}"
+                                      shortDesc="#{bindings.OiltRegistration.hints.tooltip}"
+                                      binding="#{backingBeanScope.backing_stockGainview.oiltRegistrationId}"
+                                      autoSubmit="true">
+                    <f:validator binding="#{bindings.OiltRegistration.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.OiltRegistration.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputText value="#{bindings.TnsDetail.inputValue}" label="#{bindings.TnsDetail.hints.label}"
+                              required="#{bindings.TnsDetail.hints.mandatory}"
+                              columns="#{bindings.TnsDetail.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsDetail.hints.precision}"
+                              shortDesc="#{bindings.TnsDetail.hints.tooltip}" id="it2"
+                              binding="#{backingBeanScope.backing_stockGainview.it2}" rendered="false">
+                    <f:validator binding="#{bindings.TnsDetail.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TnsRate.inputValue}" label="#{bindings.TnsRate.hints.label}"
+                              required="#{bindings.TnsRate.hints.mandatory}"
+                              columns="#{bindings.TnsRate.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsRate.hints.precision}"
+                              shortDesc="#{bindings.TnsRate.hints.tooltip}" id="it6"
+                              binding="#{backingBeanScope.backing_stockGainview.it6}" autoSubmit="true">
+                    <f:validator binding="#{bindings.TnsRate.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TnsQty.inputValue}" label="#{bindings.TnsQty.hints.label}"
+                              required="#{bindings.TnsQty.hints.mandatory}"
+                              columns="#{bindings.TnsQty.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsQty.hints.precision}"
+                              shortDesc="#{bindings.TnsQty.hints.tooltip}" id="it7"
+                              binding="#{backingBeanScope.backing_stockGainview.it7}" autoSubmit="true">
+                    <f:validator binding="#{bindings.TnsQty.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsQty.format}"/>
+                </af:inputText>
+                <af:outputText value="#{bindings.TnsFormatAmount.inputValue}"
+                               shortDesc="#{bindings.TnsFormatAmount.hints.tooltip}" id="it15"
+                               binding="#{backingBeanScope.backing_stockGainview.it15}"
+                               inlineStyle="font-size:large; font-weight:bold;">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsFormatAmount.format}"/>
+                </af:outputText>
+                <af:inputText value="#{bindings.TnsAmount.inputValue}" label="#{bindings.TnsAmount.hints.label}"
+                              required="#{bindings.TnsAmount.hints.mandatory}"
+                              columns="#{bindings.TnsAmount.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsAmount.hints.precision}"
+                              shortDesc="#{bindings.TnsAmount.hints.tooltip}" id="it8"
+                              binding="#{backingBeanScope.backing_stockGainview.it8}" autoSubmit="true" readOnly="true">
+                    <f:validator binding="#{bindings.TnsAmount.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsAmount.format}"/>
+                </af:inputText>
+                <af:outputText value="#{bindings.TnsSpellAmount.inputValue}"
+                               shortDesc="#{bindings.TnsSpellAmount.hints.tooltip}" id="it16"
+                               binding="#{backingBeanScope.backing_stockGainview.it16}"
+                               inlineStyle="font-size:large; font-weight:bold;"/>
+                <af:inputDate value="#{bindings.TnsSlipDate.inputValue}" label="#{bindings.TnsSlipDate.hints.label}"
+                              required="#{bindings.TnsSlipDate.hints.mandatory}"
+                              columns="#{bindings.TnsSlipDate.hints.displayWidth}"
+                              shortDesc="#{bindings.TnsSlipDate.hints.tooltip}" id="id2"
+                              binding="#{backingBeanScope.backing_stockGainview.id2}" autoSubmit="true">
+                    <f:validator binding="#{bindings.TnsSlipDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.TnsSlipDate.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.TnsSlipNo.inputValue}" label="#{bindings.TnsSlipNo.hints.label}"
+                              required="#{bindings.TnsSlipNo.hints.mandatory}"
+                              columns="#{bindings.TnsSlipNo.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsSlipNo.hints.precision}"
+                              shortDesc="#{bindings.TnsSlipNo.hints.tooltip}" id="it9"
+                              binding="#{backingBeanScope.backing_stockGainview.it9}" autoSubmit="true">
+                    <f:validator binding="#{bindings.TnsSlipNo.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TnsTnsTypeIdFk.inputValue}"
+                              label="#{bindings.TnsTnsTypeIdFk.hints.label}"
+                              required="#{bindings.TnsTnsTypeIdFk.hints.mandatory}"
+                              columns="#{bindings.TnsTnsTypeIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsTnsTypeIdFk.hints.precision}"
+                              shortDesc="#{bindings.TnsTnsTypeIdFk.hints.tooltip}" id="it10"
+                              binding="#{backingBeanScope.backing_stockGainview.it10}" rendered="false">
+                    <f:validator binding="#{bindings.TnsTnsTypeIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsTnsTypeIdFk.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TnsTnsviewId.inputValue}" label="#{bindings.TnsTnsviewId.hints.label}"
+                              required="#{bindings.TnsTnsviewId.hints.mandatory}"
+                              columns="#{bindings.TnsTnsviewId.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsTnsviewId.hints.precision}"
+                              shortDesc="#{bindings.TnsTnsviewId.hints.tooltip}" id="it11"
+                              binding="#{backingBeanScope.backing_stockGainview.it11}" rendered="false">
+                    <f:validator binding="#{bindings.TnsTnsviewId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsTnsviewId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CoaActNumber.inputValue}" label="#{bindings.CoaActNumber.hints.label}"
+                              required="#{bindings.CoaActNumber.hints.mandatory}"
+                              columns="#{bindings.CoaActNumber.hints.displayWidth}"
+                              maximumLength="#{bindings.CoaActNumber.hints.precision}"
+                              shortDesc="#{bindings.CoaActNumber.hints.tooltip}" id="it12"
+                              binding="#{backingBeanScope.backing_stockGainview.it12}" rendered="false">
+                    <f:validator binding="#{bindings.CoaActNumber.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CoaBalance.inputValue}" label="#{bindings.CoaBalance.hints.label}"
+                              required="#{bindings.CoaBalance.hints.mandatory}"
+                              columns="#{bindings.CoaBalance.hints.displayWidth}"
+                              maximumLength="#{bindings.CoaBalance.hints.precision}"
+                              shortDesc="#{bindings.CoaBalance.hints.tooltip}" id="it13"
+                              binding="#{backingBeanScope.backing_stockGainview.it13}" readOnly="true">
+                    <f:validator binding="#{bindings.CoaBalance.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaBalance.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TnsInfo.inputValue}" label="#{bindings.TnsInfo.hints.label}"
+                              required="#{bindings.TnsInfo.hints.mandatory}"
+                              columns="#{bindings.TnsInfo.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsInfo.hints.precision}"
+                              shortDesc="#{bindings.TnsInfo.hints.tooltip}" id="it3"
+                              binding="#{backingBeanScope.backing_stockGainview.it3}" autoSubmit="true">
+                    <f:validator binding="#{bindings.TnsInfo.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CoaActNumber1.inputValue}" label="#{bindings.CoaActNumber1.hints.label}"
+                              required="#{bindings.CoaActNumber1.hints.mandatory}"
+                              columns="#{bindings.CoaActNumber1.hints.displayWidth}"
+                              maximumLength="#{bindings.CoaActNumber1.hints.precision}"
+                              shortDesc="#{bindings.CoaActNumber1.hints.tooltip}" id="it14"
+                              binding="#{backingBeanScope.backing_stockGainview.it14}" rendered="false">
+                    <f:validator binding="#{bindings.CoaActNumber1.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber1.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TnsId.inputValue}" label="#{bindings.TnsId.hints.label}"
+                              required="#{bindings.TnsId.hints.mandatory}"
+                              columns="#{bindings.TnsId.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsId.hints.precision}"
+                              shortDesc="#{bindings.TnsId.hints.tooltip}" id="it1"
+                              binding="#{backingBeanScope.backing_stockGainview.it1}" readOnly="true">
+                    <f:validator binding="#{bindings.TnsId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TnsCoaDactNumber.inputValue}"
+                              label="#{bindings.TnsCoaDactNumber.hints.label}"
+                              required="#{bindings.TnsCoaDactNumber.hints.mandatory}"
+                              columns="#{bindings.TnsCoaDactNumber.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsCoaDactNumber.hints.precision}"
+                              shortDesc="#{bindings.TnsCoaDactNumber.hints.tooltip}" id="it4"
+                              binding="#{backingBeanScope.backing_stockGainview.it4}" readOnly="true">
+                    <f:validator binding="#{bindings.TnsCoaDactNumber.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsCoaDactNumber.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TnsCoaCactNumber.inputValue}"
+                              label="#{bindings.TnsCoaCactNumber.hints.label}"
+                              required="#{bindings.TnsCoaCactNumber.hints.mandatory}"
+                              columns="#{bindings.TnsCoaCactNumber.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsCoaCactNumber.hints.precision}"
+                              shortDesc="#{bindings.TnsCoaCactNumber.hints.tooltip}" id="it5"
+                              binding="#{backingBeanScope.backing_stockGainview.it5}" readOnly="true">
+                    <f:validator binding="#{bindings.TnsCoaCactNumber.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsCoaCactNumber.format}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.TnsSDate.inputValue}" label="#{bindings.TnsSDate.hints.label}"
+                              required="#{bindings.TnsSDate.hints.mandatory}"
+                              columns="#{bindings.TnsSDate.hints.displayWidth}"
+                              shortDesc="#{bindings.TnsSDate.hints.tooltip}" id="id3"
+                              binding="#{backingBeanScope.backing_stockGainview.id3}" rendered="false">
+                    <f:validator binding="#{bindings.TnsSDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.TnsSDate.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.OiltId.inputValue}" label="#{bindings.OiltId.hints.label}"
+                              required="#{bindings.OiltId.hints.mandatory}"
+                              columns="#{bindings.OiltId.hints.displayWidth}"
+                              maximumLength="#{bindings.OiltId.hints.precision}"
+                              shortDesc="#{bindings.OiltId.hints.tooltip}" id="it17"
+                              binding="#{backingBeanScope.backing_stockGainview.it17}" rendered="false">
+                    <f:validator binding="#{bindings.OiltId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.OiltId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TnsStorageOiltIdFk.inputValue}"
+                              label="#{bindings.TnsStorageOiltIdFk.hints.label}"
+                              required="#{bindings.TnsStorageOiltIdFk.hints.mandatory}"
+                              columns="#{bindings.TnsStorageOiltIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsStorageOiltIdFk.hints.precision}"
+                              shortDesc="#{bindings.TnsStorageOiltIdFk.hints.tooltip}" id="it18"
+                              binding="#{backingBeanScope.backing_stockGainview.it18}" rendered="false">
+                    <f:validator binding="#{bindings.TnsStorageOiltIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsStorageOiltIdFk.format}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl1"
+                                         binding="#{backingBeanScope.backing_stockGainview.pgl1}">
+                        <af:panelGroupLayout layout="horizontal" id="pgl2"
+                                             binding="#{backingBeanScope.backing_stockGainview.pgl2}">
+                            <af:button actionListener="#{bindings.First.execute}"
+                            icon="#{resource['images:first_hor_ena.png']}"
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"
+                                       binding="#{backingBeanScope.backing_stockGainview.b1}"/>
+                            <af:button actionListener="#{bindings.Previous.execute}"
+                            icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"
+                                       binding="#{backingBeanScope.backing_stockGainview.b2}"/>
+                            <af:button actionListener="#{bindings.Next.execute}"
+                            icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
+                                       binding="#{backingBeanScope.backing_stockGainview.b3}"/>
+                            <af:button actionListener="#{bindings.Last.execute}"
+                            icon="#{resource['images:last_hor_ena.png']}"
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"
+                                       binding="#{backingBeanScope.backing_stockGainview.b4}"/>
+                                <af:outputText value="--------------" id="ot61"/>       
+                        </af:panelGroupLayout>
+                        <af:button text="Submit" id="b5" binding="#{backingBeanScope.backing_stockGainview.b5}"
+                        icon="#{resource['images:commit.png']}"
+                                   actionListener="#{bindings.Commit.execute}" disabled="#{!bindings.Commit.enabled}"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                        icon="#{resource['images:add.png']}"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b6"
+                                   binding="#{backingBeanScope.backing_stockGainview.b6}"/>
+                                 <af:outputText value="--------------------------" id="ot62"/>  
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                        icon="#{resource['images:rollback.png']}"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7"
+                                   binding="#{backingBeanScope.backing_stockGainview.b7}">
+                            <af:resetActionListener/>
+                        </af:button>
+                        <af:outputText value="--------------------------------" id="ot17"
+                                       binding="#{backingBeanScope.backing_stockGainview.ot17}"/>
+                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                   disabled="#{!bindings.Delete.enabled}" id="b8"
+                                   binding="#{backingBeanScope.backing_stockGainview.b8}"
+                                   icon="#{resource['images:garbg.png']}"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1" binding="#{backingBeanScope.backing_stockGainview.pc1}">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar">
+                    <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot24" inlineStyle="color:Maroon; font-size:large;"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.STOCK_GAIN_BACK_DATE1.collectionModel}" var="row"
+                          rows="#{bindings.STOCK_GAIN_BACK_DATE1.rangeSize}"
+                          emptyText="#{bindings.STOCK_GAIN_BACK_DATE1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.STOCK_GAIN_BACK_DATE1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.STOCK_GAIN_BACK_DATE1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.STOCK_GAIN_BACK_DATE1.rangeSize}"
+                          filterModel="#{bindings.STOCK_GAIN_BACK_DATE1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.STOCK_GAIN_BACK_DATE1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 :::b1 :::b2 :::b3 :::b4 :::b6 :::b8"
+                          binding="#{backingBeanScope.backing_stockGainview.t1}">
+                    <af:column sortProperty="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsDate.label}"
+                               id="c1"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               align="center" width="90">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.STOCK_GAIN_BACK_DATE1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsDate.value}"
+                                          id="id4" binding="#{backingBeanScope.backing_stockGainview.id4}">
+                                <af:convertDateTime pattern="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.TnsDate}"
+                                       shortDesc="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsDate.tooltip}" id="ot1">
+                            <af:convertDateTime pattern="dd-MMM-yyyy "/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.STOCK_GAIN_BACK_DATE1.hints.CoaName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.STOCK_GAIN_BACK_DATE1.hints.CoaName.label}"
+                               id="c11"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               align="center" width="150">
+                        <af:outputText value="#{row.CoaName}"
+                                       shortDesc="#{bindings.STOCK_GAIN_BACK_DATE1.hints.CoaName.tooltip}" id="ot11"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.STOCK_GAIN_BACK_DATE1.hints.CoaName1.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.STOCK_GAIN_BACK_DATE1.hints.CoaName1.label}"
+                               id="c13"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               align="center" width="150">
+                        <af:outputText value="#{row.CoaName1}"
+                                       shortDesc="#{bindings.STOCK_GAIN_BACK_DATE1.hints.CoaName1.tooltip}" id="ot13"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.STOCK_GAIN_BACK_DATE1.hints.OiltRegistration.name}"
+                               filterable="true" sortable="true"
+                               headerText="Oil Tanker" id="c15"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               align="center" width="90">
+                        <af:outputText value="#{row.OiltRegistration}"
+                                       shortDesc="#{bindings.STOCK_GAIN_BACK_DATE1.hints.OiltRegistration.tooltip}"
+                                       id="ot15"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsQty.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsQty.label}" id="c7"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center" width="90">
+                        <af:outputText value="#{row.TnsQty}"
+                                       shortDesc="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsQty.tooltip}" id="ot7">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsQty.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsRate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsRate.label}"
+                               id="c6"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center" width="90">
+                        <af:outputText value="#{row.TnsRate}"
+                                       shortDesc="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsRate.tooltip}" id="ot6"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsAmount.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsAmount.label}"
+                               id="c8"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center" width="90">
+                        <af:outputText value="#{row.TnsAmount}"
+                                       shortDesc="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsAmount.tooltip}" id="ot8">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsAmount.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.STOCK_GAIN_BACK_DATE1.hints.CoaBalance.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.STOCK_GAIN_BACK_DATE1.hints.CoaBalance.label}"
+                               id="c12"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center">
+                        <af:outputText value="#{row.CoaBalance}"
+                                       shortDesc="#{bindings.STOCK_GAIN_BACK_DATE1.hints.CoaBalance.tooltip}" id="ot12">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.STOCK_GAIN_BACK_DATE1.hints.CoaBalance.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsInfo.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsInfo.label}"
+                               id="c3"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               align="center">
+                        <af:outputText value="#{row.TnsInfo}"
+                                       shortDesc="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsInfo.tooltip}" id="ot3"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsSlipDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsSlipDate.label}"
+                               id="c9"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               align="center" width="90">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.STOCK_GAIN_BACK_DATE1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsSlipDate.value}"
+                                          id="id5" binding="#{backingBeanScope.backing_stockGainview.id5}">
+                                <af:convertDateTime pattern="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsSlipDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.TnsSlipDate}"
+                                       shortDesc="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsSlipDate.tooltip}" id="ot9">
+                            <af:convertDateTime pattern="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsSlipDate.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsSlipNo.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsSlipNo.label}"
+                               id="c10"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               align="center" width="90">
+                        <af:outputText value="#{row.TnsSlipNo}"
+                                       shortDesc="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsSlipNo.tooltip}" id="ot10"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsCoaDactNumber.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsCoaDactNumber.label}" id="c4"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center" width="90">
+                        <af:outputText value="#{row.TnsCoaDactNumber}"
+                                       shortDesc="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsCoaDactNumber.tooltip}"
+                                       id="ot4">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsCoaDactNumber.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsCoaCactNumber.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsCoaCactNumber.label}" id="c5"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center" width="90">
+                        <af:outputText value="#{row.TnsCoaCactNumber}"
+                                       shortDesc="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsCoaCactNumber.tooltip}"
+                                       id="ot5">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsCoaCactNumber.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsId.label}" id="c2"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center" width="90">
+                        <af:outputText value="#{row.TnsId}"
+                                       shortDesc="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsId.tooltip}" id="ot2">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsFormatAmount.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsFormatAmount.label}" id="c14"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center" width="90">
+                        <af:outputText value="#{row.TnsFormatAmount}"
+                                       shortDesc="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsFormatAmount.tooltip}"
+                                       id="ot14">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.STOCK_GAIN_BACK_DATE1.hints.TnsFormatAmount.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_stockGainview-->
+</ui:composition>

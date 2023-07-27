@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="MeterReadingsViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MrInputView1" RangeSize="25" DataControl="VOAPPDataControl" id="MrInputView1Iterator"/>
+    <searchRegion Criteria="MrInputViewCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="MrInputView1Iterator" id="MrInputViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MrInputView1Iterator" id="MrInputView1">
+      <nodeDefinition DefName="model.MrInputView" Name="MrInputView10">
+        <AttrNames>
+          <Item Value="MriData"/>
+          <Item Value="NozalName"/>
+          <Item Value="MriMTest"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="MrInputView1Iterator" id="MrInputView11">
+      <nodeDefinition DefName="model.MrInputView" Name="MrInputView110">
+        <AttrNames>
+          <Item Value="NozalName"/>
+          <Item Value="MeterRPrevious"/>
+          <Item Value="MeterRCurrent"/>
+          <Item Value="MeterRSale"/>
+          <Item Value="MeterRNTest"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InfoView"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="INFO_VIEW"
+  AliasName="InfoView"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="ViewInfoId"
+    ColumnName="VIEW_INFO_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="INFO_VIEW"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="ViewInfoName"
+    Precision="100"
+    ColumnName="VIEW_INFO_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="INFO_VIEW">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="LUserActivity"
+    Association="model.Info_View_L_User_Act_Assoc"
+    AssociationEnd="model.Info_View_L_User_Act_Assoc.LUserActivity"
+    AssociationOtherEnd="model.Info_View_L_User_Act_Assoc.InfoView"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="InfoViewPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="INFO_VIEW_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.InfoView.ViewInfoId"/>
+    </AttrArray>
+  </Key>
+</Entity>

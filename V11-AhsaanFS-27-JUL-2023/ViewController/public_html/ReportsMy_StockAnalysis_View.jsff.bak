@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <f:view beforePhase="#{backingBeanScope.PrintPageBean.beforePhaseMethod}">
+        <af:panelBox id="pb1">
+            <f:facet name="toolbar">
+                <af:button id="b4" icon="#{resource['images:print.png']}">
+                    <af:showPrintablePageBehavior/>
+                </af:button>
+            </f:facet>
+            <af:image source="#{resource['images:Bandagi FS Logo.png']}" shortDesc="Bandagi Fs Logo" id="i1"/>
+            <af:panelSplitter orientation="vertical" splitterPosition="291" id="ps1"
+                              inlineStyle="width:1158px; height:881px;">
+                <f:facet name="first">
+                    <af:panelFormLayout id="pfl1">
+                        <af:outputText value="Stock Analysis" id="ot1"
+                                       inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                        <af:inputListOfValues id="tankInfoNameId"
+                                              popupTitle="Search and Select: #{bindings.TankInfoName.hints.label}"
+                                              value="#{bindings.TankInfoName.inputValue}"
+                                              label="#{bindings.TankInfoName.hints.label}"
+                                              model="#{bindings.TankInfoName.listOfValuesModel}"
+                                              required="#{bindings.TankInfoName.hints.mandatory}"
+                                              columns="#{bindings.TankInfoName.hints.displayWidth}"
+                                              shortDesc="#{bindings.TankInfoName.hints.tooltip}" autoSubmit="true">
+                            <f:validator binding="#{bindings.TankInfoName.validator}"/>
+                            <af:autoSuggestBehavior suggestItems="#{bindings.TankInfoName.suggestItems}"/>
+                        </af:inputListOfValues>
+                        <af:selectOneChoice value="#{bindings.ProductShortname.inputValue}"
+                                            label="#{bindings.ProductShortname.label}"
+                                            shortDesc="#{bindings.ProductShortname.hints.tooltip}" id="soc1"
+                                            autoSubmit="true">
+                            <f:selectItems value="#{bindings.ProductShortname.items}" id="si1"/>
+                            <f:validator binding="#{bindings.ProductShortname.validator}"/>
+                        </af:selectOneChoice>
+                        <af:selectOneChoice value="#{bindings.ZSAProductReport.inputValue}"
+                                            label="#{bindings.ZSAProductReport.label}"
+                                            required="#{bindings.ZSAProductReport.hints.mandatory}"
+                                            shortDesc="#{bindings.ZSAProductReport.hints.tooltip}" id="soc2"
+                                            autoSubmit="true">
+                            <f:selectItems value="#{bindings.ZSAProductReport.items}" id="si2"/>
+                            <f:validator binding="#{bindings.ZSAProductReport.validator}"/>
+                        </af:selectOneChoice>
+                        <af:inputDate value="#{bindings.ZSAParamStartDate.inputValue}"
+                                      label="#{bindings.ZSAParamStartDate.hints.label}"
+                                      required="#{bindings.ZSAParamStartDate.hints.mandatory}"
+                                      columns="#{bindings.ZSAParamStartDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.ZSAParamStartDate.hints.tooltip}" id="id1">
+                            <f:validator binding="#{bindings.ZSAParamStartDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>
+                        <af:inputDate value="#{bindings.ZSAParamEndDate.inputValue}"
+                                      label="#{bindings.ZSAParamEndDate.hints.label}"
+                                      required="#{bindings.ZSAParamEndDate.hints.mandatory}"
+                                      columns="#{bindings.ZSAParamEndDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.ZSAParamEndDate.hints.tooltip}" id="id2">
+                            <f:validator binding="#{bindings.ZSAParamEndDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>
+                        <af:inputText value="#{bindings.ZSATankInfoIdFk.inputValue}" label="Tank ID"
+                                      required="#{bindings.ZSATankInfoIdFk.hints.mandatory}"
+                                      columns="#{bindings.ZSATankInfoIdFk.hints.displayWidth}"
+                                      maximumLength="#{bindings.ZSATankInfoIdFk.hints.precision}"
+                                      shortDesc="#{bindings.ZSATankInfoIdFk.hints.tooltip}" id="it1" rendered="true">
+                            <f:validator binding="#{bindings.ZSATankInfoIdFk.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ZSATankInfoIdFk.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.TankInfoId.inputValue}"
+                                      label="#{bindings.TankInfoId.hints.label}"
+                                      required="#{bindings.TankInfoId.hints.mandatory}"
+                                      columns="#{bindings.TankInfoId.hints.displayWidth}"
+                                      maximumLength="#{bindings.TankInfoId.hints.precision}"
+                                      shortDesc="#{bindings.TankInfoId.hints.tooltip}" id="it2" rendered="false">
+                            <f:validator binding="#{bindings.TankInfoId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.TankInfoId.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ZSAParamId.inputValue}"
+                                      label="#{bindings.ZSAParamId.hints.label}"
+                                      required="#{bindings.ZSAParamId.hints.mandatory}"
+                                      columns="#{bindings.ZSAParamId.hints.displayWidth}"
+                                      maximumLength="#{bindings.ZSAParamId.hints.precision}"
+                                      shortDesc="#{bindings.ZSAParamId.hints.tooltip}" id="it3" rendered="false">
+                            <f:validator binding="#{bindings.ZSAParamId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ZSAParamId.format}"/>
+                        </af:inputText>
+                        <f:facet name="footer">
+                            <af:panelGroupLayout id="pgl1">
+                                <af:spacer width="75" height="10" id="s1"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Show" immediate="true" id="b2"
+                                           icon="#{resource['images:find.png']}">
+                                    <af:resetActionListener/>
+                                </af:button>
+                                <af:spacer width="26" height="10" id="s2"/>
+                                <af:button text="Submit" id="b1" actionListener="#{bindings.Commit.execute}"
+                                           icon="#{resource['images:commit.png']}"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <af:table value="#{bindings.ZStockAnalysisDetailView1.collectionModel}" var="row"
+                                  rows="#{bindings.ZStockAnalysisDetailView1.rangeSize}"
+                                  emptyText="#{bindings.ZStockAnalysisDetailView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.ZStockAnalysisDetailView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.ZStockAnalysisDetailView1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.ZStockAnalysisDetailView1.rangeSize}"
+                                  filterModel="#{bindings.ZStockAnalysisDetailView1Query.queryDescriptor}"
+                                  filterVisible="true"
+                                  queryListener="#{bindings.ZStockAnalysisDetailView1Query.processQuery}" varStatus="vs"
+                                  id="t1" width="700" maxClientRows="10000"
+                                  inlineStyle="background-color:Window; border-right-color:Window; border-bottom-color:Window;">
+                            <af:column sortProperty="#{bindings.ZStockAnalysisDetailView1.hints.ZsadDate.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZStockAnalysisDetailView1.hints.ZsadDate.label}" id="c1"
+                                       align="center"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.ZStockAnalysisDetailView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ZsadDate.value}"
+                                                  id="id3">
+                                        <af:convertDateTime pattern="#{bindings.ZStockAnalysisDetailView1.hints.ZsadDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.ZsadDate}"
+                                               shortDesc="#{bindings.ZStockAnalysisDetailView1.hints.ZsadDate.tooltip}"
+                                               id="ot2">
+                                    <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZStockAnalysisDetailView1.hints.ZsadBookStock.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZStockAnalysisDetailView1.hints.ZsadBookStock.label}"
+                                       id="c2" align="center"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                                <af:outputText value="#{row.ZsadBookStock}"
+                                               shortDesc="#{bindings.ZStockAnalysisDetailView1.hints.ZsadBookStock.tooltip}"
+                                               id="ot3">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZStockAnalysisDetailView1.hints.ZsadBookStock.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZStockAnalysisDetailView1.hints.ZsadDipStock.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZStockAnalysisDetailView1.hints.ZsadDipStock.label}"
+                                       id="c3" align="center"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                                <af:outputText value="#{row.ZsadDipStock}"
+                                               shortDesc="#{bindings.ZStockAnalysisDetailView1.hints.ZsadDipStock.tooltip}"
+                                               id="ot4">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZStockAnalysisDetailView1.hints.ZsadDipStock.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZStockAnalysisDetailView1.hints.ZsadDiffAll.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZStockAnalysisDetailView1.hints.ZsadDiffAll.label}"
+                                       id="c4" align="center"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right; #{row.ZsadDiffAll > 0?'font-color:green;':''}">
+                                <af:outputText value="#{row.ZsadDiffAll}"
+                                               shortDesc="#{bindings.ZStockAnalysisDetailView1.hints.ZsadDiffAll.tooltip}"
+                                               id="ot5">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZStockAnalysisDetailView1.hints.ZsadDiffAll.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZStockAnalysisDetailView1.hints.ZsadDiffDay.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZStockAnalysisDetailView1.hints.ZsadDiffDay.label}"
+                                       id="c5" align="center"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                                <af:outputText value="#{row.ZsadDiffDay}"
+                                               shortDesc="#{bindings.ZStockAnalysisDetailView1.hints.ZsadDiffDay.tooltip}"
+                                               id="ot6">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZStockAnalysisDetailView1.hints.ZsadDiffDay.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZStockAnalysisDetailView1.hints.ZsadId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZStockAnalysisDetailView1.hints.ZsadId.label}" id="c6"
+                                       rendered="false">
+                                <af:outputText value="#{row.ZsadId}"
+                                               shortDesc="#{bindings.ZStockAnalysisDetailView1.hints.ZsadId.tooltip}"
+                                               id="ot7">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZStockAnalysisDetailView1.hints.ZsadId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZStockAnalysisDetailView1.hints.ZSAParamIdFk.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZStockAnalysisDetailView1.hints.ZSAParamIdFk.label}"
+                                       id="c7" rendered="false">
+                                <af:outputText value="#{row.ZSAParamIdFk}"
+                                               shortDesc="#{bindings.ZStockAnalysisDetailView1.hints.ZSAParamIdFk.tooltip}"
+                                               id="ot8">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZStockAnalysisDetailView1.hints.ZSAParamIdFk.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                        <f:facet name="statusbar"/>
+                    </af:panelCollection>
+                </f:facet>
+            </af:panelSplitter>
+        </af:panelBox>
+    </f:view>
+</ui:composition>

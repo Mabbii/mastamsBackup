@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <f:view beforePhase="#{backingBeanScope.PrintPageBean.beforePhaseMethod}">
+        <af:panelBox id="pb1">
+            <f:facet name="toolbar">
+                <af:button id="b3" inlineStyle="padding-top:0px;" icon="#{resource['images:print.png']}">
+                    <af:showPrintablePageBehavior/>
+                </af:button>
+            </f:facet>
+            <af:image source="#{resource['images:Bandagi FS Logo.png']}" shortDesc="Bandagi Fs Logo" id="i1"/>
+            <af:panelSplitter orientation="vertical" splitterPosition="233" id="ps1"
+                              inlineStyle="width:800px; height:898px;">
+                <f:facet name="first">
+                    <af:panelFormLayout id="pfl1">
+                        <af:outputText value="Bill Group" id="ot1"
+                                       inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                        <af:inputListOfValues id="coaGroupNameId"
+                                              popupTitle="Search and Select: #{bindings.CoaGroupName.hints.label}"
+                                              value="#{bindings.CoaGroupName.inputValue}" label="Group Name"
+                                              model="#{bindings.CoaGroupName.listOfValuesModel}"
+                                              columns="#{bindings.CoaGroupName.hints.displayWidth}"
+                                              shortDesc="#{bindings.CoaGroupName.hints.tooltip}" autoSubmit="true">
+                            <f:validator binding="#{bindings.CoaGroupName.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{bindings.CoaGroupName.suggestedItems}"/>
+                        </af:inputListOfValues>
+                        <af:inputDate value="#{bindings.BillGrpPrmStartDate.inputValue}" label="Start Date"
+                                      required="#{bindings.BillGrpPrmStartDate.hints.mandatory}"
+                                      columns="#{bindings.BillGrpPrmStartDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.BillGrpPrmStartDate.hints.tooltip}" id="id1"
+                                      autoSubmit="true">
+                            <f:validator binding="#{bindings.BillGrpPrmStartDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.BillGrpPrmStartDate.format}"/>
+                        </af:inputDate>
+                        <af:inputDate value="#{bindings.BillGrpPrmEndDate.inputValue}" label="End Date"
+                                      required="#{bindings.BillGrpPrmEndDate.hints.mandatory}"
+                                      columns="#{bindings.BillGrpPrmEndDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.BillGrpPrmEndDate.hints.tooltip}" id="id2"
+                                      autoSubmit="true">
+                            <f:validator binding="#{bindings.BillGrpPrmEndDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.BillGrpPrmEndDate.format}"/>
+                        </af:inputDate>
+                        <af:inputText value="#{bindings.BillGrpPrmId.inputValue}"
+                                      label="#{bindings.BillGrpPrmId.hints.label}"
+                                      required="#{bindings.BillGrpPrmId.hints.mandatory}"
+                                      columns="#{bindings.BillGrpPrmId.hints.displayWidth}"
+                                      maximumLength="#{bindings.BillGrpPrmId.hints.precision}"
+                                      shortDesc="#{bindings.BillGrpPrmId.hints.tooltip}" id="it1" rendered="false">
+                            <f:validator binding="#{bindings.BillGrpPrmId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.BillGrpPrmId.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.CoaGroupIdFk.inputValue}"
+                                      label="#{bindings.CoaGroupIdFk.hints.label}"
+                                      required="#{bindings.CoaGroupIdFk.hints.mandatory}"
+                                      columns="#{bindings.CoaGroupIdFk.hints.displayWidth}"
+                                      maximumLength="#{bindings.CoaGroupIdFk.hints.precision}"
+                                      shortDesc="#{bindings.CoaGroupIdFk.hints.tooltip}" id="it2" rendered="false">
+                            <f:validator binding="#{bindings.CoaGroupIdFk.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaGroupIdFk.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.BillGrpYNDetl.inputValue}"
+                                      label="#{bindings.BillGrpYNDetl.hints.label}"
+                                      required="#{bindings.BillGrpYNDetl.hints.mandatory}"
+                                      columns="#{bindings.BillGrpYNDetl.hints.displayWidth}"
+                                      maximumLength="#{bindings.BillGrpYNDetl.hints.precision}"
+                                      shortDesc="#{bindings.BillGrpYNDetl.hints.tooltip}" id="it3" rendered="false">
+                            <f:validator binding="#{bindings.BillGrpYNDetl.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.BillGrpYNDetl.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.CoaGroupId.inputValue}"
+                                      label="#{bindings.CoaGroupId.hints.label}"
+                                      required="#{bindings.CoaGroupId.hints.mandatory}"
+                                      columns="#{bindings.CoaGroupId.hints.displayWidth}"
+                                      maximumLength="#{bindings.CoaGroupId.hints.precision}"
+                                      shortDesc="#{bindings.CoaGroupId.hints.tooltip}" id="it4" rendered="false">
+                            <f:validator binding="#{bindings.CoaGroupId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaGroupId.format}"/>
+                        </af:inputText>
+                        <f:facet name="footer">
+                            <af:panelGroupLayout layout="horizontal" id="pgl1">
+                                <af:spacer width="80" height="10" id="s2"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Show"
+                                           disabled="#{bindings.Rollback.enabled}" immediate="true" id="b1"
+                                           icon="#{resource['images:find.png']}">
+                                    <af:resetActionListener/>
+                                </af:button>
+                                <af:spacer width="40" height="10" id="s1"/>
+                                <af:button text="Submit" id="b5" icon="#{resource['images:commit.png']}"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelGridLayout id="pgl2">
+                        <af:gridRow marginTop="5px" height="auto" id="gr1">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
+                                <af:panelCollection id="pc1">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar"/>
+                                    <af:table value="#{bindings.BillGroupSummryView2.collectionModel}" var="row"
+                                              rows="#{bindings.BillGroupSummryView2.rangeSize}"
+                                              emptyText="#{bindings.BillGroupSummryView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.BillGroupSummryView2.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.BillGroupSummryView2.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.BillGroupSummryView2.rangeSize}" id="t1" width="523"
+                                              inlineStyle="border-right-color:Window; background-color:Window;"
+                                              maxClientRows="10000" autoHeightRows="1500">
+                                        <af:column headerText="#{bindings.BillGroupSummryView2.hints.BillGrpSdId.label}"
+                                                   id="c1" rendered="false" inlineStyle="font-weight:bold;">
+                                            <af:outputText value="#{row.BillGrpSdId}"
+                                                           shortDesc="#{bindings.BillGroupSummryView2.hints.BillGrpSdId.tooltip}"
+                                                           id="ot2">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.BillGroupSummryView2.hints.BillGrpSdId.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="Details" id="c2" align="center"
+                                                   inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                                   width="175">
+                                            <af:outputText value="#{row.BillGrpSdDetails}"
+                                                           shortDesc="#{bindings.BillGroupSummryView2.hints.BillGrpSdDetails.tooltip}"
+                                                           id="ot3"/>
+                                        </af:column>
+                                        <af:column headerText="Bill" id="c6" align="center"
+                                                   inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;">
+                                            <af:outputText value="#{row.BillGrpSdBill}"
+                                                           shortDesc="#{bindings.BillGroupSummryView2.hints.BillGrpSdBill.tooltip}"
+                                                           id="ot7">
+                                                <af:convertNumber groupingUsed="true"
+                                                                  pattern="#{bindings.BillGroupSummryView2.hints.BillGrpSdBill.format}"
+                                                                  messageDetailConvertNumber="#,###,##"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="Amount DR" id="c3" align="center"
+                                                   inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;">
+                                            <af:outputText value="#{row.BillGrpSdAmountCr}"
+                                                           shortDesc="#{bindings.BillGroupSummryView2.hints.BillGrpSdAmountCr.tooltip}"
+                                                           id="ot4">
+                                                <af:convertNumber groupingUsed="true"
+                                                                  pattern="#{bindings.BillGroupSummryView2.hints.BillGrpSdAmountCr.format}"
+                                                                  messageDetailConvertNumber="#,###,##"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="Amount CR" id="c4" align="center"
+                                                   inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;">
+                                            <af:outputText value="#{row.BillGrpSdAmountDr}"
+                                                           shortDesc="#{bindings.BillGroupSummryView2.hints.BillGrpSdAmountDr.tooltip}"
+                                                           id="ot5">
+                                                <af:convertNumber groupingUsed="true"
+                                                                  pattern="#{bindings.BillGroupSummryView2.hints.BillGrpSdAmountDr.format}"
+                                                                  messageDetailConvertNumber="#,###,##"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.BillGroupSummryView2.hints.BillGrpPrmIdFk.label}"
+                                                   id="c5" rendered="false" inlineStyle="font-weight:bold;">
+                                            <af:outputText value="#{row.BillGrpPrmIdFk}"
+                                                           shortDesc="#{bindings.BillGroupSummryView2.hints.BillGrpPrmIdFk.tooltip}"
+                                                           id="ot6">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.BillGroupSummryView2.hints.BillGrpPrmIdFk.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                    </af:table>
+                                    <f:facet name="statusbar"/>
+                                </af:panelCollection>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch">
+                                <af:panelCollection id="pc2">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="statusbar"/>
+                                    <af:table value="#{bindings.BillGroupDetailView2.collectionModel}" var="row"
+                                              rows="#{bindings.BillGroupDetailView2.rangeSize}"
+                                              emptyText="#{bindings.BillGroupDetailView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.BillGroupDetailView2.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.BillGroupDetailView2.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.BillGroupDetailView2.rangeSize}" id="t2" width="735"
+                                              inlineStyle="height:104px; border-right-color:Window; background-color:Window;"
+                                              maxClientRows="10000" autoHeightRows="1500">
+                                        <af:column headerText="#{bindings.BillGroupDetailView2.hints.BillGrpDdId.label}"
+                                                   id="c7" rendered="false" inlineStyle="font-weight:bold;">
+                                            <af:outputText value="#{row.BillGrpDdId}"
+                                                           shortDesc="#{bindings.BillGroupDetailView2.hints.BillGrpDdId.tooltip}"
+                                                           id="ot8">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.BillGroupDetailView2.hints.BillGrpDdId.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="Party" id="c14" align="center"
+                                                   inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                                   width="200">
+                                            <af:outputText value="#{row.CoaName}"
+                                                           shortDesc="#{bindings.BillGroupDetailView2.hints.CoaName.tooltip}"
+                                                           id="ot15"/>
+                                        </af:column>
+                                        <af:column headerText="Detail" id="c8" align="center"
+                                                   inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                                   width="175">
+                                            <af:outputText value="#{row.BillGrpDdDetail}"
+                                                           shortDesc="#{bindings.BillGroupDetailView2.hints.BillGrpDdDetail.tooltip}"
+                                                           id="ot9"/>
+                                        </af:column>
+                                        <af:column headerText="Bill" id="c12" align="center"
+                                                   inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;">
+                                            <af:outputText value="#{row.BillGrpDdBill}"
+                                                           shortDesc="#{bindings.BillGroupDetailView2.hints.BillGrpDdBill.tooltip}"
+                                                           id="ot13">
+                                                <af:convertNumber groupingUsed="true"
+                                                                  pattern="#{bindings.BillGroupDetailView2.hints.BillGrpDdBill.format}"
+                                                                  messageDetailConvertNumber="#,###,##"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="Amount DR" id="c9" align="center"
+                                                   inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;">
+                                            <af:outputText value="#{row.BillGrpDdAmountDr}"
+                                                           shortDesc="#{bindings.BillGroupDetailView2.hints.BillGrpDdAmountDr.tooltip}"
+                                                           id="ot10">
+                                                <af:convertNumber groupingUsed="true"
+                                                                  pattern="#{bindings.BillGroupDetailView2.hints.BillGrpDdAmountDr.format}"
+                                                                  messageDetailConvertNumber="#,###,##"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="Amount CR" id="c10" align="center"
+                                                   inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;">
+                                            <af:outputText value="#{row.BillGrpDdAmountCr}"
+                                                           shortDesc="#{bindings.BillGroupDetailView2.hints.BillGrpDdAmountCr.tooltip}"
+                                                           id="ot11">
+                                                <af:convertNumber groupingUsed="true"
+                                                                  pattern="#{bindings.BillGroupDetailView2.hints.BillGrpDdAmountCr.format}"
+                                                                  messageDetailConvertNumber="#,###,##"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.BillGroupDetailView2.hints.BillGrpPrmIdFk.label}"
+                                                   id="c11" rendered="false" inlineStyle="font-weight:bold;">
+                                            <af:outputText value="#{row.BillGrpPrmIdFk}"
+                                                           shortDesc="#{bindings.BillGroupDetailView2.hints.BillGrpPrmIdFk.tooltip}"
+                                                           id="ot12">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.BillGroupDetailView2.hints.BillGrpPrmIdFk.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.BillGroupDetailView2.hints.CoaIdFk.label}"
+                                                   id="c13" rendered="false" inlineStyle="font-weight:bold;">
+                                            <af:outputText value="#{row.CoaIdFk}"
+                                                           shortDesc="#{bindings.BillGroupDetailView2.hints.CoaIdFk.tooltip}"
+                                                           id="ot14">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.BillGroupDetailView2.hints.CoaIdFk.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.BillGroupDetailView2.hints.CoaActNumber.label}"
+                                                   id="c15" rendered="false" inlineStyle="font-weight:bold;">
+                                            <af:outputText value="#{row.CoaActNumber}"
+                                                           shortDesc="#{bindings.BillGroupDetailView2.hints.CoaActNumber.tooltip}"
+                                                           id="ot16">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.BillGroupDetailView2.hints.CoaActNumber.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelCollection>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+            </af:panelSplitter>
+            </af:panelBox>
+        </f:view>
+</ui:composition>

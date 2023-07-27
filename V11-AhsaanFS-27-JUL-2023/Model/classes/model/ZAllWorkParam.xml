@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ZAllWorkParam"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="Z_ALL_WORK_PARAM"
+  AliasName="ZAllWorkParam"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="ZAwpId"
+    ColumnName="Z_AWP_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="Z_ALL_WORK_PARAM"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="ZAwpStartDate"
+    ColumnName="Z_AWP_START_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="Z_ALL_WORK_PARAM"/>
+  <Attribute
+    Name="ZAwpEndDate"
+    ColumnName="Z_AWP_END_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="Z_ALL_WORK_PARAM"/>
+  <Attribute
+    Name="ZAwpOption"
+    ColumnName="Z_AWP_OPTION"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="Z_ALL_WORK_PARAM"/>
+  <AccessorAttribute
+    Name="ZAllWork"
+    Association="model.ZAllWorkZAllWorkParFk1Assoc"
+    AssociationEnd="model.ZAllWorkZAllWorkParFk1Assoc.ZAllWork"
+    AssociationOtherEnd="model.ZAllWorkZAllWorkParFk1Assoc.ZAllWorkParam"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="ZAwpIdPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="Z_AWP_ID_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZAllWorkParam.ZAwpId"/>
+    </AttrArray>
+  </Key>
+</Entity>

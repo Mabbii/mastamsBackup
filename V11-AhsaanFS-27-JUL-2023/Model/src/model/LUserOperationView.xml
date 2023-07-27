@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LUserOperationView"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="InfoEntitiView1_1"
+    ViewObjectName="model.InfoEntitiView1"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="infoDMLOpe1"
+    ViewObjectName="model.infoDMLOpe"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="InfoEntitiView1_2"
+    ViewObjectName="model.InfoEntitiView1"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="InfoDmlOpe1View1"
+    ViewObjectName="model.InfoDmlOpe1View"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_EntityInfoName"
+    ListVOName="InfoEntitiView1_2"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="EntityInfoName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="UserOpeEntityNameId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="EntityInfoName"/>
+      <Item Value="EntityInfoId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="EntityInfoName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_InfoDmlOpeName"
+    ListVOName="InfoDmlOpe1View1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="InfoDmlOpeName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="UserOpeF"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="InfoDmlOpeName"/>
+      <Item Value="InfoDmlOpeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="InfoDmlOpeName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="LUserOperation"
+    Entity="model.LUserOperation"/>
+  <EntityUsage
+    Name="InfoEntity"
+    Entity="model.InfoEntity"
+    Association="model.Info_Entity_L_User_Ope_Assoc"
+    AssociationEnd="model.Info_Entity_L_User_Ope_Assoc.InfoEntity"
+    SourceUsage="model.LUserOperationView.LUserOperation"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.InfoEntity.EntityInfoName"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.LUserOperation.UserOpeEntityNameId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="InfoDmlOpe2"
+    Entity="model.InfoDmlOpe1"
+    Association="model.INFO_DML_OPE_USER_OPE"
+    AssociationEnd="model.INFO_DML_OPE_USER_OPE.InfoDmlOpe1"
+    SourceUsage="model.LUserOperationView.LUserOperation"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.InfoDmlOpe1.InfoDmlOpeId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.LUserOperation.UserOpeF"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="UserOpeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UserOpeId"
+    EntityUsage="LUserOperation"
+    AliasName="USER_OPE_ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="UserOpeEntityNameId"
+    PrecisionRule="true"
+    EntityAttrName="UserOpeEntityNameId"
+    EntityUsage="LUserOperation"
+    AliasName="USER_OPE_ENTITY_NAME_ID"/>
+  <ViewAttribute
+    Name="UserOpeViewNameId"
+    PrecisionRule="true"
+    EntityAttrName="UserOpeViewNameId"
+    EntityUsage="LUserOperation"
+    AliasName="USER_OPE_VIEW_NAME_ID"/>
+  <ViewAttribute
+    Name="UserOpeEntityTnsId"
+    PrecisionRule="true"
+    EntityAttrName="UserOpeEntityTnsId"
+    EntityUsage="LUserOperation"
+    AliasName="USER_OPE_ENTITY_TNS_ID"/>
+  <ViewAttribute
+    Name="UserOpeF"
+    PrecisionRule="true"
+    EntityAttrName="UserOpeF"
+    EntityUsage="LUserOperation"
+    AliasName="USER_OPE_F"/>
+  <ViewAttribute
+    Name="UserOpeTime"
+    PrecisionRule="true"
+    EntityAttrName="UserOpeTime"
+    EntityUsage="LUserOperation"
+    AliasName="USER_OPE_TIME"/>
+  <ViewAttribute
+    Name="AcitvityIdFk"
+    PrecisionRule="true"
+    EntityAttrName="AcitvityIdFk"
+    EntityUsage="LUserOperation"
+    AliasName="ACITVITY_ID_FK"/>
+  <ViewAttribute
+    Name="EntityInfoName"
+    PrecisionRule="true"
+    EntityAttrName="EntityInfoName"
+    EntityUsage="InfoEntity"
+    AliasName="ENTITY_INFO_NAME"
+    LOVName="LOV_EntityInfoName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EntityInfoId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EntityInfoId"
+    EntityUsage="InfoEntity"
+    AliasName="ENTITY_INFO_ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="InfoDmlOpeName"
+    PrecisionRule="true"
+    EntityAttrName="InfoDmlOpeName"
+    EntityUsage="InfoDmlOpe2"
+    AliasName="INFO_DML_OPE_NAME"
+    LOVName="LOV_InfoDmlOpeName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InfoDmlOpeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InfoDmlOpeId"
+    EntityUsage="InfoDmlOpe2"
+    AliasName="INFO_DML_OPE_ID"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="UserOpeId"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="TransactionLogView"
+    ViewLink="model.TNSLogLUserOpeViewLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

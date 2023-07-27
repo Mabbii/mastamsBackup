@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="untitled6PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Z_Rpt_Sales_ParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="Z_Rpt_Sales_ParamView1Iterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="Z_Rpt_Sales_ParamView1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <attributeValues IterBinding="Z_Rpt_Sales_ParamView1Iterator" id="ZRptSalesParamId">
+      <AttrNames>
+        <Item Value="ZRptSalesParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Z_Rpt_Sales_ParamView1Iterator" id="ZRptSalesParamStartDate">
+      <AttrNames>
+        <Item Value="ZRptSalesParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Z_Rpt_Sales_ParamView1Iterator" id="ZRptSalesParamEndDate">
+      <AttrNames>
+        <Item Value="ZRptSalesParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Z_Rpt_Sales_ParamView1Iterator" id="ZRptSalesParamCoaId">
+      <AttrNames>
+        <Item Value="ZRptSalesParamCoaId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Z_Rpt_Sales_ParamView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Expense"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="EXPENSE"
+  AliasName="Expense"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="ExpeId"
+    ColumnName="EXPE_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="EXPENSE"
+    PrimaryKey="true"
+    IsNotNull="true"
+    DefaultValue="-1"
+    IsUpdateable="false"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
+  <Attribute
+    Name="ExpeName"
+    Precision="70"
+    ColumnName="EXPE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EXPENSE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ExpeShortname"
+    Precision="70"
+    ColumnName="EXPE_SHORTNAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EXPENSE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ExpeExpcatId"
+    IsNotNull="true"
+    ColumnName="EXPE_EXPCAT_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="EXPENSE"/>
+  <Attribute
+    Name="ExpeDate"
+    ColumnName="EXPE_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="EXPENSE"/>
+  <AccessorAttribute
+    Name="ExpenceCategory"
+    Association="model.ExpensecategoryExpenseFkAssoc"
+    AssociationEnd="model.ExpensecategoryExpenseFkAssoc.ExpenceCategory"
+    AssociationOtherEnd="model.ExpensecategoryExpenseFkAssoc.Expense"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="ExpenseNameUk">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="EXPENSE_NAME_UK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Expense.ExpeName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ExpensePk1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="EXPENSE_PK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Expense.ExpeId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ExpenseShortnameUk">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="EXPENSE_SHORTNAME_UK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Expense.ExpeShortname"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ExpensecategoryExpenseFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="EXPENCE_CATEGORY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="EXPENSECATEGORY_EXPENSE_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Expense.ExpeExpcatId"/>
+    </AttrArray>
+  </Key>
+</Entity>

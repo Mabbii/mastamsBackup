@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="IncomeCalculateCustomDateToDateVIEWPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZRptIsCustoParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="ZRptIsCustoParamView1Iterator"/>
+    <iterator Binds="ZRptIsCustoView1" RangeSize="1500" DataControl="VOAPPDataControl" id="ZRptIsCustoView1Iterator"/>
+    <searchRegion Binds="ZRptIsCustoView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ZRptIsCustoView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ZRptIsCustoParamView1Iterator" id="IsCustoParamId">
+      <AttrNames>
+        <Item Value="IsCustoParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptIsCustoParamView1Iterator" id="IsCustoParamDetails">
+      <AttrNames>
+        <Item Value="IsCustoParamDetails"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptIsCustoParamView1Iterator" id="IsCustoParamStartDate">
+      <AttrNames>
+        <Item Value="IsCustoParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptIsCustoParamView1Iterator" id="IsCustoParamEndDate">
+      <AttrNames>
+        <Item Value="IsCustoParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptIsCustoParamView1Iterator" id="IsCustoParamPassKey">
+      <AttrNames>
+        <Item Value="IsCustoParamPassKey"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ZRptIsCustoView1Iterator" id="ZRptIsCustoView1">
+      <nodeDefinition DefName="model.ZRptIsCustoView" Name="ZRptIsCustoView10">
+        <AttrNames>
+          <Item Value="IsCustoName"/>
+          <Item Value="IsCustoDebit"/>
+          <Item Value="IsCustoCredit"/>
+          <Item Value="IsCustoBalance"/>
+          <Item Value="IsCustoCat"/>
+          <Item Value="IsCustoparamIdFk"/>
+          <Item Value="IsCustoCoaId"/>
+          <Item Value="IsCustoQty"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ZRptIsCustoView1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

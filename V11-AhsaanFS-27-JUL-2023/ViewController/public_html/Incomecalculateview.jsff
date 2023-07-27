@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <f:view beforePhase="#{backingBeanScope.PrintPageBean.beforePhaseMethod}">
+        <af:panelBox id="pb2" inlineStyle="width:1176px; height:677px;">
+            <f:facet name="toolbar">
+                <af:button id="b5" inlineStyle="padding-top:0px;" icon="#{resource['images:print.png']}">
+                    <af:showPrintablePageBehavior/>
+                </af:button>
+            </f:facet>
+            <af:image source="#{resource['images:Ahsaan FS Logo.png']}" shortDesc="Ahsaan Fs Logo"
+                      id="i1"/>
+            <af:panelSplitter orientation="vertical" splitterPosition="170" id="ps1" partialTriggers="ps1"
+                              inlineStyle="width:969px; height:368px;">
+                <f:facet name="first">
+                    <af:panelFormLayout id="pfl1">
+                        <af:outputText value="Income StateMent (Calculate)" id="ot7"
+                                       inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                        <af:inputText value="#{bindings.ZRptIsParamId.inputValue}"
+                                      label="#{bindings.ZRptIsParamId.hints.label}"
+                                      required="#{bindings.ZRptIsParamId.hints.mandatory}"
+                                      columns="#{bindings.ZRptIsParamId.hints.displayWidth}"
+                                      maximumLength="#{bindings.ZRptIsParamId.hints.precision}"
+                                      shortDesc="#{bindings.ZRptIsParamId.hints.tooltip}" id="it1" readOnly="true"
+                                      rendered="false">
+                            <f:validator binding="#{bindings.ZRptIsParamId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ZRptIsParamId.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ZRptIsParamDetails.inputValue}" label="Details"
+                                      required="#{bindings.ZRptIsParamDetails.hints.mandatory}"
+                                      columns="#{bindings.ZRptIsParamDetails.hints.displayWidth}"
+                                      maximumLength="#{bindings.ZRptIsParamDetails.hints.precision}"
+                                      shortDesc="#{bindings.ZRptIsParamDetails.hints.tooltip}" id="it2"
+                                      rendered="false">
+                            <f:validator binding="#{bindings.ZRptIsParamDetails.validator}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.ZRptIsParamDate.inputValue}"
+                                      label="#{bindings.ZRptIsParamDate.hints.label}"
+                                      required="#{bindings.ZRptIsParamDate.hints.mandatory}"
+                                      columns="#{bindings.ZRptIsParamDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.ZRptIsParamDate.hints.tooltip}" id="id1">
+                            <f:validator binding="#{bindings.ZRptIsParamDate.validator}"/>
+                            <af:convertDateTime pattern="MMM-yyyy"/>
+                        </af:inputDate>
+                        <af:inputText value="#{bindings.ZRptIsParamPasskey.inputValue}"
+                                      label="#{bindings.ZRptIsParamPasskey.hints.label}"
+                                      required="#{bindings.ZRptIsParamPasskey.hints.mandatory}" secret="true"
+                                      columns="#{bindings.ZRptIsParamPasskey.hints.displayWidth}"
+                                      maximumLength="#{bindings.ZRptIsParamPasskey.hints.precision}"
+                                      shortDesc="#{bindings.ZRptIsParamPasskey.hints.tooltip}" id="it3"
+                                      rendered="false">
+                            <f:validator binding="#{bindings.ZRptIsParamPasskey.validator}"/>
+                        </af:inputText>
+                        <f:facet name="footer">
+                            <af:panelGroupLayout id="pgl1">
+                                <af:spacer width="45" height="10" id="s3"/>
+                                <af:button actionListener="#{bindings.Execute.execute}" text="SHOW"
+                                           disabled="#{!bindings.Execute.enabled}" id="b2"
+                                           icon="#{resource['images:find.png']}"/>
+                                <af:spacer width="40" height="10" id="s1"/>
+                                <af:button text="Submit" id="b1" actionListener="#{bindings.Commit.execute}"
+                                           icon="#{resource['images:commit.png']}"/>
+                                <af:spacer width="200" height="10" id="s2"/>
+                                <af:button text="Excel" id="b3" icon="#{resource['images:export.png']}"
+                                           inlineStyle="color:Green;">
+                                    <af:exportCollectionActionListener type="excelHTML" exportedId="pc1:t1"
+                                                                       filename="Income Statement.xls"/>
+                                </af:button>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.ZRptIsView2.collectionModel}" var="row"
+                                  rows="#{bindings.ZRptIsView2.rangeSize}"
+                                  emptyText="#{bindings.ZRptIsView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.ZRptIsView2.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.ZRptIsView2.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.ZRptIsView2.rangeSize}"
+                                  filterModel="#{bindings.ZRptIsView2Query.queryDescriptor}" filterVisible="true"
+                                  queryListener="#{bindings.ZRptIsView2Query.processQuery}" varStatus="vs" id="t1"
+                                  partialTriggers="::b2 :::b2" width="700"
+                                  inlineStyle="border-right-color:Window; border-top-color:Window; background-color:Window;"
+                                  maxClientRows="10000">
+                            <af:column sortProperty="#{bindings.ZRptIsView2.hints.ZRptIsId.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZRptIsView2.hints.ZRptIsId.label}"
+                                       id="c1" rendered="false">
+                                <af:outputText value="#{row.ZRptIsId}"
+                                               shortDesc="#{bindings.ZRptIsView2.hints.ZRptIsId.tooltip}" id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptIsView2.hints.ZRptIsId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptIsView2.hints.ZRptIsName.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZRptIsView2.hints.ZRptIsName.label}"
+                                       id="c2" width="250" align="center"
+                                       inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                                <af:outputText value="#{row.ZRptIsName}"
+                                               shortDesc="#{bindings.ZRptIsView2.hints.ZRptIsName.tooltip}" id="ot2"
+                                               inlineStyle="font-weight:bold;"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.ZRptIsView2.hints.ZRptIsQty.label}" id="c9"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                       align="center" width="80">
+                                <af:outputText value="#{row.ZRptIsQty}"
+                                               shortDesc="#{bindings.ZRptIsView2.hints.ZRptIsQty.tooltip}" id="ot10"
+                                               inlineStyle="font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptIsView2.hints.ZRptIsQty.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptIsView2.hints.ZRptIsDebit.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZRptIsView2.hints.ZRptIsDebit.label}"
+                                       id="c3" align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                                <af:outputText value="#{row.ZRptIsDebit}"
+                                               shortDesc="#{bindings.ZRptIsView2.hints.ZRptIsDebit.tooltip}" id="ot3"
+                                               inlineStyle="font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptIsView2.hints.ZRptIsDebit.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptIsView2.hints.ZRptIsCredit.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZRptIsView2.hints.ZRptIsCredit.label}"
+                                       id="c4" align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                                <af:outputText value="#{row.ZRptIsCredit}"
+                                               shortDesc="#{bindings.ZRptIsView2.hints.ZRptIsCredit.tooltip}" id="ot4"
+                                               inlineStyle="font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptIsView2.hints.ZRptIsCredit.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptIsView2.hints.ZRptIsBalannce.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptIsView2.hints.ZRptIsBalannce.label}" id="c5"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                                <af:outputText value="#{row.ZRptIsBalannce}"
+                                               shortDesc="#{bindings.ZRptIsView2.hints.ZRptIsBalannce.tooltip}"
+                                               id="ot5" inlineStyle="font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptIsView2.hints.ZRptIsBalannce.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptIsView2.hints.ZRptIsCat.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZRptIsView2.hints.ZRptIsCat.label}"
+                                       id="c6" rendered="false">
+                                <af:outputText value="#{row.ZRptIsCat}"
+                                               shortDesc="#{bindings.ZRptIsView2.hints.ZRptIsCat.tooltip}" id="ot6">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptIsView2.hints.ZRptIsCat.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptIsView2.hints.ZRptIsParamIdFk.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptIsView2.hints.ZRptIsParamIdFk.label}" id="c7"
+                                       rendered="false">
+                                <af:outputText value="#{row.ZRptIsParamIdFk}"
+                                               shortDesc="#{bindings.ZRptIsView2.hints.ZRptIsParamIdFk.tooltip}"
+                                               id="ot8">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptIsView2.hints.ZRptIsParamIdFk.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptIsView2.hints.ZRptIsCoaId.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZRptIsView2.hints.ZRptIsCoaId.label}"
+                                       id="c8" rendered="false">
+                                <af:outputText value="#{row.ZRptIsCoaId}"
+                                               shortDesc="#{bindings.ZRptIsView2.hints.ZRptIsCoaId.tooltip}" id="ot9">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptIsView2.hints.ZRptIsCoaId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </f:facet>
+            </af:panelSplitter>
+        </af:panelBox>
+    </f:view>
+</ui:composition>

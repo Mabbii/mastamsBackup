@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ZRptTbParam"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="Z_RPT_TB_PARAM"
+  AliasName="ZRptTbParam"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="ZRptTbParamId"
+    IsNotNull="true"
+    ColumnName="Z_RPT_TB_PARAM_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_TB_PARAM"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="ZRptTbParamDate"
+    ColumnName="Z_RPT_TB_PARAM_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="Z_RPT_TB_PARAM"/>
+  <Attribute
+    Name="ZRptTbParamTbio"
+    ColumnName="Z_RPT_TB_PARAM_TBIO"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_TB_PARAM"/>
+  <AccessorAttribute
+    Name="ZRptTb"
+    Association="model.Zrpt_Zrpt_Parm_Assoc"
+    AssociationEnd="model.Zrpt_Zrpt_Parm_Assoc.ZRptTb"
+    AssociationOtherEnd="model.Zrpt_Zrpt_Parm_Assoc.ZRptTbParam"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ZRptTbTotal"
+    Association="model.zrpt_total_table_assoc"
+    AssociationEnd="model.zrpt_total_table_assoc.ZRptTbTotal"
+    AssociationOtherEnd="model.zrpt_total_table_assoc.ZRptTbParam"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="ZRptTbParamPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="Z_RPT_TB_PARAM_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptTbParam.ZRptTbParamId"/>
+    </AttrArray>
+  </Key>
+</Entity>

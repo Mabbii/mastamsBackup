@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="IncomeADJUSTMNTviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZRptIsPostingParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="ZRptIsPostingParamView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ZRptIsPostingParamView1Iterator" id="ZRptIsPostPId">
+      <AttrNames>
+        <Item Value="ZRptIsPostPId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptIsPostingParamView1Iterator" id="ZRptIsPostPDetails">
+      <AttrNames>
+        <Item Value="ZRptIsPostPDetails"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptIsPostingParamView1Iterator" id="ZRptIsPostPDate">
+      <AttrNames>
+        <Item Value="ZRptIsPostPDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptIsPostingParamView1Iterator" id="ZRptIsPostPPasskey">
+      <AttrNames>
+        <Item Value="ZRptIsPostPPasskey"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ZRptIsPostingParamView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

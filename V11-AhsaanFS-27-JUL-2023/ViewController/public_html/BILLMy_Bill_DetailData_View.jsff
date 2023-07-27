@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <f:view beforePhase="#{backingBeanScope.PrintPageBean.beforePhaseMethod}">
+        <af:panelBox id="pb1" inlineStyle="height:792px;">
+            <f:facet name="toolbar">
+                <af:button id="b3" inlineStyle="padding-top:0px;" icon="#{resource['images:print.png']}">
+                    <af:showPrintablePageBehavior/>
+                </af:button>
+            </f:facet>
+            <af:image source="#{resource['images:Ahsaan FS Logo.png']}" shortDesc="Ahsaan Fs Logo" id="i1"/>
+            <af:panelSplitter orientation="vertical" splitterPosition="266" id="ps1"
+                              inlineStyle="width:825px; height:965px;">
+                <f:facet name="first">
+                    <af:panelFormLayout id="pfl1">
+                        <af:outputText value="Bill Satement" id="ot16"
+                                       inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                        <af:inputListOfValues id="coaNameId"
+                                              popupTitle="Search and Select: #{bindings.CoaName.hints.label}"
+                                              value="#{bindings.CoaName.inputValue}"
+                                              label="Party"
+                                              model="#{bindings.CoaName.listOfValuesModel}"
+                                              columns="#{bindings.CoaName.hints.displayWidth}"
+                                              shortDesc="#{bindings.CoaName.hints.tooltip}" autoSubmit="true">
+                            <f:validator binding="#{bindings.CoaName.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName.suggestedItems}"/>
+                        </af:inputListOfValues>
+                        <af:inputText value="#{bindings.CoaIdFk.inputValue}" label="#{bindings.CoaIdFk.hints.label}"
+                                      required="#{bindings.CoaIdFk.hints.mandatory}"
+                                      columns="#{bindings.CoaIdFk.hints.displayWidth}"
+                                      maximumLength="#{bindings.CoaIdFk.hints.precision}"
+                                      shortDesc="#{bindings.CoaIdFk.hints.tooltip}" id="it2" rendered="false">
+                            <f:validator binding="#{bindings.CoaIdFk.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaIdFk.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.BillParamId.inputValue}"
+                                      label="#{bindings.BillParamId.hints.label}"
+                                      required="#{bindings.BillParamId.hints.mandatory}"
+                                      columns="#{bindings.BillParamId.hints.displayWidth}"
+                                      maximumLength="#{bindings.BillParamId.hints.precision}"
+                                      shortDesc="#{bindings.BillParamId.hints.tooltip}" id="it1" rendered="false">
+                            <f:validator binding="#{bindings.BillParamId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.BillParamId.format}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.BillParamStartDate.inputValue}"
+                                      label="#{bindings.BillParamStartDate.hints.label}"
+                                      required="#{bindings.BillParamStartDate.hints.mandatory}"
+                                      columns="#{bindings.BillParamStartDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.BillParamStartDate.hints.tooltip}" id="id1"
+                                      autoSubmit="true">
+                            <f:validator binding="#{bindings.BillParamStartDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>
+                        <af:inputDate value="#{bindings.BillParamEndDate.inputValue}"
+                                      label="#{bindings.BillParamEndDate.hints.label}"
+                                      required="#{bindings.BillParamEndDate.hints.mandatory}"
+                                      columns="#{bindings.BillParamEndDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.BillParamEndDate.hints.tooltip}" id="id2" autoSubmit="true">
+                            <f:validator binding="#{bindings.BillParamEndDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>
+                        <af:selectOneChoice value="#{bindings.BillParamYNDetl.inputValue}"
+                                            label="#{bindings.BillParamYNDetl.label}"
+                                            required="#{bindings.BillParamYNDetl.hints.mandatory}"
+                                            shortDesc="#{bindings.BillParamYNDetl.hints.tooltip}" id="soc1"
+                                            autoSubmit="true" rendered="false">
+                            <f:selectItems value="#{bindings.BillParamYNDetl.items}" id="si1"/>
+                            <f:validator binding="#{bindings.BillParamYNDetl.validator}"/>
+                        </af:selectOneChoice>
+                        <af:inputText value="#{bindings.CoaActNumber.inputValue}"
+                                      label="#{bindings.CoaActNumber.hints.label}"
+                                      required="#{bindings.CoaActNumber.hints.mandatory}"
+                                      columns="#{bindings.CoaActNumber.hints.displayWidth}"
+                                      maximumLength="#{bindings.CoaActNumber.hints.precision}"
+                                      shortDesc="#{bindings.CoaActNumber.hints.tooltip}" id="it3" readOnly="true">
+                            <f:validator binding="#{bindings.CoaActNumber.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber.format}"/>
+                        </af:inputText>
+                        <f:facet name="footer">
+                            <af:panelGroupLayout layout="horizontal" id="pgl1">
+                                <af:spacer width="100" height="10" id="s2"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Show"
+                                           disabled="#{bindings.Rollback.enabled}" immediate="true" id="b1"
+                                           icon="#{resource['images:find.png']}">
+                                    <af:resetActionListener/>
+                                </af:button>
+                                <af:spacer width="40" height="10" id="s1"/>
+                                <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                                           icon="#{resource['images:commit.png']}"
+                                           disabled="#{!bindings.Commit.enabled}"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelGridLayout id="pgl2">
+                        <af:gridRow marginTop="5px" height="auto" id="gr2">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3">
+                                <af:panelCollection id="pc1">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar"/>
+                                    <af:table value="#{bindings.BillSummryData_View2.collectionModel}" var="row"
+                                              rows="#{bindings.BillSummryData_View2.rangeSize}"
+                                              emptyText="#{bindings.BillSummryData_View2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.BillSummryData_View2.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.BillSummryData_View2.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.BillSummryData_View2.rangeSize}" id="t1" width="696"
+                                              inlineStyle="background-color:Window; border-right-color:Window;"
+                                              autoHeightRows="500">
+                                        <af:column headerText="#{bindings.BillSummryData_View2.hints.BillSdId.label}"
+                                                   id="c1" rendered="false" inlineStyle="font-weight:bold;">
+                                            <af:outputText value="#{row.BillSdId}"
+                                                           shortDesc="#{bindings.BillSummryData_View2.hints.BillSdId.tooltip}"
+                                                           id="ot1">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.BillSummryData_View2.hints.BillSdId.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.BillSummryData_View2.hints.BillSdDetails.label}"
+                                                   id="c2" width="200"
+                                                   inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                                   align="center">
+                                            <af:outputText value="#{row.BillSdDetails}"
+                                                           shortDesc="#{bindings.BillSummryData_View2.hints.BillSdDetails.tooltip}"
+                                                           id="ot2"/>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.BillSummryData_View2.hints.BillSdBill.label}"
+                                                   id="c16" width="90" rendered="true" align="center"
+                                                   inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;">
+                                            <af:outputText value="#{row.BillSdBill}"
+                                                           shortDesc="#{bindings.BillSummryData_View2.hints.BillSdBill.tooltip}"
+                                                           id="ot17">
+                                                <af:convertNumber groupingUsed="true"
+                                                                  pattern="#{bindings.BillSummryData_View2.hints.BillSdBill.format}"
+                                                                  messageDetailConvertNumber="#,###,##"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.BillSummryData_View2.hints.BillSdAmountDr.label}"
+                                                   id="c3" width="100" rendered="true" align="center"
+                                                   inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;">
+                                            <af:outputText value="#{row.BillSdAmountDr}"
+                                                           shortDesc="#{bindings.BillSummryData_View2.hints.BillSdAmountDr.tooltip}"
+                                                           id="ot3">
+                                                <af:convertNumber groupingUsed="true"
+                                                                  pattern="#{bindings.BillSummryData_View2.hints.BillSdAmountDr.format}"
+                                                                  messageDetailConvertNumber="#,###,##"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.BillSummryData_View2.hints.BillSdAmountCr.label}"
+                                                   id="c4" width="100" rendered="true" align="center"
+                                                   inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;">
+                                            <af:outputText value="#{row.BillSdAmountCr}"
+                                                           shortDesc="#{bindings.BillSummryData_View2.hints.BillSdAmountCr.tooltip}"
+                                                           id="ot4">
+                                                <af:convertNumber groupingUsed="true"
+                                                                  pattern="#{bindings.BillSummryData_View2.hints.BillSdAmountCr.format}"
+                                                                  messageDetailConvertNumber="#,###,##"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.BillSummryData_View2.hints.BillParamIdFk.label}"
+                                                   id="c5" rendered="false" inlineStyle="font-weight:bold;">
+                                            <af:outputText value="#{row.BillParamIdFk}"
+                                                           shortDesc="#{bindings.BillSummryData_View2.hints.BillParamIdFk.tooltip}"
+                                                           id="ot5">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.BillSummryData_View2.hints.BillParamIdFk.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                    </af:table>
+                                    <f:facet name="statusbar"/>
+                                </af:panelCollection>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4">
+                                <af:panelCollection id="pc2">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar"/>
+                                    <af:table value="#{bindings.BillDetailData_View2.collectionModel}" var="row"
+                                              rows="#{bindings.BillDetailData_View2.rangeSize}"
+                                              emptyText="#{bindings.BillDetailData_View2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.BillDetailData_View2.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.BillDetailData_View2.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.BillDetailData_View2.rangeSize}"
+                                              filterModel="#{bindings.BillDetailData_View2Query.queryDescriptor}"
+                                              queryListener="#{bindings.BillDetailData_View2Query.processQuery}"
+                                              varStatus="vs" id="t2" width="890" maxClientRows="10000"
+                                              inlineStyle="background-color:Window; border-right-color:Window;"
+                                              autoHeightRows="1500">
+                                        <af:column sortProperty="#{bindings.BillDetailData_View2.hints.BillDdId.name}"
+                                                   filterable="false" sortable="false"
+                                                   headerText="#{bindings.BillDetailData_View2.hints.BillDdId.label}"
+                                                   id="c6"
+                                                   inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-size:small; font-weight:bold;"
+                                                   rendered="false">
+                                            <af:outputText value="#{row.BillDdId}"
+                                                           shortDesc="#{bindings.BillDetailData_View2.hints.BillDdId.tooltip}"
+                                                           id="ot6">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.BillDetailData_View2.hints.BillDdId.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.BillDetailData_View2.hints.BillDdDate.name}"
+                                                   filterable="true" sortable="false"
+                                                   headerText="#{bindings.BillDetailData_View2.hints.BillDdDate.label}"
+                                                   id="c7"
+                                                   inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-size:small; font-weight:bold;"
+                                                   align="center" width="80">
+                                            <af:outputText value="#{row.BillDdDate}"
+                                                           shortDesc="#{bindings.BillDetailData_View2.hints.BillDdDate.tooltip}"
+                                                           id="ot7"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.BillDetailData_View2.hints.BillDdSlipNo.name}"
+                                                   filterable="true" sortable="false"
+                                                   headerText="#{bindings.BillDetailData_View2.hints.BillDdSlipNo.label}"
+                                                   id="c8"
+                                                   inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-size:small; font-weight:bold;"
+                                                   align="center" width="90">
+                                            <af:outputText value="#{row.BillDdSlipNo}"
+                                                           shortDesc="#{bindings.BillDetailData_View2.hints.BillDdSlipNo.tooltip}"
+                                                           id="ot8"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.BillDetailData_View2.hints.BillDdVehicle.name}"
+                                                   filterable="true" sortable="false"
+                                                   headerText="#{bindings.BillDetailData_View2.hints.BillDdVehicle.label}"
+                                                   id="c9"
+                                                   inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-size:small; font-weight:bold;"
+                                                   align="center" width="90">
+                                            <af:outputText value="#{row.BillDdVehicle}"
+                                                           shortDesc="#{bindings.BillDetailData_View2.hints.BillDdVehicle.tooltip}"
+                                                           id="ot9"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.BillDetailData_View2.hints.BillDdDetails.name}"
+                                                   filterable="true" sortable="false"
+                                                   headerText="#{bindings.BillDetailData_View2.hints.BillDdDetails.label}"
+                                                   id="c10"
+                                                   inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-size:small; font-weight:bold;"
+                                                   align="center">
+                                            <af:outputText value="#{row.BillDdDetails}"
+                                                           shortDesc="#{bindings.BillDetailData_View2.hints.BillDdDetails.tooltip}"
+                                                           id="ot10"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.BillDetailData_View2.hints.BillDdQty.name}"
+                                                   filterable="true" sortable="false"
+                                                   headerText="#{bindings.BillDetailData_View2.hints.BillDdQty.label}"
+                                                   id="c11"
+                                                   inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-size:small; font-weight:bold;"
+                                                   align="center" width="80">
+                                            <af:outputText value="#{row.BillDdQty}"
+                                                           shortDesc="#{bindings.BillDetailData_View2.hints.BillDdQty.tooltip}"
+                                                           id="ot11"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.BillDetailData_View2.hints.BillDdRate.name}"
+                                                   filterable="true" sortable="false"
+                                                   headerText="#{bindings.BillDetailData_View2.hints.BillDdRate.label}"
+                                                   id="c12"
+                                                   inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-size:small; font-weight:bold;"
+                                                   align="center" width="80">
+                                            <af:outputText value="#{row.BillDdRate}"
+                                                           shortDesc="#{bindings.BillDetailData_View2.hints.BillDdRate.tooltip}"
+                                                           id="ot12"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.BillDetailData_View2.hints.BillDdAmount.name}"
+                                                   filterable="true" sortable="false"
+                                                   headerText="#{bindings.BillDetailData_View2.hints.BillDdAmount.label}"
+                                                   id="c13"
+                                                   inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-size:small; font-weight:bold;"
+                                                   align="center">
+                                            <af:outputText value="#{row.BillDdAmount}"
+                                                           shortDesc="#{bindings.BillDetailData_View2.hints.BillDdAmount.tooltip}"
+                                                           id="ot13">
+                                                <af:convertNumber pattern="#,##0" groupingUsed="true"
+                                                                  messageDetailConvertNumber="#,###,##"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.BillDetailData_View2.hints.BillDdBalance.name}"
+                                                   filterable="true" sortable="false"
+                                                   headerText="#{bindings.BillDetailData_View2.hints.BillDdBalance.label}"
+                                                   id="c14"
+                                                   inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-size:small; font-weight:bold;"
+                                                   align="center">
+                                            <af:outputText value="#{row.BillDdBalance}"
+                                                           shortDesc="#{bindings.BillDetailData_View2.hints.BillDdBalance.tooltip}"
+                                                           id="ot14">
+                                                <af:convertNumber messageDetailConvertNumber="#,###,##"
+                                                                  pattern="#,###,##" groupingUsed="true"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.BillDetailData_View2.hints.BillParamIdFk.name}"
+                                                   filterable="true" sortable="false"
+                                                   headerText="#{bindings.BillDetailData_View2.hints.BillParamIdFk.label}"
+                                                   id="c15"
+                                                   inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-size:small; font-weight:bold;"
+                                                   rendered="false">
+                                            <af:outputText value="#{row.BillParamIdFk}"
+                                                           shortDesc="#{bindings.BillDetailData_View2.hints.BillParamIdFk.tooltip}"
+                                                           id="ot15">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.BillDetailData_View2.hints.BillParamIdFk.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                    </af:table>
+                                    <f:facet name="statusbar"/>
+                                </af:panelCollection>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+            </af:panelSplitter>
+        </af:panelBox>
+    </f:view>
+</ui:composition>

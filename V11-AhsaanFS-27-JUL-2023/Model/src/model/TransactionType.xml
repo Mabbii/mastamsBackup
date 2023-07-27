@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TransactionType"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="TRANSACTION_TYPE"
+  AliasName="TransactionType"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="TnsTypeId"
+    IsNotNull="true"
+    ColumnName="TNS_TYPE_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION_TYPE"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="TnsTypeName"
+    Precision="20"
+    ColumnName="TNS_TYPE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TRANSACTION_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Transaction"
+    Association="model.TnstypeTnsFkAssoc"
+    AssociationEnd="model.TnstypeTnsFkAssoc.Transaction"
+    AssociationOtherEnd="model.TnstypeTnsFkAssoc.TransactionType"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TransactionLog"
+    Association="model.TNS_LOG_TNS_TYPE_ASSOC"
+    AssociationEnd="model.TNS_LOG_TNS_TYPE_ASSOC.TransactionLog"
+    AssociationOtherEnd="model.TNS_LOG_TNS_TYPE_ASSOC.TransactionType"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="TransactionTypePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="TRANSACTION_TYPE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.TransactionType.TnsTypeId"/>
+    </AttrArray>
+  </Key>
+</Entity>

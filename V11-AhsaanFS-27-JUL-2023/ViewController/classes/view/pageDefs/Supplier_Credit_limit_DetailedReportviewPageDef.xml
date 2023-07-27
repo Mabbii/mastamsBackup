@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="Supplier_Credit_limit_DetailedReportviewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZRptAllSupCrdLimitParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="ZRptAllSupCrdLimitParamView1Iterator"/>
+    <iterator Binds="ZRptAllSupCrdLimitDataView1" RangeSize="50" DataControl="VOAPPDataControl"
+              id="ZRptAllSupCrdLimitDataView1Iterator"/>
+    <searchRegion Binds="ZRptAllSupCrdLimitDataView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ZRptAllSupCrdLimitDataView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ZRptAllSupCrdLimitParamView1Iterator" id="SupCrdLmtParamId">
+      <AttrNames>
+        <Item Value="SupCrdLmtParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptAllSupCrdLimitParamView1Iterator" id="SupCrdLmtParamStartDate">
+      <AttrNames>
+        <Item Value="SupCrdLmtParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptAllSupCrdLimitParamView1Iterator" id="SupCrdLmtParamEndDate">
+      <AttrNames>
+        <Item Value="SupCrdLmtParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptAllSupCrdLimitParamView1Iterator" id="SupCrdLmtParamPartyId">
+      <AttrNames>
+        <Item Value="SupCrdLmtParamPartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ZRptAllSupCrdLimitParamView1Iterator" StaticList="false" Uses="LOV_ShowOmcPump"
+          id="ShowOmcPump" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action IterBinding="ZRptAllSupCrdLimitDataView1Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="ZRptAllSupCrdLimitDataView1Iterator" id="ZRptAllSupCrdLimitDataView1">
+      <nodeDefinition DefName="model.ZRptAllSupCrdLimitDataView" Name="ZRptAllSupCrdLimitDataView10">
+        <AttrNames>
+          <Item Value="SupPmpCrdLmtPartyId"/>
+          <Item Value="SupPmpCrdLmtPartyName"/>
+          <Item Value="SupPmpCrdLmtDate"/>
+          <Item Value="SupPmpCrdLmtLedgerBal"/>
+          <Item Value="SupPmpCrdLmtPayments"/>
+          <Item Value="SupPmpCrdLmtPurchases"/>
+          <Item Value="SupPmpCrdLmtNetBalance"/>
+          <Item Value="SupPmpCrdLmtCreditLimit"/>
+          <Item Value="SupPmpBalanceWithLimit"/>
+          <Item Value="SupPmpCrdLmtComments"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

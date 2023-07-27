@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="ManageChartofAccountVIEWPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="COA_MANAGE_VIEW1" RangeSize="25" DataControl="VOAPPDataControl" id="COA_MANAGE_VIEW1Iterator"/>
+    <searchRegion Binds="COA_MANAGE_VIEW1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="COA_MANAGE_VIEW1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="COA_MANAGE_VIEW1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <attributeValues IterBinding="COA_MANAGE_VIEW1Iterator" id="CoaMngId">
+      <AttrNames>
+        <Item Value="CoaMngId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="COA_MANAGE_VIEW1Iterator" id="CoaMngName">
+      <AttrNames>
+        <Item Value="CoaMngName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="COA_MANAGE_VIEW1Iterator" id="CoaMngSysDate">
+      <AttrNames>
+        <Item Value="CoaMngSysDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="COA_MANAGE_VIEW1Iterator" StaticList="false" Uses="LOV_CoaMngDrBlock" id="CoaMngDrBlock"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="COA_MANAGE_VIEW1Iterator" StaticList="false" Uses="LOV_CoaMngCrBlock" id="CoaMngCrBlock"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="COA_MANAGE_VIEW1Iterator" StaticList="false" Uses="LOV_CoaMngAllBlock" id="CoaMngAllBlock"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="COA_MANAGE_VIEW1Iterator" StaticList="false" Uses="LOV_CoaMngShowBlock" id="CoaMngShowBlock"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="COA_MANAGE_VIEW1Iterator" id="CoaMngBlockReason">
+      <AttrNames>
+        <Item Value="CoaMngBlockReason"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="COA_MANAGE_VIEW1Iterator" id="CoaMngCoaIdFk">
+      <AttrNames>
+        <Item Value="CoaMngCoaIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="COA_MANAGE_VIEW1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="COA_MANAGE_VIEW1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="COA_MANAGE_VIEW1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="COA_MANAGE_VIEW1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="COA_MANAGE_VIEW1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="COA_MANAGE_VIEW1Iterator" id="COA_MANAGE_VIEW1">
+      <nodeDefinition DefName="model.COA_MANAGE_VIEW" Name="COA_MANAGE_VIEW10">
+        <AttrNames>
+          <Item Value="CoaMngSysDate"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaMngDrBlock"/>
+          <Item Value="CoaMngCrBlock"/>
+          <Item Value="CoaMngAllBlock"/>
+          <Item Value="CoaMngShowBlock"/>
+          <Item Value="CoaMngBlockReason"/>
+          <Item Value="CoaActNumber"/>
+          <Item Value="CoaMngName"/>
+          <Item Value="CoaMngCoaIdFk"/>
+          <Item Value="CoaMngId"/>
+          <Item Value="CoaMngShowAsBank"/>
+          <Item Value="CoaMngExemptSalesPurchase"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="COA_MANAGE_VIEW1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <list IterBinding="COA_MANAGE_VIEW1Iterator" StaticList="false" Uses="LOV_CoaMngShowAsBank" id="CoaMngShowAsBank"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="COA_MANAGE_VIEW1Iterator" StaticList="false" Uses="LOV_CoaMngExemptSalesPurchase"
+          id="CoaMngExemptSalesPurchase" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

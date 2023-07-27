@@ -1,0 +1,19 @@
+//Groovy Scripts for model.Z_Rpt_Sales_All_Param
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="SalesAllParamStartDate")
+def SalesAllParamStartDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="SalesAllParamEndDate")
+def SalesAllParamEndDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

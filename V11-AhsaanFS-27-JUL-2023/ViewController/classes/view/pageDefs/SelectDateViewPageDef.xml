@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="SelectDateViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DateCounterView1" RangeSize="25" DataControl="VOAPPDataControl" id="DateCounterView1Iterator"/>
+    <searchRegion Binds="DateCounterView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DateCounterView1Query"/>
+    <iterator Binds="DateSelectView1" RangeSize="25" DataControl="VOAPPDataControl" id="DateSelectView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="DateCounterView1Iterator" id="DcId">
+      <AttrNames>
+        <Item Value="DcId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DateCounterView1Iterator" id="DcDate">
+      <AttrNames>
+        <Item Value="DcDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DateCounterView1Iterator" id="DcDateCounter">
+      <AttrNames>
+        <Item Value="DcDateCounter"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DateCounterView1Iterator" id="DcStartDate">
+      <AttrNames>
+        <Item Value="DcStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DateCounterView1Iterator" id="DcEndDate">
+      <AttrNames>
+        <Item Value="DcEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DateCounterView1Iterator" id="DcDateCounterMr">
+      <AttrNames>
+        <Item Value="DcDateCounterMr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DateCounterView1Iterator" id="DcDateCounterDip">
+      <AttrNames>
+        <Item Value="DcDateCounterDip"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DateCounterView1Iterator" id="DcFlag">
+      <AttrNames>
+        <Item Value="DcFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DateCounterView1Iterator" id="DcRand">
+      <AttrNames>
+        <Item Value="DcRand"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="DateCounterView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="DateCounterView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="DateCounterView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="DateCounterView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="DateCounterView1Iterator" id="DateCounterView1">
+      <nodeDefinition DefName="model.DateCounterView" Name="DateCounterView10">
+        <AttrNames>
+          <Item Value="DcId"/>
+          <Item Value="DcDate"/>
+          <Item Value="DcDateCounter"/>
+          <Item Value="DcStartDate"/>
+          <Item Value="DcEndDate"/>
+          <Item Value="DcDateCounterMr"/>
+          <Item Value="DcDateCounterDip"/>
+          <Item Value="DcFlag"/>
+          <Item Value="DcRand"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DateCounterView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <attributeValues IterBinding="DateSelectView1Iterator" id="DateSelected">
+      <AttrNames>
+        <Item Value="DateSelected"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DateSelectView1Iterator" id="DsId">
+      <AttrNames>
+        <Item Value="DsId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

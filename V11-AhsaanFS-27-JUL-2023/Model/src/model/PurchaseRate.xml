@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PurchaseRate"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="PURCHASE_RATE"
+  AliasName="PurchaseRate"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="PurchaseRateId"
+    ColumnName="PURCHASE_RATE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="PURCHASE_RATE"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="PurchaseRateR"
+    IsNotNull="true"
+    Precision="27"
+    Scale="7"
+    ColumnName="PURCHASE_RATE_R"
+    SQLType="NUMERIC"
+    Type="java.lang.String"
+    ColumnType="Number"
+    TableName="PURCHASE_RATE"/>
+  <Attribute
+    Name="PurchaseRateDate"
+    ColumnName="PURCHASE_RATE_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="Date"
+    TableName="PURCHASE_RATE"/>
+  <Attribute
+    Name="PurchaseRateStartdate"
+    ColumnName="PURCHASE_RATE_STARTDATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="Date"
+    TableName="PURCHASE_RATE"/>
+  <Attribute
+    Name="PurchaseRateEnddate"
+    ColumnName="PURCHASE_RATE_ENDDATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="Date"
+    TableName="PURCHASE_RATE"/>
+  <Attribute
+    Name="PpartyId"
+    ColumnName="PPARTY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="PURCHASE_RATE"/>
+  <Attribute
+    Name="PproductId"
+    IsNotNull="true"
+    ColumnName="PPRODUCT_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="PURCHASE_RATE"/>
+  <Attribute
+    Name="PurchaseRateDetails"
+    Precision="50"
+    ColumnName="PURCHASE_RATE_DETAILS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PURCHASE_RATE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Party"
+    Association="model.Party_PurchaseRate_FK_Assoc"
+    AssociationEnd="model.Party_PurchaseRate_FK_Assoc.Party"
+    AssociationOtherEnd="model.Party_PurchaseRate_FK_Assoc.PurchaseRate"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Product"
+    Association="model.Product_PurchaseRate_FK_Assoc"
+    AssociationEnd="model.Product_PurchaseRate_FK_Assoc.Product"
+    AssociationOtherEnd="model.Product_PurchaseRate_FK_Assoc.PurchaseRate"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="PurchaseRateLog"
+    Association="model.PURCHASERATE_PRLOG_FK_Assoc"
+    AssociationEnd="model.PURCHASERATE_PRLOG_FK_Assoc.PurchaseRateLog"
+    AssociationOtherEnd="model.PURCHASERATE_PRLOG_FK_Assoc.PurchaseRate"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="PurchaseRatePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PURCHASE_RATE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.PurchaseRate.PurchaseRateId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="PartyPurchaserateFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PARTY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PARTY_PURCHASERATE_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.PurchaseRate.PpartyId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="RoductPurchaserateFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRODUCT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="RODUCT_PURCHASERATE_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.PurchaseRate.PproductId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_PurchaseRate">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PARTY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_PURCHASE_RATE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.PurchaseRate.PpartyId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_PurchaseRate1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRODUCT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_PURCHASE_RATE1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.PurchaseRate.PproductId"/>
+    </AttrArray>
+  </Key>
+</Entity>

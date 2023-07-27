@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="zPageDef" Package="web">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AuthView1" RangeSize="25" DataControl="VOAPPDataControl" id="AuthView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="AuthView1Iterator" id="UserName">
+      <AttrNames>
+        <Item Value="UserName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AuthView1Iterator" id="UserPass">
+      <AttrNames>
+        <Item Value="UserPass"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="execUpdateUserLOG" RequiresUpdateModel="true" Action="invokeMethod" MethodName="execUpdateUserLOG"
+                  IsViewObjectMethod="false" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.execUpdateUserLOG.dataControl.dataProvider">
+      <NamedData NDName="pSessionId" NDType="java.lang.String"/>
+      <NamedData NDName="pUserName" NDType="java.lang.String"/>
+      <NamedData NDName="pOutReason" NDType="int"/>
+    </methodAction>
+    <methodAction id="execPLSQLCheckLoginAttempts" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="execPLSQLCheckLoginAttempts" IsViewObjectMethod="false" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.execPLSQLCheckLoginAttempts.dataControl.dataProvider"
+                  ReturnName="data.VOAPPDataControl.methodResults.execPLSQLCheckLoginAttempts_execPLSQLCheckLoginAttempts_dataControl_dataProvider_execPLSQLCheckLoginAttempts_result">
+      <NamedData NDName="aStringParam" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="execINSERTUSERLOG" RequiresUpdateModel="true" Action="invokeMethod" MethodName="execINSERTUSERLOG"
+                  IsViewObjectMethod="false" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.execINSERTUSERLOG.dataControl.dataProvider">
+      <NamedData NDName="pSessionId" NDType="java.lang.String"/>
+      <NamedData NDName="pUserName" NDType="java.lang.String"/>
+      <NamedData NDName="pAuthF" NDType="int"/>
+      <NamedData NDName="pAuthReason" NDType="int"/>
+    </methodAction>
+    <methodAction id="CallAMTaskFlowActivity" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="CallAMTaskFlowActivity" IsViewObjectMethod="false" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.CallAMTaskFlowActivity.dataControl.dataProvider">
+      <NamedData NDName="Task" NDType="int"/>
+      <NamedData NDName="userName" NDType="java.lang.String"/>
+      <NamedData NDName="sessionID" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

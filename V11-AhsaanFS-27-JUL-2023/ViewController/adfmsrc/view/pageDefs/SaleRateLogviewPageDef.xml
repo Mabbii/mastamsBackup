@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="SaleRateLogviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SaleRateLogForCustomer1" RangeSize="50" DataControl="VOAPPDataControl"
+              id="SaleRateLogForCustomer1Iterator"/>
+    <searchRegion Binds="SaleRateLogForCustomer1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SaleRateLogForCustomer1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="SaleRateLogForCustomer1Iterator" StaticList="false" Uses="LOV_PartyName" id="PartyName"/>
+    <listOfValues IterBinding="SaleRateLogForCustomer1Iterator" StaticList="false" Uses="LOV_ProductShortname"
+                  id="ProductShortname"/>
+    <attributeValues IterBinding="SaleRateLogForCustomer1Iterator" id="SaleRateLogId">
+      <AttrNames>
+        <Item Value="SaleRateLogId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateLogForCustomer1Iterator" id="SaleRateLogR">
+      <AttrNames>
+        <Item Value="SaleRateLogR"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateLogForCustomer1Iterator" id="SaleRateLogDate">
+      <AttrNames>
+        <Item Value="SaleRateLogDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateLogForCustomer1Iterator" id="SaleRateLogStartdate">
+      <AttrNames>
+        <Item Value="SaleRateLogStartdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateLogForCustomer1Iterator" id="SaleRateLogEnddate">
+      <AttrNames>
+        <Item Value="SaleRateLogEnddate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateLogForCustomer1Iterator" id="PpartyIdLog">
+      <AttrNames>
+        <Item Value="PpartyIdLog"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateLogForCustomer1Iterator" id="PproductIdLog">
+      <AttrNames>
+        <Item Value="PproductIdLog"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateLogForCustomer1Iterator" id="SaleRateLogDetails">
+      <AttrNames>
+        <Item Value="SaleRateLogDetails"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateLogForCustomer1Iterator" id="SaleRateIdFk">
+      <AttrNames>
+        <Item Value="SaleRateIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateLogForCustomer1Iterator" id="PtypeId">
+      <AttrNames>
+        <Item Value="PtypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateLogForCustomer1Iterator" id="PartyId">
+      <AttrNames>
+        <Item Value="PartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateLogForCustomer1Iterator" id="ProductId">
+      <AttrNames>
+        <Item Value="ProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SaleRateLogForCustomer1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="SaleRateLogForCustomer1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="SaleRateLogForCustomer1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="SaleRateLogForCustomer1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="SaleRateLogForCustomer1Iterator" id="SaleRateLogForCustomer1">
+      <nodeDefinition DefName="model.SaleRateLogForCustomer" Name="SaleRateLogForCustomer10">
+        <AttrNames>
+          <Item Value="SaleRateLogDate"/>
+          <Item Value="SaleRateLogId"/>
+          <Item Value="PartyName"/>
+          <Item Value="ProductShortname"/>
+          <Item Value="SaleRateLogR"/>
+          <Item Value="SaleRateLogStartdate"/>
+          <Item Value="SaleRateLogEnddate"/>
+          <Item Value="SaleRateLogDetails"/>
+          <Item Value="SaleRateIdFk"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SaleRateLogForCustomer1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

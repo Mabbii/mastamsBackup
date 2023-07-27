@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="PurchaseRtaeLogSupplierviewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PurchaseRateLogForSupplier1" RangeSize="50" DataControl="VOAPPDataControl"
+              id="PurchaseRateLogForSupplier1Iterator"/>
+    <searchRegion Binds="PurchaseRateLogForSupplier1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="PurchaseRateLogForSupplier1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="PurchaseRateLogForSupplier1Iterator" StaticList="false" Uses="LOV_PartyName"
+                  id="PartyName"/>
+    <listOfValues IterBinding="PurchaseRateLogForSupplier1Iterator" StaticList="false" Uses="LOV_ProductShortname"
+                  id="ProductShortname"/>
+    <attributeValues IterBinding="PurchaseRateLogForSupplier1Iterator" id="PurchaseRateLogId">
+      <AttrNames>
+        <Item Value="PurchaseRateLogId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateLogForSupplier1Iterator" id="PurchaseRateLogR">
+      <AttrNames>
+        <Item Value="PurchaseRateLogR"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateLogForSupplier1Iterator" id="PurchaseRateLogDate">
+      <AttrNames>
+        <Item Value="PurchaseRateLogDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateLogForSupplier1Iterator" id="PurchaseRateLogStartdate">
+      <AttrNames>
+        <Item Value="PurchaseRateLogStartdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateLogForSupplier1Iterator" id="PurchaseRateLogEnddate">
+      <AttrNames>
+        <Item Value="PurchaseRateLogEnddate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateLogForSupplier1Iterator" id="PpartyIdLog">
+      <AttrNames>
+        <Item Value="PpartyIdLog"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateLogForSupplier1Iterator" id="PproductIdLog">
+      <AttrNames>
+        <Item Value="PproductIdLog"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateLogForSupplier1Iterator" id="PurchaseRateLogDetails">
+      <AttrNames>
+        <Item Value="PurchaseRateLogDetails"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateLogForSupplier1Iterator" id="PurchaseRateIdFk">
+      <AttrNames>
+        <Item Value="PurchaseRateIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateLogForSupplier1Iterator" id="PtypeId">
+      <AttrNames>
+        <Item Value="PtypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateLogForSupplier1Iterator" id="PartyId">
+      <AttrNames>
+        <Item Value="PartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateLogForSupplier1Iterator" id="ProductId">
+      <AttrNames>
+        <Item Value="ProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="PurchaseRateLogForSupplier1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="PurchaseRateLogForSupplier1Iterator" id="Previous" RequiresUpdateModel="true"
+            Action="previous"/>
+    <action IterBinding="PurchaseRateLogForSupplier1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="PurchaseRateLogForSupplier1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="PurchaseRateLogForSupplier1Iterator" id="PurchaseRateLogForSupplier1">
+      <nodeDefinition DefName="model.PurchaseRateLogForSupplier" Name="PurchaseRateLogForSupplier10">
+        <AttrNames>
+          <Item Value="PurchaseRateLogDate"/>
+          <Item Value="PurchaseRateLogId"/>
+          <Item Value="PartyName"/>
+          <Item Value="ProductShortname"/>
+          <Item Value="PurchaseRateLogR"/>
+          <Item Value="PurchaseRateLogStartdate"/>
+          <Item Value="PurchaseRateLogEnddate"/>
+          <Item Value="PurchaseRateLogDetails"/>
+          <Item Value="PurchaseRateIdFk"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="PurchaseRateLogForSupplier1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

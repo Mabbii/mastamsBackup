@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BANKNAME_TNS_ASSOC"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="BankName"
+    Cardinality="1"
+    Source="true"
+    Owner="model.BankName"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="BankName"/>
+      <Attr Name="_foreignKey" Value="model.BankName.BankNamePk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BankName.BankNameId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Transaction"
+    Cardinality="-1"
+    Owner="model.Transaction">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Transaction"/>
+      <Attr Name="_foreignKey" Value="model.Transaction.fk_Transaction13"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsBankNameId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

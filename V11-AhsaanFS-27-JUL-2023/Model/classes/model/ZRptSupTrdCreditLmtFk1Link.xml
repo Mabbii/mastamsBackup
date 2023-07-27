@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ZRptSupTrdCreditLmtFk1Link"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  EntityAssociation="model.ZRptSupTrdCreditLmtFk1Assoc">
+  <ViewLinkDefEnd
+    Name="ZRptOneSupCreditLmtParamView"
+    Cardinality="1"
+    Source="true"
+    Owner="model.ZRptOneSupCreditLmtParamView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_finderName" Value="ZRptOneSupCreditLmtParamView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptOneSupCreditLmtParamView.SupTrdLmtParamId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ZRptOneSupCreditLmtDataView"
+    Cardinality="-1"
+    Owner="model.ZRptOneSupCreditLmtDataView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ZRptOneSupCreditLmtDataView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptOneSupCreditLmtDataView.SupTrdCrdLmtPartyIdFk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

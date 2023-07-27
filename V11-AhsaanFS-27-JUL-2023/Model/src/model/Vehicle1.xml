@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Vehicle1"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="VEHICLE"
+  AliasName="Vehicle1"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="VehicleId"
+    ColumnName="VEHICLE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="VEHICLE"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="VehicleDetails"
+    Precision="80"
+    ColumnName="VEHICLE_DETAILS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VEHICLE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VehicleRegNo"
+    IsUnique="true"
+    Precision="30"
+    ColumnName="VEHICLE_REG_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VEHICLE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PartyIdFk"
+    ColumnName="PARTY_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="VEHICLE"/>
+  <AccessorAttribute
+    Name="Transaction"
+    Association="model.Vehicle_TNS_Assoc"
+    AssociationEnd="model.Vehicle_TNS_Assoc.Transaction"
+    AssociationOtherEnd="model.Vehicle_TNS_Assoc.Vehicle1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DataLoaderRetail"
+    Association="model.Vehicle_DLR_Assoc"
+    AssociationEnd="model.Vehicle_DLR_Assoc.DataLoaderRetail"
+    AssociationOtherEnd="model.Vehicle_DLR_Assoc.Vehicle1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="BillVehicleParamEO"
+    Association="model.Bill_Vehicle_Param_Vehicle_id_fk_Assoc"
+    AssociationEnd="model.Bill_Vehicle_Param_Vehicle_id_fk_Assoc.BillVehicleParamEO"
+    AssociationOtherEnd="model.Bill_Vehicle_Param_Vehicle_id_fk_Assoc.Vehicle1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DataLoaderSaleDisc"
+    Association="model.VEHICLE_DLSD_ASSOC"
+    AssociationEnd="model.VEHICLE_DLSD_ASSOC.DataLoaderSaleDisc"
+    AssociationOtherEnd="model.VEHICLE_DLSD_ASSOC.Vehicle1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DataLoaderRpayDrec"
+    Association="model.VEHICLE_DATA_L_RPay_DRec_ASSOC"
+    AssociationEnd="model.VEHICLE_DATA_L_RPay_DRec_ASSOC.DataLoaderRpayDrec"
+    AssociationOtherEnd="model.VEHICLE_DATA_L_RPay_DRec_ASSOC.Vehicle1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Party"
+    Association="model.PARTY_VEHICLE_ASSOC"
+    AssociationEnd="model.PARTY_VEHICLE_ASSOC.Party"
+    AssociationOtherEnd="model.PARTY_VEHICLE_ASSOC.Vehicle1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GeneralLedgerEntry"
+    Association="model.vehicle_GLE_Assoc"
+    AssociationEnd="model.vehicle_GLE_Assoc.GeneralLedgerEntry"
+    AssociationOtherEnd="model.vehicle_GLE_Assoc.Vehicle1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="VehiclePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="VEHICLE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Vehicle1.VehicleId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="VehicleUk1">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="VEHICLE_UK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Vehicle1.VehicleRegNo"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Vehicle1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PARTY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_VEHICLE1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Vehicle1.PartyIdFk"/>
+    </AttrArray>
+  </Key>
+</Entity>

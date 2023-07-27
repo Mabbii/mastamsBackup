@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="DataLoaderPayRecIeptviewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DataLoaderRpayDrecView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="DataLoaderRpayDrecView1Iterator"/>
+    <searchRegion Binds="DataLoaderRpayDrecView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DataLoaderRpayDrecView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="DataLoaderRpayDrecView1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <listOfValues IterBinding="DataLoaderRpayDrecView1Iterator" StaticList="false" Uses="LOV_CoaName1" id="CoaName1"/>
+    <listOfValues IterBinding="DataLoaderRpayDrecView1Iterator" StaticList="false" Uses="LOV_VehicleRegNo"
+                  id="VehicleRegNo"/>
+    <listOfValues IterBinding="DataLoaderRpayDrecView1Iterator" StaticList="false" Uses="LOV_BankTnsTypeName"
+                  id="BankTnsTypeName"/>
+    <attributeValues IterBinding="DataLoaderRpayDrecView1Iterator" id="DlRpDrId">
+      <AttrNames>
+        <Item Value="DlRpDrId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderRpayDrecView1Iterator" id="DlRpDrDate">
+      <AttrNames>
+        <Item Value="DlRpDrDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderRpayDrecView1Iterator" id="DlRpDrPartyIdFk">
+      <AttrNames>
+        <Item Value="DlRpDrPartyIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderRpayDrecView1Iterator" id="DlRpDrBankIdFk">
+      <AttrNames>
+        <Item Value="DlRpDrBankIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderRpayDrecView1Iterator" id="DlRpDrAmount">
+      <AttrNames>
+        <Item Value="DlRpDrAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderRpayDrecView1Iterator" id="DlRpDrVehicleIdFk">
+      <AttrNames>
+        <Item Value="DlRpDrVehicleIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderRpayDrecView1Iterator" id="DlRpDrInfo">
+      <AttrNames>
+        <Item Value="DlRpDrInfo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderRpayDrecView1Iterator" id="DlRpDrSlipDate">
+      <AttrNames>
+        <Item Value="DlRpDrSlipDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderRpayDrecView1Iterator" id="DlRpDrSlipNo">
+      <AttrNames>
+        <Item Value="DlRpDrSlipNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderRpayDrecView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderRpayDrecView1Iterator" id="CoaActNumber1">
+      <AttrNames>
+        <Item Value="CoaActNumber1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderRpayDrecView1Iterator" id="VehicleId">
+      <AttrNames>
+        <Item Value="VehicleId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderRpayDrecView1Iterator" id="TnsBankTnsTypeIdFk">
+      <AttrNames>
+        <Item Value="TnsBankTnsTypeIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderRpayDrecView1Iterator" id="BankTnsTypeId">
+      <AttrNames>
+        <Item Value="BankTnsTypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="DataLoaderRpayDrecView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="DataLoaderRpayDrecView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="DataLoaderRpayDrecView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="DataLoaderRpayDrecView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="DataLoaderRpayDrecView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="DataLoaderRpayDrecView1Iterator" id="DataLoaderRpayDrecView1">
+      <nodeDefinition DefName="model.DataLoaderRpayDrecView" Name="DataLoaderRpayDrecView10">
+        <AttrNames>
+          <Item Value="DlRpDrDate"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaName1"/>
+          <Item Value="DlRpDrAmount"/>
+          <Item Value="BankTnsTypeName"/>
+          <Item Value="VehicleRegNo"/>
+          <Item Value="DlRpDrInfo"/>
+          <Item Value="DlRpDrSlipDate"/>
+          <Item Value="DlRpDrSlipNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

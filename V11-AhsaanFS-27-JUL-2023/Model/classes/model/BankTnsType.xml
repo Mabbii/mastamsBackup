@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BankTnsType"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="BANK_TNS_TYPE"
+  AliasName="BankTnsType"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="BankTnsTypeName"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="BANK_TNS_TYPE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="BANK_TNS_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BankTnsTypeId"
+    ColumnName="BANK_TNS_TYPE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="BANK_TNS_TYPE"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <AccessorAttribute
+    Name="Transaction"
+    Association="model.BANKTNSTYPE_TNS_FK_Assoc"
+    AssociationEnd="model.BANKTNSTYPE_TNS_FK_Assoc.Transaction"
+    AssociationOtherEnd="model.BANKTNSTYPE_TNS_FK_Assoc.BankTnsType"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GeneralLedgerEntry"
+    Association="model.Gle_BankTnsType_Assoc"
+    AssociationEnd="model.Gle_BankTnsType_Assoc.GeneralLedgerEntry"
+    AssociationOtherEnd="model.Gle_BankTnsType_Assoc.BankTnsType"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TnsUnClaimed"
+    Association="model.unclaimed_BankTnsType_Assoc"
+    AssociationEnd="model.unclaimed_BankTnsType_Assoc.TnsUnClaimed"
+    AssociationOtherEnd="model.unclaimed_BankTnsType_Assoc.BankTnsType"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TransactionLog"
+    Association="model.TNS_LOG_BANK_TNS_TYPE_ASSOC"
+    AssociationEnd="model.TNS_LOG_BANK_TNS_TYPE_ASSOC.TransactionLog"
+    AssociationOtherEnd="model.TNS_LOG_BANK_TNS_TYPE_ASSOC.BankTnsType"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DataLoaderRpayDrec"
+    Association="model.bank_dataloaderrpaydrecAssoc"
+    AssociationEnd="model.bank_dataloaderrpaydrecAssoc.DataLoaderRpayDrec"
+    AssociationOtherEnd="model.bank_dataloaderrpaydrecAssoc.BankTnsType"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="BankTnsTypePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="BANK_TNS_TYPE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BankTnsType.BankTnsTypeId"/>
+    </AttrArray>
+  </Key>
+</Entity>

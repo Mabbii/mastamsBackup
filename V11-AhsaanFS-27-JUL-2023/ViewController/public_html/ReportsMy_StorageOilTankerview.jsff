@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="182" id="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1">
+                <af:outputText value="Oil Tanker Storage" id="ot7"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:inputListOfValues label="Oil Tanker" popupTitle="Search and Result Dialog" id="ilov1"
+                                      value="#{bindings.BindOilTRegistration.inputValue}"
+                                      model="#{bindings.OiltRegistration.listOfValuesModel}" autoSubmit="true">
+                    <?audit suppress oracle.jdeveloper.jsp.validate-children?>
+                    <af:inputText value="#{bindings.BindOilTRegistration.inputValue}"
+                                  label="#{bindings.BindOilTRegistration.hints.label}"
+                                  required="#{bindings.BindOilTRegistration.hints.mandatory}"
+                                  columns="#{bindings.BindOilTRegistration.hints.displayWidth}"
+                                  maximumLength="#{bindings.BindOilTRegistration.hints.precision}"
+                                  shortDesc="#{bindings.BindOilTRegistration.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.BindOilTRegistration.validator}"/>
+                    </af:inputText>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.OiltRegistration.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputDate value="#{bindings.BindStartDate.inputValue}" label="Start Date"
+                              required="#{bindings.BindStartDate.hints.mandatory}"
+                              columns="#{bindings.BindStartDate.hints.displayWidth}"
+                              shortDesc="#{bindings.BindStartDate.hints.tooltip}" id="id1">
+                    <f:validator binding="#{bindings.BindStartDate.validator}"/>
+                    <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                </af:inputDate>
+                <af:inputDate value="#{bindings.BindEndDate.inputValue}" label="End Date"
+                              required="#{bindings.BindEndDate.hints.mandatory}"
+                              columns="#{bindings.BindEndDate.hints.displayWidth}"
+                              shortDesc="#{bindings.BindEndDate.hints.tooltip}" id="id2">
+                    <f:validator binding="#{bindings.BindEndDate.validator}"/>
+                    <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                </af:inputDate>
+                <af:button actionListener="#{bindings.ExecuteWithParams.execute}" text="Show"
+                           disabled="#{!bindings.ExecuteWithParams.enabled}" id="b1"
+                           icon="#{resource['images:find.png']}"/>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.StorageOilTankerLedger1.collectionModel}" var="row"
+                          rows="#{bindings.StorageOilTankerLedger1.rangeSize}"
+                          emptyText="#{bindings.StorageOilTankerLedger1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.StorageOilTankerLedger1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.StorageOilTankerLedger1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.StorageOilTankerLedger1.rangeSize}"
+                          filterModel="#{bindings.StorageOilTankerLedger1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.StorageOilTankerLedger1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 :::b1">
+                    <af:column sortProperty="#{bindings.StorageOilTankerLedger1.hints.TslDate.name}" filterable="true"
+                               sortable="true" headerText="Date"
+                               id="c1" align="center" inlineStyle="text-align:left;">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.StorageOilTankerLedger1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TslDate.value}"
+                                          id="id3">
+                                <af:convertDateTime pattern="#{bindings.StorageOilTankerLedger1.hints.TslDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.TslDate}"
+                                       shortDesc="#{bindings.StorageOilTankerLedger1.hints.TslDate.tooltip}" id="ot1">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.StorageOilTankerLedger1.hints.OiltRegistration.name}"
+                               filterable="true" sortable="true"
+                               headerText="Oil Tanker" id="c6" align="center" inlineStyle="text-align:left;"
+                               width="200">
+                        <af:outputText value="#{row.OiltRegistration}"
+                                       shortDesc="#{bindings.StorageOilTankerLedger1.hints.OiltRegistration.tooltip}"
+                                       id="ot6"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.StorageOilTankerLedger1.hints.TankInfoName.name}"
+                               filterable="true" sortable="true"
+                               headerText="Tank" id="c5" align="center" inlineStyle="text-align:left;" width="200">
+                        <af:outputText value="#{row.TankInfoName}"
+                                       shortDesc="#{bindings.StorageOilTankerLedger1.hints.TankInfoName.tooltip}"
+                                       id="ot5"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.StorageOilTankerLedger1.hints.TslDebit.name}" filterable="true"
+                               sortable="true" headerText="In"
+                               id="c2" align="center" inlineStyle="text-align:right;" width="150">
+                        <af:outputText value="#{row.TslDebit}"
+                                       shortDesc="#{bindings.StorageOilTankerLedger1.hints.TslDebit.tooltip}" id="ot2">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.StorageOilTankerLedger1.hints.TslDebit.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.StorageOilTankerLedger1.hints.TslCredit.name}" filterable="true"
+                               sortable="true" headerText="Out"
+                               id="c3" align="center" inlineStyle="text-align:right;" width="150">
+                        <af:outputText value="#{row.TslCredit}"
+                                       shortDesc="#{bindings.StorageOilTankerLedger1.hints.TslCredit.tooltip}" id="ot3">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.StorageOilTankerLedger1.hints.TslCredit.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="Balance" id="c4" align="center" inlineStyle="text-align:right;" width="150">
+                        <af:outputText value="#{row.TslSubBal}"
+                                       shortDesc="#{bindings.StorageOilTankerLedger1.hints.TslSubBal.tooltip}" id="ot4">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.StorageOilTankerLedger1.hints.TslSubBal.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

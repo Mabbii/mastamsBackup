@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="BankAccountViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="BankAccountView1" RangeSize="25" DataControl="VOAPPDataControl" id="BankAccountView1Iterator"/>
+    <searchRegion Binds="BankAccountView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="BankAccountView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="BankAccountView1Iterator" id="BActId">
+      <AttrNames>
+        <Item Value="BActId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BankAccountView1Iterator" id="BActTitle">
+      <AttrNames>
+        <Item Value="BActTitle"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BankAccountView1Iterator" id="BActNo">
+      <AttrNames>
+        <Item Value="BActNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BankAccountView1Iterator" id="BActShort">
+      <AttrNames>
+        <Item Value="BActShort"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BankAccountView1Iterator" id="BActBranchcode">
+      <AttrNames>
+        <Item Value="BActBranchcode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BankAccountView1Iterator" id="BActBranchname">
+      <AttrNames>
+        <Item Value="BActBranchname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BankAccountView1Iterator" id="BActBankname">
+      <AttrNames>
+        <Item Value="BActBankname"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="BankAccountView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="BankAccountView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="BankAccountView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="BankAccountView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="BankAccountView1Iterator" id="BankAccountView1">
+      <nodeDefinition DefName="model.BankAccountView" Name="BankAccountView10">
+        <AttrNames>
+          <Item Value="BActId"/>
+          <Item Value="BActTitle"/>
+          <Item Value="BActNo"/>
+          <Item Value="BActShort"/>
+          <Item Value="BActBranchcode"/>
+          <Item Value="BActBranchname"/>
+          <Item Value="BActBankname"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="BankAccountView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

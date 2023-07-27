@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE OperationDefinitions SYSTEM "jbo_03_01.dtd">
+<OperationDefinitions xmlns="http://xmlns.oracle.com/bc4j" Name="TNS_FOR_OPENING_SYSTEM_ACOperations">
+  <ExpressionCodeSource
+    Name="TNS_FOR_OPENING_SYSTEM_ACRow"
+    Type="Static"
+    URI="model/TNS_FOR_OPENING_SYSTEM_ACRow.bcs"/>
+</OperationDefinitions>

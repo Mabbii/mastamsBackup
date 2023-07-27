@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LUserActivity"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="L_USER_ACTIVITY"
+  AliasName="LUserActivity"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="AcitvityId"
+    ColumnName="ACITVITY_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="L_USER_ACTIVITY"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="AcitvityNameId"
+    ColumnName="ACITVITY_NAME_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="L_USER_ACTIVITY"/>
+  <Attribute
+    Name="UserLogIdFk"
+    ColumnName="USER_LOG_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="L_USER_ACTIVITY"/>
+  <Attribute
+    Name="ActivityTime"
+    ColumnName="ACTIVITY_TIME"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="L_USER_ACTIVITY"/>
+  <AccessorAttribute
+    Name="LUserOperation"
+    Association="model.LUserOperationLUserAFk1Assoc"
+    AssociationEnd="model.LUserOperationLUserAFk1Assoc.LUserOperation"
+    AssociationOtherEnd="model.LUserOperationLUserAFk1Assoc.LUserActivity"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="LUserSession"
+    Association="model.LUserActivityLUserSeFk1Assoc"
+    AssociationEnd="model.LUserActivityLUserSeFk1Assoc.LUserSession"
+    AssociationOtherEnd="model.LUserActivityLUserSeFk1Assoc.LUserActivity"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="InfoView"
+    Association="model.Info_View_L_User_Act_Assoc"
+    AssociationEnd="model.Info_View_L_User_Act_Assoc.InfoView"
+    AssociationOtherEnd="model.Info_View_L_User_Act_Assoc.LUserActivity"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="LUserActivityPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="L_USER_ACTIVITY_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.LUserActivity.AcitvityId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="LUserActivityLUserSeFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="L_USER_SESSION_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="L_USER_ACTIVITY_L_USER_SE_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.LUserActivity.UserLogIdFk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_LUserActivity">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="INFO_VIEW_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_LUSER_ACTIVITY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.LUserActivity.AcitvityNameId"/>
+    </AttrArray>
+  </Key>
+</Entity>

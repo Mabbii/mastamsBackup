@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="ManagementmyPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="ManageChartofAccountTF1" taskFlowId="/WEB-INF/ManageChartofAccountTF.xml#ManageChartofAccountTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="OILTANKERtf1" taskFlowId="/WEB-INF/OILTANKERtf.xml#OILTANKERtf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="oildepoTF1" taskFlowId="/WEB-INF/oildepoTF.xml#oildepoTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="DefaultManagmentTF1" taskFlowId="/WEB-INF/DefaultManagmentTF.xml#DefaultManagmentTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="NozalTF1" taskFlowId="/WEB-INF/NozalTF.xml#NozalTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="TanksTf1" taskFlowId="/WEB-INF/TanksTf.xml#TanksTf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="NozalTankMapTF1" taskFlowId="/WEB-INF/NozalTankMapTF.xml#NozalTankMapTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="OilTankerStorageTf1" taskFlowId="/WEB-INF/OilTankerStorageTf.xml#OilTankerStorageTf"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="VehicleTf1" taskFlowId="/WEB-INF/VehicleTf.xml#VehicleTf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Opening_and_FinanicalTF1" taskFlowId="/WEB-INF/Opening_and_FinanicalTF.xml#Opening_and_FinanicalTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PipelineGroupTF1" taskFlowId="/WEB-INF/PipelineGroupTF.xml#PipelineGroupTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Managementmy_HRManageTF1" taskFlowId="/WEB-INF/Managementmy_HRManageTF.xml#Managementmy_HRManageTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Managementmy_PostSalaryTF1"
+              taskFlowId="/WEB-INF/Managementmy_PostSalaryTF.xml#Managementmy_PostSalaryTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <methodAction id="CallAMTaskFlowActivity" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="CallAMTaskFlowActivity" IsViewObjectMethod="false" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.CallAMTaskFlowActivity.dataControl.dataProvider">
+      <NamedData NDName="Task" NDType="int"/>
+      <NamedData NDName="userName" NDType="java.lang.String"/>
+      <NamedData NDName="sessionID" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

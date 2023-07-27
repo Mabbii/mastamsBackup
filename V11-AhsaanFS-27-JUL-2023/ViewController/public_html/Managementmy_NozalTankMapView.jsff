@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="120" id="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1" maxColumns="2" rows="2">
+                <af:outputText value="Nozzle Tank Map" id="ot7"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:selectOneChoice value="#{bindings.TankInfoName.inputValue}" label="Tank Name"
+                                    required="#{bindings.TankInfoName.hints.mandatory}"
+                                    shortDesc="#{bindings.TankInfoName.hints.tooltip}" id="soc2">
+                    <f:selectItems value="#{bindings.TankInfoName.items}" id="si2"/>
+                    <f:validator binding="#{bindings.TankInfoName.validator}"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.NozalName.inputValue}" label="Nozzle Name"
+                                    required="#{bindings.NozalName.hints.mandatory}"
+                                    shortDesc="#{bindings.NozalName.hints.tooltip}" id="soc1">
+                    <f:selectItems value="#{bindings.NozalName.items}" id="si1"/>
+                    <f:validator binding="#{bindings.NozalName.validator}"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.NTMapId.inputValue}" label="#{bindings.NTMapId.hints.label}"
+                              required="#{bindings.NTMapId.hints.mandatory}"
+                              columns="#{bindings.NTMapId.hints.displayWidth}"
+                              maximumLength="#{bindings.NTMapId.hints.precision}"
+                              shortDesc="#{bindings.NTMapId.hints.tooltip}" id="it1" readOnly="true" rendered="false">
+                    <f:validator binding="#{bindings.NTMapId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.NTMapId.format}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.NTMapDate.inputValue}" label="Date"
+                              required="#{bindings.NTMapDate.hints.mandatory}"
+                              columns="#{bindings.NTMapDate.hints.displayWidth}"
+                              shortDesc="#{bindings.NTMapDate.hints.tooltip}" id="id1">
+                    <f:validator binding="#{bindings.NTMapDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.NTMapDate.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.NTMapNazalIdFk.inputValue}"
+                              label="#{bindings.NTMapNazalIdFk.hints.label}"
+                              required="#{bindings.NTMapNazalIdFk.hints.mandatory}"
+                              columns="#{bindings.NTMapNazalIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.NTMapNazalIdFk.hints.precision}"
+                              shortDesc="#{bindings.NTMapNazalIdFk.hints.tooltip}" id="it2" rendered="false">
+                    <f:validator binding="#{bindings.NTMapNazalIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.NTMapNazalIdFk.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.NTMapTankIdFk.inputValue}" label="#{bindings.NTMapTankIdFk.hints.label}"
+                              required="#{bindings.NTMapTankIdFk.hints.mandatory}"
+                              columns="#{bindings.NTMapTankIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.NTMapTankIdFk.hints.precision}"
+                              shortDesc="#{bindings.NTMapTankIdFk.hints.tooltip}" id="it3" rendered="false">
+                    <f:validator binding="#{bindings.NTMapTankIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.NTMapTankIdFk.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.NozalId.inputValue}" label="#{bindings.NozalId.hints.label}"
+                              required="#{bindings.NozalId.hints.mandatory}"
+                              columns="#{bindings.NozalId.hints.displayWidth}"
+                              maximumLength="#{bindings.NozalId.hints.precision}"
+                              shortDesc="#{bindings.NozalId.hints.tooltip}" id="it4" rendered="false">
+                    <f:validator binding="#{bindings.NozalId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.NozalId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TankInfoId.inputValue}" label="#{bindings.TankInfoId.hints.label}"
+                              required="#{bindings.TankInfoId.hints.mandatory}"
+                              columns="#{bindings.TankInfoId.hints.displayWidth}"
+                              maximumLength="#{bindings.TankInfoId.hints.precision}"
+                              shortDesc="#{bindings.TankInfoId.hints.tooltip}" id="it5" rendered="false">
+                    <f:validator binding="#{bindings.TankInfoId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TankInfoId.format}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl1">
+                        <af:panelGroupLayout layout="horizontal" id="pgl2">
+                            <af:button actionListener="#{bindings.First.execute}"
+                            icon="#{resource['images:first_hor_ena.png']}"
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                            <af:button actionListener="#{bindings.Previous.execute}"
+                            icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                            <af:button actionListener="#{bindings.Next.execute}"
+                            icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                            <af:button actionListener="#{bindings.Last.execute}"
+                            icon="#{resource['images:last_hor_ena.png']}"
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                                       <af:outputText value="---------------" id="ot61"/>
+                        </af:panelGroupLayout>
+                        <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                        icon="#{resource['images:commit.png']}"
+                                   disabled="#{!bindings.Commit.enabled}"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                        icon="#{resource['images:add.png']}"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b6"/>
+                                   <af:outputText value="---------------------------" id="ot62"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                        icon="#{resource['images:rollback.png']}"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                            <af:resetActionListener/>
+                        </af:button>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar">
+                <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot14" inlineStyle="color:Maroon; font-size:large;"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.NozalTankMapView1.collectionModel}" var="row"
+                          rows="#{bindings.NozalTankMapView1.rangeSize}"
+                          emptyText="#{bindings.NozalTankMapView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.NozalTankMapView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.NozalTankMapView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.NozalTankMapView1.rangeSize}"
+                          filterModel="#{bindings.NozalTankMapView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.NozalTankMapView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 :::b1 :::b2 :::b3 :::b4 :::b6" scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.NozalTankMapView1.hints.NTMapDate.name}" filterable="true"
+                               sortable="true" headerText="Date" id="c2" align="center" width="100"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.NozalTankMapView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.NTMapDate.value}"
+                                          id="id2">
+                                <af:convertDateTime pattern="#{bindings.NozalTankMapView1.hints.NTMapDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.NTMapDate}"
+                                       shortDesc="#{bindings.NozalTankMapView1.hints.NTMapDate.tooltip}" id="ot2">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.NozalTankMapView1.hints.NozalName.name}" filterable="true"
+                               sortable="true" headerText="Nozzle Name" id="c5" align="center" width="150"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;">
+                        <af:selectOneChoice value="#{row.bindings.NozalName.inputValue}"
+                                            label="#{row.bindings.NozalName.label}"
+                                            required="#{bindings.NozalTankMapView1.hints.NozalName.mandatory}"
+                                            shortDesc="#{bindings.NozalTankMapView1.hints.NozalName.tooltip}"
+                                            readOnly="true" id="soc3">
+                            <f:selectItems value="#{row.bindings.NozalName.items}" id="si3"/>
+                            <f:validator binding="#{row.bindings.NozalName.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.NozalTankMapView1.hints.TankInfoName.name}" filterable="true"
+                               sortable="true" headerText="Tank Name" id="c7" align="center" width="150"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;">
+                        <af:selectOneChoice value="#{row.bindings.TankInfoName.inputValue}"
+                                            label="#{row.bindings.TankInfoName.label}"
+                                            required="#{bindings.NozalTankMapView1.hints.TankInfoName.mandatory}"
+                                            shortDesc="#{bindings.NozalTankMapView1.hints.TankInfoName.tooltip}"
+                                            readOnly="true" id="soc4">
+                            <f:selectItems value="#{row.bindings.TankInfoName.items}" id="si4"/>
+                            <f:validator binding="#{row.bindings.TankInfoName.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.NozalTankMapView1.hints.NTMapNazalIdFk.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.NozalTankMapView1.hints.NTMapNazalIdFk.label}"
+                               id="c3" rendered="false">
+                        <af:outputText value="#{row.NTMapNazalIdFk}"
+                                       shortDesc="#{bindings.NozalTankMapView1.hints.NTMapNazalIdFk.tooltip}" id="ot3">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.NozalTankMapView1.hints.NTMapNazalIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.NozalTankMapView1.hints.NTMapTankIdFk.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.NozalTankMapView1.hints.NTMapTankIdFk.label}"
+                               id="c4" rendered="false">
+                        <af:outputText value="#{row.NTMapTankIdFk}"
+                                       shortDesc="#{bindings.NozalTankMapView1.hints.NTMapTankIdFk.tooltip}" id="ot4">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.NozalTankMapView1.hints.NTMapTankIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.NozalTankMapView1.hints.NozalId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.NozalTankMapView1.hints.NozalId.label}" id="c6"
+                               rendered="false">
+                        <af:outputText value="#{row.NozalId}"
+                                       shortDesc="#{bindings.NozalTankMapView1.hints.NozalId.tooltip}" id="ot5">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.NozalTankMapView1.hints.NozalId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.NozalTankMapView1.hints.NTMapId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.NozalTankMapView1.hints.NTMapId.label}" id="c1"
+                               rendered="false">
+                        <af:outputText value="#{row.NTMapId}"
+                                       shortDesc="#{bindings.NozalTankMapView1.hints.NTMapId.tooltip}" id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.NozalTankMapView1.hints.NTMapId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.NozalTankMapView1.hints.TankInfoId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.NozalTankMapView1.hints.TankInfoId.label}" id="c8"
+                               rendered="false">
+                        <af:outputText value="#{row.TankInfoId}"
+                                       shortDesc="#{bindings.NozalTankMapView1.hints.TankInfoId.tooltip}" id="ot6">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.NozalTankMapView1.hints.TankInfoId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

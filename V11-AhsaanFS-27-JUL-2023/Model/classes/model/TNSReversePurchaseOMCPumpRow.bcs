@@ -1,0 +1,19 @@
+//Groovy Scripts for model.TNSReversePurchaseOMCPump
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="TnsDate")
+def TnsDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="TnsSlipDate")
+def TnsSlipDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

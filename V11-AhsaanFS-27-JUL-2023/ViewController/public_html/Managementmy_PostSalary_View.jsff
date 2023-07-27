@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="199" id="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1">
+                <af:outputText value="Post Salary" id="ot3"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:inputText value="#{bindings.HratId.inputValue}" label="#{bindings.HratId.hints.label}"
+                              required="#{bindings.HratId.hints.mandatory}"
+                              columns="#{bindings.HratId.hints.displayWidth}"
+                              maximumLength="#{bindings.HratId.hints.precision}"
+                              shortDesc="#{bindings.HratId.hints.tooltip}" id="it1">
+                    <f:validator binding="#{bindings.HratId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.HratId.format}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.HratDate.inputValue}" label="#{bindings.HratDate.hints.label}"
+                              required="#{bindings.HratDate.hints.mandatory}"
+                              columns="#{bindings.HratDate.hints.displayWidth}"
+                              shortDesc="#{bindings.HratDate.hints.tooltip}" id="id1" autoSubmit="true">
+                    <f:validator binding="#{bindings.HratDate.validator}"/>
+                    <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                </af:inputDate>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl1">
+                        <af:panelGroupLayout layout="horizontal" id="pgl2">
+                            <af:button actionListener="#{bindings.First.execute}"
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"
+                                       icon="#{resource['images:first_hor_ena.png']}"/>
+                            <af:button actionListener="#{bindings.Previous.execute}"
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"
+                                       icon="#{resource['images:previoustraversalarrow_ena.png']}"/>
+                            <af:button actionListener="#{bindings.Next.execute}"
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
+                                       icon="#{resource['images:nexttraversalarrow_ena.png']}"/>
+                            <af:button actionListener="#{bindings.Last.execute}"
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"
+                                       icon="#{resource['images:last_hor_ena.png']}"/>
+                            <af:outputText value="------" id="ot1"/>
+                        </af:panelGroupLayout>
+                        <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                                   disabled="#{!bindings.Commit.enabled}" icon="#{resource['images:commit.png']}"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b6"
+                                   icon="#{resource['images:add.png']}"/>
+                        <af:outputText value="-------------" id="ot2"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7"
+                                   icon="#{resource['images:rollback.png']}">
+                            <af:resetActionListener/>
+                        </af:button>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.HrAutoTnsView1.collectionModel}" var="row"
+                          rows="#{bindings.HrAutoTnsView1.rangeSize}"
+                          emptyText="#{bindings.HrAutoTnsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.HrAutoTnsView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.HrAutoTnsView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.HrAutoTnsView1.rangeSize}"
+                          filterModel="#{bindings.HrAutoTnsView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.HrAutoTnsView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers=":::b1 :::b2 :::b3 :::b4 :::b6">
+                    <af:column sortProperty="#{bindings.HrAutoTnsView1.hints.HratId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.HrAutoTnsView1.hints.HratId.label}" id="c1"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               align="center">
+                        <af:outputText value="#{row.HratId}" shortDesc="#{bindings.HrAutoTnsView1.hints.HratId.tooltip}"
+                                       id="ot4">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.HrAutoTnsView1.hints.HratId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.HrAutoTnsView1.hints.HratDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.HrAutoTnsView1.hints.HratDate.label}" id="c2"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               align="center">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.HrAutoTnsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.HratDate.value}"
+                                          id="id2">
+                                <af:convertDateTime pattern="#{bindings.HrAutoTnsView1.hints.HratDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.HratDate}"
+                                       shortDesc="#{bindings.HrAutoTnsView1.hints.HratDate.tooltip}" id="ot5">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="testallisdetailsPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <iterator Binds="IncomeStatementDetailsView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="IncomeStatementDetailsView1Iterator"/>
+    <searchRegion Binds="IncomeStatementDetailsView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="IncomeStatementDetailsView1Query"/>
+    <variableIterator id="variables">
+      <variableUsage DataControl="VOAPPDataControl" Binds="IncomeStatementDetailsView1.variablesMap.BindISHDIDFK"
+                     Name="ExecuteWithParams_BindISHDIDFK" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="IncomeStatementHeadView1" RangeSize="10" DataControl="VOAPPDataControl"
+              id="IncomeStatementHeadView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="IncomeStatementDetailsView1Iterator" id="IncomeStatementDetailsView1">
+      <nodeDefinition DefName="model.IncomeStatementDetailsView" Name="IncomeStatementDetailsView10">
+        <AttrNames>
+          <Item Value="IsId"/>
+          <Item Value="IsCoaName"/>
+          <Item Value="IsCoaId"/>
+          <Item Value="IsDebit"/>
+          <Item Value="IsCredit"/>
+          <Item Value="IsBalance"/>
+          <Item Value="IsCat"/>
+          <Item Value="IsHdIdFk"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="IncomeStatementDetailsView1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindISHDIDFK" NDType="java.lang.Long" NDValue="#{bindings.BindISHDIDFK.inputValue}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="BindISHDIDFK">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindISHDIDFK"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues Uses="LOV_IsHdMonthYear" StaticList="false" IterBinding="IncomeStatementHeadView1Iterator"
+                  id="IsHdMonthYear"/>
+  </bindings>
+</pageDefinition>

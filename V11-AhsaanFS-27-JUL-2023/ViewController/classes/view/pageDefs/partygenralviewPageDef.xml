@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="partygenralviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PartyAll1" RangeSize="25" DataControl="VOAPPDataControl" id="PartyAll1Iterator"/>
+    <searchRegion Binds="PartyAll1Iterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="PartyAll1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="PartyAll1Iterator" StaticList="false" Uses="LOV_PartyType1" id="PartyType1"/>
+    <attributeValues IterBinding="PartyAll1Iterator" id="PartyId">
+      <AttrNames>
+        <Item Value="PartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PartyAll1Iterator" id="PartyName">
+      <AttrNames>
+        <Item Value="PartyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PartyAll1Iterator" id="PartyShortname">
+      <AttrNames>
+        <Item Value="PartyShortname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PartyAll1Iterator" id="PartyCode">
+      <AttrNames>
+        <Item Value="PartyCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PartyAll1Iterator" id="PtypeId">
+      <AttrNames>
+        <Item Value="PtypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PartyAll1Iterator" id="PomcId">
+      <AttrNames>
+        <Item Value="PomcId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PartyAll1Iterator" id="PartyTypeId">
+      <AttrNames>
+        <Item Value="PartyTypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="PartyAll1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="PartyAll1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="PartyAll1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="PartyAll1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="PartyAll1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="PartyAll1Iterator" id="PartyAll1">
+      <nodeDefinition DefName="model.PartyAll" Name="PartyAll10">
+        <AttrNames>
+          <Item Value="PartyId"/>
+          <Item Value="PartyName"/>
+          <Item Value="PartyCode"/>
+          <Item Value="PartyTypeId"/>
+          <Item Value="PartyType1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

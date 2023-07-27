@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="DataLoaderrPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="DataLoaderTf1" taskFlowId="/WEB-INF/DataLoaderTf.xml#DataLoaderTf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="DataLoaderSaleWithDiscount1"
+              taskFlowId="/WEB-INF/DataLoaderSaleWithDiscount.xml#DataLoaderSaleWithDiscount" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="DataLoaderPayRecIept1" taskFlowId="/WEB-INF/DataLoaderPayRecIept.xml#DataLoaderPayRecIept"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="DefaultDataLoaderTF1" taskFlowId="/WEB-INF/DefaultDataLoaderTF.xml#DefaultDataLoaderTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Z_printBehaviour1" taskFlowId="/WEB-INF/Z_printBehaviour.xml#Z_printBehaviour" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

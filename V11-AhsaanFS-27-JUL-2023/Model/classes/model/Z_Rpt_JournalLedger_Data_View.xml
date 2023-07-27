@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Z_Rpt_JournalLedger_Data_View"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.Z_Rpt_JournalLedger_Data_View_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="COAALL1"
+    ViewObjectName="model.COAALL"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="COAALL2"
+    ViewObjectName="model.COAALL"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BankNameView1"
+    ViewObjectName="model.BankNameView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BankTnsTypeView1"
+    ViewObjectName="model.BankTnsTypeView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OilDepoView1"
+    ViewObjectName="model.OilDepoView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OilTankerAllView1"
+    ViewObjectName="model.OilTankerAllView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OilDepoView2"
+    ViewObjectName="model.OilDepoView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CoaName"
+    ListVOName="COAALL1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="GleCoaActNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CoaName"/>
+      <Item Value="CoaActNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CoaName1"
+    ListVOName="COAALL2"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CoaName1"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="GleAcInTnsAcNo"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CoaName"/>
+      <Item Value="CoaActNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BankName1"
+    ListVOName="BankNameView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BankName1"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="GleBankNameId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BankName1"/>
+      <Item Value="BankNameId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BankName1"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BankTnsTypeName"
+    ListVOName="BankTnsTypeView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BankTnsTypeName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="GleBankTnsTypIdFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BankTnsTypeName"/>
+      <Item Value="BankTnsTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BankTnsTypeName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OildShortname"
+    ListVOName="OilDepoView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OildShortname"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="GleOilDId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OildShortname"/>
+      <Item Value="OildId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OildShortname"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OiltRegistration"
+    ListVOName="OilTankerAllView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OiltRegistration"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="GleOilTId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OiltRegistration"/>
+      <Item Value="OiltId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OiltRegistration"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OildShortname1"
+    ListVOName="OilDepoView2"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OildShortname1"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="GleOildLoadId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OildShortname"/>
+      <Item Value="OildId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OildShortname"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="ZRptJlData"
+    Entity="model.Z_Rpt_JournalLedger_Data"
+    ReadOnly="true"
+    DeleteParticipant="false"/>
+  <EntityUsage
+    Name="ChartOfAccounts"
+    Entity="model.ChartOfAccounts"
+    Association="model.Z_Rpt_JournalLedger_Data_COA_ACTNO_ASSOC"
+    AssociationEnd="model.Z_Rpt_JournalLedger_Data_COA_ACTNO_ASSOC.ChartOfAccounts"
+    SourceUsage="model.Z_Rpt_JournalLedger_Data_View.ZRptJlData"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.ChartOfAccounts.CoaActNumber"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Z_Rpt_JournalLedger_Data.GleCoaActNumber"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="ChartOfAccounts1"
+    Entity="model.ChartOfAccounts"
+    Association="model.Z_Rpt_JournalLedger_Data_GLE_AC_IN_TNS_ASSOC"
+    AssociationEnd="model.Z_Rpt_JournalLedger_Data_GLE_AC_IN_TNS_ASSOC.ChartOfAccounts1"
+    SourceUsage="model.Z_Rpt_JournalLedger_Data_View.ZRptJlData"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.ChartOfAccounts.CoaActNumber"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Z_Rpt_JournalLedger_Data.GleAcInTnsAcNo"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="BankName"
+    Entity="model.BankName"
+    Association="model.Z_Rpt_JournalLedger_Data_BANK_NAME_ASSOC"
+    AssociationEnd="model.Z_Rpt_JournalLedger_Data_BANK_NAME_ASSOC.BankName"
+    SourceUsage="model.Z_Rpt_JournalLedger_Data_View.ZRptJlData"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.BankName.BankNameId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Z_Rpt_JournalLedger_Data.GleBankNameId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="BankTnsType"
+    Entity="model.BankTnsType"
+    Association="model.Z_Rpt_JournalLedger_Data_BANK_TNS_TYPE_ASSOC"
+    AssociationEnd="model.Z_Rpt_JournalLedger_Data_BANK_TNS_TYPE_ASSOC.BankTnsType"
+    SourceUsage="model.Z_Rpt_JournalLedger_Data_View.ZRptJlData"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.BankTnsType.BankTnsTypeId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Z_Rpt_JournalLedger_Data.GleBankTnsTypIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="OilDepo"
+    Entity="model.OilDepo"
+    Association="model.Z_Rpt_JournalLedger_Data_OIL_D_ASSOC"
+    AssociationEnd="model.Z_Rpt_JournalLedger_Data_OIL_D_ASSOC.OilDepo"
+    SourceUsage="model.Z_Rpt_JournalLedger_Data_View.ZRptJlData"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.OilDepo.OildId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Z_Rpt_JournalLedger_Data.GleOilDId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="OilTanker"
+    Entity="model.OilTanker"
+    Association="model.Z_Rpt_JournalLedger_Data_OIL_TANKER_ASSOC"
+    AssociationEnd="model.Z_Rpt_JournalLedger_Data_OIL_TANKER_ASSOC.OilTanker"
+    SourceUsage="model.Z_Rpt_JournalLedger_Data_View.ZRptJlData"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.OilTanker.OiltId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Z_Rpt_JournalLedger_Data.GleOilTId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="OilDepo1"
+    Entity="model.OilDepo"
+    Association="model.Z_Rpt_JournalLedger_Data_OILD_LOAD_ASSOC"
+    AssociationEnd="model.Z_Rpt_JournalLedger_Data_OILD_LOAD_ASSOC.OilDepo1"
+    SourceUsage="model.Z_Rpt_JournalLedger_Data_View.ZRptJlData"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.OilDepo.OildId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Z_Rpt_JournalLedger_Data.GleOildLoadId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="GleAcInTnsAcNo"
+    PrecisionRule="true"
+    EntityAttrName="GleAcInTnsAcNo"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_AC_IN_TNS_AC_NO"/>
+  <ViewAttribute
+    Name="GleBalance"
+    PrecisionRule="true"
+    EntityAttrName="GleBalance"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_BALANCE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.GleBalance_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GleBankNameId"
+    PrecisionRule="true"
+    EntityAttrName="GleBankNameId"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_BANK_NAME_ID"/>
+  <ViewAttribute
+    Name="GleBankTnsTypIdFk"
+    PrecisionRule="true"
+    EntityAttrName="GleBankTnsTypIdFk"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_BANK_TNS_TYP_ID_FK"/>
+  <ViewAttribute
+    Name="GleBrCode"
+    PrecisionRule="true"
+    EntityAttrName="GleBrCode"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_BR_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.GleBrCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GleCoaActNumber"
+    PrecisionRule="true"
+    EntityAttrName="GleCoaActNumber"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_COA_ACT_NUMBER"/>
+  <ViewAttribute
+    Name="GleCredit"
+    PrecisionRule="true"
+    EntityAttrName="GleCredit"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_CREDIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.GleCredit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GleCreditBal"
+    PrecisionRule="true"
+    EntityAttrName="GleCreditBal"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_CREDIT_BAL"/>
+  <ViewAttribute
+    Name="GleDate"
+    PrecisionRule="true"
+    EntityAttrName="GleDate"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.GleDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GleDebit"
+    PrecisionRule="true"
+    EntityAttrName="GleDebit"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_DEBIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.GleDebit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GleDebitBal"
+    PrecisionRule="true"
+    EntityAttrName="GleDebitBal"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_DEBIT_BAL"/>
+  <ViewAttribute
+    Name="GleDetails"
+    PrecisionRule="true"
+    EntityAttrName="GleDetails"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_DETAILS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.GleDetails_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GleEtc"
+    PrecisionRule="true"
+    EntityAttrName="GleEtc"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_ETC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.GleEtc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GleId"
+    PrecisionRule="true"
+    EntityAttrName="GleId"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_ID"/>
+  <ViewAttribute
+    Name="GleInfo"
+    PrecisionRule="true"
+    EntityAttrName="GleInfo"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_INFO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.GleInfo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GleOilDId"
+    PrecisionRule="true"
+    EntityAttrName="GleOilDId"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_OIL_D_ID"/>
+  <ViewAttribute
+    Name="GleOilTId"
+    PrecisionRule="true"
+    EntityAttrName="GleOilTId"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_OIL_T_ID"/>
+  <ViewAttribute
+    Name="GleOildLoadDate"
+    PrecisionRule="true"
+    EntityAttrName="GleOildLoadDate"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_OILD_LOAD_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.GleOildLoadDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GleOildLoadId"
+    PrecisionRule="true"
+    EntityAttrName="GleOildLoadId"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_OILD_LOAD_ID"/>
+  <ViewAttribute
+    Name="GleQty"
+    PrecisionRule="true"
+    EntityAttrName="GleQty"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_QTY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.GleQty_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GleRate"
+    PrecisionRule="true"
+    EntityAttrName="GleRate"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.GleRate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GleSlipDate"
+    PrecisionRule="true"
+    EntityAttrName="GleSlipDate"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_SLIP_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.GleSlipDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GleSlipNo"
+    PrecisionRule="true"
+    EntityAttrName="GleSlipNo"
+    EntityUsage="ZRptJlData"
+    AliasName="GLE_SLIP_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.GleSlipNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ZRptJlDataId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ZRptJlDataId"
+    EntityUsage="ZRptJlData"
+    AliasName="Z_RPT_JL_DATA_ID"/>
+  <ViewAttribute
+    Name="ZRptJlParamIdFk"
+    PrecisionRule="true"
+    EntityAttrName="ZRptJlParamIdFk"
+    EntityUsage="ZRptJlData"
+    AliasName="Z_RPT_JL_PARAM_ID_FK"/>
+  <ViewAttribute
+    Name="CoaName"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaName"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_NAME"
+    LOVName="LOV_CoaName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaActNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaActNumber"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_ACT_NUMBER"/>
+  <ViewAttribute
+    Name="CoaName1"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaName"
+    EntityUsage="ChartOfAccounts1"
+    AliasName="COA_NAME1"
+    LOVName="LOV_CoaName1">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.CoaName1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaActNumber1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaActNumber"
+    EntityUsage="ChartOfAccounts1"
+    AliasName="COA_ACT_NUMBER1"/>
+  <ViewAttribute
+    Name="BankName1"
+    PrecisionRule="true"
+    EntityAttrName="BankName"
+    EntityUsage="BankName"
+    AliasName="BANK_NAME1"
+    LOVName="LOV_BankName1">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.BankName1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BankNameId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BankNameId"
+    EntityUsage="BankName"
+    AliasName="BANK_NAME_ID"/>
+  <ViewAttribute
+    Name="BankTnsTypeName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BankTnsTypeName"
+    EntityUsage="BankTnsType"
+    AliasName="BANK_TNS_TYPE_NAME"
+    LOVName="LOV_BankTnsTypeName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.BankTnsTypeName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BankTnsTypeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BankTnsTypeId"
+    EntityUsage="BankTnsType"
+    AliasName="BANK_TNS_TYPE_ID"/>
+  <ViewAttribute
+    Name="OildShortname"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OildShortname"
+    EntityUsage="OilDepo"
+    AliasName="OILD_SHORTNAME"
+    LOVName="LOV_OildShortname">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.OildShortname_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OildId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="OildId"
+    EntityUsage="OilDepo"
+    AliasName="OILD_ID"/>
+  <ViewAttribute
+    Name="OiltRegistration"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OiltRegistration"
+    EntityUsage="OilTanker"
+    AliasName="OILT_REGISTRATION#"
+    LOVName="LOV_OiltRegistration">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.OiltRegistration_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OiltId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="OiltId"
+    EntityUsage="OilTanker"
+    AliasName="OILT_ID"/>
+  <ViewAttribute
+    Name="OildShortname1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OildShortname"
+    EntityUsage="OilDepo1"
+    AliasName="OILD_SHORTNAME1"
+    LOVName="LOV_OildShortname1">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.Z_Rpt_JournalLedger_Data_View.OildShortname1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OildId1"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="OildId"
+    EntityUsage="OilDepo1"
+    AliasName="OILD_ID1"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="ZRptJlDataId"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="Z_Rpt_JournalLedger_Param_View"
+    ViewLink="model.Z_Rpt_JournalLedger_Param_DATA_VIEWLINK"
+    Type="oracle.jbo.server.ViewRowImpl"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

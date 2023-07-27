@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="omcpumpviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PartyOmcPumps1" RangeSize="25" DataControl="VOAPPDataControl" id="PartyOmcPumps1Iterator"/>
+    <searchRegion Binds="PartyOmcPumps1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PartyOmcPumps1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="PartyOmcPumps1Iterator" StaticList="false" Uses="LOV_OmcShortname" id="OmcShortname"/>
+    <attributeValues IterBinding="PartyOmcPumps1Iterator" id="PartyCode">
+      <AttrNames>
+        <Item Value="PartyCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PartyOmcPumps1Iterator" id="PartyId">
+      <AttrNames>
+        <Item Value="PartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PartyOmcPumps1Iterator" id="PartyName">
+      <AttrNames>
+        <Item Value="PartyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PartyOmcPumps1Iterator" id="PartyShortname">
+      <AttrNames>
+        <Item Value="PartyShortname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PartyOmcPumps1Iterator" id="PomcId">
+      <AttrNames>
+        <Item Value="PomcId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PartyOmcPumps1Iterator" id="PtypeId">
+      <AttrNames>
+        <Item Value="PtypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PartyOmcPumps1Iterator" id="OmcId">
+      <AttrNames>
+        <Item Value="OmcId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PartyOmcPumps1Iterator" id="OmcName">
+      <AttrNames>
+        <Item Value="OmcName"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="PartyOmcPumps1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="PartyOmcPumps1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="PartyOmcPumps1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="PartyOmcPumps1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="PartyOmcPumps1Iterator" id="PartyOmcPumps1">
+      <nodeDefinition DefName="model.PartyOmcPumps" Name="PartyOmcPumps10">
+        <AttrNames>
+          <Item Value="PartyCode"/>
+          <Item Value="PartyId"/>
+          <Item Value="PartyName"/>
+          <Item Value="PartyShortname"/>
+          <Item Value="PomcId"/>
+          <Item Value="PtypeId"/>
+          <Item Value="OmcId"/>
+          <Item Value="OmcName"/>
+          <Item Value="OmcShortname"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="PartyOmcPumps1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

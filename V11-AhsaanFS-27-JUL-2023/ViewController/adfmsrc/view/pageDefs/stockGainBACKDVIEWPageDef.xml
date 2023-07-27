@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="stockGainBACKDVIEWPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="STOCK_GAIN_BACK_DATE1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="STOCK_GAIN_BACK_DATE1Iterator"/>
+    <searchRegion Binds="STOCK_GAIN_BACK_DATE1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="STOCK_GAIN_BACK_DATE1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <listOfValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" StaticList="false" Uses="LOV_CoaName1" id="CoaName1"/>
+    <listOfValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" StaticList="false" Uses="LOV_OildShortname"
+                  id="OildShortname"/>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="TnsDate">
+      <AttrNames>
+        <Item Value="TnsDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="TnsId">
+      <AttrNames>
+        <Item Value="TnsId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="TnsInfo">
+      <AttrNames>
+        <Item Value="TnsInfo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="TnsCoaDactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaDactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="TnsCoaCactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaCactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="TnsRate">
+      <AttrNames>
+        <Item Value="TnsRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="TnsQty">
+      <AttrNames>
+        <Item Value="TnsQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="TnsAmount">
+      <AttrNames>
+        <Item Value="TnsAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="TnsOildId">
+      <AttrNames>
+        <Item Value="TnsOildId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="TnsSlipDate">
+      <AttrNames>
+        <Item Value="TnsSlipDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="TnsSlipNo">
+      <AttrNames>
+        <Item Value="TnsSlipNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="TnsTnsTypeIdFk">
+      <AttrNames>
+        <Item Value="TnsTnsTypeIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="TnsTnsviewId">
+      <AttrNames>
+        <Item Value="TnsTnsviewId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="CoaBalance">
+      <AttrNames>
+        <Item Value="CoaBalance"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="CoaActNumber1">
+      <AttrNames>
+        <Item Value="CoaActNumber1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="CoaBalance1">
+      <AttrNames>
+        <Item Value="CoaBalance1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="OildId">
+      <AttrNames>
+        <Item Value="OildId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="STOCK_GAIN_BACK_DATE1">
+      <nodeDefinition DefName="model.STOCK_GAIN_BACK_DATE" Name="STOCK_GAIN_BACK_DATE10">
+        <AttrNames>
+          <Item Value="TnsDate"/>
+          <Item Value="TnsDetail"/>
+          <Item Value="TnsInfo"/>
+          <Item Value="TnsRate"/>
+          <Item Value="TnsQty"/>
+          <Item Value="TnsAmount"/>
+          <Item Value="TnsSlipDate"/>
+          <Item Value="TnsSlipNo"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaBalance"/>
+          <Item Value="CoaName1"/>
+          <Item Value="CoaBalance1"/>
+          <Item Value="OildShortname"/>
+          <Item Value="TnsId"/>
+          <Item Value="TnsCoaCactNumber"/>
+          <Item Value="TnsCoaDactNumber"/>
+          <Item Value="OiltRegistration"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="TnsFormatAmount">
+      <AttrNames>
+        <Item Value="TnsFormatAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="TnsSpellAmount">
+      <AttrNames>
+        <Item Value="TnsSpellAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" StaticList="false" Uses="LOV_OiltRegistration"
+                  id="OiltRegistration"/>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="TnsOiltId">
+      <AttrNames>
+        <Item Value="TnsOiltId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_GAIN_BACK_DATE1Iterator" id="CoaQtyBalance">
+      <AttrNames>
+        <Item Value="CoaQtyBalance"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

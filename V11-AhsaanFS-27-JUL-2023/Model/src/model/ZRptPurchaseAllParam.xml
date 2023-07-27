@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ZRptPurchaseAllParam"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="Z_RPT_PURCHASE_ALL_PARAM"
+  AliasName="ZRptPurchaseAllParam"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="PurchaseAllParamId"
+    IsNotNull="true"
+    ColumnName="PURCHASE_ALL_PARAM_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_PURCHASE_ALL_PARAM"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="PurchaseAllParamStartDate"
+    ColumnName="PURCHASE_ALL_PARAM_START_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="Z_RPT_PURCHASE_ALL_PARAM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.ZRptPurchaseAllParam.PurchaseAllParamStartDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="PurchaseAllParamEndDate"
+    ColumnName="PURCHASE_ALL_PARAM_END_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="Z_RPT_PURCHASE_ALL_PARAM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.ZRptPurchaseAllParam.PurchaseAllParamEndDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Key
+    Name="ZRptPurchaseAllParamPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="Z_RPT_PURCHASE_ALL_PARAM_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptPurchaseAllParam.PurchaseAllParamId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</Entity>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Party"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="PARTY"
+  AliasName="Party"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="PartyId"
+    ColumnName="PARTY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="PARTY"
+    PrimaryKey="true"
+    IsUpdateable="false"
+    IsNotNull="true"
+    DefaultValue="-1"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
+  <Attribute
+    Name="PtypeId"
+    ColumnName="PTYPE_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="PARTY"
+    IsNotNull="true"/>
+  <Attribute
+    Name="PomcId"
+    ColumnName="POMC_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="PARTY"/>
+  <Attribute
+    Name="PartyAcCode"
+    ColumnName="PARTY_AC_CODE"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="PARTY"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
+  <Attribute
+    Name="PartyName"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="PARTY_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PARTY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PartyShortname"
+    IsUnique="true"
+    Precision="50"
+    ColumnName="PARTY_SHORTNAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PARTY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PartyCode"
+    Precision="20"
+    ColumnName="PARTY_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PARTY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Omc"
+    Association="model.OmcPartyFkAssoc"
+    AssociationEnd="model.OmcPartyFkAssoc.Omc"
+    AssociationOtherEnd="model.OmcPartyFkAssoc.Party"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="PartyType"
+    Association="model.PartyPartytyprFkAssoc"
+    AssociationEnd="model.PartyPartytyprFkAssoc.PartyType"
+    AssociationOtherEnd="model.PartyPartytyprFkAssoc.Party"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CreditLimit"
+    Association="model.PartyCreditLimit_FK_Assoc"
+    AssociationEnd="model.PartyCreditLimit_FK_Assoc.CreditLimit"
+    AssociationOtherEnd="model.PartyCreditLimit_FK_Assoc.Party"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DebitLimit"
+    Association="model.Party_DebitLimit_FK_Assoc"
+    AssociationEnd="model.Party_DebitLimit_FK_Assoc.DebitLimit"
+    AssociationOtherEnd="model.Party_DebitLimit_FK_Assoc.Party"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="PurchaseRate"
+    Association="model.Party_PurchaseRate_FK_Assoc"
+    AssociationEnd="model.Party_PurchaseRate_FK_Assoc.PurchaseRate"
+    AssociationOtherEnd="model.Party_PurchaseRate_FK_Assoc.Party"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SaleRate"
+    Association="model.Party_SaleRate_FK_Assoc"
+    AssociationEnd="model.Party_SaleRate_FK_Assoc.SaleRate"
+    AssociationOtherEnd="model.Party_SaleRate_FK_Assoc.Party"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ChartOfAccounts"
+    Association="model.PartyCOA_FK_Assoc"
+    AssociationEnd="model.PartyCOA_FK_Assoc.ChartOfAccounts"
+    AssociationOtherEnd="model.PartyCOA_FK_Assoc.Party"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="PurchaseRateLog"
+    Association="model.PURCHASERATELOG_PARTY_FK_Assoc"
+    AssociationEnd="model.PURCHASERATELOG_PARTY_FK_Assoc.PurchaseRateLog"
+    AssociationOtherEnd="model.PURCHASERATELOG_PARTY_FK_Assoc.Party"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SaleRateLog"
+    Association="model.PARTY_SALERATELOG_FK_Assoc"
+    AssociationEnd="model.PARTY_SALERATELOG_FK_Assoc.SaleRateLog"
+    AssociationOtherEnd="model.PARTY_SALERATELOG_FK_Assoc.Party"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Vehicle1"
+    Association="model.PARTY_VEHICLE_ASSOC"
+    AssociationEnd="model.PARTY_VEHICLE_ASSOC.Vehicle1"
+    AssociationOtherEnd="model.PARTY_VEHICLE_ASSOC.Party"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="PartyNameUk">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PARTY_NAME_UK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Party.PartyName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="PartyPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PARTY_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Party.PartyId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="PartyShortnameUk">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PARTY_SHORTNAME_UK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Party.PartyShortname"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OmcPartyFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="OMC_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="OMC_PARTY_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Party.PomcId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="PartyPartytyprFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PARTY_TYPE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PARTY_PARTYTYPR_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Party.PtypeId"/>
+    </AttrArray>
+  </Key>
+</Entity>

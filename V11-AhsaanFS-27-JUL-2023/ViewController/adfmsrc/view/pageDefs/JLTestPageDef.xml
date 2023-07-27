@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="JLTestPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <iterator Binds="JLTEST1" RangeSize="25" DataControl="VOAPPDataControl" id="JLTEST1Iterator"/>
+    <variableIterator id="variables">
+      <variableUsage DataControl="VOAPPDataControl" Binds="JLTEST1.variablesMap.startdate"
+                     Name="ExecuteWithParams_startdate" IsQueriable="false"/>
+      <variableUsage DataControl="VOAPPDataControl" Binds="JLTEST1.variablesMap.enddate"
+                     Name="ExecuteWithParams_enddate" IsQueriable="false"/>
+      <variableUsage DataControl="VOAPPDataControl" Binds="JLTEST1.variablesMap.actno" Name="ExecuteWithParams_actno"
+                     IsQueriable="false"/>
+    </variableIterator>
+    <searchRegion Binds="JLTEST1Iterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="JLTEST1Query"/>
+  </executables>
+  <bindings>
+    <action IterBinding="JLTEST1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="startdate" NDType="java.sql.Timestamp" NDValue="${bindings.ExecuteWithParams_startdate}"/>
+      <NamedData NDName="enddate" NDType="java.sql.Timestamp" NDValue="${bindings.ExecuteWithParams_enddate}"/>
+      <NamedData NDName="actno" NDType="java.lang.Long" NDValue="${bindings.ExecuteWithParams_actno}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="startdate">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_startdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="enddate">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_enddate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="actno">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_actno"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="JLTEST1Iterator" id="JLTEST1">
+      <nodeDefinition DefName="model.JLTEST" Name="JLTEST10">
+        <AttrNames>
+          <Item Value="GleId"/>
+          <Item Value="GleDate"/>
+          <Item Value="GleDetails"/>
+          <Item Value="GleDebit"/>
+          <Item Value="GleCredit"/>
+          <Item Value="GleBalance"/>
+          <Item Value="GleInfo"/>
+          <Item Value="GleCoaActNumber"/>
+          <Item Value="GleTnsId"/>
+          <Item Value="GleAcInTnsAcNo"/>
+          <Item Value="GleAdjDate"/>
+          <Item Value="GleQty"/>
+          <Item Value="GleQtyBalance"/>
+          <Item Value="GleRate"/>
+          <Item Value="GleSlipDate"/>
+          <Item Value="GleSlipNo"/>
+          <Item Value="GleStId"/>
+          <Item Value="GleTnsChildIdFk"/>
+          <Item Value="GleTnsViewId"/>
+          <Item Value="GleTVolume"/>
+          <Item Value="GleSDate"/>
+          <Item Value="GleOldw"/>
+          <Item Value="GleSlipUseDate"/>
+          <Item Value="GleOildLoadId"/>
+          <Item Value="GleBrCode"/>
+          <Item Value="GleBankNameId"/>
+          <Item Value="GleBankName"/>
+          <Item Value="GleEtc"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaActNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

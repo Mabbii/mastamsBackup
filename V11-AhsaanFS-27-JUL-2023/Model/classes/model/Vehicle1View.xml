@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Vehicle1View"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="PartyCustomerOnly1"
+    ViewObjectName="model.PartyCustomerOnly"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_PartyName"
+    ListVOName="PartyCustomerOnly1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PartyName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="PartyIdFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PartyName"/>
+      <Item Value="PartyId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PartyName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Vehicle1"
+    Entity="model.Vehicle1"/>
+  <EntityUsage
+    Name="Party"
+    Entity="model.Party"
+    Association="model.PARTY_VEHICLE_ASSOC"
+    AssociationEnd="model.PARTY_VEHICLE_ASSOC.Party"
+    SourceUsage="model.Vehicle1View.Vehicle1"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Party.PartyId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Vehicle1.PartyIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="VehicleId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="VehicleId"
+    EntityUsage="Vehicle1"
+    AliasName="VEHICLE_ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="VehicleDetails"
+    PrecisionRule="true"
+    EntityAttrName="VehicleDetails"
+    EntityUsage="Vehicle1"
+    AliasName="VEHICLE_DETAILS"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="VehicleRegNo"
+    IsUnique="true"
+    PrecisionRule="true"
+    EntityAttrName="VehicleRegNo"
+    EntityUsage="Vehicle1"
+    AliasName="VEHICLE_REG_NO"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="PartyIdFk"
+    PrecisionRule="true"
+    EntityAttrName="PartyIdFk"
+    EntityUsage="Vehicle1"
+    AliasName="PARTY_ID_FK"/>
+  <ViewAttribute
+    Name="PartyName"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PartyName"
+    EntityUsage="Party"
+    AliasName="PARTY_NAME"
+    LOVName="LOV_PartyName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PartyId"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PartyId"
+    EntityUsage="Party"
+    AliasName="PARTY_ID"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="VehicleId"/>
+  </AttrArray>
+</ViewObject>

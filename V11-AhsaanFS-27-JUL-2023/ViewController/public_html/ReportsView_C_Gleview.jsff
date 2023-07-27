@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+                <f:view beforePhase="#{backingBeanScope.PrintPageBean.beforePhaseMethod}">
+  <af:panelBox id="pb1" inlineStyle="width:1176px; height:1006px;">
+    <f:facet name="toolbar">
+                <af:button id="b3" inlineStyle="padding-top:0px;" icon="#{resource['images:print.png']}">
+                    <af:showPrintablePageBehavior/>
+                </af:button>
+            </f:facet>
+            <af:image source="#{resource['images:Ahsaan FS Logo.png']}" shortDesc="Ahsaan Fs Logo" id="i1"/>
+    <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="243" inlineStyle="width:1080px; height:600px;">
+      <f:facet name="first">
+        <af:panelFormLayout id="pfl1">
+          <af:inputText value="#{bindings.ZCGleParamId.inputValue}" label="#{bindings.ZCGleParamId.hints.label}"
+                        required="#{bindings.ZCGleParamId.hints.mandatory}"
+                        columns="#{bindings.ZCGleParamId.hints.displayWidth}"
+                        maximumLength="#{bindings.ZCGleParamId.hints.precision}"
+                        shortDesc="#{bindings.ZCGleParamId.hints.tooltip}" id="it1" rendered="false">
+            <f:validator binding="#{bindings.ZCGleParamId.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.ZCGleParamId.format}"/>
+          </af:inputText>
+          <af:outputText value="Custom Ledger" id="ot19"
+                         inlineStyle="font-size:large; font-style:italic; font-weight:bold;"/>
+          <af:inputListOfValues id="coaNameId" popupTitle="Search and Select: #{bindings.CoaName.hints.label}"
+                                value="#{bindings.CoaName.inputValue}" label="#{bindings.CoaName.hints.label}"
+                                model="#{bindings.CoaName.listOfValuesModel}"
+                                columns="#{bindings.CoaName.hints.displayWidth}"
+                                shortDesc="#{bindings.CoaName.hints.tooltip}" autoSubmit="true">
+            <f:validator binding="#{bindings.CoaName.validator}"/>
+            <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName.suggestedItems}"/>
+          </af:inputListOfValues>
+          <af:inputDate value="#{bindings.ZCGleParamStartDate.inputValue}"
+                        label="#{bindings.ZCGleParamStartDate.hints.label}"
+                        required="#{bindings.ZCGleParamStartDate.hints.mandatory}"
+                        columns="#{bindings.ZCGleParamStartDate.hints.displayWidth}"
+                        shortDesc="#{bindings.ZCGleParamStartDate.hints.tooltip}" id="id1">
+            <f:validator binding="#{bindings.ZCGleParamStartDate.validator}"/>
+            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+          </af:inputDate>
+          <af:inputDate value="#{bindings.ZCGleParamEndDate.inputValue}"
+                        label="#{bindings.ZCGleParamEndDate.hints.label}"
+                        required="#{bindings.ZCGleParamEndDate.hints.mandatory}"
+                        columns="#{bindings.ZCGleParamEndDate.hints.displayWidth}"
+                        shortDesc="#{bindings.ZCGleParamEndDate.hints.tooltip}" id="id2">
+            <f:validator binding="#{bindings.ZCGleParamEndDate.validator}"/>
+            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+          </af:inputDate>
+          <af:inputText value="#{bindings.ZCGleParamCoaActNumber.inputValue}"
+                        label="#{bindings.ZCGleParamCoaActNumber.hints.label}"
+                        required="#{bindings.ZCGleParamCoaActNumber.hints.mandatory}"
+                        columns="#{bindings.ZCGleParamCoaActNumber.hints.displayWidth}"
+                        maximumLength="#{bindings.ZCGleParamCoaActNumber.hints.precision}"
+                        shortDesc="#{bindings.ZCGleParamCoaActNumber.hints.tooltip}" id="it2" rendered="false">
+            <f:validator binding="#{bindings.ZCGleParamCoaActNumber.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.ZCGleParamCoaActNumber.format}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.CoaBalance.inputValue}" label="#{bindings.CoaBalance.hints.label}"
+                        required="#{bindings.CoaBalance.hints.mandatory}"
+                        columns="#{bindings.CoaBalance.hints.displayWidth}"
+                        maximumLength="#{bindings.CoaBalance.hints.precision}"
+                        shortDesc="#{bindings.CoaBalance.hints.tooltip}" id="it3" rendered="false">
+            <f:validator binding="#{bindings.CoaBalance.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaBalance.format}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.CoaActNumber.inputValue}" label="#{bindings.CoaActNumber.hints.label}"
+                        required="#{bindings.CoaActNumber.hints.mandatory}"
+                        columns="#{bindings.CoaActNumber.hints.displayWidth}"
+                        maximumLength="#{bindings.CoaActNumber.hints.precision}"
+                        shortDesc="#{bindings.CoaActNumber.hints.tooltip}" id="it4">
+            <f:validator binding="#{bindings.CoaActNumber.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber.format}"/>
+          </af:inputText>
+          <f:facet name="footer">
+            <af:panelGroupLayout id="pgl1">
+                <af:spacer width="120" height="10" id="s2"/>
+                <af:button actionListener="#{bindings.Rollback.execute}" text="Show" immediate="true" id="b2"
+                           icon="#{resource['images:find.png']}">
+                  <af:resetActionListener/>
+                </af:button>
+                <af:spacer width="40" height="10" id="s1"/>
+                <af:button text="Submit" id="b1" actionListener="#{bindings.Commit.execute}"
+                           icon="#{resource['images:commit.png']}"/>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelFormLayout>
+      </f:facet>
+      <f:facet name="second">
+        <af:panelCollection id="pc1">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar"/>
+          <af:table value="#{bindings.ZCGleView1.collectionModel}" var="row" rows="#{bindings.ZCGleView1.rangeSize}"
+                    emptyText="#{bindings.ZCGleView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.ZCGleView1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.ZCGleView1.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.ZCGleView1.rangeSize}"
+                    filterModel="#{bindings.ZCGleView1Query.queryDescriptor}" filterVisible="true"
+                    queryListener="#{bindings.ZCGleView1Query.processQuery}" varStatus="vs" id="t1" width="1000"
+                    inlineStyle="background-color:Window; border-right-color:Window;" maxClientRows="2000">
+            <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleDate.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ZCGleView1.hints.ZCGleDate.label}" id="c2" width="80"
+                       inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                       align="center">
+              <f:facet name="filter">
+                <af:inputDate value="#{bindings.ZCGleView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ZCGleDate.value}"
+                              id="id3">
+                  <af:convertDateTime pattern="#{bindings.ZCGleView1.hints.ZCGleDate.format}"/>
+                </af:inputDate>
+              </f:facet>
+              <af:outputText value="#{row.ZCGleDate}" shortDesc="#{bindings.ZCGleView1.hints.ZCGleDate.tooltip}"
+                             id="ot2">
+                <af:convertDateTime pattern="dd-MMM-yyyy"/>
+              </af:outputText>
+            </af:column>
+              <af:column headerText="SLIP #" id="c19"
+                         inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                         width="60" align="center">
+                <af:outputText value="#{row.ZCGleSlipNo}" shortDesc="#{bindings.ZCGleView1.hints.ZCGleSlipNo.tooltip}"
+                               id="ot20"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleEtc.name}" filterable="true" sortable="true"
+                         headerText="Detail" id="c10" width="250"
+                         inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold; #{row.ZCGleDate == null?'font-weight:bold;':''} #{row.ZCGleDate == null?'font-size:large;':''};"
+                         align="center">
+                <af:outputText value="#{row.ZCGleEtc}" shortDesc="#{bindings.ZCGleView1.hints.ZCGleEtc.tooltip}"
+                               id="ot10"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleQty.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.ZCGleView1.hints.ZCGleQty.label}" id="c7" width="70"
+                         inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                         align="center">
+                <af:outputText value="#{row.ZCGleQty}" shortDesc="#{bindings.ZCGleView1.hints.ZCGleQty.tooltip}"
+                               id="ot7">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.ZCGleView1.hints.ZCGleQty.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleRate.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.ZCGleView1.hints.ZCGleRate.label}" id="c8" width="60"
+                         inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                         align="center">
+                <af:outputText value="#{row.ZCGleRate}" shortDesc="#{bindings.ZCGleView1.hints.ZCGleRate.tooltip}"
+                               id="ot8">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.ZCGleView1.hints.ZCGleRate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleDebit.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ZCGleView1.hints.ZCGleDebit.label}" id="c3"
+                         inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold; #{row.ZCGleDate == null?'font-weight:bold;':''} #{row.ZCGleDate == null?'font-size:large;':''}"
+                         align="center" width="120">
+              <af:outputText value="#{row.ZCGleDebit}" shortDesc="#{bindings.ZCGleView1.hints.ZCGleDebit.tooltip}"
+                             id="ot3">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ZCGleView1.hints.ZCGleDebit.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleCredit.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ZCGleView1.hints.ZCGleCredit.label}" id="c4"
+                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold; #{row.ZCGleDate == null?'font-weight:bold;':''} #{row.ZCGleDate == null?'font-size:large;':''}"
+                       align="center" width="120">
+              <af:outputText value="#{row.ZCGleCredit}" shortDesc="#{bindings.ZCGleView1.hints.ZCGleCredit.tooltip}"
+                             id="ot4">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ZCGleView1.hints.ZCGleCredit.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleBalance.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ZCGleView1.hints.ZCGleBalance.label}" id="c5"
+                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                       align="center" width="85">
+              <af:outputText value="#{row.ZCGleBalance}" shortDesc="#{bindings.ZCGleView1.hints.ZCGleBalance.tooltip}"
+                             id="ot5">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ZCGleView1.hints.ZCGleBalance.format}"/>
+              </af:outputText>
+            </af:column>
+              <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleDrCr.name}" filterable="true" sortable="true"
+                         headerText="DR/CR" id="c18"
+                         inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                         align="center" width="50" rendered="false">
+                <af:outputText value="#{row.ZCGleDrCr}" shortDesc="#{bindings.ZCGleView1.hints.ZCGleDrCr.tooltip}"
+                               id="ot18"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleCoaActNumber.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.ZCGleView1.hints.ZCGleCoaActNumber.label}" id="c6"
+                         rendered="false">
+              <af:outputText value="#{row.ZCGleCoaActNumber}"
+                             shortDesc="#{bindings.ZCGleView1.hints.ZCGleCoaActNumber.tooltip}" id="ot6">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ZCGleView1.hints.ZCGleCoaActNumber.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleSlipNo.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ZCGleView1.hints.ZCGleSlipNo.label}" id="c9" rendered="false">
+              <af:outputText value="#{row.ZCGleSlipNo}" shortDesc="#{bindings.ZCGleView1.hints.ZCGleSlipNo.tooltip}"
+                             id="ot9"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleOildLoadDate.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.ZCGleView1.hints.ZCGleOildLoadDate.label}" id="c11"
+                       rendered="false">
+              <f:facet name="filter">
+                <af:inputDate value="#{bindings.ZCGleView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ZCGleOildLoadDate.value}"
+                              id="id4">
+                  <af:convertDateTime pattern="#{bindings.ZCGleView1.hints.ZCGleOildLoadDate.format}"/>
+                </af:inputDate>
+              </f:facet>
+              <af:outputText value="#{row.ZCGleOildLoadDate}"
+                             shortDesc="#{bindings.ZCGleView1.hints.ZCGleOildLoadDate.tooltip}" id="ot11">
+                <af:convertDateTime pattern="#{bindings.ZCGleView1.hints.ZCGleOildLoadDate.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleDebitQty.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ZCGleView1.hints.ZCGleDebitQty.label}" id="c12" rendered="false">
+              <af:outputText value="#{row.ZCGleDebitQty}" shortDesc="#{bindings.ZCGleView1.hints.ZCGleDebitQty.tooltip}"
+                             id="ot12">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ZCGleView1.hints.ZCGleDebitQty.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleCreditQty.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ZCGleView1.hints.ZCGleCreditQty.label}" id="c13" rendered="false">
+              <af:outputText value="#{row.ZCGleCreditQty}"
+                             shortDesc="#{bindings.ZCGleView1.hints.ZCGleCreditQty.tooltip}" id="ot13">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ZCGleView1.hints.ZCGleCreditQty.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleQtyBal.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ZCGleView1.hints.ZCGleQtyBal.label}" id="c14" rendered="false">
+              <af:outputText value="#{row.ZCGleQtyBal}" shortDesc="#{bindings.ZCGleView1.hints.ZCGleQtyBal.tooltip}"
+                             id="ot14">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ZCGleView1.hints.ZCGleQtyBal.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleCgsRate.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ZCGleView1.hints.ZCGleCgsRate.label}" id="c15" rendered="false">
+              <af:outputText value="#{row.ZCGleCgsRate}" shortDesc="#{bindings.ZCGleView1.hints.ZCGleCgsRate.tooltip}"
+                             id="ot15">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ZCGleView1.hints.ZCGleCgsRate.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleParamIdFk.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ZCGleView1.hints.ZCGleParamIdFk.label}" id="c16" rendered="false">
+              <af:outputText value="#{row.ZCGleParamIdFk}"
+                             shortDesc="#{bindings.ZCGleView1.hints.ZCGleParamIdFk.tooltip}" id="ot16">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ZCGleView1.hints.ZCGleParamIdFk.format}"/>
+              </af:outputText>
+            </af:column>
+              <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleId.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.ZCGleView1.hints.ZCGleId.label}" id="c1" rendered="false">
+                <af:outputText value="#{row.ZCGleId}" shortDesc="#{bindings.ZCGleView1.hints.ZCGleId.tooltip}" id="ot1">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.ZCGleView1.hints.ZCGleId.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.ZCGleView1.hints.ZCGleGleId.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ZCGleView1.hints.ZCGleGleId.label}" id="c17" rendered="false">
+              <af:outputText value="#{row.ZCGleGleId}" shortDesc="#{bindings.ZCGleView1.hints.ZCGleGleId.tooltip}"
+                             id="ot17">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ZCGleView1.hints.ZCGleGleId.format}"/>
+              </af:outputText>
+            </af:column>
+          </af:table>
+          <f:facet name="statusbar"/>
+        </af:panelCollection>
+      </f:facet>
+    </af:panelSplitter>
+  </af:panelBox>
+  </f:view>
+</ui:composition>

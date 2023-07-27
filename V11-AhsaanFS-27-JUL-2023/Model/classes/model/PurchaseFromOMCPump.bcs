@@ -1,0 +1,19 @@
+//Groovy Scripts for model.PurchaseFromOMCPump
+
+package model
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="PurchaseRateLogForOMCPump1", name="BindParty")
+def BindParty_PurchaseRateLogForOMCPump1_BindVariable_BoundParameter()
+{
+CoaPartyId
+}
+
+
+@AccessorParameterExpression(accessorName="PurchaseRateLogForOMCPump1", name="BindProduct")
+def BindProduct_PurchaseRateLogForOMCPump1_BindVariable_BoundParameter()
+{
+CoaProductId
+}
+

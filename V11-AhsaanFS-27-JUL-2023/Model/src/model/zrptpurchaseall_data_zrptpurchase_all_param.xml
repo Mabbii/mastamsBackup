@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="zrptpurchaseall_data_zrptpurchase_all_param"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.zrptpurchaseall_data_zrptpurchase_all_param_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="ZRptPurchaseAllParamView"
+    Cardinality="1"
+    Source="true"
+    Owner="model.ZRptPurchaseAllParamView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ZRptPurchaseAllParamView"/>
+      <Attr Name="_accessor" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptPurchaseAllParamView.PurchaseAllParamId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ZRptPurchaseAllDataView"
+    Cardinality="-1"
+    Owner="model.ZRptPurchaseAllDataView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ZRptPurchaseAllDataView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptPurchaseAllDataView.PurchaseAllParamIdFk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="DataLoaderSaleWithDiscountviewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DataLoaderSaleDiscView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="DataLoaderSaleDiscView1Iterator"/>
+    <searchRegion Binds="DataLoaderSaleDiscView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DataLoaderSaleDiscView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="DataLoaderSaleDiscView1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <listOfValues IterBinding="DataLoaderSaleDiscView1Iterator" StaticList="false" Uses="LOV_CoaName1" id="CoaName1"/>
+    <listOfValues IterBinding="DataLoaderSaleDiscView1Iterator" StaticList="false" Uses="LOV_VehicleRegNo"
+                  id="VehicleRegNo"/>
+    <attributeValues IterBinding="DataLoaderSaleDiscView1Iterator" id="DlsdId">
+      <AttrNames>
+        <Item Value="DlsdId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderSaleDiscView1Iterator" id="DlsdDate">
+      <AttrNames>
+        <Item Value="DlsdDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderSaleDiscView1Iterator" id="DlsdDactIdFk">
+      <AttrNames>
+        <Item Value="DlsdDactIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderSaleDiscView1Iterator" id="DlsdCactIdFk">
+      <AttrNames>
+        <Item Value="DlsdCactIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderSaleDiscView1Iterator" id="DlsdQty">
+      <AttrNames>
+        <Item Value="DlsdQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderSaleDiscView1Iterator" id="DlsdRate">
+      <AttrNames>
+        <Item Value="DlsdRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderSaleDiscView1Iterator" id="DlsdAmount">
+      <AttrNames>
+        <Item Value="DlsdAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderSaleDiscView1Iterator" id="DlsdDiscRate">
+      <AttrNames>
+        <Item Value="DlsdDiscRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderSaleDiscView1Iterator" id="DlsdDiscAmount">
+      <AttrNames>
+        <Item Value="DlsdDiscAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderSaleDiscView1Iterator" id="DlsdVehicleIdFk">
+      <AttrNames>
+        <Item Value="DlsdVehicleIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderSaleDiscView1Iterator" id="DlsdInfo">
+      <AttrNames>
+        <Item Value="DlsdInfo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderSaleDiscView1Iterator" id="DlsdSlipDate">
+      <AttrNames>
+        <Item Value="DlsdSlipDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderSaleDiscView1Iterator" id="DlsdSlipNo">
+      <AttrNames>
+        <Item Value="DlsdSlipNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderSaleDiscView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderSaleDiscView1Iterator" id="CoaActNumber1">
+      <AttrNames>
+        <Item Value="CoaActNumber1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataLoaderSaleDiscView1Iterator" id="VehicleId">
+      <AttrNames>
+        <Item Value="VehicleId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="DataLoaderSaleDiscView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="DataLoaderSaleDiscView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="DataLoaderSaleDiscView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="DataLoaderSaleDiscView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="DataLoaderSaleDiscView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="DataLoaderSaleDiscView1Iterator" id="DataLoaderSaleDiscView1">
+      <nodeDefinition DefName="model.DataLoaderSaleDiscView" Name="DataLoaderSaleDiscView10">
+        <AttrNames>
+          <Item Value="DlsdDate"/>
+          <Item Value="DlsdQty"/>
+          <Item Value="DlsdRate"/>
+          <Item Value="DlsdAmount"/>
+          <Item Value="DlsdDiscRate"/>
+          <Item Value="DlsdDiscAmount"/>
+          <Item Value="DlsdInfo"/>
+          <Item Value="DlsdSlipDate"/>
+          <Item Value="DlsdSlipNo"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaName1"/>
+          <Item Value="VehicleRegNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

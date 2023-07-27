@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="StorageOilTankerviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <iterator Binds="TankStockLedgerView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="TankStockLedgerView1Iterator"/>
+    <iterator Binds="StorageOilTankerLedger1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="StorageOilTankerLedger1Iterator"/>
+    <variableIterator id="variables">
+      <variableUsage DataControl="VOAPPDataControl" Binds="StorageOilTankerLedger1.variablesMap.BindOilTRegistration"
+                     Name="ExecuteWithParams_BindOilTRegistration" IsQueriable="false"/>
+      <variableUsage DataControl="VOAPPDataControl" Binds="StorageOilTankerLedger1.variablesMap.BindStartDate"
+                     Name="ExecuteWithParams_BindStartDate" IsQueriable="false"/>
+      <variableUsage DataControl="VOAPPDataControl" Binds="StorageOilTankerLedger1.variablesMap.BindEndDate"
+                     Name="ExecuteWithParams_BindEndDate" IsQueriable="false"/>
+    </variableIterator>
+    <searchRegion Binds="StorageOilTankerLedger1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="StorageOilTankerLedger1Query"/>
+    <iterator Binds="OilTanker_With_Storage_only1" RangeSize="10" DataControl="VOAPPDataControl"
+              id="OilTanker_With_Storage_only1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="TankStockLedgerView1Iterator" id="OiltId">
+      <AttrNames>
+        <Item Value="OiltId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="StorageOilTankerLedger1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindOilTRegistration" NDType="java.lang.String"
+                 NDValue="#{bindings.BindOilTRegistration.inputValue}"/>
+      <NamedData NDName="BindStartDate" NDType="java.sql.Timestamp"
+                 NDValue="${bindings.ExecuteWithParams_BindStartDate}"/>
+      <NamedData NDName="BindEndDate" NDType="java.sql.Timestamp" NDValue="${bindings.ExecuteWithParams_BindEndDate}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="BindOilTRegistration">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindOilTRegistration"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindStartDate">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindEndDate">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="StorageOilTankerLedger1Iterator" id="StorageOilTankerLedger1">
+      <nodeDefinition DefName="model.StorageOilTankerLedger" Name="StorageOilTankerLedger10">
+        <AttrNames>
+          <Item Value="TslDate"/>
+          <Item Value="TslDebit"/>
+          <Item Value="TslCredit"/>
+          <Item Value="TslBalance"/>
+          <Item Value="TankInfoName"/>
+          <Item Value="OiltRegistration"/>
+          <Item Value="TslSubBal"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues Uses="LOV_OiltRegistration" StaticList="false" IterBinding="OilTanker_With_Storage_only1Iterator"
+                  id="OiltRegistration"/>
+  </bindings>
+</pageDefinition>

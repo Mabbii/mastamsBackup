@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Accounts View" id="d1" binding="#{backingBeanScope.backing_MyHomeView.d1}"
+    smallIconSource="#{resource['images:adfdi_logo_16.png']}">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                <f:facet name="center">
+                    <af:panelStretchLayout id="psl1">
+                        <f:facet name="top">
+                            <af:toolbar id="t1" inlineStyle="min-width:0pt;">
+                                <af:button text="Add Party" id="b3"
+                                           hoverIcon="#{resource['images:actor.png']}"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           icon="#{resource['images:account.png']}"
+                                           actionListener="#{MainPageBean.CallAddParty}">
+                                    <af:setPropertyListener from="partygenralfc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s2"/>
+                                <af:button text="Add Product" id="b4"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Teal; border-right-color:Navy; border-top-color:Teal; border-bottom-color:Navy;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallAddProduct}"
+                                           icon="#{resource['images:product.png']}">
+                                    <af:setPropertyListener from="ProductFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s3"/>
+                                <af:button text="Add Bank" id="b5"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Olive; border-right-color:Orange; border-top-color:Olive; border-bottom-color:Orange;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallAddBank}"
+                                           icon="#{resource['images:bank.png']}">
+                                    <af:setPropertyListener from="BankFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s4"/>
+                                <af:button text="Add Reference Bank" id="b6"
+                                           inlineStyle="min-width:150px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:ThreeDDarkShadow; border-right-color:Highlight; border-top-color:ThreeDDarkShadow; border-bottom-color:Highlight;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallAddReferenceBank}"
+                                           icon="#{resource['images:bank.png']}">
+                                    <af:setPropertyListener from="RefranceBankFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s5"/>
+                                <af:button text="Add Expense" id="b7"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Red; border-right-color:Green; border-top-color:Red; border-bottom-color:Green;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.AddExpense}"
+                                           icon="#{resource['images:analysis.png']}">
+                                    <af:setPropertyListener from="ExpenseFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s6"/>
+                                <af:button text="Account Revenue" id="b8"
+                                           inlineStyle="min-width:125px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Highlight; border-right-color:Highlight; border-top-color:Highlight; border-bottom-color:Highlight;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallAccountRevenue}"
+                                           icon="#{resource['images:growth.png']}">
+                                    <af:setPropertyListener from="AccountRevenueFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s7"/>
+                                <af:button text="Account Capital" id="b9"
+                                           inlineStyle="min-width:125px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-right-color:Olive; border-top-color:Teal; border-left-color:Teal; border-bottom-color:Olive;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallAccountCapital}"
+                                           icon="#{resource['images:government.png']}">
+                                    <af:setPropertyListener from="AccountCapitalFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s8"/>
+                                <af:button text="Account Receviable" id="b10"
+                                           inlineStyle="min-width:150px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Navy; border-right-color:Black; border-top-color:Navy; border-bottom-color:Black;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallAccountReceviable}"
+                                           icon="#{resource['images:call.png']}">
+                                    <af:setPropertyListener from="AccountReceivableFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s9"/>
+                                <af:button text="Account Payable" id="b11"
+                                           inlineStyle="min-width:125px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Olive; border-right-color:Maroon; border-top-color:Olive; border-bottom-color:Maroon;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallAccountPayable}"
+                                           icon="#{resource['images:payable.png']}">
+                                    <af:setPropertyListener from="AccountPayableFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="center">
+                            <af:switcher id="s1" binding="#{backingBeanScope.backing_MyHomeView.switcher}"
+                                         defaultFacet="DefaultAccountsFC" facetName="DefaultAccountsFC">
+                                <f:facet name="partygenralfc">
+                                    <af:region value="#{bindings.partygenralTF1.regionModel}" id="r1"/>
+                                </f:facet>
+                                <f:facet name="ProductFc">
+                                    <af:region value="#{bindings.productfrgenralTF1.regionModel}" id="r2"/>
+                                </f:facet>
+                                <f:facet name="BankFc">
+                                    <af:region value="#{bindings.BankAccountTF1.regionModel}" id="r3"/>
+                                </f:facet>
+                                <f:facet name="RefranceBankFc">
+                                    <af:region value="#{bindings.BankNameTF1.regionModel}" id="r4"/>
+                                </f:facet>
+                                <f:facet name="ExpenseFc">
+                                    <af:region value="#{bindings.Expenseview2TF1.regionModel}" id="r5"/>
+                                </f:facet>
+                                <f:facet name="AccountRevenueFc">
+                                    <af:region value="#{bindings.AccountRevenueTF1.regionModel}" id="r6"/>
+                                </f:facet>
+                                <f:facet name="AccountCapitalFc">
+                                    <af:region value="#{bindings.AccountCapitalTF1.regionModel}" id="r7"/>
+                                </f:facet>
+                                <f:facet name="AccountReceivableFc">
+                                    <af:region value="#{bindings.AccountRecieveAbleTF1.regionModel}" id="r8"/>
+                                </f:facet>
+                                <f:facet name="AccountPayableFc">
+                                    <af:region value="#{bindings.AccountPayAbleTF1.regionModel}" id="r9"/>
+                                </f:facet>
+                                <f:facet name="DefaultAccountsFC">
+                                    <af:region value="#{bindings.DefaultAccountTF1.regionModel}" id="r10"/>
+                                </f:facet>
+                            </af:switcher>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="status"/>
+                <f:attribute name="startColumnSize" value="170"/>
+                <f:attribute name="headerGlobalSize" value="35"/>
+                <f:facet name="header">
+                    <af:link text="HighPower Filling Station" id="l4" action="#{PageLoadBean.RedirecttoHome}"
+                             inlineStyle="color:Maroon; font-size:x-large; font-style:italic; font-weight:bold;"/>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

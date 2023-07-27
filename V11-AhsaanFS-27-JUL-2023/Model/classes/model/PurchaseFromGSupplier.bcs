@@ -1,0 +1,19 @@
+//Groovy Scripts for model.PurchaseFromGSupplier
+
+package model
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="PurchaseRateLogForSupplier1", name="BindParty")
+def BindParty_PurchaseRateLogForSupplier1_BindVariable_BoundParameter()
+{
+CoaCode
+}
+
+
+@AccessorParameterExpression(accessorName="PurchaseRateLogForSupplier1", name="BindProduct")
+def BindProduct_PurchaseRateLogForSupplier1_BindVariable_BoundParameter()
+{
+CoaCode1
+}
+

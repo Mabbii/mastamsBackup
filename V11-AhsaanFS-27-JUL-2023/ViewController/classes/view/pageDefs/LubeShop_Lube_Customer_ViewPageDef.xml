@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="LubeShop_Lube_Customer_ViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="LubeCustomerView1" RangeSize="25" DataControl="VOAPPDataControl" id="LubeCustomerView1Iterator"/>
+    <searchRegion Binds="LubeCustomerView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="LubeCustomerView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="LubeCustomerView1Iterator" id="LcId">
+      <AttrNames>
+        <Item Value="LcId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LubeCustomerView1Iterator" id="LcName">
+      <AttrNames>
+        <Item Value="LcName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LubeCustomerView1Iterator" id="LcAddress">
+      <AttrNames>
+        <Item Value="LcAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LubeCustomerView1Iterator" id="LcCity">
+      <AttrNames>
+        <Item Value="LcCity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LubeCustomerView1Iterator" id="LcPhone">
+      <AttrNames>
+        <Item Value="LcPhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LubeCustomerView1Iterator" id="LcEmail">
+      <AttrNames>
+        <Item Value="LcEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="LubeCustomerView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="LubeCustomerView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="LubeCustomerView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="LubeCustomerView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="LubeCustomerView1Iterator" id="LubeCustomerView1">
+      <nodeDefinition DefName="model.LubeCustomerView" Name="LubeCustomerView10">
+        <AttrNames>
+          <Item Value="LcId"/>
+          <Item Value="LcName"/>
+          <Item Value="LcAddress"/>
+          <Item Value="LcCity"/>
+          <Item Value="LcPhone"/>
+          <Item Value="LcEmail"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="LubeCustomerView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

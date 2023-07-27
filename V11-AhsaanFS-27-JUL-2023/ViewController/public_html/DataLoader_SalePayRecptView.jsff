@@ -1,0 +1,443 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="426" id="ps1">
+        <f:facet name="first">
+            <af:panelBox text="Date Loader" id="pb1">
+                <f:facet name="toolbar"/>
+                <af:panelFormLayout id="pfl1" maxColumns="2" rows="2">
+                    <af:inputText value="#{bindings.DlrId.inputValue}" label="#{bindings.DlrId.hints.label}"
+                                  required="#{bindings.DlrId.hints.mandatory}"
+                                  columns="#{bindings.DlrId.hints.displayWidth}"
+                                  maximumLength="#{bindings.DlrId.hints.precision}"
+                                  shortDesc="#{bindings.DlrId.hints.tooltip}" id="it3" readOnly="true">
+                        <f:validator binding="#{bindings.DlrId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.DlrId.format}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.DlrDate.inputValue}" label="#{bindings.DlrDate.hints.label}"
+                                  required="#{bindings.DlrDate.hints.mandatory}"
+                                  columns="#{bindings.DlrDate.hints.displayWidth}"
+                                  shortDesc="#{bindings.DlrDate.hints.tooltip}" id="id1">
+                        <f:validator binding="#{bindings.DlrDate.validator}"/>
+                        <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                    </af:inputDate>
+                    <af:inputListOfValues id="coaNameId" popupTitle="Search and Select: #{bindings.CoaName.hints.label}"
+                                          value="#{bindings.CoaName.inputValue}" label="#{bindings.CoaName.hints.label}"
+                                          model="#{bindings.CoaName.listOfValuesModel}"
+                                          required="#{bindings.CoaName.hints.mandatory}"
+                                          columns="#{bindings.CoaName.hints.displayWidth}"
+                                          shortDesc="#{bindings.CoaName.hints.tooltip}" autoSubmit="true">
+                        <f:validator binding="#{bindings.CoaName.validator}"/>
+                        <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName.suggestedItems}"/>
+                    </af:inputListOfValues>
+                    <af:inputListOfValues id="vehicleRegNoId"
+                                          popupTitle="Search and Select: #{bindings.VehicleRegNo.hints.label}"
+                                          value="#{bindings.VehicleRegNo.inputValue}"
+                                          label="#{bindings.VehicleRegNo.hints.label}"
+                                          model="#{bindings.VehicleRegNo.listOfValuesModel}"
+                                          required="#{bindings.VehicleRegNo.hints.mandatory}"
+                                          columns="#{bindings.VehicleRegNo.hints.displayWidth}"
+                                          shortDesc="#{bindings.VehicleRegNo.hints.tooltip}" autoSubmit="true">
+                        <f:validator binding="#{bindings.VehicleRegNo.validator}"/>
+                        <af:autoSuggestBehavior suggestedItems="#{bindings.VehicleRegNo.suggestedItems}"/>
+                    </af:inputListOfValues>
+                    <af:inputText value="#{bindings.DlrSlipNbr.inputValue}" label="#{bindings.DlrSlipNbr.hints.label}"
+                                  required="#{bindings.DlrSlipNbr.hints.mandatory}"
+                                  columns="#{bindings.DlrSlipNbr.hints.displayWidth}"
+                                  maximumLength="#{bindings.DlrSlipNbr.hints.precision}"
+                                  shortDesc="#{bindings.DlrSlipNbr.hints.tooltip}" id="it13">
+                        <f:validator binding="#{bindings.DlrSlipNbr.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.DlrRecptAmt.inputValue}" label="#{bindings.DlrRecptAmt.hints.label}"
+                                  required="#{bindings.DlrRecptAmt.hints.mandatory}"
+                                  columns="#{bindings.DlrRecptAmt.hints.displayWidth}"
+                                  maximumLength="#{bindings.DlrRecptAmt.hints.precision}"
+                                  shortDesc="#{bindings.DlrRecptAmt.hints.tooltip}" id="it12">
+                        <f:validator binding="#{bindings.DlrRecptAmt.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.DlrRecptAmt.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.DlrPayAmt.inputValue}" label="#{bindings.DlrPayAmt.hints.label}"
+                                  required="#{bindings.DlrPayAmt.hints.mandatory}"
+                                  columns="#{bindings.DlrPayAmt.hints.displayWidth}"
+                                  maximumLength="#{bindings.DlrPayAmt.hints.precision}"
+                                  shortDesc="#{bindings.DlrPayAmt.hints.tooltip}" id="it5">
+                        <f:validator binding="#{bindings.DlrPayAmt.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.DlrPayAmt.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.DlrProdct1.inputValue}" label="Product id (1)"
+                                  required="#{bindings.DlrProdct1.hints.mandatory}"
+                                  columns="#{bindings.DlrProdct1.hints.displayWidth}"
+                                  maximumLength="#{bindings.DlrProdct1.hints.precision}"
+                                  shortDesc="#{bindings.DlrProdct1.hints.tooltip}" id="it6" rendered="true"
+                                  readOnly="true">
+                        <f:validator binding="#{bindings.DlrProdct1.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.DlrProdct1.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.DlrProdct2.inputValue}" label="Product id (2)"
+                                  required="#{bindings.DlrProdct2.hints.mandatory}"
+                                  columns="#{bindings.DlrProdct2.hints.displayWidth}"
+                                  maximumLength="#{bindings.DlrProdct2.hints.precision}"
+                                  shortDesc="#{bindings.DlrProdct2.hints.tooltip}" id="it7" readOnly="true">
+                        <f:validator binding="#{bindings.DlrProdct2.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.DlrProdct2.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.DlrPartyId.inputValue}" label="Party id"
+                                  required="#{bindings.DlrPartyId.hints.mandatory}"
+                                  columns="#{bindings.DlrPartyId.hints.displayWidth}"
+                                  maximumLength="#{bindings.DlrPartyId.hints.precision}"
+                                  shortDesc="#{bindings.DlrPartyId.hints.tooltip}" id="it4" readOnly="true">
+                        <f:validator binding="#{bindings.DlrPartyId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.DlrPartyId.format}"/>
+                    </af:inputText>
+                    <af:inputListOfValues id="coaName1Id"
+                                          popupTitle="Search and Select: #{bindings.CoaName1.hints.label}"
+                                          value="#{bindings.CoaName1.inputValue}"
+                                          label="#{bindings.CoaName1.hints.label}"
+                                          model="#{bindings.CoaName1.listOfValuesModel}"
+                                          required="#{bindings.CoaName1.hints.mandatory}"
+                                          columns="#{bindings.CoaName1.hints.displayWidth}"
+                                          shortDesc="#{bindings.CoaName1.hints.tooltip}" autoSubmit="true">
+                        <f:validator binding="#{bindings.CoaName1.validator}"/>
+                        <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName1.suggestedItems}"/>
+                    </af:inputListOfValues>
+                    <af:inputText value="#{bindings.DlrQty1.inputValue}" label="#{bindings.DlrQty1.hints.label}"
+                                  required="#{bindings.DlrQty1.hints.mandatory}"
+                                  columns="#{bindings.DlrQty1.hints.displayWidth}"
+                                  maximumLength="#{bindings.DlrQty1.hints.precision}"
+                                  shortDesc="#{bindings.DlrQty1.hints.tooltip}" id="it8" autoSubmit="true">
+                        <f:validator binding="#{bindings.DlrQty1.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.DlrQty1.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.DlrRate1.inputValue}" label="#{bindings.DlrRate1.hints.label}"
+                                  required="#{bindings.DlrRate1.hints.mandatory}"
+                                  columns="#{bindings.DlrRate1.hints.displayWidth}"
+                                  maximumLength="#{bindings.DlrRate1.hints.precision}"
+                                  shortDesc="#{bindings.DlrRate1.hints.tooltip}" id="it10" readOnly="true">
+                        <f:validator binding="#{bindings.DlrRate1.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.DlrAmt1.inputValue}" label="#{bindings.DlrAmt1.hints.label}"
+                                  required="#{bindings.DlrAmt1.hints.mandatory}"
+                                  columns="#{bindings.DlrAmt1.hints.displayWidth}"
+                                  maximumLength="#{bindings.DlrAmt1.hints.precision}"
+                                  shortDesc="#{bindings.DlrAmt1.hints.tooltip}" id="it1" readOnly="true">
+                        <f:validator binding="#{bindings.DlrAmt1.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.DlrAmt1.format}"/>
+                    </af:inputText>
+                    <af:inputListOfValues id="coaName2Id"
+                                          popupTitle="Search and Select: #{bindings.CoaName2.hints.label}"
+                                          value="#{bindings.CoaName2.inputValue}"
+                                          label="#{bindings.CoaName2.hints.label}"
+                                          model="#{bindings.CoaName2.listOfValuesModel}"
+                                          required="#{bindings.CoaName2.hints.mandatory}"
+                                          columns="#{bindings.CoaName2.hints.displayWidth}"
+                                          shortDesc="#{bindings.CoaName2.hints.tooltip}" autoSubmit="true">
+                        <f:validator binding="#{bindings.CoaName2.validator}"/>
+                        <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName2.suggestedItems}"/>
+                    </af:inputListOfValues>
+                    <af:inputText value="#{bindings.DlrQty2.inputValue}" label="#{bindings.DlrQty2.hints.label}"
+                                  required="#{bindings.DlrQty2.hints.mandatory}"
+                                  columns="#{bindings.DlrQty2.hints.displayWidth}"
+                                  maximumLength="#{bindings.DlrQty2.hints.precision}"
+                                  shortDesc="#{bindings.DlrQty2.hints.tooltip}" id="it9" autoSubmit="true">
+                        <f:validator binding="#{bindings.DlrQty2.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.DlrQty2.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.DlrRate2.inputValue}" label="#{bindings.DlrRate2.hints.label}"
+                                  required="#{bindings.DlrRate2.hints.mandatory}"
+                                  columns="#{bindings.DlrRate2.hints.displayWidth}"
+                                  maximumLength="#{bindings.DlrRate2.hints.precision}"
+                                  shortDesc="#{bindings.DlrRate2.hints.tooltip}" id="it11" readOnly="true">
+                        <f:validator binding="#{bindings.DlrRate2.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.DlrAmt2.inputValue}" label="#{bindings.DlrAmt2.hints.label}"
+                                  required="#{bindings.DlrAmt2.hints.mandatory}"
+                                  columns="#{bindings.DlrAmt2.hints.displayWidth}"
+                                  maximumLength="#{bindings.DlrAmt2.hints.precision}"
+                                  shortDesc="#{bindings.DlrAmt2.hints.tooltip}" id="it2" readOnly="true">
+                        <f:validator binding="#{bindings.DlrAmt2.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.DlrAmt2.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.DlrVehicleId.inputValue}"
+                                  label="#{bindings.DlrVehicleId.hints.label}"
+                                  required="#{bindings.DlrVehicleId.hints.mandatory}"
+                                  columns="#{bindings.DlrVehicleId.hints.displayWidth}"
+                                  maximumLength="#{bindings.DlrVehicleId.hints.precision}"
+                                  shortDesc="#{bindings.DlrVehicleId.hints.tooltip}" id="it14" rendered="false">
+                        <f:validator binding="#{bindings.DlrVehicleId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.DlrVehicleId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.VehicleId.inputValue}" label="#{bindings.VehicleId.hints.label}"
+                                  required="#{bindings.VehicleId.hints.mandatory}"
+                                  columns="#{bindings.VehicleId.hints.displayWidth}"
+                                  maximumLength="#{bindings.VehicleId.hints.precision}"
+                                  shortDesc="#{bindings.VehicleId.hints.tooltip}" id="it15" rendered="false">
+                        <f:validator binding="#{bindings.VehicleId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.VehicleId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CoaActNumber.inputValue}"
+                                  label="#{bindings.CoaActNumber.hints.label}"
+                                  required="#{bindings.CoaActNumber.hints.mandatory}"
+                                  columns="#{bindings.CoaActNumber.hints.displayWidth}"
+                                  maximumLength="#{bindings.CoaActNumber.hints.precision}"
+                                  shortDesc="#{bindings.CoaActNumber.hints.tooltip}" id="it16" rendered="false">
+                        <f:validator binding="#{bindings.CoaActNumber.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CoaActNumber1.inputValue}"
+                                  label="#{bindings.CoaActNumber1.hints.label}"
+                                  required="#{bindings.CoaActNumber1.hints.mandatory}"
+                                  columns="#{bindings.CoaActNumber1.hints.displayWidth}"
+                                  maximumLength="#{bindings.CoaActNumber1.hints.precision}"
+                                  shortDesc="#{bindings.CoaActNumber1.hints.tooltip}" id="it17" rendered="false">
+                        <f:validator binding="#{bindings.CoaActNumber1.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber1.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CoaActNumber2.inputValue}"
+                                  label="#{bindings.CoaActNumber2.hints.label}"
+                                  required="#{bindings.CoaActNumber2.hints.mandatory}"
+                                  columns="#{bindings.CoaActNumber2.hints.displayWidth}"
+                                  maximumLength="#{bindings.CoaActNumber2.hints.precision}"
+                                  shortDesc="#{bindings.CoaActNumber2.hints.tooltip}" id="it18" rendered="false">
+                        <f:validator binding="#{bindings.CoaActNumber2.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber2.format}"/>
+                    </af:inputText>
+                    <f:facet name="footer">
+                        <af:panelGroupLayout layout="horizontal" id="pgl2">
+                            <af:panelGroupLayout layout="horizontal" id="pgl3">
+                                <af:button actionListener="#{bindings.First.execute}"
+                                           icon="#{resource['images:first_hor_ena.png']}"
+                                           disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                                <af:button actionListener="#{bindings.Previous.execute}"
+                                           icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                                <af:button actionListener="#{bindings.Next.execute}"
+                                           icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                           disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                                <af:button actionListener="#{bindings.Last.execute}"
+                                           icon="#{resource['images:last_hor_ena.png']}"
+                                           disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                                <af:outputText value="-----------------" id="ot24"/>
+                            </af:panelGroupLayout>
+                            <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                                       icon="#{resource['images:commit.png']}" disabled="#{!bindings.Commit.enabled}"/>
+                            <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                       icon="#{resource['images:add.png']}" disabled="#{!bindings.CreateInsert.enabled}"
+                                       id="b6"/>
+                            <af:outputText value="------------------------------------" id="ot25"/>
+                            <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                       icon="#{resource['images:rollback.png']}"
+                                       disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                                <af:resetActionListener/>
+                            </af:button>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:panelFormLayout>
+            </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar">
+                <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot141"
+                                       inlineStyle="color:Maroon; font-size:large; font-style:italic;"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.Data_Loader_Retail_view1.collectionModel}" var="row"
+                          rows="#{bindings.Data_Loader_Retail_view1.rangeSize}"
+                          emptyText="#{bindings.Data_Loader_Retail_view1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.Data_Loader_Retail_view1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.Data_Loader_Retail_view1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.Data_Loader_Retail_view1.rangeSize}"
+                          filterModel="#{bindings.Data_Loader_Retail_view1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.Data_Loader_Retail_view1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 ::b5 ::b7 :::b1 :::b2 :::b3 :::b4 :::b6"
+                          scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.DlrVehicleId.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.Data_Loader_Retail_view1.hints.DlrVehicleId.label}" id="c12"
+                               rendered="false">
+                        <af:outputText value="#{row.DlrVehicleId}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.DlrVehicleId.tooltip}"
+                                       id="ot12">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Data_Loader_Retail_view1.hints.DlrVehicleId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.DlrDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Data_Loader_Retail_view1.hints.DlrDate.label}"
+                               id="c3" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               width="90">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.Data_Loader_Retail_view1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.DlrDate.value}"
+                                          id="id2">
+                                <af:convertDateTime pattern="#{bindings.Data_Loader_Retail_view1.hints.DlrDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.DlrDate}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.DlrDate.tooltip}" id="ot3">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.DlrSlipNbr.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.Data_Loader_Retail_view1.hints.DlrSlipNbr.label}" id="c11"
+                               align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               width="80">
+                        <af:outputText value="#{row.DlrSlipNbr}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.DlrSlipNbr.tooltip}"
+                                       id="ot11"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.CoaName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Data_Loader_Retail_view1.hints.CoaName.label}"
+                               id="c14" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               width="150">
+                        <af:outputText value="#{row.CoaName}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.CoaName.tooltip}"
+                                       id="ot14"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.VehicleRegNo.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.Data_Loader_Retail_view1.hints.VehicleRegNo.label}" id="c13"
+                               align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               width="90">
+                        <af:outputText value="#{row.VehicleRegNo}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.VehicleRegNo.tooltip}"
+                                       id="ot13"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.CoaName1.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Data_Loader_Retail_view1.hints.CoaName1.label}"
+                               id="c15" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               width="90">
+                        <af:outputText value="#{row.CoaName1}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.CoaName1.tooltip}"
+                                       id="ot15"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.DlrQty1.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Data_Loader_Retail_view1.hints.DlrQty1.label}"
+                               id="c6" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               width="80">
+                        <af:outputText value="#{row.DlrQty1}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.DlrQty1.tooltip}" id="ot6">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Data_Loader_Retail_view1.hints.DlrQty1.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.DlrRate1.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Data_Loader_Retail_view1.hints.DlrRate1.label}"
+                               id="c8" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               width="80">
+                        <af:outputText value="#{row.DlrRate1}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.DlrRate1.tooltip}"
+                                       id="ot8"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.DlrAmt1.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Data_Loader_Retail_view1.hints.DlrAmt1.label}"
+                               id="c1" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               width="80">
+                        <af:outputText value="#{row.DlrAmt1}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.DlrAmt1.tooltip}" id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Data_Loader_Retail_view1.hints.DlrAmt1.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.CoaName2.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Data_Loader_Retail_view1.hints.CoaName2.label}"
+                               id="c16" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               width="90">
+                        <af:outputText value="#{row.CoaName2}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.CoaName2.tooltip}"
+                                       id="ot16"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.DlrQty2.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Data_Loader_Retail_view1.hints.DlrQty2.label}"
+                               id="c7" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               width="80">
+                        <af:outputText value="#{row.DlrQty2}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.DlrQty2.tooltip}" id="ot7">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Data_Loader_Retail_view1.hints.DlrQty2.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.DlrRate2.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Data_Loader_Retail_view1.hints.DlrRate2.label}"
+                               id="c9" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               width="80">
+                        <af:outputText value="#{row.DlrRate2}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.DlrRate2.tooltip}"
+                                       id="ot9"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.DlrAmt2.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Data_Loader_Retail_view1.hints.DlrAmt2.label}"
+                               id="c2" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               width="80">
+                        <af:outputText value="#{row.DlrAmt2}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.DlrAmt2.tooltip}" id="ot2">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Data_Loader_Retail_view1.hints.DlrAmt2.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.DlrPayAmt.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.Data_Loader_Retail_view1.hints.DlrPayAmt.label}" id="c5"
+                               align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               width="80">
+                        <af:outputText value="#{row.DlrPayAmt}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.DlrPayAmt.tooltip}"
+                                       id="ot5">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Data_Loader_Retail_view1.hints.DlrPayAmt.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.DlrRecptAmt.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.Data_Loader_Retail_view1.hints.DlrRecptAmt.label}" id="c10"
+                               align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.DlrRecptAmt}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.DlrRecptAmt.tooltip}"
+                                       id="ot10">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Data_Loader_Retail_view1.hints.DlrRecptAmt.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.DlrId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Data_Loader_Retail_view1.hints.DlrId.label}"
+                               id="c4" rendered="false">
+                        <af:outputText value="#{row.DlrId}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.DlrId.tooltip}" id="ot4">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Data_Loader_Retail_view1.hints.DlrId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Data_Loader_Retail_view1.hints.CoaActNumber2.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.Data_Loader_Retail_view1.hints.CoaActNumber2.label}" id="c17"
+                               rendered="false">
+                        <af:outputText value="#{row.CoaActNumber2}"
+                                       shortDesc="#{bindings.Data_Loader_Retail_view1.hints.CoaActNumber2.tooltip}"
+                                       id="ot17">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Data_Loader_Retail_view1.hints.CoaActNumber2.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

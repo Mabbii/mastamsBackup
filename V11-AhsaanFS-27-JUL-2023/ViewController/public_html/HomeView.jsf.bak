@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="HighPower Filling Station" id="d1" smallIconSource="#{resource['images:adfdi_logo_16.png']}">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt2">
+                <f:facet name="center">
+                    <af:panelStretchLayout id="psl1"
+                                           inlineStyle='background-image:url("f0v35alky3578kn4.jpg"); background-position:2% 0%; background-size:cover;'>
+                        <f:facet name="top">
+                            <af:toolbar id="t1" inlineStyle="padding-top:6px;">
+                                <af:button text="ACCOUNTS" id="b1" action="#{PageLoadBean.Redirect}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           icon="#{resource['images:business-and-finance (1).png']}"/>
+                                <af:button text="RATES" id="b2" action="#{PageLoadBean.RedirecttoRatesMy}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           icon="#{resource['images:bounce-rate.png']}"/>
+                                <af:button text="Managment" id="b3" action="#{PageLoadBean.Redirecttomanagment}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           icon="#{resource['images:process (1).png']}"/>
+                                <af:button text="Retail" id="b5"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           icon="#{resource['images:fuel.png']}"
+                                           action="#{PageLoadBean.RedirecttoRetailMy}"/>
+                                <af:button text="Lube Shop" id="b14"
+                                           binding="#{backingBeanScope.backing_MyHomeView.b14}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           icon="#{resource['images:engine-oil (1).png']}"
+                                           action="#{PageLoadBean.RedirecttoRetail_Lube}"/>
+                                <af:button text="Account Opening" id="b7" binding="#{backingBeanScope.backing_MyHomeView.b7}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{PageLoadBean.RedirecttoAccountsOpening}"
+                                           icon="#{resource['images:network.png']}"/>
+                                <af:button text="Reports" id="b8" binding="#{backingBeanScope.backing_MyHomeView.b8}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{PageLoadBean.RedirecttoReports}"
+                                           icon="#{resource['images:news.png']}"/>
+                                <af:button text="Day Book" id="b9" binding="#{backingBeanScope.backing_MyHomeView.b9}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           icon="#{resource['images:expenses.png']}"
+                                           action="#{PageLoadBean.RedirecttoDayBook}"/>
+                                <af:button text="Stock" id="b11"
+                                           binding="#{backingBeanScope.backing_MyHomeView.b11}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{PageLoadBean.RedirecttoStockTransfer}"
+                                           icon="#{resource['images:warehouse.png']}"/>
+                                <af:button text="Data Loader" id="b4" binding="#{backingBeanScope.backing_MyHomeView.b4}"
+                                           action="#{PageLoadBean.RedirecttoDataLoader}"
+                                           icon="#{resource['images:money.png']}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"/>
+                                <af:button text="Initialize Date" id="b10"
+                                            icon="#{resource['images:calendar.png']}"
+                                           binding="#{backingBeanScope.backing_MyHomeView.b10}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{PageLoadBean.RedirecttoInitilizeDate}"/>
+                                <af:button text="Financial Statements" id="b12"
+                                           binding="#{backingBeanScope.backing_MyHomeView.b12}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           icon="#{resource['images:statementttttttt.png']}"
+                                           action="#{PageLoadBean.RedirecttoFinancialStatement}"/>
+                                <af:button text="Billing" id="b13"
+                                           binding="#{backingBeanScope.backing_MyHomeView.b13}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           icon="#{resource['images:invoices.png']}"
+                                           action="#{PageLoadBean.RedirecttoBill}"/>
+                                <!--<af:button text="LOG" id="b15"
+                                           binding="#{backingBeanScope.backing_MyHomeView.b15}"
+                                           action="#{PageLoadBean.RedirecttoLog}"/>-->
+                            </af:toolbar>
+                            
+                        </f:facet>
+                        <f:facet name="center">
+                            <af:switcher id="s1" binding="#{backingBeanScope.backing_MyHomeView.s1}"
+                                         facetName="DefaulttFc" defaultFacet="DefaulttFc"/>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="header">
+                <af:link text="HighPower Filling Station" id="ll4" action="#{PageLoadBean.RedirecttoHome}"
+                             inlineStyle="color:Maroon; font-size:x-large; font-style:italic; font-weight:bold;"/>
+                </f:facet>
+                <f:facet name="branding"/>
+                <f:facet name="status">
+                    <af:toolbar id="t2" binding="#{backingBeanScope.backing_MyHomeView.t2}">
+                        <af:button id="b6" binding="#{backingBeanScope.backing_MyHomeView.b6}"
+                                   action="#{AuthBean.loggedoff}" icon="#{resource['images:turn-off.png']}"/>
+                        <af:spacer width="10" height="10" id="s2" binding="#{backingBeanScope.backing_MyHomeView.s2}"/>
+                    </af:toolbar>
+                </f:facet>
+                <f:attribute name="headerGlobalSize" value="38"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_MyHomeView-->
+</f:view>

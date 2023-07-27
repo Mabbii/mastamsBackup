@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SaleRate"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SALE_RATE"
+  AliasName="SaleRate"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="SaleRateId"
+    ColumnName="SALE_RATE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="SALE_RATE"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="SaleRateR"
+    Precision="27"
+    Scale="7"
+    ColumnName="SALE_RATE_R"
+    SQLType="NUMERIC"
+    Type="java.lang.String"
+    ColumnType="NUMBER"
+    TableName="SALE_RATE"/>
+  <Attribute
+    Name="SaleRateStartDate"
+    ColumnName="SALE_RATE_START_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SALE_RATE"/>
+  <Attribute
+    Name="PpartyId"
+    IsNotNull="true"
+    ColumnName="PPARTY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="SALE_RATE"/>
+  <Attribute
+    Name="PproductId"
+    IsNotNull="true"
+    ColumnName="PPRODUCT_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="SALE_RATE"/>
+  <Attribute
+    Name="SaleRateEndDate"
+    ColumnName="SALE_RATE_END_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SALE_RATE"/>
+  <Attribute
+    Name="SaleRateDate"
+    ColumnName="SALE_RATE_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SALE_RATE"/>
+  <Attribute
+    Name="SaleRateDetails"
+    Precision="50"
+    ColumnName="SALE_RATE_DETAILS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SALE_RATE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Party"
+    Association="model.Party_SaleRate_FK_Assoc"
+    AssociationEnd="model.Party_SaleRate_FK_Assoc.Party"
+    AssociationOtherEnd="model.Party_SaleRate_FK_Assoc.SaleRate"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Product"
+    Association="model.Product_SaleRate_FK_Assoc"
+    AssociationEnd="model.Product_SaleRate_FK_Assoc.Product"
+    AssociationOtherEnd="model.Product_SaleRate_FK_Assoc.SaleRate"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SaleRateLog"
+    Association="model.SALERATE_SRLOG_FK_Assoc"
+    AssociationEnd="model.SALERATE_SRLOG_FK_Assoc.SaleRateLog"
+    AssociationOtherEnd="model.SALERATE_SRLOG_FK_Assoc.SaleRate"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="SaleRatePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SALE_RATE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SaleRate.SaleRateId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="PartySalerateFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PARTY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PARTY_SALERATE_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SaleRate.PpartyId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ProdctSalerateFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRODUCT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PRODCT_SALERATE_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SaleRate.PproductId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SaleRate">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PARTY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SALE_RATE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SaleRate.PpartyId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SaleRate1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRODUCT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SALE_RATE1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SaleRate.PproductId"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <f:view beforePhase="#{backingBeanScope.PrintPageBean.beforePhaseMethod}">
+        <af:panelBox id="pb1">
+            <f:facet name="toolbar">
+                <af:button id="b3" inlineStyle="padding-top:0px;" icon="#{resource['images:print.png']}">
+                    <af:showPrintablePageBehavior/>
+                </af:button>
+            </f:facet>
+            <af:image source="#{resource['images:Ahsaan FS Logo.png']}" shortDesc="Ahsaan FS Logo" id="i1"/>
+            <af:panelSplitter orientation="vertical" splitterPosition="268" id="ps1"
+                              inlineStyle="width:1217px; height:738px;">
+                <f:facet name="first">
+                    <af:panelFormLayout id="pfl1">
+                        <af:outputText value="Bill Vehicle" id="ot10"
+                                       inlineStyle="font-weight:bold; font-style:italic; font-size:x-large;"/>
+                        <af:inputListOfValues id="coaNameId"
+                                              popupTitle="Search and Select: #{bindings.CoaName.hints.label}"
+                                              value="#{bindings.CoaName.inputValue}" label="Party"
+                                              model="#{bindings.CoaName.listOfValuesModel}"
+                                              columns="#{bindings.CoaName.hints.displayWidth}"
+                                              shortDesc="#{bindings.CoaName.hints.tooltip}" autoSubmit="true">
+                            <f:validator binding="#{bindings.CoaName.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName.suggestedItems}"/>
+                        </af:inputListOfValues>
+                        <af:inputListOfValues id="vehicleRegNoId"
+                                              popupTitle="Search and Select: #{bindings.VehicleRegNo.hints.label}"
+                                              value="#{bindings.VehicleRegNo.inputValue}" label="Vehicle #"
+                                              model="#{bindings.VehicleRegNo.listOfValuesModel}"
+                                              columns="#{bindings.VehicleRegNo.hints.displayWidth}"
+                                              shortDesc="#{bindings.VehicleRegNo.hints.tooltip}" autoSubmit="true">
+                            <f:validator binding="#{bindings.VehicleRegNo.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{bindings.VehicleRegNo.suggestedItems}"/>
+                        </af:inputListOfValues>
+                        <af:inputText value="#{bindings.BillVehParmId.inputValue}"
+                                      label="#{bindings.BillVehParmId.hints.label}"
+                                      required="#{bindings.BillVehParmId.hints.mandatory}"
+                                      columns="#{bindings.BillVehParmId.hints.displayWidth}"
+                                      maximumLength="#{bindings.BillVehParmId.hints.precision}"
+                                      shortDesc="#{bindings.BillVehParmId.hints.tooltip}" id="it1" rendered="false">
+                            <f:validator binding="#{bindings.BillVehParmId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.BillVehParmId.format}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.BillVehPrmStartDate.inputValue}" label="Start Date"
+                                      required="#{bindings.BillVehPrmStartDate.hints.mandatory}"
+                                      columns="#{bindings.BillVehPrmStartDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.BillVehPrmStartDate.hints.tooltip}" id="id1"
+                                      autoSubmit="true">
+                            <f:validator binding="#{bindings.BillVehPrmStartDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>
+                        <af:inputDate value="#{bindings.BillVehPrmEndDate.inputValue}" label="End Date"
+                                      required="#{bindings.BillVehPrmEndDate.hints.mandatory}"
+                                      columns="#{bindings.BillVehPrmEndDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.BillVehPrmEndDate.hints.tooltip}" id="id2"
+                                      autoSubmit="true">
+                            <f:validator binding="#{bindings.BillVehPrmEndDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>
+                        <af:inputText value="#{bindings.CoaIdFk.inputValue}" label="#{bindings.CoaIdFk.hints.label}"
+                                      required="#{bindings.CoaIdFk.hints.mandatory}"
+                                      columns="#{bindings.CoaIdFk.hints.displayWidth}"
+                                      maximumLength="#{bindings.CoaIdFk.hints.precision}"
+                                      shortDesc="#{bindings.CoaIdFk.hints.tooltip}" id="it2" rendered="false">
+                            <f:validator binding="#{bindings.CoaIdFk.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaIdFk.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.VehicleIdFk.inputValue}"
+                                      label="#{bindings.VehicleIdFk.hints.label}"
+                                      required="#{bindings.VehicleIdFk.hints.mandatory}"
+                                      columns="#{bindings.VehicleIdFk.hints.displayWidth}"
+                                      maximumLength="#{bindings.VehicleIdFk.hints.precision}"
+                                      shortDesc="#{bindings.VehicleIdFk.hints.tooltip}" id="it3" rendered="false">
+                            <f:validator binding="#{bindings.VehicleIdFk.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.VehicleIdFk.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.CoaActNumber.inputValue}"
+                                      label="#{bindings.CoaActNumber.hints.label}"
+                                      required="#{bindings.CoaActNumber.hints.mandatory}"
+                                      columns="#{bindings.CoaActNumber.hints.displayWidth}"
+                                      maximumLength="#{bindings.CoaActNumber.hints.precision}"
+                                      shortDesc="#{bindings.CoaActNumber.hints.tooltip}" id="it4">
+                            <f:validator binding="#{bindings.CoaActNumber.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.VehicleId.inputValue}" label="#{bindings.VehicleId.hints.label}"
+                                      required="#{bindings.VehicleId.hints.mandatory}"
+                                      columns="#{bindings.VehicleId.hints.displayWidth}"
+                                      maximumLength="#{bindings.VehicleId.hints.precision}"
+                                      shortDesc="#{bindings.VehicleId.hints.tooltip}" id="it5" rendered="false">
+                            <f:validator binding="#{bindings.VehicleId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.VehicleId.format}"/>
+                        </af:inputText>
+                        <f:facet name="footer">
+                            <af:panelGroupLayout layout="horizontal" id="pgl1">
+                                <af:spacer width="95" height="10" id="s2"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Show"
+                                           disabled="#{bindings.Rollback.enabled}" immediate="true" id="b1"
+                                           icon="#{resource['images:find.png']}">
+                                    <af:resetActionListener/>
+                                </af:button>
+                                <af:spacer width="40" height="10" id="s1"/>
+                                <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                                           disabled="#{!bindings.Commit.enabled}"
+                                           icon="#{resource['images:commit.png']}"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelCollection id="pc1" inlineStyle="background-color:Window;">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <af:table value="#{bindings.BillVehicleDetailView2.collectionModel}" var="row"
+                                  rows="#{bindings.BillVehicleDetailView2.rangeSize}"
+                                  emptyText="#{bindings.BillVehicleDetailView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.BillVehicleDetailView2.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.BillVehicleDetailView2.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.BillVehicleDetailView2.rangeSize}"
+                                  filterModel="#{bindings.BillVehicleDetailView2Query.queryDescriptor}"
+                                  filterVisible="true"
+                                  queryListener="#{bindings.BillVehicleDetailView2Query.processQuery}" varStatus="vs"
+                                  id="t1" width="779" inlineStyle="background-color:Window;" autoHeightRows="1500"
+                                  maxClientRows="1000">
+                            <af:column sortProperty="#{bindings.BillVehicleDetailView2.hints.BillVehDdId.name}"
+                                       
+                                       headerText="#{bindings.BillVehicleDetailView2.hints.BillVehDdId.label}" id="c1"
+                                       rendered="false" inlineStyle="font-weight:bold;">
+                                <af:outputText value="#{row.BillVehDdId}"
+                                               shortDesc="#{bindings.BillVehicleDetailView2.hints.BillVehDdId.tooltip}"
+                                               id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.BillVehicleDetailView2.hints.BillVehDdId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BillVehicleDetailView2.hints.BillVehDdDate.name}"
+                                       
+                                       headerText="#{bindings.BillVehicleDetailView2.hints.BillVehDdDate.label}"
+                                       id="c2"
+                                       inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                       align="center" width="80">
+                                <af:outputText value="#{row.BillVehDdDate}"
+                                               shortDesc="#{bindings.BillVehicleDetailView2.hints.BillVehDdDate.tooltip}"
+                                               id="ot2"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BillVehicleDetailView2.hints.BillVehDdSlipNo.name}"
+                                       
+                                       headerText="#{bindings.BillVehicleDetailView2.hints.BillVehDdSlipNo.label}"
+                                       id="c3"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                       align="center">
+                                <af:outputText value="#{row.BillVehDdSlipNo}"
+                                               shortDesc="#{bindings.BillVehicleDetailView2.hints.BillVehDdSlipNo.tooltip}"
+                                               id="ot3"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BillVehicleDetailView2.hints.BillVehDdDetails.name}"
+                                       
+                                       headerText="#{bindings.BillVehicleDetailView2.hints.BillVehDdDetails.label}"
+                                       id="c4"
+                                       inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                       align="center">
+                                <af:outputText value="#{row.BillVehDdDetails}"
+                                               shortDesc="#{bindings.BillVehicleDetailView2.hints.BillVehDdDetails.tooltip}"
+                                               id="ot4"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BillVehicleDetailView2.hints.BillVehDdQty.name}"
+                                       
+                                       headerText="#{bindings.BillVehicleDetailView2.hints.BillVehDdQty.label}" id="c5"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                       align="center" width="85">
+                                <af:outputText value="#{row.BillVehDdQty}"
+                                               shortDesc="#{bindings.BillVehicleDetailView2.hints.BillVehDdQty.tooltip}"
+                                               id="ot5"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BillVehicleDetailView2.hints.BillVehDdRate.name}"
+                                       
+                                       headerText="#{bindings.BillVehicleDetailView2.hints.BillVehDdRate.label}"
+                                       id="c6"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                       align="center" width="80">
+                                <af:outputText value="#{row.BillVehDdRate}"
+                                               shortDesc="#{bindings.BillVehicleDetailView2.hints.BillVehDdRate.tooltip}"
+                                               id="ot6"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BillVehicleDetailView2.hints.BillVehDdAmount.name}"
+                                       
+                                       headerText="#{bindings.BillVehicleDetailView2.hints.BillVehDdAmount.label}"
+                                       id="c7"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                       align="center">
+                                <af:outputText value="#{row.BillVehDdAmount}"
+                                               shortDesc="#{bindings.BillVehicleDetailView2.hints.BillVehDdAmount.tooltip}"
+                                               id="ot7"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BillVehicleDetailView2.hints.BillVehDdBalance.name}"
+                                       
+                                       headerText="#{bindings.BillVehicleDetailView2.hints.BillVehDdBalance.label}"
+                                       id="c8"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                       align="center">
+                                <af:outputText value="#{row.BillVehDdBalance}"
+                                               shortDesc="#{bindings.BillVehicleDetailView2.hints.BillVehDdBalance.tooltip}"
+                                               id="ot8"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.BillVehicleDetailView2.hints.BillVehParamIdFk.name}"
+                                       
+                                       headerText="#{bindings.BillVehicleDetailView2.hints.BillVehParamIdFk.label}"
+                                       id="c9" rendered="false" inlineStyle="font-weight:bold;">
+                                <af:outputText value="#{row.BillVehParamIdFk}"
+                                               shortDesc="#{bindings.BillVehicleDetailView2.hints.BillVehParamIdFk.tooltip}"
+                                               id="ot9">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.BillVehicleDetailView2.hints.BillVehParamIdFk.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </f:facet>
+            </af:panelSplitter>
+        </af:panelBox>
+    </f:view>
+</ui:composition>

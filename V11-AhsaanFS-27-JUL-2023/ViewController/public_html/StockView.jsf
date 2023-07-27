@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Stock View" id="d1" binding="#{backingBeanScope.backing_MyHomeView.d1}"
+    smallIconSource="#{resource['images:adfdi_logo_16.png']}">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                <f:facet name="center">
+                    <af:panelStretchLayout id="psl1">
+                        <f:facet name="top">
+                            <af:toolbar id="t1">
+                                <af:button text="Stock Transfer" id="b9"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallStockTransfer}"
+                                           icon="#{resource['images:stockT.png']}">
+                                    <af:setPropertyListener from="StockTransferFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s2"/>
+                                <af:button text="Stock Gain" id="b7"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallSTOCKGAIN}"
+                                           icon="#{resource['images:stock111.png']}">
+                                    <af:setPropertyListener from="StockgainFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s7"/>
+                                <af:button text="Stock Loss" id="b8"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallSTOCKLOSS}"
+                                           icon="#{resource['images:money-loss.png']}">
+                                    <af:setPropertyListener from="StockLossFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s9"/>
+                                <af:button text="TankDryData" id="b10"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           
+                                           icon="#{resource['images:money-loss.png']}">
+                                    <af:setPropertyListener from="TankDryDataFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s11"/>
+                                <af:button text="Tank Dry Meter Reading" id="b11"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           
+                                           icon="#{resource['images:money-loss.png']}">
+                                    <af:setPropertyListener from="TankDryDataMeterFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s1"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="center">
+                            <af:switcher id="s3" binding="#{backingBeanScope.backing_MyHomeView.switcher}"
+                                         facetName="DefalutStockFC" defaultFacet="DefalutStockFC">
+                                <f:facet name="StockTransferFc">
+                                    <af:region value="#{bindings.StockTransferTF1.regionModel}" id="r1"/>
+                                </f:facet>
+                                <f:facet name="StockgainFc">
+                                    <af:region value="#{bindings.stockGainTF1.regionModel}" id="r3"/>
+                                </f:facet>
+                                <f:facet name="StockLossFC">
+                                    <af:region value="#{bindings.stocklossBACKDTF1.regionModel}" id="r4"/>
+                                </f:facet>
+                                <f:facet name="TankDryDataFC">
+                                    <af:region value="#{bindings.Tank_Dry_Data_Input_TF1.regionModel}" id="r2"/>
+                                </f:facet>
+                                <f:facet name="TankDryDataMeterFC">
+                                    <af:region value="#{bindings.Tank_Dry_Meter_Input_TF1.regionModel}" id="r5"/>
+                                </f:facet>
+                                <f:facet name="DefalutStockFC">
+                                    <af:region value="#{bindings.DefaultStockTF1.regionModel}" id="r6"/>
+                                </f:facet>
+                            </af:switcher>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="header">
+                    <af:link text="Ahsaan Filling Station" id="l1"
+                             inlineStyle="color:Maroon; font-size:x-large; font-style:italic; font-weight:bold;"
+                             action="#{PageLoadBean.RedirecttoHome}"/>
+                </f:facet>
+                <f:facet name="branding"/>
+                <f:facet name="status"/>
+                <f:attribute name="headerGlobalSize" value="35"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

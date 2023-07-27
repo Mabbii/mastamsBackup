@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter id="ps1" orientation="vertical">
+        <f:facet name="first">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="100%" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Content -->
+                        <af:panelGroupLayout layout="vertical" id="pgl2">
+                            <af:panelGroupLayout layout="vertical" id="pgl3">
+                                <af:panelHeader text="Sale Summary" id="ph1">
+                                    <af:query id="qryId1" headerText="Show" disclosed="true"
+                                              value="#{bindings.DayBookSalesssCriteriaQuery.queryDescriptor}"
+                                              model="#{bindings.DayBookSalesssCriteriaQuery.queryModel}"
+                                              queryListener="#{bindings.DayBookSalesssCriteriaQuery.processQuery}"
+                                              queryOperationListener="#{bindings.DayBookSalesssCriteriaQuery.processQueryOperation}"
+                                              resultComponentId="::pc1:resId1" saveButtonText="." resetButtonText="."
+                                              addFieldsButtonText="."/>
+                                </af:panelHeader>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar">
+                <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot141"
+                                       inlineStyle="color:Maroon; font-size:large; font-style:italic;"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.DayBookSalesss1.collectionModel}" var="row"
+                          rows="#{bindings.DayBookSalesss1.rangeSize}"
+                          emptyText="#{bindings.DayBookSalesss1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.DayBookSalesss1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.DayBookSalesss1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.DayBookSalesss1.rangeSize}"
+                          filterModel="#{bindings.DayBookSalesssCriteriaQuery.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.DayBookSalesssCriteriaQuery.processQuery}" varStatus="vs"
+                          id="resId1" inlineStyle="font-size:large;">
+                    <af:column sortProperty="#{bindings.DayBookSalesss1.hints.DcStartDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DayBookSalesss1.hints.DcStartDate.label}"
+                               id="resId1c11"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               align="center" width="100">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.DayBookSalesssCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.DcStartDate.value}"
+                                          id="id1">
+                                <af:convertDateTime pattern="#{bindings.DayBookSalesss1.hints.DcStartDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.DcStartDate}"
+                                       shortDesc="#{bindings.DayBookSalesss1.hints.DcStartDate.tooltip}" id="ot11">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DayBookSalesss1.hints.ProductShortname.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DayBookSalesss1.hints.ProductShortname.label}"
+                               id="resId1c13"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               align="center" width="150">
+                        <af:outputText value="#{row.ProductShortname}"
+                                       shortDesc="#{bindings.DayBookSalesss1.hints.ProductShortname.tooltip}"
+                                       id="ot13"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DayBookSalesss1.hints.DbsQty.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DayBookSalesss1.hints.DbsQty.label}"
+                               id="resId1c3"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center" width="100">
+                        <af:outputText value="#{row.DbsQty}"
+                                       shortDesc="#{bindings.DayBookSalesss1.hints.DbsQty.tooltip}" id="ot3">
+                            <af:convertNumber groupingUsed="true"
+                                              pattern="#{bindings.DayBookSalesss1.hints.DbsQty.format}"
+                                              messageDetailConvertNumber="#,###,##"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DayBookSalesss1.hints.DbsRate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DayBookSalesss1.hints.DbsRate.label}"
+                               id="resId1c4"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center" width="100">
+                        <af:outputText value="#{row.DbsRate}"
+                                       shortDesc="#{bindings.DayBookSalesss1.hints.DbsRate.tooltip}" id="ot4">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.DayBookSalesss1.hints.DbsRate.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DayBookSalesss1.hints.DbsAmount.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DayBookSalesss1.hints.DbsAmount.label}"
+                               id="resId1c5"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center" width="100">
+                        <af:outputText value="#{row.DbsAmount}"
+                                       shortDesc="#{bindings.DayBookSalesss1.hints.DbsAmount.tooltip}" id="ot5">
+                            <af:convertNumber groupingUsed="true"
+                                              pattern="#{bindings.DayBookSalesss1.hints.DbsAmount.format}"
+                                              messageDetailConvertNumber="#,###,##"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DayBookSalesss1.hints.DbsDiff.name}" filterable="true"
+                               sortable="true" headerText="Amount Difference"
+                               id="resId1c7"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center" width="100">
+                        <af:outputText value="#{row.DbsDiff}"
+                                       shortDesc="#{bindings.DayBookSalesss1.hints.DbsDiff.tooltip}" id="ot7">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.DayBookSalesss1.hints.DbsDiff.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DayBookSalesss1.hints.DbsFAmount.name}" filterable="true"
+                               sortable="true" headerText="Total Amount" id="resId1c8"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center" width="110">
+                        <af:outputText value="#{row.DbsFAmount}"
+                                       shortDesc="#{bindings.DayBookSalesss1.hints.DbsFAmount.tooltip}" id="ot8">
+                            <af:convertNumber groupingUsed="true"
+                                              pattern="#{bindings.DayBookSalesss1.hints.DbsFAmount.format}"
+                                              messageDetailConvertNumber="#,###,##"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="Cash Quantity" id="c1" inlineStyle="text-align:right;" align="center"
+                               rendered="false">
+                        <af:outputText value="#{row.DbsCashQty}"
+                                       shortDesc="#{bindings.DayBookSalesss1.hints.DbsCashQty.tooltip}" id="ot15">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.DayBookSalesss1.hints.DbsCashQty.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="Credit Quantity" id="c2" inlineStyle="text-align:right;" align="center"
+                               rendered="false">
+                        <af:outputText value="#{row.DbsCreditQty}"
+                                       shortDesc="#{bindings.DayBookSalesss1.hints.DbsCreditQty.tooltip}" id="ot16">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.DayBookSalesss1.hints.DbsCreditQty.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DayBookSalesss1.hints.DbsFQty.name}" filterable="true"
+                               sortable="true" headerText="Total Quantity"
+                               id="resId1c9"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center" width="115">
+                        <af:outputText value="#{row.DbsFQty}"
+                                       shortDesc="#{bindings.DayBookSalesss1.hints.DbsFQty.tooltip}" id="ot9">
+                            <af:convertNumber groupingUsed="true"
+                                              pattern="#{bindings.DayBookSalesss1.hints.DbsFQty.format}"
+                                              messageDetailConvertNumber="#,###,##"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DayBookSalesss1.hints.DbsQtyDiff.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DayBookSalesss1.hints.DbsQtyDiff.label}"
+                               id="resId1c10"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center" width="120">
+                        <af:outputText value="#{row.DbsQtyDiff}"
+                                       shortDesc="#{bindings.DayBookSalesss1.hints.DbsQtyDiff.tooltip}" id="ot10">
+                            <af:convertNumber groupingUsed="true"
+                                              pattern="#{bindings.DayBookSalesss1.hints.DbsQtyDiff.format}"
+                                              messageDetailConvertNumber="#,###,##"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DayBookSalesss1.hints.DcId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DayBookSalesss1.hints.DcId.label}" id="resId1c12"
+                               rendered="false">
+                        <af:outputText value="#{row.DcId}" shortDesc="#{bindings.DayBookSalesss1.hints.DcId.tooltip}"
+                                       id="ot12">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.DayBookSalesss1.hints.DcId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DayBookSalesss1.hints.ProductId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DayBookSalesss1.hints.ProductId.label}"
+                               id="resId1c14" rendered="false">
+                        <af:outputText value="#{row.ProductId}"
+                                       shortDesc="#{bindings.DayBookSalesss1.hints.ProductId.tooltip}" id="ot14">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.DayBookSalesss1.hints.ProductId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DayBookSalesss1.hints.DbsId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DayBookSalesss1.hints.DbsId.label}" id="resId1c1"
+                               rendered="false">
+                        <af:outputText value="#{row.DbsId}" shortDesc="#{bindings.DayBookSalesss1.hints.DbsId.tooltip}"
+                                       id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.DayBookSalesss1.hints.DbsId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DayBookSalesss1.hints.ProductIdFk.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DayBookSalesss1.hints.ProductIdFk.label}"
+                               id="resId1c2" rendered="false">
+                        <af:outputText value="#{row.ProductIdFk}"
+                                       shortDesc="#{bindings.DayBookSalesss1.hints.ProductIdFk.tooltip}" id="ot2">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.DayBookSalesss1.hints.ProductIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DayBookSalesss1.hints.DcIdFk.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DayBookSalesss1.hints.DcIdFk.label}"
+                               id="resId1c6" rendered="false">
+                        <af:outputText value="#{row.DcIdFk}"
+                                       shortDesc="#{bindings.DayBookSalesss1.hints.DcIdFk.tooltip}" id="ot6">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.DayBookSalesss1.hints.DcIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

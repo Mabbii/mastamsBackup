@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    
+    <af:document title="Login In To Virk oil Company" id="d1" theme="dark">
+        
+        <af:messages id="m1"/>
+       <af:form id="f1" defaultCommand=":b1">
+       
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <af:outputText value="VIRK OIL COMPANY" id="ot1"
+                                       inlineStyle="color:Red; font-size:xx-large; font-stretch:ultra-condensed; font-style:oblique; font-variant-position:ordinal; text-align:center; overflow-wrap:normal; font-weight:bold; margin-top:8px; column-rule-color:Navy; column-rule-style:solid;"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <af:decorativeBox theme="dark" id="db2"
+                                          inlineStyle="border-bottom-color:Maroon; border-top-color:Maroon; border-right-color:Navy; border-left-color:Navy; background-image:url(&quot;WEB-INF/petroleum-banner.jpg&quot;);"
+                                          topHeight="50px">
+                            <f:facet name="center">
+                                <af:decorativeBox theme="medium" id="db1"
+                                                  inlineStyle="height:50ex; width:100ex; flex-align:center; margin-left:580px; margin-top:100px; color:Purple;">
+                                    <f:facet name="center">
+                                       <af:panelGroupLayout id="pgl9"
+                                                            inlineStyle="width:533px; height:214px; box-sizing:content-box; box-decoration-break:slice; border-bottom-color:Maroon; border-top-color:Maroon; border-right-color:Navy; border-left-color:Navy; color:Purple;"
+                                                            halign="center" valign="middle">
+                <af:panelBox text="Login to Virk Oil Company" id="pb1"
+                             inlineStyle="background-position:350px 25px; font-size:xx-large; font-style:italic; color:Purple; width:500px; column-rule-width:medium; font-stretch:normal; flex-pack:start; flex-item-align:start; flex-align:stretch; height:auto; margin-left:80px; margin-top:80px; border-left-color:Navy; border-right-color:Navy; border-top-color:Maroon; border-bottom-color:Maroon;" type="default" titleHalign="center">
+                    <f:facet name="toolbar"/>
+                <af:inputText value="#{AuthBean.username}" label="Username"
+                              required="#{bindings.UserName.hints.mandatory}"
+                              columns="50"
+                              maximumLength="#{bindings.UserName.hints.precision}"
+                              shortDesc="#{bindings.UserName.hints.tooltip}" id="it1">
+                    <f:validator binding="#{bindings.UserName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{AuthBean.password}" label="Password"
+                              required="#{bindings.UserPass.hints.mandatory}"
+                              columns="50"
+                              maximumLength="#{bindings.UserPass.hints.precision}"
+                              shortDesc="#{bindings.UserPass.hints.tooltip}" id="it2" secret="true">
+                    <f:validator binding="#{bindings.UserPass.validator}"/>
+                </af:inputText>
+                <af:separator id="s3"/>
+                    <af:separator id="s2"/>
+                    <af:spacer width="10" height="10" id="s1"
+                               inlineStyle="border-left-color:Navy; border-right-color:Maroon;"/>
+                    <af:button text="Login" id="b1" action="#{AuthBean.doAuth}"
+                        inlineStyle="border-bottom-left-radius:10px 10px; color:WindowText; border-left-color:Purple; border-right-color:Purple; border-top-color:Purple; border-bottom-color:Purple; border-bottom-width:medium; border-top-width:thin; border-right-width:thin; border-left-width:thin; outline-width:thin; padding-left:10px; text-align:left;"/>        
+            </af:panelBox>
+                
+            </af:panelGroupLayout>
+                                    </f:facet>
+                                </af:decorativeBox>
+                            </f:facet>
+                        </af:decorativeBox>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

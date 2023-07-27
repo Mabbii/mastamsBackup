@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="NozalTankMapViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="NozalTankMapView1" RangeSize="25" DataControl="VOAPPDataControl" id="NozalTankMapView1Iterator"/>
+    <searchRegion Binds="NozalTankMapView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="NozalTankMapView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="NozalTankMapView1Iterator" id="NTMapId">
+      <AttrNames>
+        <Item Value="NTMapId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NozalTankMapView1Iterator" id="NTMapDate">
+      <AttrNames>
+        <Item Value="NTMapDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NozalTankMapView1Iterator" id="NTMapNazalIdFk">
+      <AttrNames>
+        <Item Value="NTMapNazalIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NozalTankMapView1Iterator" id="NTMapTankIdFk">
+      <AttrNames>
+        <Item Value="NTMapTankIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="NozalTankMapView1Iterator" StaticList="false" Uses="LOV_NozalName" id="NozalName"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="NozalTankMapView1Iterator" id="NozalId">
+      <AttrNames>
+        <Item Value="NozalId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="NozalTankMapView1Iterator" StaticList="false" Uses="LOV_TankInfoName" id="TankInfoName"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="NozalTankMapView1Iterator" id="TankInfoId">
+      <AttrNames>
+        <Item Value="TankInfoId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="NozalTankMapView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="NozalTankMapView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="NozalTankMapView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="NozalTankMapView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="NozalTankMapView1Iterator" id="NozalTankMapView1">
+      <nodeDefinition DefName="model.NozalTankMapView" Name="NozalTankMapView10">
+        <AttrNames>
+          <Item Value="NTMapId"/>
+          <Item Value="NTMapDate"/>
+          <Item Value="NTMapNazalIdFk"/>
+          <Item Value="NTMapTankIdFk"/>
+          <Item Value="NozalName"/>
+          <Item Value="NozalId"/>
+          <Item Value="TankInfoName"/>
+          <Item Value="TankInfoId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="NozalTankMapView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

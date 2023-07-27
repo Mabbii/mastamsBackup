@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24"
+                id="ReportsMy_ProductSummaryViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZProductSumryParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="ZProductSumryParamView1Iterator"/>
+    <iterator Binds="ZProductSumryView2" RangeSize="25" DataControl="VOAPPDataControl" id="ZProductSumryView2Iterator"/>
+    <searchRegion Binds="ZProductSumryView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ZProductSumryView2Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ZProductSumryParamView1Iterator" id="ZPdctSParamId">
+      <AttrNames>
+        <Item Value="ZPdctSParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZProductSumryParamView1Iterator" id="ZPdctSParamStartDate">
+      <AttrNames>
+        <Item Value="ZPdctSParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZProductSumryParamView1Iterator" id="ZPdctSParamEndDate">
+      <AttrNames>
+        <Item Value="ZPdctSParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ZProductSumryView2Iterator" id="ZProductSumryView2">
+      <nodeDefinition DefName="model.ZProductSumryView" Name="ZProductSumryView20">
+        <AttrNames>
+          <Item Value="ZPdctSActNumber"/>
+          <Item Value="ZCGleEtc"/>
+          <Item Value="ZPdctSOpQty"/>
+          <Item Value="ZPdctSInQty"/>
+          <Item Value="ZPdctSOutQty"/>
+          <Item Value="ZPdctSCloseQty"/>
+          <Item Value="ZPdctSCgsRate"/>
+          <Item Value="ZPdctSGleBalance"/>
+          <Item Value="ZProductSumryParamIdFk"/>
+          <Item Value="ZPdctSId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

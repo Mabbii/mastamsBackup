@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="Bill_Group_ViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="BillGroupParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="BillGroupParamView1Iterator"/>
+    <iterator Binds="BillGroupSummryView2" RangeSize="1500" DataControl="VOAPPDataControl"
+              id="BillGroupSummryView2Iterator"/>
+    <iterator Binds="BillGroupDetailView2" RangeSize="1500" DataControl="VOAPPDataControl"
+              id="BillGroupDetailView2Iterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="BillGroupParamView1Iterator" StaticList="false" Uses="LOV_CoaGroupName"
+                  id="CoaGroupName"/>
+    <attributeValues IterBinding="BillGroupParamView1Iterator" id="BillGrpPrmId">
+      <AttrNames>
+        <Item Value="BillGrpPrmId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillGroupParamView1Iterator" id="BillGrpPrmStartDate">
+      <AttrNames>
+        <Item Value="BillGrpPrmStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillGroupParamView1Iterator" id="BillGrpPrmEndDate">
+      <AttrNames>
+        <Item Value="BillGrpPrmEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillGroupParamView1Iterator" id="CoaGroupIdFk">
+      <AttrNames>
+        <Item Value="CoaGroupIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillGroupParamView1Iterator" id="BillGrpYNDetl">
+      <AttrNames>
+        <Item Value="BillGrpYNDetl"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillGroupParamView1Iterator" id="CoaGroupId">
+      <AttrNames>
+        <Item Value="CoaGroupId"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="BillGroupSummryView2Iterator" id="BillGroupSummryView2">
+      <nodeDefinition DefName="model.BillGroupSummryView" Name="BillGroupSummryView20">
+        <AttrNames>
+          <Item Value="BillGrpSdId"/>
+          <Item Value="BillGrpSdDetails"/>
+          <Item Value="BillGrpSdAmountCr"/>
+          <Item Value="BillGrpSdAmountDr"/>
+          <Item Value="BillGrpPrmIdFk"/>
+          <Item Value="BillGrpSdBill"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="BillGroupDetailView2Iterator" id="BillGroupDetailView2">
+      <nodeDefinition DefName="model.BillGroupDetailView" Name="BillGroupDetailView20">
+        <AttrNames>
+          <Item Value="BillGrpDdId"/>
+          <Item Value="BillGrpDdDetail"/>
+          <Item Value="BillGrpDdAmountDr"/>
+          <Item Value="BillGrpDdAmountCr"/>
+          <Item Value="BillGrpPrmIdFk"/>
+          <Item Value="BillGrpDdBill"/>
+          <Item Value="CoaIdFk"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaActNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

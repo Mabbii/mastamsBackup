@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="ReportsMy_StockAnalysis_ViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZStockAnalysisParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="ZStockAnalysisParamView1Iterator"/>
+    <iterator Binds="ZStockAnalysisDetailView1" RangeSize="1000" DataControl="VOAPPDataControl"
+              id="ZStockAnalysisDetailView1Iterator"/>
+    <searchRegion Binds="ZStockAnalysisDetailView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ZStockAnalysisDetailView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="ZStockAnalysisParamView1Iterator" StaticList="false" Uses="LOV_TankInfoName"
+                  id="TankInfoName"/>
+    <attributeValues IterBinding="ZStockAnalysisParamView1Iterator" id="ZSAParamStartDate">
+      <AttrNames>
+        <Item Value="ZSAParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZStockAnalysisParamView1Iterator" id="ZSAParamEndDate">
+      <AttrNames>
+        <Item Value="ZSAParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZStockAnalysisParamView1Iterator" id="ZSATankInfoIdFk">
+      <AttrNames>
+        <Item Value="ZSATankInfoIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZStockAnalysisParamView1Iterator" id="TankInfoId">
+      <AttrNames>
+        <Item Value="TankInfoId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZStockAnalysisParamView1Iterator" id="ZSAParamId">
+      <AttrNames>
+        <Item Value="ZSAParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="ZStockAnalysisDetailView1Iterator" id="ZStockAnalysisDetailView1">
+      <nodeDefinition DefName="model.ZStockAnalysisDetailView" Name="ZStockAnalysisDetailView10">
+        <AttrNames>
+          <Item Value="ZsadDate"/>
+          <Item Value="ZsadBookStock"/>
+          <Item Value="ZsadDipStock"/>
+          <Item Value="ZsadDiffAll"/>
+          <Item Value="ZsadDiffDay"/>
+          <Item Value="ZsadId"/>
+          <Item Value="ZSAParamIdFk"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="ZStockAnalysisParamView1Iterator" StaticList="false" Uses="LOV_ProductShortname"
+          id="ProductShortname" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="ZStockAnalysisParamView1Iterator" StaticList="false" Uses="LOV_ZSAProductReport"
+          id="ZSAProductReport" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+   
+     <af:document title="RetailView" id="d1" binding="#{backingBeanScope.backing_MyHomeView.d1}"
+     smallIconSource="#{resource['images:adfdi_logo_16.png']}">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                <f:facet name="center">
+                    <af:panelStretchLayout id="psl1">
+                        <f:facet name="top">
+                            <af:toolbar id="t1">
+                                <af:button text="Meter Reading" id="b1"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Teal; border-right-color:Navy; border-top-color:Teal; border-bottom-color:Navy;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallMeterReading}"
+                                           icon="#{resource['images:numbers.png']}">
+                                    <af:setPropertyListener from="MetereadingsFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s1"/>
+                                <af:button text="Lube Sale" id="b2"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Teal; border-right-color:Navy; border-top-color:Teal; border-bottom-color:Navy;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallLubeSale}"
+                                           icon="#{resource['images:petrol.png']}">
+                                    <af:setPropertyListener from="LubeSaleFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s2"/>
+                                <af:button text="Retail Sale" id="b3"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Teal; border-right-color:Navy; border-top-color:Teal; border-bottom-color:Navy;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallRetailSale}"
+                                           icon="#{resource['images:oil.png']}">
+                                    <af:setPropertyListener from="RetailSaleFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s3"/>
+                                <af:button text="Cash Receipt" id="b4"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Teal; border-right-color:Navy; border-top-color:Teal; border-bottom-color:Navy;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallRetailReciept}"
+                                           icon="#{resource['images:bill.png']}">
+                                    <af:setPropertyListener from="RetailRecieptFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s4"/>
+                                <af:button text="Cash Expense" id="b5"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Teal; border-right-color:Navy; border-top-color:Teal; border-bottom-color:Navy;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallRetailExpense}"
+                                           icon="#{resource['images:price.png']}">
+                                    <af:setPropertyListener from="RecieptExpenseFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s14"/>
+                                <af:button text="Cash Payment" id="b10"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Teal; border-right-color:Navy; border-top-color:Teal; border-bottom-color:Navy;"
+                                           icon="#{resource['images:retail-store.png']}"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallRetailPayment}">
+                                    <af:setPropertyListener from="RetailPaymentFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s5"/>
+                                <af:button text="Auto Cash Sale" id="b8"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Teal; border-right-color:Navy; border-top-color:Teal; border-bottom-color:Navy;"
+                                           icon="#{resource['images:bill.png']}"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}">
+                                    <af:setPropertyListener from="AutoCashSaleFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s11"/>
+                                <af:button text="Dips" id="b6"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Teal; border-right-color:Navy; border-top-color:Teal; border-bottom-color:Navy;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallDips}"
+                                           icon="#{resource['images:ruler.png']}">
+                                    <af:setPropertyListener from="DipsFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s6"/>
+                                <af:button text="Sale Summry" id="b7"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Teal; border-right-color:Navy; border-top-color:Teal; border-bottom-color:Navy;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallSaleSummry}"
+                                           icon="#{resource['images:schedule.png']}">
+                                    <af:setPropertyListener from="SummaryFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s12"/>
+                                <af:button text="Daybook Summary" id="b11"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Teal; border-right-color:Navy; border-top-color:Teal; border-bottom-color:Navy;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallDaybookSummary}"
+                                           icon="#{resource['images:statement.png']}">
+                                    <af:setPropertyListener from="DayBooksummaryFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s13"/>
+                                <af:button text="All Working" id="b9"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Teal; border-right-color:Navy; border-top-color:Teal; border-bottom-color:Navy;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           icon="#{resource['images:work.png']}">
+                                    <af:setPropertyListener from="AllWorkingFC"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"
+                                                            type="action"/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="center">
+                            <af:switcher id="s7" binding="#{backingBeanScope.backing_MyHomeView.switcher}"
+                                         facetName="DefaultRetailFC" defaultFacet="DefaultRetailFC">
+                                <f:facet name="MetereadingsFc">
+                                    <af:region value="#{bindings.MeterReadingsTF1.regionModel}" id="r2"/>
+                                </f:facet>
+                                <f:facet name="LubeSaleFc">
+                                    <af:region value="#{bindings.LubeSaleTF1.regionModel}" id="r3"/>
+                                </f:facet>
+                                <f:facet name="RetailSaleFc">
+                                    <af:region value="#{bindings.RetailSaleTF1.regionModel}" id="r4"/>
+                                </f:facet>
+                                <f:facet name="RetailRecieptFc">
+                                    <af:region value="#{bindings.RetailReceipt1.regionModel}" id="r5"/>
+                                </f:facet>
+                                <f:facet name="RecieptExpenseFc">
+                                    <af:region value="#{bindings.RetailExpense1.regionModel}" id="r6"/>
+                                </f:facet>
+                                <f:facet name="RetailPaymentFc">
+                                    <af:region value="#{bindings.RetailPaymentTf1.regionModel}" id="r10"/>
+                                </f:facet>
+                                <f:facet name="AutoCashSaleFC">
+                                    <af:region value="#{bindings.AutoCashSaleTF1.regionModel}" id="r13"/>
+                                </f:facet>
+                                <f:facet name="SummaryFc">
+                                    <af:region value="#{bindings.SaleSummaryTf1.regionModel}" id="r11"/>
+                                </f:facet>
+                                <f:facet name="DayBooksummaryFc">
+                                    <af:region value="#{bindings.DayBookSummaryTf1.regionModel}" id="r12"/>
+                                </f:facet>
+                                <f:facet name="DipsFc">
+                                    <af:region value="#{bindings.RetailMy_Tank_Dip_Data_TF1.regionModel}" id="r7"/>
+                                </f:facet>
+                                <f:facet name="DateCounterFc">
+                                    <af:region value="#{bindings.DateCounterTF1.regionModel}" id="r8"/>
+                                </f:facet>
+                                <f:facet name="DefaultRetailFC">
+                                    <af:region value="#{bindings.DefaultRetailTF1.regionModel}" id="r1"/>
+                                </f:facet>
+                                <f:facet name="DataLoaderFc">
+                                    <af:region value="#{bindings.DataLoaderTf1.regionModel}" id="r9"/>
+                                </f:facet>
+                                <f:facet name="AllWorkingFC">
+                                    <af:region value="#{bindings.ReportsMy_AllWorkingTF1.regionModel}" id="r14"/>
+                                </f:facet>
+                            </af:switcher>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="status">
+                    <af:panelGroupLayout id="pgl1" valign="middle" inlineStyle="margin-top:60px; height:55px;">
+                        <af:spacer width="10" height="10" id="s10"/>
+                        <af:outputText value="#{'HSD: '} #{bindings.XdprHsd.inputValue}"  id="ot1"
+                                       inlineStyle="font-size:large;"/>
+                        <af:spacer width="20" height="10" id="s8"/>
+                        <af:outputText value="#{'PMG: '} #{bindings.XdprPmg.inputValue}" id="ot2"
+                                       inlineStyle="font-size:large;"/>
+                        <af:spacer width="150" height="10" id="s9"/>
+                        <af:link id="l2" icon="#{resource['images:refresh.png']}"
+                                 action="#{PageLoadBean.RedirecttoRetailMy}" actionListener="#{Refreshbean.RefreshAction}"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <f:attribute name="headerGlobalSize" value="35"/>
+                <f:facet name="header">
+                    <af:link text="HighPower Filling Station" id="ll4" action="#{PageLoadBean.RedirecttoHome}"
+                             inlineStyle="color:Maroon; font-size:x-large; font-style:italic; font-weight:bold;"/>
+                </f:facet>
+                <f:attribute name="startColumnSize" value="200"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>
+       

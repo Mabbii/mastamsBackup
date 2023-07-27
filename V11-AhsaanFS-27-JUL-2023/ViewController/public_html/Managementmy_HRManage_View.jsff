@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="268" id="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1">
+                <af:outputText value="Add Salary" id="ot4"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:inputText value="#{bindings.HrmId.inputValue}" label="#{bindings.HrmId.hints.label}"
+                              required="#{bindings.HrmId.hints.mandatory}"
+                              columns="#{bindings.HrmId.hints.displayWidth}"
+                              maximumLength="#{bindings.HrmId.hints.precision}"
+                              shortDesc="#{bindings.HrmId.hints.tooltip}" id="it1">
+                    <f:validator binding="#{bindings.HrmId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.HrmId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.HrmDebitAc.inputValue}" label="#{bindings.HrmDebitAc.hints.label}"
+                              required="#{bindings.HrmDebitAc.hints.mandatory}"
+                              columns="#{bindings.HrmDebitAc.hints.displayWidth}"
+                              maximumLength="#{bindings.HrmDebitAc.hints.precision}"
+                              shortDesc="#{bindings.HrmDebitAc.hints.tooltip}" id="it2" rendered="false">
+                    <f:validator binding="#{bindings.HrmDebitAc.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.HrmDebitAc.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.HrmCreditAc.inputValue}" label="#{bindings.HrmCreditAc.hints.label}"
+                              required="#{bindings.HrmCreditAc.hints.mandatory}"
+                              columns="#{bindings.HrmCreditAc.hints.displayWidth}"
+                              maximumLength="#{bindings.HrmCreditAc.hints.precision}"
+                              shortDesc="#{bindings.HrmCreditAc.hints.tooltip}" id="it3" rendered="false">
+                    <f:validator binding="#{bindings.HrmCreditAc.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.HrmCreditAc.format}"/>
+                </af:inputText>
+                <af:inputListOfValues id="coaNameId" popupTitle="Search and Select: #{bindings.CoaName.hints.label}"
+                                      value="#{bindings.CoaName.inputValue}" label="#{bindings.CoaName.hints.label}"
+                                      model="#{bindings.CoaName.listOfValuesModel}"
+                                      required="#{bindings.CoaName.hints.mandatory}"
+                                      columns="#{bindings.CoaName.hints.displayWidth}"
+                                      shortDesc="#{bindings.CoaName.hints.tooltip}" autoSubmit="true">
+                    <f:validator binding="#{bindings.CoaName.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputText value="#{bindings.CoaActNumber.inputValue}" label="#{bindings.CoaActNumber.hints.label}"
+                              required="#{bindings.CoaActNumber.hints.mandatory}"
+                              columns="#{bindings.CoaActNumber.hints.displayWidth}"
+                              maximumLength="#{bindings.CoaActNumber.hints.precision}"
+                              shortDesc="#{bindings.CoaActNumber.hints.tooltip}" id="it5" rendered="false">
+                    <f:validator binding="#{bindings.CoaActNumber.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber.format}"/>
+                </af:inputText>
+                <af:inputListOfValues id="coaName1Id" popupTitle="Search and Select: #{bindings.CoaName1.hints.label}"
+                                      value="#{bindings.CoaName1.inputValue}" label="#{bindings.CoaName1.hints.label}"
+                                      model="#{bindings.CoaName1.listOfValuesModel}"
+                                      required="#{bindings.CoaName1.hints.mandatory}"
+                                      columns="#{bindings.CoaName1.hints.displayWidth}"
+                                      shortDesc="#{bindings.CoaName1.hints.tooltip}" autoSubmit="true">
+                    <f:validator binding="#{bindings.CoaName1.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName1.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputText value="#{bindings.HrmAmount.inputValue}" label="#{bindings.HrmAmount.hints.label}"
+                              required="#{bindings.HrmAmount.hints.mandatory}"
+                              columns="#{bindings.HrmAmount.hints.displayWidth}"
+                              maximumLength="#{bindings.HrmAmount.hints.precision}"
+                              shortDesc="#{bindings.HrmAmount.hints.tooltip}" id="it4">
+                    <f:validator binding="#{bindings.HrmAmount.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.HrmAmount.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CoaActNumber1.inputValue}" label="#{bindings.CoaActNumber1.hints.label}"
+                              required="#{bindings.CoaActNumber1.hints.mandatory}"
+                              columns="#{bindings.CoaActNumber1.hints.displayWidth}"
+                              maximumLength="#{bindings.CoaActNumber1.hints.precision}"
+                              shortDesc="#{bindings.CoaActNumber1.hints.tooltip}" id="it6" rendered="false">
+                    <f:validator binding="#{bindings.CoaActNumber1.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber1.format}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl1">
+                        <af:panelGroupLayout layout="horizontal" id="pgl2">
+                            <af:button actionListener="#{bindings.First.execute}"
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"
+                                       icon="#{resource['images:first_hor_ena.png']}"/>
+                            <af:button actionListener="#{bindings.Previous.execute}"
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"
+                                       icon="#{resource['images:previoustraversalarrow_ena.png']}"/>
+                            <af:button actionListener="#{bindings.Next.execute}"
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
+                                       icon="#{resource['images:nexttraversalarrow_ena.png']}"/>
+                            <af:button actionListener="#{bindings.Last.execute}"
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"
+                                       icon="#{resource['images:last_hor_ena.png']}"/>
+                            <af:outputText value="--------" id="ot1"/>
+                        </af:panelGroupLayout>
+                        <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                                   disabled="#{!bindings.Commit.enabled}" icon="#{resource['images:commit.png']}"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b6"
+                                   icon="#{resource['images:add.png']}"/>
+                        <af:outputText value="--------------" id="ot2"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7"
+                                   icon="#{resource['images:rollback.png']}" text="Rollback">
+                            <af:resetActionListener/>
+                        </af:button>
+                        <af:outputText value="-------------" id="ot3"/>
+                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                   disabled="#{!bindings.Delete.enabled}" id="b8"
+                                   icon="#{resource['images:garbg.png']}"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.HrManageView1.collectionModel}" var="row"
+                          rows="#{bindings.HrManageView1.rangeSize}"
+                          emptyText="#{bindings.HrManageView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" selectedRowKeys="#{bindings.HrManageView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.HrManageView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.HrManageView1.rangeSize}"
+                          filterModel="#{bindings.HrManageView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.HrManageView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers=":::b1 :::b2 :::b3 :::b4 :::b6 :::b8">
+                    <af:column sortProperty="#{bindings.HrManageView1.hints.HrmId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.HrManageView1.hints.HrmId.label}" id="c1"
+                               rendered="false">
+                        <af:outputText value="#{row.HrmId}" shortDesc="#{bindings.HrManageView1.hints.HrmId.tooltip}"
+                                       id="ot5">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.HrManageView1.hints.HrmId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.HrManageView1.hints.HrmDebitAc.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.HrManageView1.hints.HrmDebitAc.label}" id="c2"
+                               rendered="false">
+                        <af:outputText value="#{row.HrmDebitAc}"
+                                       shortDesc="#{bindings.HrManageView1.hints.HrmDebitAc.tooltip}" id="ot6">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.HrManageView1.hints.HrmDebitAc.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.HrManageView1.hints.HrmCreditAc.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.HrManageView1.hints.HrmCreditAc.label}" id="c3"
+                               rendered="false">
+                        <af:outputText value="#{row.HrmCreditAc}"
+                                       shortDesc="#{bindings.HrManageView1.hints.HrmCreditAc.tooltip}" id="ot7">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.HrManageView1.hints.HrmCreditAc.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.HrManageView1.hints.CoaName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.HrManageView1.hints.CoaName.label}" id="c5"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               align="center" width="150">
+                        <af:outputText value="#{row.CoaName}"
+                                       shortDesc="#{bindings.HrManageView1.hints.CoaName.tooltip}" id="ot9"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.HrManageView1.hints.CoaName1.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.HrManageView1.hints.CoaName1.label}" id="c7"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               align="center" width="150">
+                        <af:outputText value="#{row.CoaName1}"
+                                       shortDesc="#{bindings.HrManageView1.hints.CoaName1.tooltip}" id="ot11"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.HrManageView1.hints.HrmAmount.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.HrManageView1.hints.HrmAmount.label}" id="c4"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               align="center" width="150">
+                        <af:outputText value="#{row.HrmAmount}"
+                                       shortDesc="#{bindings.HrManageView1.hints.HrmAmount.tooltip}" id="ot8">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.HrManageView1.hints.HrmAmount.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.HrManageView1.hints.CoaActNumber.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.HrManageView1.hints.CoaActNumber.label}" id="c6"
+                               rendered="false">
+                        <af:outputText value="#{row.CoaActNumber}"
+                                       shortDesc="#{bindings.HrManageView1.hints.CoaActNumber.tooltip}" id="ot10">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.HrManageView1.hints.CoaActNumber.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.HrManageView1.hints.CoaActNumber1.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.HrManageView1.hints.CoaActNumber1.label}" id="c8"
+                               rendered="false">
+                        <af:outputText value="#{row.CoaActNumber1}"
+                                       shortDesc="#{bindings.HrManageView1.hints.CoaActNumber1.tooltip}" id="ot12">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.HrManageView1.hints.CoaActNumber1.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

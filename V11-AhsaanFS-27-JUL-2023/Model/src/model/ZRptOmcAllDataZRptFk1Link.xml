@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ZRptOmcAllDataZRptFk1Link"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  EntityAssociation="model.ZRptOmcAllDataZRptFk1Assoc">
+  <ViewLinkDefEnd
+    Name="ZRptPurchaseOmcParamView"
+    Cardinality="1"
+    Source="true"
+    Owner="model.ZRptPurchaseOmcParamView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ZRptPurchaseOmcParamView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptPurchaseOmcParamView.PurchaseOmcParamId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ZRptPurchaseOmcDataView"
+    Cardinality="-1"
+    Owner="model.ZRptPurchaseOmcDataView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ZRptPurchaseOmcDataView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptPurchaseOmcDataView.PurchaseAllParamIdFk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

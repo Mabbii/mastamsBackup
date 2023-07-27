@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="untitled1PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <iterator Binds="checkMreading1" RangeSize="25" DataControl="VOAPPDataControl" id="checkMreading1Iterator"/>
+    <iterator Binds="Sale_Lube_View1" RangeSize="25" DataControl="VOAPPDataControl" id="Sale_Lube_View1Iterator"/>
+    <searchRegion Criteria="Sale_Lube_ViewCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="Sale_Lube_View1Iterator" id="SaleLubeViewCriteriaQuery"/>
+    <iterator Binds="TankDryDataMInputView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="TankDryDataMInputView1Iterator"/>
+    <variableIterator id="variables">
+      <variableUsage DataControl="VOAPPDataControl" Binds="TankDryDataMInputView1.variablesMap.BindDate"
+                     Name="ExecuteWithParams_BindDate" IsQueriable="false"/>
+    </variableIterator>
+    <taskFlow id="Bill_DetailData_TF1" taskFlowId="/WEB-INF/Bill_DetailData_TF.xml#Bill_DetailData_TF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Bill_Vehicle_TF1" taskFlowId="/WEB-INF/Bill_Vehicle_TF.xml#Bill_Vehicle_TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="CoaGroupTF1" taskFlowId="/WEB-INF/CoaGroupTF.xml#CoaGroupTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Bill_Group_TF1" taskFlowId="/WEB-INF/Bill_Group_TF.xml#Bill_Group_TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="DefaultBillTF1" taskFlowId="/WEB-INF/DefaultBillTF.xml#DefaultBillTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="checkMreading1Iterator" id="checkMreading1">
+      <nodeDefinition DefName="model.checkMreading" Name="checkMreading10">
+        <AttrNames>
+          <Item Value="DcIdFk"/>
+          <Item Value="MriData"/>
+          <Item Value="MriId"/>
+          <Item Value="NozalIdFk"/>
+          <Item Value="MriDate"/>
+          <Item Value="MeterRId"/>
+          <Item Value="MeterRReadings"/>
+          <Item Value="MeterRNozalIdFk"/>
+          <Item Value="MeterRDate"/>
+          <Item Value="MeterRPrevious"/>
+          <Item Value="MeterRCurrent"/>
+          <Item Value="MeterRSale"/>
+          <Item Value="MeterRProductId"/>
+          <Item Value="DcIdFk1"/>
+          <Item Value="MriIdFk"/>
+          <Item Value="DcDateCounterMr"/>
+          <Item Value="DcId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="Sale_Lube_View1Iterator" id="Sale_Lube_View1">
+      <nodeDefinition DefName="model.Sale_Lube_View" Name="Sale_Lube_View10">
+        <AttrNames>
+          <Item Value="SaleLubeId"/>
+          <Item Value="ProductIdFk"/>
+          <Item Value="SaleLubeQty"/>
+          <Item Value="DcIdFk"/>
+          <Item Value="ProductShortname"/>
+          <Item Value="ProductId"/>
+          <Item Value="DcDate"/>
+          <Item Value="DcId"/>
+          <Item Value="DcStartDate"/>
+          <Item Value="ProductTypeId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="TankDryDataMInputView1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindDate" NDType="java.sql.Timestamp" NDValue="${bindings.ExecuteWithParams_BindDate}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="BindDate">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindDate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

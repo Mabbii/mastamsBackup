@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OmcPump"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="OMC_PUMP"
+  AliasName="OmcPump"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="OmcPumpPartyId"
+    ColumnName="OMC_PUMP_PARTY_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="OMC_PUMP"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="OmcPumpId"
+    IsNotNull="true"
+    ColumnName="OMC_PUMP_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="OMC_PUMP"
+    PrimaryKey="true"/>
+  <Key
+    Name="OmcPumpPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="OMC_PUMP_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.OmcPump.OmcPumpId"/>
+      <Item Value="model.OmcPump.OmcPumpPartyId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OmcPumpPartyFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PARTY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="OMC_PUMP_PARTY_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.OmcPump.OmcPumpPartyId"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,276 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <f:view beforePhase="#{backingBeanScope.PrintPageBean.beforePhaseMethod}">
+        <af:panelBox id="pb2">
+            <f:facet name="toolbar">
+                <af:button id="b4" icon="#{resource['images:print.png']}">
+                    <af:showPrintablePageBehavior/>
+                </af:button>
+            </f:facet>
+            <af:image source="#{resource['images:Haider.png']}" shortDesc="Trial Balance" id="i1"/>
+            <af:panelSplitter orientation="vertical" splitterPosition="230" id="ps1" partialTriggers="ps1"
+                              inlineStyle="width:618px;">
+                <f:facet name="first">
+                    <af:panelBox id="pb1">
+                        <f:facet name="toolbar"/>
+                        <af:panelFormLayout id="pfl1" partialTriggers="pc1:t1">
+                            <af:outputText value="Trial Balance" id="ot21"
+                                           inlineStyle="font-size:x-large; font-weight:bold; font-style:italic;"/>
+                            <af:inputText value="#{bindings.ZRptTbParamId.inputValue}"
+                                          label="#{bindings.ZRptTbParamId.hints.label}"
+                                          required="#{bindings.ZRptTbParamId.hints.mandatory}"
+                                          columns="#{bindings.ZRptTbParamId.hints.displayWidth}"
+                                          maximumLength="#{bindings.ZRptTbParamId.hints.precision}"
+                                          shortDesc="#{bindings.ZRptTbParamId.hints.tooltip}" id="it1" rendered="false">
+                                <f:validator binding="#{bindings.ZRptTbParamId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.ZRptTbParamId.format}"/>
+                            </af:inputText>
+                            <af:inputDate value="#{bindings.ZRptTbParamDate.inputValue}"
+                                          label="#{bindings.ZRptTbParamDate.hints.label}"
+                                          required="#{bindings.ZRptTbParamDate.hints.mandatory}"
+                                          columns="#{bindings.ZRptTbParamDate.hints.displayWidth}"
+                                          shortDesc="#{bindings.ZRptTbParamDate.hints.tooltip}" id="id1">
+                                <f:validator binding="#{bindings.ZRptTbParamDate.validator}"/>
+                                <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                            </af:inputDate>
+                            <af:selectOneChoice value="#{bindings.ZRptTbParamTbio.inputValue}"
+                                                label="#{bindings.ZRptTbParamTbio.label}"
+                                                required="#{bindings.ZRptTbParamTbio.hints.mandatory}"
+                                                shortDesc="#{bindings.ZRptTbParamTbio.hints.tooltip}" id="soc1"
+                                                autoSubmit="true">
+                                <f:selectItems value="#{bindings.ZRptTbParamTbio.items}" id="si1"/>
+                                <f:validator binding="#{bindings.ZRptTbParamTbio.validator}"/>
+                            </af:selectOneChoice>
+                            <f:facet name="footer">
+                                <af:panelGroupLayout id="pgl1">
+                                    <af:button actionListener="#{bindings.Execute.execute}" text="SHOW"
+                                               disabled="#{!bindings.Execute.enabled}" id="b2"
+                                               inlineStyle="color:Green;"/>
+                                    <af:spacer width="100" height="10" id="s1"/>
+                                    <af:button text="Submit" id="b1" icon="#{resource['images:commit.png']}"
+                                               actionListener="#{bindings.Commit.execute}"/>
+                                    <af:spacer width="600" height="10" id="s2"/>
+                                    <af:button text="EXCEL" id="b3" icon="#{resource['images:export.png']}"
+                                               inlineStyle="color:Purple;">
+                                        <af:exportCollectionActionListener type="excelHTML" exportedId="pc1:t1"
+                                                                           filename="TRIAL BALANCE.XLS"
+                                                                           title="Trial Balance Deailed"/>
+                                    </af:button>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelFormLayout>
+                    </af:panelBox>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar">
+                            <af:toolbar id="t2">
+                                <af:outputText value="MasTams" id="ot19" inlineStyle="color:Purple; font-size:large;"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <af:table value="#{bindings.ZRptTbView11.collectionModel}" var="row"
+                                  rows="#{bindings.ZRptTbView11.rangeSize}"
+                                  emptyText="#{bindings.ZRptTbView11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.ZRptTbView11.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.ZRptTbView11.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.ZRptTbView11.rangeSize}"
+                                  filterModel="#{bindings.ZRptTbView11Query.queryDescriptor}" filterVisible="true"
+                                  queryListener="#{bindings.ZRptTbView11Query.processQuery}" varStatus="vs" id="t1"
+                                  partialTriggers="::b2 :::b2 :::b1" scrollPolicy="page" columnSelection="multiple">
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbDate.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZRptTbView11.hints.ZRptTbDate.label}"
+                                       id="c1">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.ZRptTbView11Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ZRptTbDate.value}"
+                                                  id="id2">
+                                        <af:convertDateTime pattern="#{bindings.ZRptTbView11.hints.ZRptTbDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.ZRptTbDate}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbDate.tooltip}" id="ot1">
+                                    <af:convertDateTime pattern="dd-MMM-yyyy hh:mm:ss a"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbCoaId.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZRptTbView11.hints.ZRptTbCoaId.label}"
+                                       id="c2">
+                                <af:outputText value="#{row.ZRptTbCoaId}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbCoaId.tooltip}" id="ot2">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptTbView11.hints.ZRptTbCoaId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbName.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZRptTbView11.hints.ZRptTbName.label}"
+                                       id="c3" width="300" align="center" inlineStyle="text-align:left;">
+                                <af:link shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbName.tooltip}" id="ot3"
+                                         text="#{row.ZRptTbName}" action="CALL">
+                                    <af:setActionListener from="#{row.ZRptTbName}" to="#{pageFlowScope.zrptb}"/>
+                                </af:link>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbHsdSales.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptTbView11.hints.ZRptTbHsdSales.label}" id="c10"
+                                       inlineStyle="text-align:right;">
+                                <af:outputText value="#{row.ZRptTbHsdSales}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbHsdSales.tooltip}"
+                                               id="ot10">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptTbView11.hints.ZRptTbHsdSales.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbPmgSales.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptTbView11.hints.ZRptTbPmgSales.label}" id="c12"
+                                       inlineStyle="text-align:right;">
+                                <af:outputText value="#{row.ZRptTbPmgSales}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbPmgSales.tooltip}"
+                                               id="ot12">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptTbView11.hints.ZRptTbPmgSales.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbDebit.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZRptTbView11.hints.ZRptTbDebit.label}"
+                                       id="c6" inlineStyle="text-align:right;">
+                                <af:outputText value="#{row.ZRptTbDebit}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbDebit.tooltip}" id="ot6">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptTbView11.hints.ZRptTbDebit.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbCredit.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZRptTbView11.hints.ZRptTbCredit.label}"
+                                       id="c7" inlineStyle="text-align:right;">
+                                <af:outputText value="#{row.ZRptTbCredit}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbCredit.tooltip}" id="ot7">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptTbView11.hints.ZRptTbCredit.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbHsdPurchase.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptTbView11.hints.ZRptTbHsdPurchase.label}" id="c9"
+                                       inlineStyle="text-align:right;">
+                                <af:outputText value="#{row.ZRptTbHsdPurchase}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbHsdPurchase.tooltip}"
+                                               id="ot9">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptTbView11.hints.ZRptTbHsdPurchase.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbPmgPurchase.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptTbView11.hints.ZRptTbPmgPurchase.label}" id="c11"
+                                       inlineStyle="text-align:right;">
+                                <af:outputText value="#{row.ZRptTbPmgPurchase}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbPmgPurchase.tooltip}"
+                                               id="ot11">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptTbView11.hints.ZRptTbPmgPurchase.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbQtyBal.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZRptTbView11.hints.ZRptTbQtyBal.label}"
+                                       id="c4" inlineStyle="text-align:right;">
+                                <af:outputText value="#{row.ZRptTbQtyBal}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbQtyBal.tooltip}" id="ot4">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptTbView11.hints.ZRptTbQtyBal.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbRate.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZRptTbView11.hints.ZRptTbRate.label}"
+                                       id="c5" inlineStyle="text-align:right;">
+                                <af:outputText value="#{row.ZRptTbRate}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbRate.tooltip}" id="ot5">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptTbView11.hints.ZRptTbRate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbSkoPurchase.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptTbView11.hints.ZRptTbSkoPurchase.label}" id="c13"
+                                       inlineStyle="text-align:right;">
+                                <af:outputText value="#{row.ZRptTbSkoPurchase}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbSkoPurchase.tooltip}"
+                                               id="ot13">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptTbView11.hints.ZRptTbSkoPurchase.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbSkoSales.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptTbView11.hints.ZRptTbSkoSales.label}" id="c14"
+                                       inlineStyle="text-align:right;">
+                                <af:outputText value="#{row.ZRptTbSkoSales}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbSkoSales.tooltip}"
+                                               id="ot14">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptTbView11.hints.ZRptTbSkoSales.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbLdoPurchase.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptTbView11.hints.ZRptTbLdoPurchase.label}" id="c15"
+                                       inlineStyle="text-align:right;">
+                                <af:outputText value="#{row.ZRptTbLdoPurchase}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbLdoPurchase.tooltip}"
+                                               id="ot15">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptTbView11.hints.ZRptTbLdoPurchase.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbLdoSales.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptTbView11.hints.ZRptTbLdoSales.label}" id="c16"
+                                       inlineStyle="text-align:right;">
+                                <af:outputText value="#{row.ZRptTbLdoSales}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbLdoSales.tooltip}"
+                                               id="ot16">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptTbView11.hints.ZRptTbLdoSales.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbHobcPurchase.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptTbView11.hints.ZRptTbHobcPurchase.label}" id="c17"
+                                       inlineStyle="text-align:right;">
+                                <af:outputText value="#{row.ZRptTbHobcPurchase}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbHobcPurchase.tooltip}"
+                                               id="ot17">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptTbView11.hints.ZRptTbHobcPurchase.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbHobcSales.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptTbView11.hints.ZRptTbHobcSales.label}" id="c18"
+                                       inlineStyle="text-align:right;">
+                                <af:outputText value="#{row.ZRptTbHobcSales}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbHobcSales.tooltip}"
+                                               id="ot18">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptTbView11.hints.ZRptTbHobcSales.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptTbView11.hints.ZRptTbCat.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZRptTbView11.hints.ZRptTbCat.label}"
+                                       id="c8">
+                                <af:outputText value="#{row.ZRptTbCat}"
+                                               shortDesc="#{bindings.ZRptTbView11.hints.ZRptTbCat.tooltip}" id="ot8">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptTbView11.hints.ZRptTbCat.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </f:facet>
+            </af:panelSplitter>
+        </af:panelBox>
+    </f:view>
+</ui:composition>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="DayBookSummaryViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DayBookSummaryView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="DayBookSummaryView1Iterator"/>
+    <searchRegion Criteria="DayBookSummaryViewCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="DayBookSummaryView1Iterator" id="DayBookSummaryViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DayBookSummaryView1Iterator" id="DayBookSummaryView1">
+      <nodeDefinition DefName="model.DayBookSummaryView" Name="DayBookSummaryView10">
+        <AttrNames>
+          <Item Value="DbsAmtNew"/>
+          <Item Value="DbsAmtOld"/>
+          <Item Value="DbsCC"/>
+          <Item Value="DbsCashT"/>
+          <Item Value="DbsCloseCash"/>
+          <Item Value="DbsCreditT"/>
+          <Item Value="DbsDate"/>
+          <Item Value="DbsDiff"/>
+          <Item Value="DbsDmlFlag"/>
+          <Item Value="DbsExpenseT"/>
+          <Item Value="DbsId"/>
+          <Item Value="DbsOpCash"/>
+          <Item Value="DbsPaymentT"/>
+          <Item Value="DbsRecieptT"/>
+          <Item Value="DbsSaleCash"/>
+          <Item Value="DbsSaleT"/>
+          <Item Value="DbsViewId"/>
+          <Item Value="DcIdFk"/>
+          <Item Value="DcStartDate"/>
+          <Item Value="DcId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

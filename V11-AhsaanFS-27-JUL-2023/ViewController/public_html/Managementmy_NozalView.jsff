@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="266" id="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1">
+                <af:outputText value="Add Nozzle" id="ot7"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:inputText value="#{bindings.NozalId.inputValue}" label="Id"
+                              required="#{bindings.NozalId.hints.mandatory}"
+                              columns="#{bindings.NozalId.hints.displayWidth}"
+                              maximumLength="#{bindings.NozalId.hints.precision}"
+                              shortDesc="#{bindings.NozalId.hints.tooltip}" id="it1" readOnly="true">
+                    <f:validator binding="#{bindings.NozalId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.NozalId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.NozalName.inputValue}" label="Nozzle Name"
+                              required="#{bindings.NozalName.hints.mandatory}"
+                              columns="#{bindings.NozalName.hints.displayWidth}"
+                              maximumLength="#{bindings.NozalName.hints.precision}"
+                              shortDesc="#{bindings.NozalName.hints.tooltip}" id="it2">
+                    <f:validator binding="#{bindings.NozalName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.ProductIdFk.inputValue}" label="#{bindings.ProductIdFk.hints.label}"
+                              required="#{bindings.ProductIdFk.hints.mandatory}"
+                              columns="#{bindings.ProductIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.ProductIdFk.hints.precision}"
+                              shortDesc="#{bindings.ProductIdFk.hints.tooltip}" id="it3" rendered="false">
+                    <f:validator binding="#{bindings.ProductIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductIdFk.format}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.ProductShortname.inputValue}"
+                                    label="#{bindings.ProductShortname.label}"
+                                    required="#{bindings.ProductShortname.hints.mandatory}"
+                                    shortDesc="#{bindings.ProductShortname.hints.tooltip}" id="soc1" autoSubmit="true">
+                    <f:selectItems value="#{bindings.ProductShortname.items}" id="si1"/>
+                    <f:validator binding="#{bindings.ProductShortname.validator}"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.PipeLineGroupCaption.inputValue}"
+                                    label="Pipe Line Group"
+                                    required="#{bindings.PipeLineGroupCaption.hints.mandatory}"
+                                    shortDesc="#{bindings.PipeLineGroupCaption.hints.tooltip}" id="soc3">
+                    <f:selectItems value="#{bindings.PipeLineGroupCaption.items}" id="si3"/>
+                    <f:validator binding="#{bindings.PipeLineGroupCaption.validator}"/>
+                </af:selectOneChoice>
+                <af:outputText value="#{bindings.PipeLineGroupIdFk.inputValue}"
+                               shortDesc="#{bindings.PipeLineGroupIdFk.hints.tooltip}" id="ot9" rendered="false">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.PipeLineGroupIdFk.format}"/>
+                </af:outputText>
+                <af:outputText value="#{bindings.PipeLineGroupId.inputValue}"
+                               shortDesc="#{bindings.PipeLineGroupId.hints.tooltip}" id="ot8" rendered="false">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.PipeLineGroupId.format}"/>
+                </af:outputText>
+                <af:inputText value="#{bindings.NozalInitValue.inputValue}"
+                              label="#{bindings.NozalInitValue.hints.label}"
+                              required="#{bindings.NozalInitValue.hints.mandatory}"
+                              columns="#{bindings.NozalInitValue.hints.displayWidth}"
+                              maximumLength="#{bindings.NozalInitValue.hints.precision}"
+                              shortDesc="#{bindings.NozalInitValue.hints.tooltip}" id="it4">
+                    <f:validator binding="#{bindings.NozalInitValue.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.NozalInitValue.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.NozalActiveFlag.inputValue}"
+                              label="#{bindings.NozalActiveFlag.hints.label}"
+                              required="#{bindings.NozalActiveFlag.hints.mandatory}"
+                              columns="#{bindings.NozalActiveFlag.hints.displayWidth}"
+                              maximumLength="#{bindings.NozalActiveFlag.hints.precision}"
+                              shortDesc="#{bindings.NozalActiveFlag.hints.tooltip}" id="it5" rendered="false">
+                    <f:validator binding="#{bindings.NozalActiveFlag.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.NozalActiveFlag.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.ProductId.inputValue}" label="#{bindings.ProductId.hints.label}"
+                              required="#{bindings.ProductId.hints.mandatory}"
+                              columns="#{bindings.ProductId.hints.displayWidth}"
+                              maximumLength="#{bindings.ProductId.hints.precision}"
+                              shortDesc="#{bindings.ProductId.hints.tooltip}" id="it6" readOnly="true" rendered="false">
+                    <f:validator binding="#{bindings.ProductId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductId.format}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl2">
+                        <af:panelGroupLayout layout="horizontal" id="pgl3">
+                            <af:button actionListener="#{bindings.First.execute}"
+                            icon="#{resource['images:first_hor_ena.png']}"
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                            <af:button actionListener="#{bindings.Previous.execute}"
+                            icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                            <af:button actionListener="#{bindings.Next.execute}"
+                            icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                            <af:button actionListener="#{bindings.Last.execute}"
+                            icon="#{resource['images:last_hor_ena.png']}"
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                                       <af:outputText value="---------------" id="ot61"/>
+                        </af:panelGroupLayout>
+                        <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                        icon="#{resource['images:commit.png']}"
+                                   disabled="#{!bindings.Commit.enabled}"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                        icon="#{resource['images:add.png']}"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b6"/>
+                                   <af:outputText value="-----------------------" id="ot62"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                        icon="#{resource['images:rollback.png']}"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                            <af:resetActionListener/>
+                        </af:button>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar">
+                <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot14" inlineStyle="color:Maroon; font-size:large;"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.NozalView1.collectionModel}" var="row"
+                          rows="#{bindings.NozalView1.rangeSize}"
+                          emptyText="#{bindings.NozalView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" selectedRowKeys="#{bindings.NozalView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.NozalView1.collectionModel.makeCurrent}" rowSelection="single"
+                          fetchSize="#{bindings.NozalView1.rangeSize}"
+                          filterModel="#{bindings.NozalView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.NozalView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 :::b1 :::b2 :::b3 :::b4 :::b6" scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.NozalView1.hints.NozalName.name}" filterable="true"
+                               sortable="true" headerText="Nozzle Name" id="c2"
+                               width="150" align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.NozalName}"
+                                       shortDesc="#{bindings.NozalView1.hints.NozalName.tooltip}" id="ot2"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.NozalView1.hints.ProductShortname.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.NozalView1.hints.ProductShortname.label}" id="c6"
+                               width="120" align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:selectOneChoice value="#{row.bindings.ProductShortname.inputValue}"
+                                            label="#{row.bindings.ProductShortname.label}"
+                                            required="#{bindings.NozalView1.hints.ProductShortname.mandatory}"
+                                            shortDesc="#{bindings.NozalView1.hints.ProductShortname.tooltip}"
+                                            readOnly="true" id="soc2">
+                            <f:selectItems value="#{row.bindings.ProductShortname.items}" id="si2"/>
+                            <f:validator binding="#{row.bindings.ProductShortname.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.NozalView1.hints.NozalInitValue.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.NozalView1.hints.NozalInitValue.label}" id="c4"
+                               width="100" align="center"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.NozalInitValue}"
+                                       shortDesc="#{bindings.NozalView1.hints.NozalInitValue.tooltip}" id="ot4">
+                            <af:convertNumber groupingUsed="true"
+                                              pattern="#{bindings.NozalView1.hints.NozalInitValue.format}"
+                                              messageDetailConvertNumber="#,###,##"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.NozalView1.hints.NozalActiveFlag.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.NozalView1.hints.NozalActiveFlag.label}" id="c5"
+                               width="100" align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               rendered="false">
+                        <af:outputText value="#{row.NozalActiveFlag}"
+                                       shortDesc="#{bindings.NozalView1.hints.NozalActiveFlag.tooltip}" id="ot5">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.NozalView1.hints.NozalActiveFlag.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.NozalView1.hints.NozalId.name}" filterable="true"
+                               sortable="true" headerText="Nozal ID" id="c1"
+                               width="80" align="center"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               rendered="false">
+                        <af:outputText value="#{row.NozalId}" shortDesc="#{bindings.NozalView1.hints.NozalId.tooltip}"
+                                       id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.NozalView1.hints.NozalId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.NozalView1.hints.ProductIdFk.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.NozalView1.hints.ProductIdFk.label}" id="c3"
+                               width="150" align="center" rendered="false">
+                        <af:outputText value="#{row.ProductIdFk}"
+                                       shortDesc="#{bindings.NozalView1.hints.ProductIdFk.tooltip}" id="ot3">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.NozalView1.hints.ProductIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="Pipe Line Group" id="c8" align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="150">
+                        <af:selectOneChoice value="#{row.bindings.PipeLineGroupCaption.inputValue}"
+                                            label="#{row.bindings.PipeLineGroupCaption.label}"
+                                            required="#{bindings.NozalView1.hints.PipeLineGroupCaption.mandatory}"
+                                            shortDesc="#{bindings.NozalView1.hints.PipeLineGroupCaption.tooltip}"
+                                            readOnly="true" id="soc4">
+                            <f:selectItems value="#{row.bindings.PipeLineGroupCaption.items}" id="si4"/>
+                            <f:validator binding="#{row.bindings.PipeLineGroupCaption.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.NozalView1.hints.ProductId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.NozalView1.hints.ProductId.label}" id="c7"
+                               width="150" align="center" rendered="false">
+                        <af:outputText value="#{row.ProductId}"
+                                       shortDesc="#{bindings.NozalView1.hints.ProductId.tooltip}" id="ot6">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.NozalView1.hints.ProductId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

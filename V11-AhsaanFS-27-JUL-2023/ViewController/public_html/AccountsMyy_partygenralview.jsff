@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="134" id="ps1" partialTriggers="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1" maxColumns="2" rows="2">
+                <af:outputText value="Add Party" id="ot5"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:inputText value="#{bindings.PartyId.inputValue}" label="#{bindings.PartyId.hints.label}"
+                              required="#{bindings.PartyId.hints.mandatory}"
+                              columns="#{bindings.PartyId.hints.displayWidth}"
+                              maximumLength="#{bindings.PartyId.hints.precision}"
+                              shortDesc="#{bindings.PartyId.hints.tooltip}" id="it1" rendered="false">
+                    <f:validator binding="#{bindings.PartyId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.PartyId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.PartyName.inputValue}" label="#{bindings.PartyName.hints.label}"
+                              required="#{bindings.PartyName.hints.mandatory}"
+                              columns="#{bindings.PartyName.hints.displayWidth}"
+                              maximumLength="#{bindings.PartyName.hints.precision}"
+                              shortDesc="#{bindings.PartyName.hints.tooltip}" id="it2">
+                    <f:validator binding="#{bindings.PartyName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.PartyShortname.inputValue}"
+                              label="#{bindings.PartyShortname.hints.label}"
+                              required="#{bindings.PartyShortname.hints.mandatory}"
+                              columns="#{bindings.PartyShortname.hints.displayWidth}"
+                              maximumLength="#{bindings.PartyShortname.hints.precision}"
+                              shortDesc="#{bindings.PartyShortname.hints.tooltip}" id="it3" rendered="false">
+                    <f:validator binding="#{bindings.PartyShortname.validator}"/>
+                </af:inputText>
+                <af:inputListOfValues id="partyType1Id"
+                                      popupTitle="Search and Select: #{bindings.PartyType1.hints.label}"
+                                      value="#{bindings.PartyType1.inputValue}"
+                                      label="#{bindings.PartyType1.hints.label}"
+                                      model="#{bindings.PartyType1.listOfValuesModel}"
+                                      required="#{bindings.PartyType1.hints.mandatory}"
+                                      columns="#{bindings.PartyType1.hints.displayWidth}"
+                                      shortDesc="#{bindings.PartyType1.hints.tooltip}" autoSubmit="true">
+                    <f:validator binding="#{bindings.PartyType1.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.PartyType1.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputText value="#{bindings.PartyCode.inputValue}" label="#{bindings.PartyCode.hints.label}"
+                              required="#{bindings.PartyCode.hints.mandatory}"
+                              columns="#{bindings.PartyCode.hints.displayWidth}"
+                              maximumLength="#{bindings.PartyCode.hints.precision}"
+                              shortDesc="#{bindings.PartyCode.hints.tooltip}" id="it4">
+                    <f:validator binding="#{bindings.PartyCode.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.PtypeId.inputValue}" label="#{bindings.PtypeId.hints.label}"
+                              required="#{bindings.PtypeId.hints.mandatory}"
+                              columns="#{bindings.PtypeId.hints.displayWidth}"
+                              maximumLength="#{bindings.PtypeId.hints.precision}"
+                              shortDesc="#{bindings.PtypeId.hints.tooltip}" id="it5" rendered="false">
+                    <f:validator binding="#{bindings.PtypeId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.PtypeId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.PomcId.inputValue}" label="#{bindings.PomcId.hints.label}"
+                              required="#{bindings.PomcId.hints.mandatory}"
+                              columns="#{bindings.PomcId.hints.displayWidth}"
+                              maximumLength="#{bindings.PomcId.hints.precision}"
+                              shortDesc="#{bindings.PomcId.hints.tooltip}" id="it6" rendered="false">
+                    <f:validator binding="#{bindings.PomcId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.PomcId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.PartyTypeId.inputValue}" label="#{bindings.PartyTypeId.hints.label}"
+                              required="#{bindings.PartyTypeId.hints.mandatory}"
+                              columns="#{bindings.PartyTypeId.hints.displayWidth}"
+                              maximumLength="#{bindings.PartyTypeId.hints.precision}"
+                              shortDesc="#{bindings.PartyTypeId.hints.tooltip}" id="it7" rendered="false">
+                    <f:validator binding="#{bindings.PartyTypeId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.PartyTypeId.format}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl1">
+                        <af:panelGroupLayout layout="horizontal" id="pgl2">
+                            <af:button actionListener="#{bindings.First.execute}"
+                            icon="#{resource['images:first_hor_ena.png']}"
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                            <af:button actionListener="#{bindings.Previous.execute}"
+                            icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                            <af:button actionListener="#{bindings.Next.execute}"
+                            icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                            <af:button actionListener="#{bindings.Last.execute}"
+                            icon="#{resource['images:last_hor_ena.png']}"
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                             <af:outputText value="--------------" id="ot61"/>          
+                        </af:panelGroupLayout>
+                        <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                        icon="#{resource['images:commit.png']}"
+                                   disabled="#{!bindings.Commit.enabled}"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                        icon="#{resource['images:add.png']}"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b6"/>
+                          <af:outputText value="------------------------" id="ot62"/>         
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                        icon="#{resource['images:rollback.png']}"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                            <af:resetActionListener/>
+                        </af:button>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <af:table value="#{bindings.PartyAll1.collectionModel}" var="row" rows="#{bindings.PartyAll1.rangeSize}"
+                          emptyText="#{bindings.PartyAll1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" selectedRowKeys="#{bindings.PartyAll1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.PartyAll1.collectionModel.makeCurrent}" rowSelection="single"
+                          fetchSize="#{bindings.PartyAll1.rangeSize}"
+                          filterModel="#{bindings.PartyAll1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.PartyAll1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers=":::b1 :::b2 :::b3 :::b4 :::b6" scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.PartyAll1.hints.PartyId.name}" filterable="true" sortable="true"
+                               headerText="#{bindings.PartyAll1.hints.PartyId.label}" id="c1" width="90"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center">
+                        <af:outputText value="#{row.PartyId}" shortDesc="#{bindings.PartyAll1.hints.PartyId.tooltip}"
+                                       id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PartyAll1.hints.PartyId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PartyAll1.hints.PartyName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PartyAll1.hints.PartyName.label}" id="c2"
+                               width="200"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               align="center">
+                        <af:outputText value="#{row.PartyName}"
+                                       shortDesc="#{bindings.PartyAll1.hints.PartyName.tooltip}" id="ot2"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PartyAll1.hints.PartyCode.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PartyAll1.hints.PartyCode.label}" id="c3"
+                               width="100"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center">
+                        <af:outputText value="#{row.PartyCode}"
+                                       shortDesc="#{bindings.PartyAll1.hints.PartyCode.tooltip}" id="ot3"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PartyAll1.hints.PartyTypeId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PartyAll1.hints.PartyTypeId.label}" id="c4"
+                               rendered="false" width="200"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center">
+                        <af:outputText value="#{row.PartyTypeId}"
+                                       shortDesc="#{bindings.PartyAll1.hints.PartyTypeId.tooltip}" id="ot4">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PartyAll1.hints.PartyTypeId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.PartyAll1.hints.PartyType1.label}" id="c5" width="100"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               align="center">
+                        <af:outputText value="#{row.PartyType1}"
+                                       shortDesc="#{bindings.PartyAll1.hints.PartyType1.tooltip}" id="ot6"/>
+                    </af:column>
+                </af:table>
+                <f:facet name="statusbar">
+                    <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot11" inlineStyle="color:Maroon; font-size:large;"/>
+                    </af:toolbar>
+                </f:facet>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_partygenralview-->
+</ui:composition>

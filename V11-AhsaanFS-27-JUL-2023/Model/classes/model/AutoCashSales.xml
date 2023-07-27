@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AutoCashSales"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="AUTO_CASH_SALES"
+  AliasName="AutoCashSales"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="AcsId"
+    ColumnName="ACS_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="AUTO_CASH_SALES"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="AcsDate"
+    ColumnName="ACS_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="AUTO_CASH_SALES"/>
+  <Attribute
+    Name="DcIdFk"
+    ColumnName="DC_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="AUTO_CASH_SALES"/>
+  <Key
+    Name="AutoCashSalesPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="AUTO_CASH_SALES_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.AutoCashSales.AcsId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AutoCashSalesDateCounFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="DATE_COUNTER_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="AUTO_CASH_SALES_DATE_COUN_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.AutoCashSales.DcIdFk"/>
+    </AttrArray>
+  </Key>
+</Entity>

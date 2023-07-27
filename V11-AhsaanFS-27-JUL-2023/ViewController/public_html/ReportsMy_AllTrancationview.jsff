@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="195" id="ps1">
+        <f:facet name="first">
+            <af:panelBox id="pb1">
+                <f:facet name="toolbar">
+                    <af:outputText value="MASTAMS" id="ot18"
+                                   inlineStyle="color:Maroon; font-size:x-large; font-style:italic;"/>
+                </f:facet>
+                <af:panelFormLayout id="pfl1">
+                    <af:outputText value="All Working" id="ot17"
+                                   inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                    <af:inputDate value="#{bindings.BindDateFrom.inputValue}" label="FROME DATE"
+                                  required="#{bindings.BindDateFrom.hints.mandatory}"
+                                  columns="#{bindings.BindDateFrom.hints.displayWidth}"
+                                  shortDesc="#{bindings.BindDateFrom.hints.tooltip}" id="id1">
+                        <f:validator binding="#{bindings.BindDateFrom.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.BindDateFrom.format}"/>
+                    </af:inputDate>
+                    <af:inputDate value="#{bindings.BindDateTo.inputValue}" label="TO DATE"
+                                  required="#{bindings.BindDateTo.hints.mandatory}"
+                                  columns="#{bindings.BindDateTo.hints.displayWidth}"
+                                  shortDesc="#{bindings.BindDateTo.hints.tooltip}" id="id2">
+                        <f:validator binding="#{bindings.BindDateTo.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.BindDateTo.format}"/>
+                    </af:inputDate>
+                    <af:button actionListener="#{bindings.ExecuteWithParams.execute}" text="SHOW"
+                               disabled="#{!bindings.ExecuteWithParams.enabled}" id="b1" inlineStyle="color:Green;"/>
+                </af:panelFormLayout>
+            </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+            <af:table value="#{bindings.TNSALLTransactions1.collectionModel}" var="row"
+                      rows="#{bindings.TNSALLTransactions1.rangeSize}"
+                      emptyText="#{bindings.TNSALLTransactions1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.TNSALLTransactions1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.TNSALLTransactions1.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.TNSALLTransactions1.rangeSize}"
+                      filterModel="#{bindings.TNSALLTransactions1Query.queryDescriptor}" filterVisible="true"
+                      queryListener="#{bindings.TNSALLTransactions1Query.processQuery}" varStatus="vs" id="t1"
+                      partialTriggers="::b1" scrollPolicy="page">
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.TnsDate.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.TnsDate.label}" id="c1">
+                    <f:facet name="filter">
+                        <af:inputDate value="#{bindings.TNSALLTransactions1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsDate.value}"
+                                      id="id3">
+                            <af:convertDateTime pattern="#{bindings.TNSALLTransactions1.hints.TnsDate.format}"/>
+                        </af:inputDate>
+                    </f:facet>
+                    <af:outputText value="#{row.TnsDate}"
+                                   shortDesc="#{bindings.TNSALLTransactions1.hints.TnsDate.tooltip}" id="ot1">
+                        <af:convertDateTime pattern="#{bindings.TNSALLTransactions1.hints.TnsDate.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.TnsTypeName.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.TnsTypeName.label}" id="c2">
+                    <af:selectOneChoice value="#{row.bindings.TnsTypeName.inputValue}"
+                                        label="#{row.bindings.TnsTypeName.label}"
+                                        required="#{bindings.TNSALLTransactions1.hints.TnsTypeName.mandatory}"
+                                        shortDesc="#{bindings.TNSALLTransactions1.hints.TnsTypeName.tooltip}"
+                                        readOnly="true" id="soc1">
+                        <f:selectItems value="#{row.bindings.TnsTypeName.items}" id="si1"/>
+                        <f:validator binding="#{row.bindings.TnsTypeName.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.TnsCoaDactNumber.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.TnsCoaDactNumber.label}"
+                           id="c3" inlineStyle="text-align:right;">
+                    <af:outputText value="#{row.TnsCoaDactNumber}"
+                                   shortDesc="#{bindings.TNSALLTransactions1.hints.TnsCoaDactNumber.tooltip}" id="ot2">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.TNSALLTransactions1.hints.TnsCoaDactNumber.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.CoaName.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.CoaName.label}" id="c4"
+                           width="300" align="center" inlineStyle="text-align:left;">
+                    <af:outputText value="#{row.CoaName}"
+                                   shortDesc="#{bindings.TNSALLTransactions1.hints.CoaName.tooltip}" id="ot3"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.TnsCoaCactNumber.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.TnsCoaCactNumber.label}"
+                           id="c5" inlineStyle="text-align:right;">
+                    <af:outputText value="#{row.TnsCoaCactNumber}"
+                                   shortDesc="#{bindings.TNSALLTransactions1.hints.TnsCoaCactNumber.tooltip}" id="ot4">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.TNSALLTransactions1.hints.TnsCoaCactNumber.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.CoaName1.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.CoaName1.label}" id="c6"
+                           width="300" inlineStyle="text-align:left;" align="center">
+                    <af:outputText value="#{row.CoaName1}"
+                                   shortDesc="#{bindings.TNSALLTransactions1.hints.CoaName1.tooltip}" id="ot5"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.TnsAmount.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.TnsAmount.label}" id="c7"
+                           inlineStyle="text-align:right;">
+                    <af:outputText value="#{row.TnsAmount}"
+                                   shortDesc="#{bindings.TNSALLTransactions1.hints.TnsAmount.tooltip}" id="ot6">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.TNSALLTransactions1.hints.TnsAmount.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.TnsQty.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.TnsQty.label}" id="c8"
+                           inlineStyle="text-align:right;">
+                    <af:outputText value="#{row.TnsQty}"
+                                   shortDesc="#{bindings.TNSALLTransactions1.hints.TnsQty.tooltip}" id="ot7">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.TNSALLTransactions1.hints.TnsQty.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.TnsRate.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.TnsRate.label}" id="c9"
+                           inlineStyle="text-align:right;">
+                    <af:outputText value="#{row.TnsRate}"
+                                   shortDesc="#{bindings.TNSALLTransactions1.hints.TnsRate.tooltip}" id="ot8"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.TnsNewrate.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.TnsNewrate.label}" id="c10"
+                           inlineStyle="text-align:right;">
+                    <af:outputText value="#{row.TnsNewrate}"
+                                   shortDesc="#{bindings.TNSALLTransactions1.hints.TnsNewrate.tooltip}" id="ot9"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.OiltRegistration.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.OiltRegistration.label}"
+                           id="c11">
+                    <af:selectOneChoice value="#{row.bindings.OiltRegistration.inputValue}"
+                                        label="#{row.bindings.OiltRegistration.label}"
+                                        required="#{bindings.TNSALLTransactions1.hints.OiltRegistration.mandatory}"
+                                        shortDesc="#{bindings.TNSALLTransactions1.hints.OiltRegistration.tooltip}"
+                                        readOnly="true" id="soc2">
+                        <f:selectItems value="#{row.bindings.OiltRegistration.items}" id="si2"/>
+                        <f:validator binding="#{row.bindings.OiltRegistration.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.OildShortname.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.OildShortname.label}"
+                           id="c12">
+                    <af:selectOneChoice value="#{row.bindings.OildShortname.inputValue}"
+                                        label="#{row.bindings.OildShortname.label}"
+                                        required="#{bindings.TNSALLTransactions1.hints.OildShortname.mandatory}"
+                                        shortDesc="#{bindings.TNSALLTransactions1.hints.OildShortname.tooltip}"
+                                        readOnly="true" id="soc3">
+                        <f:selectItems value="#{row.bindings.OildShortname.items}" id="si3"/>
+                        <f:validator binding="#{row.bindings.OildShortname.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.OildShortname1.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.OildShortname1.label}"
+                           id="c13">
+                    <af:selectOneChoice value="#{row.bindings.OildShortname1.inputValue}"
+                                        label="#{row.bindings.OildShortname1.label}"
+                                        required="#{bindings.TNSALLTransactions1.hints.OildShortname1.mandatory}"
+                                        shortDesc="#{bindings.TNSALLTransactions1.hints.OildShortname1.tooltip}"
+                                        readOnly="true" id="soc4">
+                        <f:selectItems value="#{row.bindings.OildShortname1.items}" id="si4"/>
+                        <f:validator binding="#{row.bindings.OildShortname1.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.BankName1.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.BankName1.label}" id="c14">
+                    <af:selectOneChoice value="#{row.bindings.BankName1.inputValue}"
+                                        label="#{row.bindings.BankName1.label}"
+                                        required="#{bindings.TNSALLTransactions1.hints.BankName1.mandatory}"
+                                        shortDesc="#{bindings.TNSALLTransactions1.hints.BankName1.tooltip}"
+                                        readOnly="true" id="soc5">
+                        <f:selectItems value="#{row.bindings.BankName1.items}" id="si5"/>
+                        <f:validator binding="#{row.bindings.BankName1.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.BankTnsTypeName.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.BankTnsTypeName.label}"
+                           id="c15">
+                    <af:selectOneChoice value="#{row.bindings.BankTnsTypeName.inputValue}"
+                                        label="#{row.bindings.BankTnsTypeName.label}"
+                                        required="#{bindings.TNSALLTransactions1.hints.BankTnsTypeName.mandatory}"
+                                        shortDesc="#{bindings.TNSALLTransactions1.hints.BankTnsTypeName.tooltip}"
+                                        readOnly="true" id="soc6">
+                        <f:selectItems value="#{row.bindings.BankTnsTypeName.items}" id="si6"/>
+                        <f:validator binding="#{row.bindings.BankTnsTypeName.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.TnsBrCode.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.TnsBrCode.label}" id="c16"
+                           inlineStyle="text-align:right;">
+                    <af:outputText value="#{row.TnsBrCode}"
+                                   shortDesc="#{bindings.TNSALLTransactions1.hints.TnsBrCode.tooltip}" id="ot10"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.TnsId.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.TnsId.label}" id="c17"
+                           inlineStyle="text-align:right;">
+                    <af:outputText value="#{row.TnsId}" shortDesc="#{bindings.TNSALLTransactions1.hints.TnsId.tooltip}"
+                                   id="ot11">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.TNSALLTransactions1.hints.TnsId.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.TnsInfo.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.TnsInfo.label}" id="c18">
+                    <af:outputText value="#{row.TnsInfo}"
+                                   shortDesc="#{bindings.TNSALLTransactions1.hints.TnsInfo.tooltip}" id="ot12"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.TnsOildLoadDate.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.TnsOildLoadDate.label}"
+                           id="c19">
+                    <f:facet name="filter">
+                        <af:inputDate value="#{bindings.TNSALLTransactions1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsOildLoadDate.value}"
+                                      id="id4">
+                            <af:convertDateTime pattern="#{bindings.TNSALLTransactions1.hints.TnsOildLoadDate.format}"/>
+                        </af:inputDate>
+                    </f:facet>
+                    <af:outputText value="#{row.TnsOildLoadDate}"
+                                   shortDesc="#{bindings.TNSALLTransactions1.hints.TnsOildLoadDate.tooltip}" id="ot13">
+                        <af:convertDateTime pattern="#{bindings.TNSALLTransactions1.hints.TnsOildLoadDate.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.TnsSlipDate.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.TnsSlipDate.label}"
+                           id="c20">
+                    <f:facet name="filter">
+                        <af:inputDate value="#{bindings.TNSALLTransactions1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsSlipDate.value}"
+                                      id="id5">
+                            <af:convertDateTime pattern="#{bindings.TNSALLTransactions1.hints.TnsSlipDate.format}"/>
+                        </af:inputDate>
+                    </f:facet>
+                    <af:outputText value="#{row.TnsSlipDate}"
+                                   shortDesc="#{bindings.TNSALLTransactions1.hints.TnsSlipDate.tooltip}" id="ot14">
+                        <af:convertDateTime pattern="#{bindings.TNSALLTransactions1.hints.TnsSlipDate.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.TnsSlipNo.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.TnsSlipNo.label}" id="c21">
+                    <af:outputText value="#{row.TnsSlipNo}"
+                                   shortDesc="#{bindings.TNSALLTransactions1.hints.TnsSlipNo.tooltip}" id="ot15"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.TNSALLTransactions1.hints.TnsAdjDate.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.TNSALLTransactions1.hints.TnsAdjDate.label}" id="c22">
+                    <f:facet name="filter">
+                        <af:inputDate value="#{bindings.TNSALLTransactions1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsAdjDate.value}"
+                                      id="id6">
+                            <af:convertDateTime pattern="#{bindings.TNSALLTransactions1.hints.TnsAdjDate.format}"/>
+                        </af:inputDate>
+                    </f:facet>
+                    <af:outputText value="#{row.TnsAdjDate}"
+                                   shortDesc="#{bindings.TNSALLTransactions1.hints.TnsAdjDate.tooltip}" id="ot16">
+                        <af:convertDateTime pattern="#{bindings.TNSALLTransactions1.hints.TnsAdjDate.format}"/>
+                    </af:outputText>
+                </af:column>
+            </af:table>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

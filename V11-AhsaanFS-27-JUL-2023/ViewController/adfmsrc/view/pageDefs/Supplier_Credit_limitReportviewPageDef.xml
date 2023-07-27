@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="Supplier_Credit_limitReportviewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZRptOneSupCreditLmtParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="ZRptOneSupCreditLmtParamView1Iterator"/>
+    <iterator Binds="ZRptOneSupCreditLmtDataView1" RangeSize="50" DataControl="VOAPPDataControl"
+              id="ZRptOneSupCreditLmtDataView1Iterator"/>
+    <searchRegion Binds="ZRptOneSupCreditLmtDataView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ZRptOneSupCreditLmtDataView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="ZRptOneSupCreditLmtParamView1Iterator" StaticList="false" Uses="LOV_CoaName"
+                  id="CoaName"/>
+    <attributeValues IterBinding="ZRptOneSupCreditLmtParamView1Iterator" id="SupTrdLmtParamId">
+      <AttrNames>
+        <Item Value="SupTrdLmtParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOneSupCreditLmtParamView1Iterator" id="SupTrdLmtParamStartDate">
+      <AttrNames>
+        <Item Value="SupTrdLmtParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOneSupCreditLmtParamView1Iterator" id="SupTrdLmtParamEndDate">
+      <AttrNames>
+        <Item Value="SupTrdLmtParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOneSupCreditLmtParamView1Iterator" id="SupTrdLmtParamPartyId">
+      <AttrNames>
+        <Item Value="SupTrdLmtParamPartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOneSupCreditLmtParamView1Iterator" id="ShowOmcPump">
+      <AttrNames>
+        <Item Value="ShowOmcPump"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOneSupCreditLmtParamView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ZRptOneSupCreditLmtDataView1Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="ZRptOneSupCreditLmtDataView1Iterator" id="ZRptOneSupCreditLmtDataView1">
+      <nodeDefinition DefName="model.ZRptOneSupCreditLmtDataView" Name="ZRptOneSupCreditLmtDataView10">
+        <AttrNames>
+          <Item Value="SupTrdCrdLmtPartyId"/>
+          <Item Value="SupTrdCrdLmtPartyName"/>
+          <Item Value="SupTrdCrdLmtDate"/>
+          <Item Value="SupTrdCrdLmtLedgerBal"/>
+          <Item Value="SupTrdCrdLmtPurchases"/>
+          <Item Value="SupTrdCrdLmtPayments"/>
+          <Item Value="SupTrdCrdLmtNetBalance"/>
+          <Item Value="SupTrdCreditLimit"/>
+          <Item Value="SupTrdBalanceWithLimit"/>
+          <Item Value="SupTrdCrdLmtComments"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

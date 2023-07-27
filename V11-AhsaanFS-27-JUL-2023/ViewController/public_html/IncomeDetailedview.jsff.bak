@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <f:view beforePhase="#{backingBeanScope.PrintPageBean.beforePhaseMethod}">
+        <af:panelBox id="pb2">
+            <f:facet name="toolbar">
+                <af:button id="b3" inlineStyle="padding-top:0px;" icon="#{resource['images:print.png']}">
+                    <af:showPrintablePageBehavior/>
+                </af:button>
+            </f:facet>
+            <af:image source="#{resource['images:Bandagi FS Logo.png']}" shortDesc="Bandagi Fs Logo"
+                      id="i1"/>
+            <af:panelSplitter orientation="vertical" splitterPosition="148" id="ps1" partialTriggers="ps1"
+                              inlineStyle="width:759px; height:725px;">
+                <f:facet name="first">
+                    <af:panelFormLayout id="pfl1" partialTriggers="pc1:t1">
+                        <af:outputText value="Income Statement (Detailed History)" id="ot11"
+                                       inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                        <af:inputListOfValues label="Choose Month" popupTitle="Search and Result Dialog" id="ilov1"
+                                              value="#{bindings.BindHdMonthYear.inputValue}"
+                                              model="#{bindings.IsHdMonthYear.listOfValuesModel}">
+                            <?audit suppress oracle.jdeveloper.jsp.validate-children?>
+                            <af:inputText value="#{bindings.BindHdMonthYear.inputValue}"
+                                          label="#{bindings.BindHdMonthYear.hints.label}"
+                                          required="#{bindings.BindHdMonthYear.hints.mandatory}"
+                                          columns="#{bindings.BindHdMonthYear.hints.displayWidth}"
+                                          maximumLength="#{bindings.BindHdMonthYear.hints.precision}"
+                                          shortDesc="#{bindings.BindHdMonthYear.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.BindHdMonthYear.validator}"/>
+                            </af:inputText>
+                            <af:autoSuggestBehavior suggestedItems="#{bindings.IsHdMonthYear.suggestedItems}"/>
+                        </af:inputListOfValues>
+                        <af:panelGroupLayout id="pgl1">
+                            <af:button actionListener="#{bindings.ExecuteWithParams.execute}" text="Show"
+                                       disabled="#{!bindings.ExecuteWithParams.enabled}" id="b1"
+                                       icon="#{resource['images:find.png']}"/>
+                            <af:spacer width="300" height="10" id="s1"/>
+                            <af:button text="Excel" id="b2" icon="#{resource['images:export.png']}">
+                                <af:exportCollectionActionListener type="excelHTML" exportedId="pc1:t1"
+                                                                   filename="incomedetailedhistory.xls"/>
+                            </af:button>
+                        </af:panelGroupLayout>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar">
+                            <af:toolbar id="t2">
+                                <af:outputText value="Mastams" id="ot24" inlineStyle="color:Maroon; font-size:large;"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <af:table value="#{bindings.IncomeStatementDetailsView1.collectionModel}" var="row"
+                                  rows="#{bindings.IncomeStatementDetailsView1.rangeSize}"
+                                  emptyText="#{bindings.IncomeStatementDetailsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.IncomeStatementDetailsView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.IncomeStatementDetailsView1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.IncomeStatementDetailsView1.rangeSize}"
+                                  filterModel="#{bindings.IncomeStatementDetailsView1Query.queryDescriptor}"
+                                  filterVisible="true"
+                                  queryListener="#{bindings.IncomeStatementDetailsView1Query.processQuery}"
+                                  varStatus="vs" id="t1" partialTriggers="::b1 :::b1" scrollPolicy="scroll" width="760"
+                                  autoHeightRows="1500" maxClientRows="10000"
+                                  inlineStyle="background-color:Window; border-top-color:Window;">
+                            <af:column sortProperty="#{bindings.IncomeStatementDetailsView1.hints.IsId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.IncomeStatementDetailsView1.hints.IsId.label}" id="c1"
+                                       rendered="false">
+                                <af:outputText value="#{row.IsId}"
+                                               shortDesc="#{bindings.IncomeStatementDetailsView1.hints.IsId.tooltip}"
+                                               id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.IncomeStatementDetailsView1.hints.IsId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.IncomeStatementDetailsView1.hints.IsCoaName.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.IncomeStatementDetailsView1.hints.IsCoaName.label}"
+                                       id="c2" width="300" align="center"
+                                       inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                                <af:outputText value="#{row.IsCoaName}"
+                                               shortDesc="#{bindings.IncomeStatementDetailsView1.hints.IsCoaName.tooltip}"
+                                               id="ot2" inlineStyle="border-right-color:Window; font-weight:bold;"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.IncomeStatementDetailsView1.hints.IsQty.label}" id="c11"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                                <af:outputText value="#{row.IsQty}"
+                                               shortDesc="#{bindings.IncomeStatementDetailsView1.hints.IsQty.tooltip}"
+                                               id="ot12" inlineStyle="border-right-color:Window; font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.IncomeStatementDetailsView1.hints.IsQty.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.IncomeStatementDetailsView1.hints.IsCoaId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.IncomeStatementDetailsView1.hints.IsCoaId.label}" id="c3"
+                                       inlineStyle="text-align:right;" rendered="false">
+                                <af:outputText value="#{row.IsCoaId}"
+                                               shortDesc="#{bindings.IncomeStatementDetailsView1.hints.IsCoaId.tooltip}"
+                                               id="ot3">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.IncomeStatementDetailsView1.hints.IsCoaId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.IncomeStatementDetailsView1.hints.IsDebit.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.IncomeStatementDetailsView1.hints.IsDebit.label}" id="c4"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                                <af:outputText value="#{row.IsDebit}"
+                                               shortDesc="#{bindings.IncomeStatementDetailsView1.hints.IsDebit.tooltip}"
+                                               id="ot4" inlineStyle="border-right-color:Window; font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.IncomeStatementDetailsView1.hints.IsDebit.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.IncomeStatementDetailsView1.hints.IsCredit.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.IncomeStatementDetailsView1.hints.IsCredit.label}" id="c5"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                                <af:outputText value="#{row.IsCredit}"
+                                               shortDesc="#{bindings.IncomeStatementDetailsView1.hints.IsCredit.tooltip}"
+                                               id="ot5" inlineStyle="border-right-color:Window; font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.IncomeStatementDetailsView1.hints.IsCredit.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.IncomeStatementDetailsView1.hints.IsBalance.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.IncomeStatementDetailsView1.hints.IsBalance.label}"
+                                       id="c6"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                                <af:outputText value="#{row.IsBalance}"
+                                               shortDesc="#{bindings.IncomeStatementDetailsView1.hints.IsBalance.tooltip}"
+                                               id="ot6" inlineStyle="border-right-color:Window; font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.IncomeStatementDetailsView1.hints.IsBalance.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.IncomeStatementDetailsView1.hints.IsCat.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.IncomeStatementDetailsView1.hints.IsCat.label}" id="c7"
+                                       rendered="false">
+                                <af:outputText value="#{row.IsCat}"
+                                               shortDesc="#{bindings.IncomeStatementDetailsView1.hints.IsCat.tooltip}"
+                                               id="ot7">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.IncomeStatementDetailsView1.hints.IsCat.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.IncomeStatementDetailsView1.hints.IsHdIdFk.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.IncomeStatementDetailsView1.hints.IsHdIdFk.label}" id="c8"
+                                       rendered="false">
+                                <af:outputText value="#{row.IsHdIdFk}"
+                                               shortDesc="#{bindings.IncomeStatementDetailsView1.hints.IsHdIdFk.tooltip}"
+                                               id="ot8">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.IncomeStatementDetailsView1.hints.IsHdIdFk.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.IncomeStatementDetailsView1.hints.IsHdMonthYear.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.IncomeStatementDetailsView1.hints.IsHdMonthYear.label}"
+                                       id="c9" rendered="false">
+                                <af:outputText value="#{row.IsHdMonthYear}"
+                                               shortDesc="#{bindings.IncomeStatementDetailsView1.hints.IsHdMonthYear.tooltip}"
+                                               id="ot9"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.IncomeStatementDetailsView1.hints.IsHdId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.IncomeStatementDetailsView1.hints.IsHdId.label}" id="c10"
+                                       rendered="false">
+                                <af:outputText value="#{row.IsHdId}"
+                                               shortDesc="#{bindings.IncomeStatementDetailsView1.hints.IsHdId.tooltip}"
+                                               id="ot10">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.IncomeStatementDetailsView1.hints.IsHdId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </f:facet>
+            </af:panelSplitter>
+        </af:panelBox>
+    </f:view>
+</ui:composition>

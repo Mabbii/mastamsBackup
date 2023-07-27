@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="GourbalvoucherviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="JournalVoucher1" RangeSize="25" DataControl="VOAPPDataControl" id="JournalVoucher1Iterator"/>
+    <searchRegion Binds="JournalVoucher1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="JournalVoucher11Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="JournalVoucher1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <listOfValues IterBinding="JournalVoucher1Iterator" StaticList="false" Uses="LOV_CoaName1" id="CoaName1"/>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsId">
+      <AttrNames>
+        <Item Value="TnsId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsDate">
+      <AttrNames>
+        <Item Value="TnsDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsAmount">
+      <AttrNames>
+        <Item Value="TnsAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsInfo">
+      <AttrNames>
+        <Item Value="TnsInfo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsTnsTypeIdFk">
+      <AttrNames>
+        <Item Value="TnsTnsTypeIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsCoaDactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaDactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsCoaCactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaCactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsAdjDate">
+      <AttrNames>
+        <Item Value="TnsAdjDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsSlipNo">
+      <AttrNames>
+        <Item Value="TnsSlipNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsSlipDate">
+      <AttrNames>
+        <Item Value="TnsSlipDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsTnsviewId">
+      <AttrNames>
+        <Item Value="TnsTnsviewId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="CoaCode">
+      <AttrNames>
+        <Item Value="CoaCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="CoaBalance">
+      <AttrNames>
+        <Item Value="CoaBalance"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="CoaActNumber1">
+      <AttrNames>
+        <Item Value="CoaActNumber1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="CoaCode1">
+      <AttrNames>
+        <Item Value="CoaCode1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="CoaBalance1">
+      <AttrNames>
+        <Item Value="CoaBalance1"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="JournalVoucher1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="JournalVoucher1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="JournalVoucher1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="JournalVoucher1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="JournalVoucher1Iterator" id="JournalVoucher1">
+      <nodeDefinition DefName="model.JournalVoucher" Name="JournalVoucher10">
+        <AttrNames>
+          <Item Value="TnsDate"/>
+          <Item Value="TnsAmount"/>
+          <Item Value="TnsDetail"/>
+          <Item Value="TnsInfo"/>
+          <Item Value="TnsCoaDactNumber"/>
+          <Item Value="TnsCoaCactNumber"/>
+          <Item Value="TnsAdjDate"/>
+          <Item Value="TnsSlipNo"/>
+          <Item Value="TnsSlipDate"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaBalance"/>
+          <Item Value="CoaName1"/>
+          <Item Value="CoaBalance1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="JournalVoucher1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsFormatAmount">
+      <AttrNames>
+        <Item Value="TnsFormatAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsSpellAmount">
+      <AttrNames>
+        <Item Value="TnsSpellAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="JournalVoucher1Iterator" StaticList="false" Uses="LOV_BankName1" id="BankName1"/>
+    <listOfValues IterBinding="JournalVoucher1Iterator" StaticList="false" Uses="LOV_BankTnsTypeName"
+                  id="BankTnsTypeName"/>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="BankNameId">
+      <AttrNames>
+        <Item Value="BankNameId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="BankTnsTypeId">
+      <AttrNames>
+        <Item Value="BankTnsTypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsQty">
+      <AttrNames>
+        <Item Value="TnsQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsRate">
+      <AttrNames>
+        <Item Value="TnsRate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="JournalVoucher1Iterator" StaticList="false" Uses="LOV_OiltRegistration"
+                  id="OiltRegistration"/>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="OiltId">
+      <AttrNames>
+        <Item Value="OiltId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsOiltId">
+      <AttrNames>
+        <Item Value="TnsOiltId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsBrCode">
+      <AttrNames>
+        <Item Value="TnsBrCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JournalVoucher1Iterator" id="TnsInfoStart">
+      <AttrNames>
+        <Item Value="TnsInfoStart"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="JournalVoucher1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="JournalVoucher1Iterator" id="JournalVoucher11">
+      <nodeDefinition DefName="model.JournalVoucher" Name="JournalVoucher110">
+        <AttrNames>
+          <Item Value="TnsDate"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaName1"/>
+          <Item Value="TnsQty"/>
+          <Item Value="TnsRate"/>
+          <Item Value="TnsAmount"/>
+          <Item Value="TnsFormatAmount"/>
+          <Item Value="BankName1"/>
+          <Item Value="BankTnsTypeName"/>
+          <Item Value="OiltRegistration"/>
+          <Item Value="TnsAdjDate"/>
+          <Item Value="TnsSlipDate"/>
+          <Item Value="TnsSlipNo"/>
+          <Item Value="TnsBrCode"/>
+          <Item Value="TnsInfo"/>
+          <Item Value="TnsInfoStart"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

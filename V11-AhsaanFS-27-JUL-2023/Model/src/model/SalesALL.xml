@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SalesALL"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Partial"
+  RowClass="model.SalesALLRowImpl"
+  FetchMode="FETCH_AS_NEEDED"
+  FetchSize="125"
+  MaxFetchSize="125">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.SalesALL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="OilTankerAllView1"
+    ViewObjectName="model.OilTankerAllView"
+    RowLevelBinds="true"
+    FetchMode="FETCH_AS_NEEDED"
+    FetchSize="5"
+    MaxFetchSize="5"/>
+  <ViewAccessor
+    Name="COAPartyCustomerOnly1"
+    ViewObjectName="model.COAPartyCustomerOnly"
+    RowLevelBinds="true"
+    FetchMode="FETCH_AS_NEEDED"
+    FetchSize="5"
+    MaxFetchSize="5"/>
+  <ViewAccessor
+    Name="COAPRoductRevenue1"
+    ViewObjectName="model.COAPRoductRevenue"
+    RowLevelBinds="true"
+    FetchMode="FETCH_AS_NEEDED"
+    FetchSize="5"
+    MaxFetchSize="5"/>
+  <ViewAccessor
+    Name="SaleRateLogForCustomer1"
+    ViewObjectName="model.SaleRateLogForCustomer"
+    RowLevelBinds="true"
+    FetchMode="FETCH_AS_NEEDED"
+    FetchSize="5"
+    MaxFetchSize="5">
+    <ViewCriteriaUsage
+      Name="SaleRateLogForCustomerCriteria"
+      FullName="model.SaleRateLogForCustomer.SaleRateLogForCustomerCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="BindParty">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[CoaPartyId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="BindProduct">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[CoaProductId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="OilTanker_And_Tank_Only1"
+    ViewObjectName="model.OilTanker_And_Tank_Only"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_OiltRegistration"
+    ListVOName="OilTankerAllView1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="OiltRegistration"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TnsOiltId"/>
+      <Item Value="TnsQty"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OiltRegistration"/>
+      <Item Value="OiltId"/>
+      <Item Value="OiltCapacity"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OiltRegistration"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CoaName"
+    ListVOName="COAPartyCustomerOnly1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TnsCoaDactNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CoaName"/>
+      <Item Value="CoaActNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CoaName1"
+    ListVOName="COAPRoductRevenue1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CoaName1"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TnsCoaCactNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CoaName"/>
+      <Item Value="CoaActNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SaleRateLogR"
+    ListVOName="SaleRateLogForCustomer1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="8">
+    <AttrArray Name="AttrNames">
+      <Item Value="SaleRateLogR"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TnsSaleRateLogIdFk"/>
+      <Item Value="TnsRate"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SaleRateLogR"/>
+      <Item Value="SaleRateLogId"/>
+      <Item Value="SaleRateLogR"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SaleRateLogR"/>
+      <Item Value="SaleRateLogStartdate"/>
+      <Item Value="SaleRateLogDetails"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OiltRegistration1"
+    ListVOName="OilTanker_And_Tank_Only1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OiltRegistration1"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TnsStorageOiltIdFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OiltRegistration"/>
+      <Item Value="OiltId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OiltRegistration"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Transaction"
+    Entity="model.Transaction"/>
+  <EntityUsage
+    Name="ChartOfAccounts"
+    Entity="model.ChartOfAccounts"
+    Association="model.COA_TNS_DACT_ID_FK_Assoc"
+    AssociationEnd="model.COA_TNS_DACT_ID_FK_Assoc.ChartOfAccounts"
+    SourceUsage="model.SalesALL.Transaction"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.ChartOfAccounts.CoaActNumber"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Transaction.TnsCoaDactNumber"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="ChartOfAccounts1"
+    Entity="model.ChartOfAccounts"
+    Association="model.COA_TNS_CACT_ID_FK_Assoc"
+    AssociationEnd="model.COA_TNS_CACT_ID_FK_Assoc.ChartOfAccounts1"
+    SourceUsage="model.SalesALL.Transaction"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.ChartOfAccounts.CoaActNumber"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Transaction.TnsCoaCactNumber"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="OilTanker"
+    Entity="model.OilTanker"
+    Association="model.TNS_OILT_FK_Assoc"
+    AssociationEnd="model.TNS_OILT_FK_Assoc.OilTanker"
+    SourceUsage="model.SalesALL.Transaction"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.OilTanker.OiltId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Transaction.TnsOiltId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="SaleRateLog"
+    Entity="model.SaleRateLog"
+    Association="model.SaleRateLog_TNS_FK_Assoc"
+    AssociationEnd="model.SaleRateLog_TNS_FK_Assoc.SaleRateLog"
+    SourceUsage="model.SalesALL.Transaction"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.SaleRateLog.SaleRateLogId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Transaction.TnsSaleRateLogIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="OilTanker1"
+    Entity="model.OilTanker"
+    Association="model.OILTSTORAGE_TRANSECTION_ASSOC"
+    AssociationEnd="model.OILTSTORAGE_TRANSECTION_ASSOC.OilTanker1"
+    SourceUsage="model.SalesALL.Transaction"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.OilTanker.OiltId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Transaction.TnsStorageOiltIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="TnsId"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="TnsId"
+    EntityUsage="Transaction"
+    AliasName="TNS_ID"/>
+  <ViewAttribute
+    Name="TnsAmount"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TnsAmount"
+    EntityUsage="Transaction"
+    AliasName="TNS_AMOUNT"
+    DefaultValue="0"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SalesALL.TnsAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsQty"
+    PrecisionRule="true"
+    EntityAttrName="TnsQty"
+    EntityUsage="Transaction"
+    AliasName="TNS_QTY"
+    DefaultValue="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SalesALL.TnsQty_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsNewrate"
+    PrecisionRule="true"
+    EntityAttrName="TnsNewrate"
+    EntityUsage="Transaction"
+    AliasName="TNS_NEWRATE"
+    DefaultValue="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SalesALL.TnsNewrate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsRate"
+    PrecisionRule="true"
+    EntityAttrName="TnsRate"
+    EntityUsage="Transaction"
+    AliasName="TNS_RATE"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SalesALL.TnsRate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsOildId"
+    PrecisionRule="true"
+    EntityAttrName="TnsOildId"
+    EntityUsage="Transaction"
+    AliasName="TNS_OILD_ID"/>
+  <ViewAttribute
+    Name="TnsOiltId"
+    PrecisionRule="true"
+    EntityAttrName="TnsOiltId"
+    EntityUsage="Transaction"
+    AliasName="TNS_OILT_ID"/>
+  <ViewAttribute
+    Name="TnsCoaDactNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TnsCoaDactNumber"
+    EntityUsage="Transaction"
+    AliasName="TNS_COA_DACT_NUMBER"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SalesALL.TnsCoaDactNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsCoaCactNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TnsCoaCactNumber"
+    EntityUsage="Transaction"
+    AliasName="TNS_COA_CACT_NUMBER"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SalesALL.TnsCoaCactNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TnsDate"
+    EntityUsage="Transaction"
+    AliasName="TNS_DATE"
+    IsUpdateable="while_insert">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="SalesALLRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SalesALL.TnsDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsDetail"
+    PrecisionRule="true"
+    EntityAttrName="TnsDetail"
+    EntityUsage="Transaction"
+    AliasName="TNS_DETAIL"
+    DefaultValue="SALES"
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SalesALL.TnsDetail_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsSlipDate"
+    PrecisionRule="true"
+    EntityAttrName="TnsSlipDate"
+    EntityUsage="Transaction"
+    AliasName="TNS_SLIP_DATE">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="SalesALLRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SalesALL.TnsSlipDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsSlipNo"
+    PrecisionRule="true"
+    EntityAttrName="TnsSlipNo"
+    EntityUsage="Transaction"
+    AliasName="TNS_SLIP_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SalesALL.TnsSlipNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsTnsviewId"
+    PrecisionRule="true"
+    EntityAttrName="TnsTnsviewId"
+    EntityUsage="Transaction"
+    AliasName="TNS_TNSVIEW_ID"
+    DefaultValue="8"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="TnsTnsTypeIdFk"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TnsTnsTypeIdFk"
+    EntityUsage="Transaction"
+    AliasName="TNS_TNS_TYPE_ID_FK"
+    IsUpdateable="false"
+    DefaultValue="4"/>
+  <ViewAttribute
+    Name="CoaName"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaName"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_NAME"
+    LOVName="LOV_CoaName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.SalesALL.CoaName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaActNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaActNumber"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_ACT_NUMBER"/>
+  <ViewAttribute
+    Name="CoaCode"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaCode"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_CODE"/>
+  <ViewAttribute
+    Name="CoaBalance"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="CoaBalance"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_BALANCE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SalesALL.CoaBalance_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaPartyId"
+    PrecisionRule="true"
+    EntityAttrName="CoaPartyId"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_PARTY_ID"/>
+  <ViewAttribute
+    Name="CoaName1"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaName"
+    EntityUsage="ChartOfAccounts1"
+    AliasName="COA_NAME1"
+    LOVName="LOV_CoaName1">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.SalesALL.CoaName1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaActNumber1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaActNumber"
+    EntityUsage="ChartOfAccounts1"
+    AliasName="COA_ACT_NUMBER1"/>
+  <ViewAttribute
+    Name="CoaQtyBalance"
+    PrecisionRule="true"
+    EntityAttrName="CoaQtyBalance"
+    EntityUsage="ChartOfAccounts1"
+    AliasName="COA_QTY_BALANCE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SalesALL.CoaQtyBalance_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaCode1"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaCode"
+    EntityUsage="ChartOfAccounts1"
+    AliasName="COA_CODE1"/>
+  <ViewAttribute
+    Name="CoaBalance1"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="CoaBalance"
+    EntityUsage="ChartOfAccounts1"
+    AliasName="COA_BALANCE1">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SalesALL.CoaBalance1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaProductId"
+    PrecisionRule="true"
+    EntityAttrName="CoaProductId"
+    EntityUsage="ChartOfAccounts1"
+    AliasName="COA_PRODUCT_ID"/>
+  <ViewAttribute
+    Name="OiltRegistration"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OiltRegistration"
+    EntityUsage="OilTanker"
+    AliasName="OILT_REGISTRATION#"
+    LOVName="LOV_OiltRegistration">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.SalesALL.OiltRegistration_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OiltId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="OiltId"
+    EntityUsage="OilTanker"
+    AliasName="OILT_ID"/>
+  <ViewAttribute
+    Name="OiltCapacity"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OiltCapacity"
+    EntityUsage="OilTanker"
+    AliasName="OILT_CAPACITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SalesALL.OiltCapacity_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SaleRateLogR"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SaleRateLogR"
+    EntityUsage="SaleRateLog"
+    AliasName="SALE_RATE_LOG_R"
+    LOVName="LOV_SaleRateLogR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SalesALL.SaleRateLogR_LABEL"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SaleRateLogId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="SaleRateLogId"
+    EntityUsage="SaleRateLog"
+    AliasName="SALE_RATE_LOG_ID"/>
+  <ViewAttribute
+    Name="TnsSaleRateLogIdFk"
+    PrecisionRule="true"
+    EntityAttrName="TnsSaleRateLogIdFk"
+    EntityUsage="Transaction"
+    AliasName="TNS_SALE_RATE_LOG_ID_FK"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="TnsInfo"
+    PrecisionRule="true"
+    EntityAttrName="TnsInfo"
+    EntityUsage="Transaction"
+    AliasName="TNS_INFO"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SalesALL.TnsInfo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsFormatAmount"
+    PrecisionRule="true"
+    EntityAttrName="TnsFormatAmount"
+    EntityUsage="Transaction"
+    AliasName="TNS_FORMAT_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="model.SalesALL.TnsFormatAmount_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="model.SalesALL.TnsFormatAmount_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsSpellAmount"
+    PrecisionRule="true"
+    EntityAttrName="TnsSpellAmount"
+    EntityUsage="Transaction"
+    AliasName="TNS_SPELL_AMOUNT"/>
+  <ViewAttribute
+    Name="OiltRegistration1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OiltRegistration"
+    EntityUsage="OilTanker1"
+    AliasName="OILT_REGISTRATION1"
+    LOVName="LOV_OiltRegistration1">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.SalesALL.OiltRegistration1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OiltId1"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="OiltId"
+    EntityUsage="OilTanker1"
+    AliasName="OILT_ID1"/>
+  <ViewAttribute
+    Name="OiltCapacity1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OiltCapacity"
+    EntityUsage="OilTanker1"
+    AliasName="OILT_CAPACITY1"/>
+  <ViewAttribute
+    Name="TnsStorageOiltIdFk"
+    PrecisionRule="true"
+    EntityAttrName="TnsStorageOiltIdFk"
+    EntityUsage="Transaction"
+    AliasName="TNS_STORAGE_OILT_ID_FK"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="TnsSDate"
+    PrecisionRule="true"
+    EntityAttrName="TnsSDate"
+    EntityUsage="Transaction"
+    AliasName="TNS_S_DATE"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="TnsId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+  <DeclarativeWhereClause
+    Name="DeclarativeWhereClause">
+    <ViewCriteria
+      Name="SalesALLWhereCriteria"
+      ViewObjectName="model.SalesALL"
+      Conjunction="AND"
+      Mode="3">
+      <ViewCriteriaRow
+        Name="SalesALLWhereCriteria_row_0"
+        UpperColumns="1">
+        <ViewCriteriaItem
+          Name="TnsTnsviewId"
+          ViewAttribute="TnsTnsviewId"
+          Operator="="
+          Conjunction="AND"
+          Value="8"
+          Required="Optional"/>
+      </ViewCriteriaRow>
+    </ViewCriteria>
+  </DeclarativeWhereClause>
+  <SortCriteria>
+    <Sort
+      Attribute="TnsSDate"
+      Ascending="false"/>
+  </SortCriteria>
+</ViewObject>

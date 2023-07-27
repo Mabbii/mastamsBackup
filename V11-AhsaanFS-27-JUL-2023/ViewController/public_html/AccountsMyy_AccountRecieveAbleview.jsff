@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="213" id="ps1" partialTriggers="ps1">
+        <f:facet name="first">
+            <af:panelBox id="pb1">
+                <f:facet name="toolbar"/>
+                <af:panelFormLayout id="pfl1" partialTriggers="pc1:t1">
+                    <af:outputText value="Account Recievable" id="ot4"
+                                   inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                    <af:inputText value="#{bindings.AcRecName.inputValue}" label="#{bindings.AcRecName.hints.label}"
+                                  required="#{bindings.AcRecName.hints.mandatory}"
+                                  columns="#{bindings.AcRecName.hints.displayWidth}"
+                                  maximumLength="#{bindings.AcRecName.hints.precision}"
+                                  shortDesc="#{bindings.AcRecName.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.AcRecName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.AcRecDetails.inputValue}"
+                                  label="#{bindings.AcRecDetails.hints.label}"
+                                  required="#{bindings.AcRecDetails.hints.mandatory}"
+                                  columns="#{bindings.AcRecDetails.hints.displayWidth}"
+                                  maximumLength="#{bindings.AcRecDetails.hints.precision}"
+                                  shortDesc="#{bindings.AcRecDetails.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.AcRecDetails.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.AcRecId.inputValue}" label="#{bindings.AcRecId.hints.label}"
+                                  required="#{bindings.AcRecId.hints.mandatory}"
+                                  columns="#{bindings.AcRecId.hints.displayWidth}"
+                                  maximumLength="#{bindings.AcRecId.hints.precision}"
+                                  shortDesc="#{bindings.AcRecId.hints.tooltip}" id="it3" readOnly="true"
+                                  inlineStyle="text-align:right;">
+                        <f:validator binding="#{bindings.AcRecId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.AcRecId.format}"/>
+                    </af:inputText>
+                    <f:facet name="footer">
+                        <af:panelGroupLayout layout="horizontal" id="pgl1">
+                            <af:panelGroupLayout layout="horizontal" id="pgl3">
+                                <af:button actionListener="#{bindings.First.execute}"
+                                           disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"
+                                           icon="#{resource['images:first_hor_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Previous.execute}"
+                                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"
+                                           icon="#{resource['images:previoustraversalarrow_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Next.execute}"
+                                           disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
+                                           icon="#{resource['images:nexttraversalarrow_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Last.execute}"
+                                           disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"
+                                           icon="#{resource['images:last_hor_ena.png']}"/>
+                                <af:outputText value="---------" id="ot7"/>
+                            </af:panelGroupLayout>
+                            <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                                       icon="#{resource['images:commit.png']}" disabled="#{!bindings.Commit.enabled}">
+                                       
+                                </af:button>
+                            <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                       disabled="#{!bindings.CreateInsert.enabled}" id="b6"
+                                       icon="#{resource['images:add.png']}"/>
+                            <af:outputText value="--------------" id="ot6"/>
+                            <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                       disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7"
+                                       icon="#{resource['images:rollback.png']}">
+                                <af:resetActionListener/>
+                            </af:button>
+                            
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:panelFormLayout>
+            </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar">
+                    <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot5" inlineStyle="color:Maroon; font-size:large;"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.AcReceivableView1.collectionModel}" var="row"
+                          rows="#{bindings.AcReceivableView1.rangeSize}"
+                          emptyText="#{bindings.AcReceivableView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.AcReceivableView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.AcReceivableView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.AcReceivableView1.rangeSize}"
+                          filterModel="#{bindings.AcReceivableView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.AcReceivableView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 ::b5 ::b7 :::b1 :::b2 :::b3 :::b4 :::b6 :::b5 :::b7" scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.AcReceivableView1.hints.AcRecId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.AcReceivableView1.hints.AcRecId.label}" id="c3"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               align="center" width="150" rendered="false">
+                        <af:outputText value="#{row.AcRecId}"
+                                       shortDesc="#{bindings.AcReceivableView1.hints.AcRecId.tooltip}" id="ot3">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.AcReceivableView1.hints.AcRecId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AcReceivableView1.hints.AcRecName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.AcReceivableView1.hints.AcRecName.label}" id="c2"
+                               width="200" align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.AcRecName}"
+                                       shortDesc="#{bindings.AcReceivableView1.hints.AcRecName.tooltip}" id="ot2"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AcReceivableView1.hints.AcRecDetails.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.AcReceivableView1.hints.AcRecDetails.label}"
+                               id="c1" width="200" align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.AcRecDetails}"
+                                       shortDesc="#{bindings.AcReceivableView1.hints.AcRecDetails.tooltip}" id="ot1"/>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

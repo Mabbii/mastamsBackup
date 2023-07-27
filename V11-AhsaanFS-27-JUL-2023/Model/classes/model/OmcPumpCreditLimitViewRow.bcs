@@ -1,0 +1,40 @@
+//Groovy Scripts for model.OmcPumpCreditLimitView
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="OmcpClStartDate")
+def OmcpClStartDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="OmcpClEndDate")
+def OmcpClEndDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="OmcpClLimitDate")
+def OmcpClLimitDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="OmcpClSysDate")
+def OmcpClSysDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="OmcpClApprovedFrom")
+def OmcpClApprovedFrom_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

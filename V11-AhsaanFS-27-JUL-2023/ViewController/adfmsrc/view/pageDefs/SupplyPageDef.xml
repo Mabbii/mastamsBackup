@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="SupplyPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="receiptTF1" taskFlowId="/WEB-INF/receiptTF.xml#receiptTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="paymentomcpumpTF1" taskFlowId="/WEB-INF/paymentsupplierTF.xml#paymentomcpumpTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PUchasefromGsupplierTF1" taskFlowId="/WEB-INF/PUchasefromGsupplierTF.xml#PUchasefromGsupplierTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="saleessssTF1" taskFlowId="/WEB-INF/saleessssTF.xml#saleessssTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ExpenseTF1" taskFlowId="/WEB-INF/ExpenseTF.xml#ExpenseTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="rebateTF1" taskFlowId="/WEB-INF/ReceiptUnclaimeddTF.xml#rebateTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="productpckingTF1" taskFlowId="/WEB-INF/ReceiptClaimedTF.xml#productpckingTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

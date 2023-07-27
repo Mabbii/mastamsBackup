@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="salesReportcustomerviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Z_Rpt_Sales_DataView2" RangeSize="45" DataControl="VOAPPDataControl"
+              id="Z_Rpt_Sales_DataView2Iterator"/>
+    <iterator Binds="Z_Rpt_Sales_ParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="Z_Rpt_Sales_ParamView1Iterator"/>
+    <searchRegion Binds="Z_Rpt_Sales_DataView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="Z_Rpt_Sales_DataView2Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="Z_Rpt_Sales_ParamView1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <attributeValues IterBinding="Z_Rpt_Sales_ParamView1Iterator" id="ZRptSalesParamId">
+      <AttrNames>
+        <Item Value="ZRptSalesParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Z_Rpt_Sales_ParamView1Iterator" id="ZRptSalesParamStartDate">
+      <AttrNames>
+        <Item Value="ZRptSalesParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Z_Rpt_Sales_ParamView1Iterator" id="ZRptSalesParamEndDate">
+      <AttrNames>
+        <Item Value="ZRptSalesParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Z_Rpt_Sales_ParamView1Iterator" id="ZRptSalesParamCoaId">
+      <AttrNames>
+        <Item Value="ZRptSalesParamCoaId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Z_Rpt_Sales_ParamView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Z_Rpt_Sales_DataView2Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="Z_Rpt_Sales_DataView2Iterator" id="Z_Rpt_Sales_DataView2">
+      <nodeDefinition DefName="model.Z_Rpt_Sales_DataView" Name="Z_Rpt_Sales_DataView20">
+        <AttrNames>
+          <Item Value="ZRptSalesDate"/>
+          <Item Value="ZRptSalesRate"/>
+          <Item Value="ZRptSalesOilTanker"/>
+          <Item Value="ZRptSalesOilDepo"/>
+          <Item Value="ZRptSalesHsd"/>
+          <Item Value="ZRptSalesPmg"/>
+          <Item Value="ZRptSalesSko"/>
+          <Item Value="ZRptSalesLdo"/>
+          <Item Value="ZRptSalesHobc"/>
+          <Item Value="ZRptSalesEtc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

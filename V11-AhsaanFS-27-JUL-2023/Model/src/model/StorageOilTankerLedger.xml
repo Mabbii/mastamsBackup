@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="StorageOilTankerLedger"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.StorageOilTankerLedger_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="BindOilTRegistration"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="BindStartDate"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp">
+    <TransientExpression
+      Name="VariableScript"
+      trustMode="untrusted"
+      CodeSourceName="StorageOilTankerLedger"/>
+  </Variable>
+  <Variable
+    Name="BindEndDate"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp">
+    <TransientExpression
+      Name="VariableScript"
+      trustMode="untrusted"
+      CodeSourceName="StorageOilTankerLedger"/>
+  </Variable>
+  <ViewAccessor
+    Name="TankInfoView1"
+    ViewObjectName="model.TankInfoView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OilTanker_With_Storage_only1"
+    ViewObjectName="model.OilTanker_With_Storage_only"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_TankInfoName"
+    ListVOName="TankInfoView1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TankInfoName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TankInfoIdFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="TankInfoName"/>
+      <Item Value="TankInfoId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="TankInfoName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OiltRegistration"
+    ListVOName="OilTanker_With_Storage_only1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OiltRegistration"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="OilTIdFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OiltRegistration"/>
+      <Item Value="OiltId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OiltRegistration"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="TankStockLedger"
+    Entity="model.TankStockLedger"/>
+  <EntityUsage
+    Name="TankInfo"
+    Entity="model.TankInfo"
+    Association="model.TANKiNFO_TANKlEDGER_ASSOC"
+    AssociationEnd="model.TANKiNFO_TANKlEDGER_ASSOC.TankInfo"
+    SourceUsage="model.StorageOilTankerLedger.TankStockLedger"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.TankInfo.TankInfoId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.TankStockLedger.TankInfoIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="OilTanker"
+    Entity="model.OilTanker"
+    Association="model.OilTanker_TankStockLedger_Assoc"
+    AssociationEnd="model.OilTanker_TankStockLedger_Assoc.OilTanker"
+    SourceUsage="model.StorageOilTankerLedger.TankStockLedger"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.OilTanker.OiltId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.TankStockLedger.OilTIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="TslId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="TslId"
+    EntityUsage="TankStockLedger"
+    AliasName="TSL_ID"/>
+  <ViewAttribute
+    Name="TslDate"
+    PrecisionRule="true"
+    EntityAttrName="TslDate"
+    EntityUsage="TankStockLedger"
+    AliasName="TSL_DATE"/>
+  <ViewAttribute
+    Name="TslDetail"
+    PrecisionRule="true"
+    EntityAttrName="TslDetail"
+    EntityUsage="TankStockLedger"
+    AliasName="TSL_DETAIL"/>
+  <ViewAttribute
+    Name="TslDebit"
+    PrecisionRule="true"
+    EntityAttrName="TslDebit"
+    EntityUsage="TankStockLedger"
+    AliasName="TSL_DEBIT"/>
+  <ViewAttribute
+    Name="TslCredit"
+    PrecisionRule="true"
+    EntityAttrName="TslCredit"
+    EntityUsage="TankStockLedger"
+    AliasName="TSL_CREDIT"/>
+  <ViewAttribute
+    Name="TslBalance"
+    PrecisionRule="true"
+    EntityAttrName="TslBalance"
+    EntityUsage="TankStockLedger"
+    AliasName="TSL_BALANCE"/>
+  <ViewAttribute
+    Name="TankInfoIdFk"
+    PrecisionRule="true"
+    EntityAttrName="TankInfoIdFk"
+    EntityUsage="TankStockLedger"
+    AliasName="TANK_INFO_ID_FK"/>
+  <ViewAttribute
+    Name="OilTIdFk"
+    PrecisionRule="true"
+    EntityAttrName="OilTIdFk"
+    EntityUsage="TankStockLedger"
+    AliasName="OIL_T_ID_FK"/>
+  <ViewAttribute
+    Name="TslSubDr"
+    PrecisionRule="true"
+    EntityAttrName="TslSubDr"
+    EntityUsage="TankStockLedger"
+    AliasName="TSL_SUB_DR"/>
+  <ViewAttribute
+    Name="TslSubCr"
+    PrecisionRule="true"
+    EntityAttrName="TslSubCr"
+    EntityUsage="TankStockLedger"
+    AliasName="TSL_SUB_CR"/>
+  <ViewAttribute
+    Name="TslSubBal"
+    PrecisionRule="true"
+    EntityAttrName="TslSubBal"
+    EntityUsage="TankStockLedger"
+    AliasName="TSL_SUB_BAL"/>
+  <ViewAttribute
+    Name="TslSubDetails"
+    PrecisionRule="true"
+    EntityAttrName="TslSubDetails"
+    EntityUsage="TankStockLedger"
+    AliasName="TSL_SUB_DETAILS"/>
+  <ViewAttribute
+    Name="TslCrSourcs"
+    PrecisionRule="true"
+    EntityAttrName="TslCrSourcs"
+    EntityUsage="TankStockLedger"
+    AliasName="TSL_CR_SOURCS"/>
+  <ViewAttribute
+    Name="TslDrDest"
+    PrecisionRule="true"
+    EntityAttrName="TslDrDest"
+    EntityUsage="TankStockLedger"
+    AliasName="TSL_DR_DEST"/>
+  <ViewAttribute
+    Name="TslEvent"
+    PrecisionRule="true"
+    EntityAttrName="TslEvent"
+    EntityUsage="TankStockLedger"
+    AliasName="TSL_EVENT"/>
+  <ViewAttribute
+    Name="TnsIdFk"
+    PrecisionRule="true"
+    EntityAttrName="TnsIdFk"
+    EntityUsage="TankStockLedger"
+    AliasName="TNS_ID_FK"/>
+  <ViewAttribute
+    Name="DcIdFk"
+    PrecisionRule="true"
+    EntityAttrName="DcIdFk"
+    EntityUsage="TankStockLedger"
+    AliasName="DC_ID_FK"/>
+  <ViewAttribute
+    Name="ProductIdFk"
+    PrecisionRule="true"
+    EntityAttrName="ProductIdFk"
+    EntityUsage="TankStockLedger"
+    AliasName="PRODUCT_ID_FK"/>
+  <ViewAttribute
+    Name="TStckTnsIdFk"
+    PrecisionRule="true"
+    EntityAttrName="TStckTnsIdFk"
+    EntityUsage="TankStockLedger"
+    AliasName="T_STCK_TNS_ID_FK"/>
+  <ViewAttribute
+    Name="NozalIdFk"
+    PrecisionRule="true"
+    EntityAttrName="NozalIdFk"
+    EntityUsage="TankStockLedger"
+    AliasName="NOZAL_ID_FK"/>
+  <ViewAttribute
+    Name="TankInfoName"
+    PrecisionRule="true"
+    EntityAttrName="TankInfoName"
+    EntityUsage="TankInfo"
+    AliasName="TANK_INFO_NAME"
+    LOVName="LOV_TankInfoName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TankInfoId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="TankInfoId"
+    EntityUsage="TankInfo"
+    AliasName="TANK_INFO_ID"/>
+  <ViewAttribute
+    Name="ProductIdFk1"
+    PrecisionRule="true"
+    EntityAttrName="ProductIdFk"
+    EntityUsage="TankInfo"
+    AliasName="PRODUCT_ID_FK1"/>
+  <ViewAttribute
+    Name="OiltRegistration"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OiltRegistration"
+    EntityUsage="OilTanker"
+    AliasName="OILT_REGISTRATION#"
+    LOVName="LOV_OiltRegistration">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OiltId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="OiltId"
+    EntityUsage="OilTanker"
+    AliasName="OILT_ID"/>
+  <ViewAttribute
+    Name="TankInfoIdFk1"
+    PrecisionRule="true"
+    EntityAttrName="TankInfoIdFk"
+    EntityUsage="OilTanker"
+    AliasName="TANK_INFO_ID_FK1"/>
+  <ViewCriteria
+    Name="StorageOilTankerLedgerCriteria"
+    ViewObjectName="model.StorageOilTankerLedger"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="StorageOilTankerLedgerCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItemCompound
+        Name="TslDate"
+        ViewAttribute="TslDate">
+        <ViewCriteria
+          Name="StorageOilTankerLedgerCriteria_StorageOilTankerLedgerCriteria_row_0_TslDate_itemHolder"
+          ViewObjectName="model.StorageOilTankerLedger"
+          Conjunction="OR">
+          <ViewCriteriaRow
+            Name="StorageOilTankerLedgerCriteria_StorageOilTankerLedgerCriteria_row_0_TslDate_itemHolder_row_0"
+            Conjunction="AND">
+            <ViewCriteriaItem
+              Name="TslDate"
+              ViewAttribute="TslDate"
+              Operator="ONORAFTER"
+              Conjunction="AND"
+              Value=":BindStartDate"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+          <ViewCriteriaRow
+            Name="StorageOilTankerLedgerCriteria_StorageOilTankerLedgerCriteria_row_0_TslDate_itemHolder_row_1"
+            Conjunction="AND">
+            <ViewCriteriaItem
+              Name="StorageOilTankerLedgerCriteria_StorageOilTankerLedgerCriteria_row_0_TslDate_StorageOilTankerLedgerCriteria_StorageOilTankerLedgerCriteria_row_0_TslDate_itemHolder_StorageOilTankerLedgerCriteria_StorageOilTankerLedgerCriteria_row_0_TslDate_itemHolder_row_1_TslDate"
+              ViewAttribute="TslDate"
+              Operator="ONORBEFORE"
+              Conjunction="AND"
+              Value=":BindEndDate"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItemCompound>
+      <ViewCriteriaItem
+        Name="OiltRegistration"
+        ViewAttribute="OiltRegistration"
+        Operator="="
+        Conjunction="AND"
+        Value=":BindOilTRegistration"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="TslId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

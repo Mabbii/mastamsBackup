@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="313" id="ps1">
+        <f:facet name="first">
+            <af:panelBox id="pb1">
+                <f:facet name="toolbar"/>
+                <af:panelFormLayout id="pfl1">
+                    <af:outputText value="Opening and Financial" id="ot6"
+                                   inlineStyle="font-size:xx-large; font-style:italic; font-weight:bold;"/>
+                    <af:spacer width="10" height="10" id="s1"/>
+                    <af:inputText value="#{bindings.OftId.inputValue}" label="#{bindings.OftId.hints.label}"
+                                  required="#{bindings.OftId.hints.mandatory}"
+                                  columns="#{bindings.OftId.hints.displayWidth}"
+                                  maximumLength="#{bindings.OftId.hints.precision}"
+                                  shortDesc="#{bindings.OftId.hints.tooltip}" id="it1" readOnly="true">
+                        <f:validator binding="#{bindings.OftId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.OftId.format}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.OftDate.inputValue}" label="#{bindings.OftDate.hints.label}"
+                                  required="#{bindings.OftDate.hints.mandatory}"
+                                  columns="#{bindings.OftDate.hints.displayWidth}"
+                                  shortDesc="#{bindings.OftDate.hints.tooltip}" id="id1" autoSubmit="true">
+                        <f:validator binding="#{bindings.OftDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.OftDate.format}"/>
+                    </af:inputDate>
+                    <af:spacer width="10" height="10" id="s2"/>
+                    <af:selectOneChoice value="#{bindings.OftOp.inputValue}" label="#{bindings.OftOp.label}"
+                                        required="#{bindings.OftOp.hints.mandatory}"
+                                        shortDesc="#{bindings.OftOp.hints.tooltip}" id="soc1" autoSubmit="true">
+                        <f:selectItems value="#{bindings.OftOp.items}" id="si1"/>
+                        <f:validator binding="#{bindings.OftOp.validator}"/>
+                    </af:selectOneChoice>
+                    <af:spacer width="10" height="10" id="s3"/>
+                    <f:facet name="footer">
+                        <af:panelGroupLayout layout="horizontal" id="pgl1">
+                            <af:panelGroupLayout layout="horizontal" id="pgl2">
+                                <af:button actionListener="#{bindings.First.execute}"
+                                icon="#{resource['images:first_hor_ena.png']}"
+                                           disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                                <af:button actionListener="#{bindings.Previous.execute}"
+                                icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                                <af:button actionListener="#{bindings.Next.execute}"
+                                icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                           disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                                <af:button actionListener="#{bindings.Last.execute}"
+                                icon="#{resource['images:last_hor_ena.png']}"
+                                           disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                                <af:outputText value="------------" id="ot4"/>
+                            </af:panelGroupLayout>
+                            <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                            icon="#{resource['images:commit.png']}"
+                                       disabled="#{!bindings.Commit.enabled}"/>
+                            <af:outputText value="----------------------" id="ot5"/>
+                            <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                            icon="#{resource['images:rollback.png']}"
+                                       disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                                <af:resetActionListener/>
+                            </af:button>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:panelFormLayout>
+            </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar">
+                    <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot3"
+                                       inlineStyle="color:Maroon; font-size:large; font-style:italic;"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.OpFinTnsView1.collectionModel}" var="row"
+                          rows="#{bindings.OpFinTnsView1.rangeSize}"
+                          emptyText="#{bindings.OpFinTnsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" selectedRowKeys="#{bindings.OpFinTnsView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.OpFinTnsView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.OpFinTnsView1.rangeSize}"
+                          filterModel="#{bindings.OpFinTnsView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.OpFinTnsView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 :::b1 :::b2 :::b3 :::b4">
+                    <af:column sortProperty="#{bindings.OpFinTnsView1.hints.OftId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.OpFinTnsView1.hints.OftId.label}" id="c1"
+                               width="150" align="center" inlineStyle="text-align:left;">
+                        <af:outputText value="#{row.OftId}" shortDesc="#{bindings.OpFinTnsView1.hints.OftId.tooltip}"
+                                       id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.OpFinTnsView1.hints.OftId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.OpFinTnsView1.hints.OftDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.OpFinTnsView1.hints.OftDate.label}" id="c2"
+                               width="200" align="center" inlineStyle="text-align:left;">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.OpFinTnsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.OftDate.value}"
+                                          id="id2">
+                                <af:convertDateTime pattern="#{bindings.OpFinTnsView1.hints.OftDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.OftDate}"
+                                       shortDesc="#{bindings.OpFinTnsView1.hints.OftDate.tooltip}" id="ot2">
+                            <af:convertDateTime pattern="#{bindings.OpFinTnsView1.hints.OftDate.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.OpFinTnsView1.hints.OftOp.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.OpFinTnsView1.hints.OftOp.label}" id="c3"
+                               align="center" width="200" inlineStyle="text-align:left;">
+                        <af:selectOneChoice value="#{row.bindings.OftOp.inputValue}" label="#{row.bindings.OftOp.label}"
+                                            required="#{bindings.OpFinTnsView1.hints.OftOp.mandatory}"
+                                            shortDesc="#{bindings.OpFinTnsView1.hints.OftOp.tooltip}" readOnly="true"
+                                            id="soc2">
+                            <f:selectItems value="#{row.bindings.OftOp.items}" id="si2"/>
+                            <f:validator binding="#{row.bindings.OftOp.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

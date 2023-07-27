@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ISTESTVIEW"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.ISTESTVIEW_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="IncomeStatementHeadView1"
+    ViewObjectName="model.IncomeStatementHeadView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_IsHdMonthYear"
+    ListVOName="IncomeStatementHeadView1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsHdMonthYear"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="IsHdIdFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IsHdMonthYear"/>
+      <Item Value="IsHdId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="IsHdMonthYear"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="IncomeStatementDetails"
+    Entity="model.IncomeStatementDetails"/>
+  <EntityUsage
+    Name="IncomeStatementHead"
+    Entity="model.IncomeStatementHead"
+    Association="model.IncomeStatementDetailsFk1Assoc"
+    AssociationEnd="model.IncomeStatementDetailsFk1Assoc.IncomeStatementHead"
+    SourceUsage="model.ISTESTVIEW.IncomeStatementDetails"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.IncomeStatementHead.IsHdId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.IncomeStatementDetails.IsHdIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="IsId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="IsId"
+    EntityUsage="IncomeStatementDetails"
+    AliasName="IS_ID"/>
+  <ViewAttribute
+    Name="IsCoaName"
+    PrecisionRule="true"
+    EntityAttrName="IsCoaName"
+    EntityUsage="IncomeStatementDetails"
+    AliasName="IS_COA_NAME"/>
+  <ViewAttribute
+    Name="IsCoaId"
+    PrecisionRule="true"
+    EntityAttrName="IsCoaId"
+    EntityUsage="IncomeStatementDetails"
+    AliasName="IS_COA_ID"/>
+  <ViewAttribute
+    Name="IsDebit"
+    PrecisionRule="true"
+    EntityAttrName="IsDebit"
+    EntityUsage="IncomeStatementDetails"
+    AliasName="IS_DEBIT"/>
+  <ViewAttribute
+    Name="IsCredit"
+    PrecisionRule="true"
+    EntityAttrName="IsCredit"
+    EntityUsage="IncomeStatementDetails"
+    AliasName="IS_CREDIT"/>
+  <ViewAttribute
+    Name="IsBalance"
+    PrecisionRule="true"
+    EntityAttrName="IsBalance"
+    EntityUsage="IncomeStatementDetails"
+    AliasName="IS_BALANCE"/>
+  <ViewAttribute
+    Name="IsCat"
+    PrecisionRule="true"
+    EntityAttrName="IsCat"
+    EntityUsage="IncomeStatementDetails"
+    AliasName="IS_CAT"/>
+  <ViewAttribute
+    Name="IsHdIdFk"
+    PrecisionRule="true"
+    EntityAttrName="IsHdIdFk"
+    EntityUsage="IncomeStatementDetails"
+    AliasName="IS_HD_ID_FK"/>
+  <ViewAttribute
+    Name="IsHdMonthYear"
+    PrecisionRule="true"
+    EntityAttrName="IsHdMonthYear"
+    EntityUsage="IncomeStatementHead"
+    AliasName="IS_HD_MONTH_YEAR"
+    LOVName="LOV_IsHdMonthYear">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="IsHdId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="IsHdId"
+    EntityUsage="IncomeStatementHead"
+    AliasName="IS_HD_ID"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="IsId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="215">
+    <f:facet name="first">
+      <af:panelFormLayout id="pfl1" maxColumns="2" rows="2">
+        <af:outputText value="Tank Dry Data Input" id="ot1"
+                       inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+        <af:inputDate value="#{bindings.TddInputDate.inputValue}" label="Date"
+                      required="#{bindings.TddInputDate.hints.mandatory}"
+                      columns="#{bindings.TddInputDate.hints.displayWidth}"
+                      shortDesc="#{bindings.TddInputDate.hints.tooltip}" id="id1" autoSubmit="true">
+          <f:validator binding="#{bindings.TddInputDate.validator}"/>
+          <af:convertDateTime pattern="dd-MMM-yyyy"/>
+        </af:inputDate>
+        <af:selectOneChoice value="#{bindings.TankInfoName.inputValue}" label="New Tank Name"
+                            required="#{bindings.TankInfoName.hints.mandatory}"
+                            autoSubmit="true"
+                            shortDesc="#{bindings.TankInfoName.hints.tooltip}" id="soc1">
+          <f:selectItems value="#{bindings.TankInfoName.items}" id="si1"/>
+          <f:validator binding="#{bindings.TankInfoName.validator}"/>
+        </af:selectOneChoice>
+        <af:spacer width="10" height="10" id="s1"/>
+        <af:selectOneChoice value="#{bindings.TankInfoName1.inputValue}" label="Old Tank Name"
+                            required="#{bindings.TankInfoName1.hints.mandatory}"
+                            autoSubmit="true"
+                            shortDesc="#{bindings.TankInfoName1.hints.tooltip}" id="soc2">
+          <f:selectItems value="#{bindings.TankInfoName1.items}" id="si2"/>
+          <f:validator binding="#{bindings.TankInfoName1.validator}"/>
+        </af:selectOneChoice>
+        <af:spacer width="10" height="10" id="s2"/>
+        <af:inputComboboxListOfValues id="pipeLineGroupCaptionId"
+                                      popupTitle="Search and Select: #{bindings.PipeLineGroupCaption.hints.label}"
+                                      value="#{bindings.PipeLineGroupCaption.inputValue}"
+                                      label="#{bindings.PipeLineGroupCaption.hints.label}"
+                                      model="#{bindings.PipeLineGroupCaption.listOfValuesModel}"
+                                      required="#{bindings.PipeLineGroupCaption.hints.mandatory}"
+                                      columns="#{bindings.PipeLineGroupCaption.hints.displayWidth}"
+                                      shortDesc="#{bindings.PipeLineGroupCaption.hints.tooltip}" autoSubmit="true">
+          <f:validator binding="#{bindings.PipeLineGroupCaption.validator}"/>
+        </af:inputComboboxListOfValues>
+        <af:selectOneChoice value="#{bindings.TddInputDipFlag.inputValue}" label="Dip Yes/No"
+                            required="#{bindings.TddInputDipFlag.hints.mandatory}"
+                            shortDesc="#{bindings.TddInputDipFlag.hints.tooltip}" id="soc3" autoSubmit="true">
+          <f:selectItems value="#{bindings.TddInputDipFlag.items}" id="si3"/>
+          <f:validator binding="#{bindings.TddInputDipFlag.validator}"/>
+        </af:selectOneChoice>
+        <af:inputText value="#{bindings.TddInputTankNew.inputValue}" label="#{bindings.TddInputTankNew.hints.label}"
+                      required="#{bindings.TddInputTankNew.hints.mandatory}"
+                      columns="#{bindings.TddInputTankNew.hints.displayWidth}"
+                      maximumLength="#{bindings.TddInputTankNew.hints.precision}"
+                      shortDesc="#{bindings.TddInputTankNew.hints.tooltip}" id="it1" rendered="false">
+          <f:validator binding="#{bindings.TddInputTankNew.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.TddInputTankNew.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.TddInputTankOld.inputValue}" label="#{bindings.TddInputTankOld.hints.label}"
+                      required="#{bindings.TddInputTankOld.hints.mandatory}"
+                      columns="#{bindings.TddInputTankOld.hints.displayWidth}"
+                      maximumLength="#{bindings.TddInputTankOld.hints.precision}"
+                      shortDesc="#{bindings.TddInputTankOld.hints.tooltip}" id="it2" rendered="false">
+          <f:validator binding="#{bindings.TddInputTankOld.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.TddInputTankOld.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.TddInputDipLtr.inputValue}" label="Dip Liter"
+                      required="#{bindings.TddInputDipLtr.hints.mandatory}"
+                      columns="#{bindings.TddInputDipLtr.hints.displayWidth}"
+                      maximumLength="#{bindings.TddInputDipLtr.hints.precision}"
+                      shortDesc="#{bindings.TddInputDipLtr.hints.tooltip}" id="it3" readOnly="true">
+          <f:validator binding="#{bindings.TddInputDipLtr.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.TddInputDipLtr.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.TddInputDip.inputValue}" label="Dip"
+                      required="#{bindings.TddInputDip.hints.mandatory}"
+                      columns="#{bindings.TddInputDip.hints.displayWidth}"
+                      maximumLength="#{bindings.TddInputDip.hints.precision}"
+                      shortDesc="#{bindings.TddInputDip.hints.tooltip}" id="it4">
+          <f:validator binding="#{bindings.TddInputDip.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.TddInputDip.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.TddInputId.inputValue}" label="#{bindings.TddInputId.hints.label}"
+                      required="#{bindings.TddInputId.hints.mandatory}"
+                      columns="#{bindings.TddInputId.hints.displayWidth}"
+                      maximumLength="#{bindings.TddInputId.hints.precision}"
+                      shortDesc="#{bindings.TddInputId.hints.tooltip}" id="it5" rendered="false">
+          <f:validator binding="#{bindings.TddInputId.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.TddInputId.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.PipeLineGroupId.inputValue}" label="#{bindings.PipeLineGroupId.hints.label}"
+                      required="#{bindings.PipeLineGroupId.hints.mandatory}"
+                      columns="#{bindings.PipeLineGroupId.hints.displayWidth}"
+                      maximumLength="#{bindings.PipeLineGroupId.hints.precision}"
+                      shortDesc="#{bindings.PipeLineGroupId.hints.tooltip}" id="it7" rendered="false">
+          <f:validator binding="#{bindings.PipeLineGroupId.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.PipeLineGroupId.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.TankInfoId.inputValue}" label="#{bindings.TankInfoId.hints.label}"
+                      required="#{bindings.TankInfoId.hints.mandatory}"
+                      columns="#{bindings.TankInfoId.hints.displayWidth}"
+                      maximumLength="#{bindings.TankInfoId.hints.precision}"
+                      shortDesc="#{bindings.TankInfoId.hints.tooltip}" id="it8" rendered="false">
+          <f:validator binding="#{bindings.TankInfoId.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.TankInfoId.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.TankInfoId1.inputValue}" label="#{bindings.TankInfoId1.hints.label}"
+                      required="#{bindings.TankInfoId1.hints.mandatory}"
+                      columns="#{bindings.TankInfoId1.hints.displayWidth}"
+                      maximumLength="#{bindings.TankInfoId1.hints.precision}"
+                      shortDesc="#{bindings.TankInfoId1.hints.tooltip}" id="it9" rendered="false">
+          <f:validator binding="#{bindings.TankInfoId1.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.TankInfoId1.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.PipeLineGroupIdFk.inputValue}" label="#{bindings.PipeLineGroupIdFk.hints.label}"
+                      required="#{bindings.PipeLineGroupIdFk.hints.mandatory}"
+                      columns="#{bindings.PipeLineGroupIdFk.hints.displayWidth}"
+                      maximumLength="#{bindings.PipeLineGroupIdFk.hints.precision}"
+                      shortDesc="#{bindings.PipeLineGroupIdFk.hints.tooltip}" id="it10" rendered="false">
+          <f:validator binding="#{bindings.PipeLineGroupIdFk.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.PipeLineGroupIdFk.format}"/>
+        </af:inputText>
+        <f:facet name="footer">
+          <af:panelGroupLayout layout="horizontal" id="pgl1">
+            <af:panelGroupLayout layout="horizontal" id="pgl2">
+              <af:button actionListener="#{bindings.First.execute}"
+                            icon="#{resource['images:first_hor_ena.png']}"
+                         partialSubmit="true" id="b1"/>
+              <af:button actionListener="#{bindings.Previous.execute}"
+              icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                         disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+              <af:button actionListener="#{bindings.Next.execute}"
+              icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                         partialSubmit="true" id="b3"/>
+              <af:button actionListener="#{bindings.Last.execute}"
+              icon="#{resource['images:last_hor_ena.png']}"
+                         partialSubmit="true" id="b4"/>
+            </af:panelGroupLayout>
+            <af:outputText value="----------" id="ot62"/>
+            <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+            icon="#{resource['images:commit.png']}"
+                       disabled="#{!bindings.Commit.enabled}"/>
+            <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+            icon="#{resource['images:add.png']}"
+                       disabled="#{!bindings.CreateInsert.enabled}" id="b6"/>
+                       <af:outputText value="--------------------" id="ot61"/>
+            <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+            icon="#{resource['images:rollback.png']}"
+                       disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+              <af:resetActionListener/>
+            </af:button>
+            <af:outputText value="---------------------------" id="ot63"/>
+            <af:button actionListener="#{bindings.Delete.execute}" text="Delete" disabled="#{!bindings.Delete.enabled}"
+            icon="#{resource['images:garbg.png']}"
+                       id="b8"/>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelFormLayout>
+    </f:facet>
+    <f:facet name="second">
+      <af:panelCollection id="pc1">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar"/>
+        <af:table value="#{bindings.TankDryDataInputView1.collectionModel}" var="row"
+                  rows="#{bindings.TankDryDataInputView1.rangeSize}"
+                  emptyText="#{bindings.TankDryDataInputView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" selectedRowKeys="#{bindings.TankDryDataInputView1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.TankDryDataInputView1.collectionModel.makeCurrent}"
+                  rowSelection="single" fetchSize="#{bindings.TankDryDataInputView1.rangeSize}"
+                  filterModel="#{bindings.TankDryDataInputView1Query.queryDescriptor}" filterVisible="true"
+                  queryListener="#{bindings.TankDryDataInputView1Query.processQuery}" varStatus="vs" id="t1"
+                  partialTriggers=":::b1 :::b2 :::b3 :::b4 :::b6 :::b8">
+          <af:column sortProperty="#{bindings.TankDryDataInputView1.hints.TddInputDate.name}" filterable="true"
+                     sortable="true" headerText="Date" id="c1"
+                     width="108" align="center"
+                     inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+            <f:facet name="filter">
+              <af:inputDate value="#{bindings.TankDryDataInputView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TddInputDate.value}"
+                            id="id2">
+                <af:convertDateTime pattern="#{bindings.TankDryDataInputView1.hints.TddInputDate.format}"/>
+              </af:inputDate>
+            </f:facet>
+            <af:outputText value="#{row.TddInputDate}"
+                           shortDesc="#{bindings.TankDryDataInputView1.hints.TddInputDate.tooltip}" id="ot2">
+              <af:convertDateTime pattern="dd-MMM-yyyy"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.TankDryDataInputView1.hints.TankInfoName.name}" filterable="true"
+                     sortable="true" headerText="New Tank Name" id="c2"
+                     width="169" align="center"
+                     inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+            <af:selectOneChoice value="#{row.bindings.TankInfoName.inputValue}"
+                                label="#{row.bindings.TankInfoName.label}"
+                                required="#{bindings.TankDryDataInputView1.hints.TankInfoName.mandatory}"
+                                shortDesc="#{bindings.TankDryDataInputView1.hints.TankInfoName.tooltip}" readOnly="true"
+                                id="soc4">
+              <f:selectItems value="#{row.bindings.TankInfoName.items}" id="si4"/>
+              <f:validator binding="#{row.bindings.TankInfoName.validator}"/>
+            </af:selectOneChoice>
+          </af:column>
+          <af:column sortProperty="#{bindings.TankDryDataInputView1.hints.TankInfoName1.name}" filterable="true"
+                     sortable="true" headerText="Old Tank Name" id="c3"
+                     width="142" align="center"
+                     inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+            <af:selectOneChoice value="#{row.bindings.TankInfoName1.inputValue}"
+                                label="#{row.bindings.TankInfoName1.label}"
+                                required="#{bindings.TankDryDataInputView1.hints.TankInfoName1.mandatory}"
+                                shortDesc="#{bindings.TankDryDataInputView1.hints.TankInfoName1.tooltip}"
+                                readOnly="true" id="soc5">
+              <f:selectItems value="#{row.bindings.TankInfoName1.items}" id="si5"/>
+              <f:validator binding="#{row.bindings.TankInfoName1.validator}"/>
+            </af:selectOneChoice>
+          </af:column>
+          <af:column sortProperty="#{bindings.TankDryDataInputView1.hints.TddInputDipFlag.name}" filterable="true"
+                     sortable="true" headerText="Dip Yes/No" id="c4"
+                     width="81" align="center"
+                     inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+            <af:selectOneChoice value="#{row.bindings.TddInputDipFlag.inputValue}"
+                                label="#{row.bindings.TddInputDipFlag.label}"
+                                required="#{bindings.TankDryDataInputView1.hints.TddInputDipFlag.mandatory}"
+                                shortDesc="#{bindings.TankDryDataInputView1.hints.TddInputDipFlag.tooltip}"
+                                readOnly="true" id="soc6">
+              <f:selectItems value="#{row.bindings.TddInputDipFlag.items}" id="si6"/>
+              <f:validator binding="#{row.bindings.TddInputDipFlag.validator}"/>
+            </af:selectOneChoice>
+          </af:column>
+          <af:column sortProperty="#{bindings.TankDryDataInputView1.hints.TddInputDipLtr.name}" filterable="true"
+                     sortable="true" headerText="Dip Liter" id="c5"
+                     width="144" align="center"
+                     inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+            <af:outputText value="#{row.TddInputDipLtr}"
+                           shortDesc="#{bindings.TankDryDataInputView1.hints.TddInputDipLtr.tooltip}" id="ot3">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.TankDryDataInputView1.hints.TddInputDipLtr.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.TankDryDataInputView1.hints.PipeLineGroupCaption.name}" filterable="true"
+                     sortable="true" headerText="Pipe Line Group"
+                     id="c6" width="256" align="center"
+                     inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+            <af:outputText value="#{row.PipeLineGroupCaption}"
+                           shortDesc="#{bindings.TankDryDataInputView1.hints.PipeLineGroupCaption.tooltip}" id="ot4"/>
+          </af:column>
+        </af:table>
+        <f:facet name="statusbar"/>
+      </af:panelCollection>
+    </f:facet>
+  </af:panelSplitter>
+</ui:composition>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OilDepo"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="OIL_DEPO"
+  AliasName="OilDepo"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="OildId"
+    ColumnName="OILD_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="OIL_DEPO"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="OildName"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="OILD_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OIL_DEPO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OildShortname"
+    IsNotNull="true"
+    Precision="10"
+    ColumnName="OILD_SHORTNAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OIL_DEPO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OildCode"
+    Precision="10"
+    ColumnName="OILD_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OIL_DEPO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OildCity"
+    Precision="20"
+    ColumnName="OILD_CITY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OIL_DEPO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OildStgFlag"
+    ColumnName="OILD_STG_FLAG"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="OIL_DEPO"/>
+  <AccessorAttribute
+    Name="Transaction"
+    Association="model.TNS_OILD_FK_Assoc"
+    AssociationEnd="model.TNS_OILD_FK_Assoc.Transaction"
+    AssociationOtherEnd="model.TNS_OILD_FK_Assoc.OilDepo"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GeneralLedgerEntry"
+    Association="model.OIL_D_GLE_FK_Assoc"
+    AssociationEnd="model.OIL_D_GLE_FK_Assoc.GeneralLedgerEntry"
+    AssociationOtherEnd="model.OIL_D_GLE_FK_Assoc.OilDepo"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Transaction1"
+    Association="model.TNS_OILD_LOAD_D_ASSOC"
+    AssociationEnd="model.TNS_OILD_LOAD_D_ASSOC.Transaction1"
+    AssociationOtherEnd="model.TNS_OILD_LOAD_D_ASSOC.OilDepo1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GeneralLedgerEntry1"
+    Association="model.Gle_OilDLoad_Assoc"
+    AssociationEnd="model.Gle_OilDLoad_Assoc.GeneralLedgerEntry1"
+    AssociationOtherEnd="model.Gle_OilDLoad_Assoc.OilDepo1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TransactionLog"
+    Association="model.TNS_LOG_OIL_DEPO_ASSOC"
+    AssociationEnd="model.TNS_LOG_OIL_DEPO_ASSOC.TransactionLog"
+    AssociationOtherEnd="model.TNS_LOG_OIL_DEPO_ASSOC.OilDepo"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TransactionLog1"
+    Association="model.TNS_LOG_Load_OIL_DEPO_ASSOC"
+    AssociationEnd="model.TNS_LOG_Load_OIL_DEPO_ASSOC.TransactionLog1"
+    AssociationOtherEnd="model.TNS_LOG_Load_OIL_DEPO_ASSOC.OilDepo1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="OilDepoPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="OIL_DEPO_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.OilDepo.OildId"/>
+    </AttrArray>
+  </Key>
+</Entity>

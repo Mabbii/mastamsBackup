@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OilTanker"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="OIL_TANKER"
+  AliasName="OilTanker"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="OiltId"
+    ColumnName="OILT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="OIL_TANKER"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="OiltRegistration"
+    IsNotNull="true"
+    Precision="10"
+    ColumnName="OILT_REGISTRATION#"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OIL_TANKER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OiltCapacity"
+    IsNotNull="true"
+    ColumnName="OILT_CAPACITY"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="OIL_TANKER"/>
+  <Attribute
+    Name="OiltStorageFlag"
+    ColumnName="OILT_STORAGE_FLAG"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="OIL_TANKER"/>
+  <Attribute
+    Name="OiltTankFlag"
+    ColumnName="OILT_TANK_FLAG"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="OIL_TANKER"/>
+  <Attribute
+    Name="TankInfoIdFk"
+    ColumnName="TANK_INFO_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="OIL_TANKER"/>
+  <AccessorAttribute
+    Name="Transaction"
+    Association="model.TNS_OILT_FK_Assoc"
+    AssociationEnd="model.TNS_OILT_FK_Assoc.Transaction"
+    AssociationOtherEnd="model.TNS_OILT_FK_Assoc.OilTanker"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GeneralLedgerEntry"
+    Association="model.OIL_T_GLE_FK_Assoc"
+    AssociationEnd="model.OIL_T_GLE_FK_Assoc.GeneralLedgerEntry"
+    AssociationOtherEnd="model.OIL_T_GLE_FK_Assoc.OilTanker"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TransactionLog"
+    Association="model.TNS_LOG_OIL_TANKER_ASSOC"
+    AssociationEnd="model.TNS_LOG_OIL_TANKER_ASSOC.TransactionLog"
+    AssociationOtherEnd="model.TNS_LOG_OIL_TANKER_ASSOC.OilTanker"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Transaction1"
+    Association="model.OILTSTORAGE_TRANSECTION_ASSOC"
+    AssociationEnd="model.OILTSTORAGE_TRANSECTION_ASSOC.Transaction1"
+    AssociationOtherEnd="model.OILTSTORAGE_TRANSECTION_ASSOC.OilTanker1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TankInfo"
+    Association="model.Tankinfo_OilTanker_assoc"
+    AssociationEnd="model.Tankinfo_OilTanker_assoc.TankInfo"
+    AssociationOtherEnd="model.Tankinfo_OilTanker_assoc.OilTanker"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="TankStockTransfer"
+    Association="model.Oilt_Tank_transfr_DR"
+    AssociationEnd="model.Oilt_Tank_transfr_DR.TankStockTransfer"
+    AssociationOtherEnd="model.Oilt_Tank_transfr_DR.OilTanker"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TankStockTransfer1"
+    Association="model.Oilt_Tank_transfr_CR"
+    AssociationEnd="model.Oilt_Tank_transfr_CR.TankStockTransfer1"
+    AssociationOtherEnd="model.Oilt_Tank_transfr_CR.OilTanker1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TankStockTns"
+    Association="model.OilTanker_TankStockTns_Assoc"
+    AssociationEnd="model.OilTanker_TankStockTns_Assoc.TankStockTns"
+    AssociationOtherEnd="model.OilTanker_TankStockTns_Assoc.OilTanker"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TankStockLedger"
+    Association="model.OilTanker_TankStockLedger_Assoc"
+    AssociationEnd="model.OilTanker_TankStockLedger_Assoc.TankStockLedger"
+    AssociationOtherEnd="model.OilTanker_TankStockLedger_Assoc.OilTanker"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="OilTankerPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="OIL_TANKER_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.OilTanker.OiltId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="PartyOiltankerFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PARTY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PARTY_OILTANKER_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="fk_OilTanker">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="TANK_INFO_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_OIL_TANKER"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.OilTanker.TankInfoIdFk"/>
+    </AttrArray>
+  </Key>
+</Entity>

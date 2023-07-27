@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="ReceiptClaimedviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="RecieptClaimed1" RangeSize="25" DataControl="VOAPPDataControl" id="RecieptClaimed1Iterator"/>
+    <searchRegion Binds="RecieptClaimed1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="RecieptClaimed1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="RecieptClaimed1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <listOfValues IterBinding="RecieptClaimed1Iterator" StaticList="false" Uses="LOV_CoaName1" id="CoaName1"/>
+    <listOfValues IterBinding="RecieptClaimed1Iterator" StaticList="false" Uses="LOV_BankName1" id="BankName1"/>
+    <listOfValues IterBinding="RecieptClaimed1Iterator" StaticList="false" Uses="LOV_BankTnsTypeName"
+                  id="BankTnsTypeName"/>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsDate">
+      <AttrNames>
+        <Item Value="TnsDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsId">
+      <AttrNames>
+        <Item Value="TnsId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsDetail">
+      <AttrNames>
+        <Item Value="TnsDetail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsSlipDate">
+      <AttrNames>
+        <Item Value="TnsSlipDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsSlipNo">
+      <AttrNames>
+        <Item Value="TnsSlipNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsTnsTypeIdFk">
+      <AttrNames>
+        <Item Value="TnsTnsTypeIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsTnsviewId">
+      <AttrNames>
+        <Item Value="TnsTnsviewId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsCoaDactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaDactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsCoaCactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaCactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsInfo">
+      <AttrNames>
+        <Item Value="TnsInfo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="CoaCode">
+      <AttrNames>
+        <Item Value="CoaCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="CoaBalance">
+      <AttrNames>
+        <Item Value="CoaBalance"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="CoaActNumber1">
+      <AttrNames>
+        <Item Value="CoaActNumber1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="CoaCode1">
+      <AttrNames>
+        <Item Value="CoaCode1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="CoaBalance1">
+      <AttrNames>
+        <Item Value="CoaBalance1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsAmount">
+      <AttrNames>
+        <Item Value="TnsAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="RecieptClaimed1Iterator" StaticList="false" Uses="LOV_TnsIsClaimedId" id="TnsIsClaimedId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsBrCode">
+      <AttrNames>
+        <Item Value="TnsBrCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsBankNameId">
+      <AttrNames>
+        <Item Value="TnsBankNameId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="BankNameId">
+      <AttrNames>
+        <Item Value="BankNameId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsBankTnsTypeIdFk">
+      <AttrNames>
+        <Item Value="TnsBankTnsTypeIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="BankTnsTypeId">
+      <AttrNames>
+        <Item Value="BankTnsTypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsAdjAcRef">
+      <AttrNames>
+        <Item Value="TnsAdjAcRef"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsFormatAmount">
+      <AttrNames>
+        <Item Value="TnsFormatAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RecieptClaimed1Iterator" id="TnsSpellAmount">
+      <AttrNames>
+        <Item Value="TnsSpellAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="RecieptClaimed1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="RecieptClaimed1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="RecieptClaimed1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="RecieptClaimed1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="RecieptClaimed1Iterator" id="RecieptClaimed1">
+      <nodeDefinition DefName="model.RecieptClaimed" Name="RecieptClaimed10">
+        <AttrNames>
+          <Item Value="TnsIsClaimedId"/>
+          <Item Value="TnsDate"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaName1"/>
+          <Item Value="TnsAmount"/>
+          <Item Value="BankName1"/>
+          <Item Value="BankTnsTypeName"/>
+          <Item Value="TnsSlipDate"/>
+          <Item Value="TnsSlipNo"/>
+          <Item Value="TnsBrCode"/>
+          <Item Value="TnsCoaDactNumber"/>
+          <Item Value="TnsCoaCactNumber"/>
+          <Item Value="TnsInfo"/>
+          <Item Value="CoaBalance"/>
+          <Item Value="CoaBalance1"/>
+          <Item Value="TnsDetail"/>
+          <Item Value="TnsAdjAcRef"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="RecieptClaimed1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

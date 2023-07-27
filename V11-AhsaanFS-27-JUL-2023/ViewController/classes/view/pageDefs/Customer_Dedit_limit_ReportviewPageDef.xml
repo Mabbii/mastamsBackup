@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="Customer_Dedit_limit_ReportviewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZRptOneCusDblmtParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="ZRptOneCusDblmtParamView1Iterator"/>
+    <iterator Binds="ZRptOneCusDblmtDataView1" RangeSize="50" DataControl="VOAPPDataControl"
+              id="ZRptOneCusDblmtDataView1Iterator"/>
+    <searchRegion Binds="ZRptOneCusDblmtDataView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ZRptOneCusDblmtDataView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="ZRptOneCusDblmtParamView1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <attributeValues IterBinding="ZRptOneCusDblmtParamView1Iterator" id="SingCusDblmtParamId">
+      <AttrNames>
+        <Item Value="SingCusDblmtParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOneCusDblmtParamView1Iterator" id="SingCusDblmtParamStrtDate">
+      <AttrNames>
+        <Item Value="SingCusDblmtParamStrtDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOneCusDblmtParamView1Iterator" id="SingCusDblmtParamEndDate">
+      <AttrNames>
+        <Item Value="SingCusDblmtParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOneCusDblmtParamView1Iterator" id="SingCusDblmtParamPartyId">
+      <AttrNames>
+        <Item Value="SingCusDblmtParamPartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOneCusDblmtParamView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ZRptOneCusDblmtDataView1Iterator" id="ZRptOneCusDblmtDataView1">
+      <nodeDefinition DefName="model.ZRptOneCusDblmtDataView" Name="ZRptOneCusDblmtDataView10">
+        <AttrNames>
+          <Item Value="SingCusDblmtPartyId"/>
+          <Item Value="SingCusDblmtDate"/>
+          <Item Value="SingCusDblmtPartyName"/>
+          <Item Value="SingCusDblmtLedgerBalance"/>
+          <Item Value="SingCusDblmtPurchases"/>
+          <Item Value="SingCusDblmtPayments"/>
+          <Item Value="SingCusDblmtNetBalance"/>
+          <Item Value="SingCusDblmtCreditLimit"/>
+          <Item Value="SingCusBalanceWithLimit"/>
+          <Item Value="SingCusDblmtComments"/>
+          <Item Value="CreditLimitCat"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ZRptOneCusDblmtDataView1Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

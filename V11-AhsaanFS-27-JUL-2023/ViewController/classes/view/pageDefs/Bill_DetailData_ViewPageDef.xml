@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="Bill_DetailData_ViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="BillParam_View1" RangeSize="25" DataControl="VOAPPDataControl" id="BillParam_View1Iterator"/>
+    <iterator Binds="BillDetailData_View2" RangeSize="1500" DataControl="VOAPPDataControl"
+              id="BillDetailData_View2Iterator"/>
+    <searchRegion Binds="BillDetailData_View2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="BillDetailData_View2Query"/>
+    <iterator Binds="BillSummryData_View2" RangeSize="500" DataControl="VOAPPDataControl"
+              id="BillSummryData_View2Iterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="BillParam_View1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <attributeValues IterBinding="BillParam_View1Iterator" id="BillParamId">
+      <AttrNames>
+        <Item Value="BillParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillParam_View1Iterator" id="BillParamStartDate">
+      <AttrNames>
+        <Item Value="BillParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillParam_View1Iterator" id="BillParamEndDate">
+      <AttrNames>
+        <Item Value="BillParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillParam_View1Iterator" id="CoaIdFk">
+      <AttrNames>
+        <Item Value="CoaIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="BillParam_View1Iterator" StaticList="false" Uses="LOV_BillParamYNDetl" id="BillParamYNDetl"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="BillParam_View1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="BillDetailData_View2Iterator" id="BillDetailData_View2">
+      <nodeDefinition DefName="model.BillDetailData_View" Name="BillDetailData_View20">
+        <AttrNames>
+          <Item Value="BillDdId"/>
+          <Item Value="BillDdDate"/>
+          <Item Value="BillDdSlipNo"/>
+          <Item Value="BillDdVehicle"/>
+          <Item Value="BillDdDetails"/>
+          <Item Value="BillDdQty"/>
+          <Item Value="BillDdRate"/>
+          <Item Value="BillDdAmount"/>
+          <Item Value="BillDdBalance"/>
+          <Item Value="BillParamIdFk"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="BillSummryData_View2Iterator" id="BillSummryData_View2">
+      <nodeDefinition DefName="model.BillSummryData_View" Name="BillSummryData_View20">
+        <AttrNames>
+          <Item Value="BillSdId"/>
+          <Item Value="BillSdDetails"/>
+          <Item Value="BillSdAmountDr"/>
+          <Item Value="BillSdAmountCr"/>
+          <Item Value="BillParamIdFk"/>
+          <Item Value="BillSdBill"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

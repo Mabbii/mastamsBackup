@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="Managementmy_PostSalary_ViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="HrAutoTnsView1" RangeSize="25" DataControl="VOAPPDataControl" id="HrAutoTnsView1Iterator"/>
+    <searchRegion Binds="HrAutoTnsView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="HrAutoTnsView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="HrAutoTnsView1Iterator" id="HratId">
+      <AttrNames>
+        <Item Value="HratId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HrAutoTnsView1Iterator" id="HratDate">
+      <AttrNames>
+        <Item Value="HratDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="HrAutoTnsView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="HrAutoTnsView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="HrAutoTnsView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="HrAutoTnsView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="HrAutoTnsView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="HrAutoTnsView1Iterator" id="HrAutoTnsView1">
+      <nodeDefinition DefName="model.HrAutoTnsView" Name="HrAutoTnsView10">
+        <AttrNames>
+          <Item Value="HratId"/>
+          <Item Value="HratDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

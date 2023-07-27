@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="untitled3PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MrInputView1" RangeSize="25" DataControl="VOAPPDataControl" id="MrInputView1Iterator"/>
+    <searchRegion Criteria="MrInputViewCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="MrInputView1Iterator" id="MrInputViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MrInputView1Iterator" id="MrInputView11">
+      <nodeDefinition DefName="model.MrInputView" Name="MrInputView110">
+        <AttrNames>
+          <Item Value="DcIdFk"/>
+          <Item Value="MriData"/>
+          <Item Value="MriId"/>
+          <Item Value="NozalIdFk"/>
+          <Item Value="MriDate"/>
+          <Item Value="NozalName"/>
+          <Item Value="NozalId"/>
+          <Item Value="MriMTest"/>
+          <Item Value="DcStartDate"/>
+          <Item Value="DcId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="MrInputView1Iterator" id="MrInputView1">
+      <nodeDefinition DefName="model.MrInputView" Name="MrInputView10">
+        <AttrNames>
+          <Item Value="DcIdFk"/>
+          <Item Value="MriData"/>
+          <Item Value="MriId"/>
+          <Item Value="NozalIdFk"/>
+          <Item Value="MriDate"/>
+          <Item Value="NozalName"/>
+          <Item Value="NozalId"/>
+          <Item Value="MriMTest"/>
+          <Item Value="DcStartDate"/>
+          <Item Value="DcId"/>
+          <Item Value="MeterRId"/>
+          <Item Value="MeterRReadings"/>
+          <Item Value="MeterRDate"/>
+          <Item Value="MeterRPrevious"/>
+          <Item Value="MeterRCurrent"/>
+          <Item Value="MeterRSale"/>
+          <Item Value="DcIdFk1"/>
+          <Item Value="MriIdFk"/>
+          <Item Value="MeterRNTest"/>
+          <Item Value="NozalIdFk1"/>
+          <Item Value="ProductIdFk"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

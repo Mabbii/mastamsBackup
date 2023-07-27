@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BillGroupDetailView"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="ChartOfAccountsView1"
+    ViewObjectName="model.ChartOfAccountsView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CoaName"
+    ListVOName="ChartOfAccountsView1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CoaIdFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CoaName"/>
+      <Item Value="CoaActNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="BillGroupDetailEO"
+    Entity="model.BillGroupDetailEO"/>
+  <EntityUsage
+    Name="ChartOfAccounts"
+    Entity="model.ChartOfAccounts"
+    Association="model.Bill_Group_Detail_Coa_id_fk_Assoc"
+    AssociationEnd="model.Bill_Group_Detail_Coa_id_fk_Assoc.ChartOfAccounts"
+    SourceUsage="model.BillGroupDetailView.BillGroupDetailEO"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.ChartOfAccounts.CoaActNumber"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.BillGroupDetailEO.CoaIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="BillGrpDdId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BillGrpDdId"
+    EntityUsage="BillGroupDetailEO"
+    AliasName="BILL_GRP_DD_ID"/>
+  <ViewAttribute
+    Name="BillGrpDdDetail"
+    PrecisionRule="true"
+    EntityAttrName="BillGrpDdDetail"
+    EntityUsage="BillGroupDetailEO"
+    AliasName="BILL_GRP_DD_DETAIL"/>
+  <ViewAttribute
+    Name="BillGrpDdAmountDr"
+    PrecisionRule="true"
+    EntityAttrName="BillGrpDdAmountDr"
+    EntityUsage="BillGroupDetailEO"
+    AliasName="BILL_GRP_DD_AMOUNT_DR"/>
+  <ViewAttribute
+    Name="BillGrpDdAmountCr"
+    PrecisionRule="true"
+    EntityAttrName="BillGrpDdAmountCr"
+    EntityUsage="BillGroupDetailEO"
+    AliasName="BILL_GRP_DD_AMOUNT_CR"/>
+  <ViewAttribute
+    Name="BillGrpPrmIdFk"
+    PrecisionRule="true"
+    EntityAttrName="BillGrpPrmIdFk"
+    EntityUsage="BillGroupDetailEO"
+    AliasName="BILL_GRP_PRM_ID_FK"/>
+  <ViewAttribute
+    Name="BillGrpDdBill"
+    PrecisionRule="true"
+    EntityAttrName="BillGrpDdBill"
+    EntityUsage="BillGroupDetailEO"
+    AliasName="BILL_GRP_DD_BILL"/>
+  <ViewAttribute
+    Name="CoaIdFk"
+    PrecisionRule="true"
+    EntityAttrName="CoaIdFk"
+    EntityUsage="BillGroupDetailEO"
+    AliasName="COA_ID_FK"/>
+  <ViewAttribute
+    Name="CoaName"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaName"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_NAME"
+    LOVName="LOV_CoaName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaActNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaActNumber"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_ACT_NUMBER"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="BillGrpDdId"/>
+  </AttrArray>
+</ViewObject>

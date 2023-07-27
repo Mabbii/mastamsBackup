@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+af|button::link {
+    ; 
+        border-collapse: separate; 
+    }
+
+
+
+
+af|panelAccordion::header {
+    background: #73a5ff none no-repeat fixed center !important;
+    
+    
+}
+
+af|panelAccordion::header-subsequent {
+
+    background: #73a5ff none no-repeat fixed center !important; 
+   
+    
+}
+
+af|button::text {
+            }
+ af|panelAccordion::header-toolbar {
+    background-image: url("../../limit.png"); 
+    width: 100%; 
+    background-repeat: no-repeat; 
+    background-position: right;; 
+   
+    
+    
+    background-size: 30.0%; 
+}

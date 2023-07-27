@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="RetailMyPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="DefaultRetailTF1" taskFlowId="/WEB-INF/DefaultRetailTF.xml#DefaultRetailTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="MeterReadingsTF1" taskFlowId="/WEB-INF/MeterReadingsTF.xml#MeterReadingsTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="LubeSaleTF1" taskFlowId="/WEB-INF/LubeSaleTF.xml#LubeSaleTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="RetailSaleTF1" taskFlowId="/WEB-INF/RetailSaleTF.xml#RetailSaleTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="RetailReceipt1" taskFlowId="/WEB-INF/RetailReceipt.xml#RetailReceipt" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="RetailExpense1" taskFlowId="/WEB-INF/RetailExpense.xml#RetailExpense" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="DateCounterTF1" taskFlowId="/WEB-INF/DateCounterTF.xml#DateCounterTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="RetailPaymentTf1" taskFlowId="/WEB-INF/RetailPaymentTf.xml#RetailPaymentTf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="SaleSummaryTf1" taskFlowId="/WEB-INF/SaleSummaryTf.xml#SaleSummaryTf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="DayBookSummaryTf1" taskFlowId="/WEB-INF/DayBookSummaryTf.xml#DayBookSummaryTf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="DataLoaderTf1" taskFlowId="/WEB-INF/DataLoaderTf.xml#DataLoaderTf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="XdepoRetailVO1" RangeSize="10" DataControl="VOAPPDataControl" id="XdepoRetailVO1Iterator"/>
+    <taskFlow id="AutoCashSaleTF1" taskFlowId="/WEB-INF/AutoCashSaleTF.xml#AutoCashSaleTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="RetailMy_Tank_Dip_Data_TF1"
+              taskFlowId="/WEB-INF/RetailMy_Tank_Dip_Data_TF.xml#RetailMy_Tank_Dip_Data_TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ReportsMy_AllWorkingTF1" taskFlowId="/WEB-INF/ReportsMy_AllWorkingTF.xml#ReportsMy_AllWorkingTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XdepoRetailVO1Iterator" id="XdprHsd">
+      <AttrNames>
+        <Item Value="XdprHsd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XdepoRetailVO1Iterator" id="XdprPmg">
+      <AttrNames>
+        <Item Value="XdprPmg"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="CallAMTaskFlowActivity" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="CallAMTaskFlowActivity" IsViewObjectMethod="false" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.CallAMTaskFlowActivity.dataControl.dataProvider">
+      <NamedData NDName="Task" NDType="int"/>
+      <NamedData NDName="userName" NDType="java.lang.String"/>
+      <NamedData NDName="sessionID" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

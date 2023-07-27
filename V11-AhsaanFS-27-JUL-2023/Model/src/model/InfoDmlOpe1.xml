@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InfoDmlOpe1"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="INFO_DML_OPE"
+  AliasName="InfoDmlOpe1"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="InfoDmlOpeId"
+    IsNotNull="true"
+    ColumnName="INFO_DML_OPE_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="INFO_DML_OPE"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="InfoDmlOpeName"
+    Precision="20"
+    ColumnName="INFO_DML_OPE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="INFO_DML_OPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="LUserOperation"
+    Association="model.INFO_DML_OPE_USER_OPE"
+    AssociationEnd="model.INFO_DML_OPE_USER_OPE.LUserOperation"
+    AssociationOtherEnd="model.INFO_DML_OPE_USER_OPE.InfoDmlOpe1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TransactionLog"
+    Association="model.INFO_DML_OPE_TNS_LOG"
+    AssociationEnd="model.INFO_DML_OPE_TNS_LOG.TransactionLog"
+    AssociationOtherEnd="model.INFO_DML_OPE_TNS_LOG.InfoDmlOpe1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="InfoDmlOpePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="INFO_DML_OPE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.InfoDmlOpe1.InfoDmlOpeId"/>
+    </AttrArray>
+  </Key>
+</Entity>

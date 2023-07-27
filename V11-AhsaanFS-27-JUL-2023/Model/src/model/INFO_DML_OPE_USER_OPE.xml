@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="INFO_DML_OPE_USER_OPE"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="InfoDmlOpe1"
+    Cardinality="1"
+    Source="true"
+    Owner="model.InfoDmlOpe1"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="InfoDmlOpe1"/>
+      <Attr Name="_foreignKey" Value="model.InfoDmlOpe1.InfoDmlOpePk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.InfoDmlOpe1.InfoDmlOpeId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="LUserOperation"
+    Cardinality="-1"
+    Owner="model.LUserOperation">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="LUserOperation"/>
+      <Attr Name="_foreignKey" Value="model.LUserOperation.fk_LUserOperation"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.LUserOperation.UserOpeF"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

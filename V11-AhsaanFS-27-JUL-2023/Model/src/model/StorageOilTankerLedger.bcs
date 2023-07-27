@@ -1,0 +1,19 @@
+//Groovy Scripts for model.StorageOilTankerLedger
+
+package model
+
+import oracle.jbo.script.annotation.VariableExpression;
+
+@VariableExpression(path="BindEndDate")
+def BindEndDate_VariableScript_Variable()
+{
+adf.currentDateTime -7
+}
+
+
+@VariableExpression(path="BindStartDate")
+def BindStartDate_VariableScript_Variable()
+{
+adf.currentDateTime
+}
+

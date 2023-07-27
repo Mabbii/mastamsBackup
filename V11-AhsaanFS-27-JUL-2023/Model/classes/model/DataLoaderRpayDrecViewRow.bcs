@@ -1,0 +1,19 @@
+//Groovy Scripts for model.DataLoaderRpayDrecView
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="DlRpDrDate")
+def DlRpDrDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="DlRpDrSlipDate")
+def DlRpDrSlipDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

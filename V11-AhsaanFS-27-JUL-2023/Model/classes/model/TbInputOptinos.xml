@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TbInputOptinos"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="TB_INPUT_OPTINOS"
+  AliasName="TbInputOptinos"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="TbioName"
+    Precision="100"
+    ColumnName="TBIO_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TB_INPUT_OPTINOS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TbioId"
+    IsNotNull="true"
+    ColumnName="TBIO_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TB_INPUT_OPTINOS"
+    PrimaryKey="true"/>
+  <Key
+    Name="TbInputOptinosPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="TB_INPUT_OPTINOS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.TbInputOptinos.TbioId"/>
+    </AttrArray>
+  </Key>
+</Entity>

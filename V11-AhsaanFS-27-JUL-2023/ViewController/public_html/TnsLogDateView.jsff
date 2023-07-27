@@ -1,0 +1,566 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="TransactionLog" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true"
+                value="#{bindings.TnsLogDateViewCriteriaQuery.queryDescriptor}"
+                model="#{bindings.TnsLogDateViewCriteriaQuery.queryModel}"
+                queryListener="#{bindings.TnsLogDateViewCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.TnsLogDateViewCriteriaQuery.processQueryOperation}"
+                resultComponentId="::pc1"/>
+    </af:panelHeader>
+    <af:panelCollection id="pc1" inlineStyle="width:1303px; height:638px;">
+      <f:facet name="menus"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="statusbar">
+        <af:toolbar id="t1">
+          <af:outputText value="Mastams" id="ot63" inlineStyle="color:Maroon; font-size:x-large; font-style:italic;"/>
+        </af:toolbar>
+      </f:facet>
+      <af:table value="#{bindings.TnsLogDateView1.collectionModel}" var="row"
+                rows="#{bindings.TnsLogDateView1.rangeSize}"
+                emptyText="#{bindings.TnsLogDateView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.TnsLogDateView1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.TnsLogDateView1.collectionModel.makeCurrent}" rowSelection="single"
+                fetchSize="#{bindings.TnsLogDateView1.rangeSize}"
+                filterModel="#{bindings.TnsLogDateViewCriteriaQuery.queryDescriptor}" filterVisible="true"
+                queryListener="#{bindings.TnsLogDateViewCriteriaQuery.processQuery}" varStatus="vs" id="resId1"
+                inlineStyle="height:595px;" width="1140" scrollPolicy="page">
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsDate.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsDate.label}" id="resId1c10">
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.TnsLogDateViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsDate.value}"
+                          id="id2">
+              <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.TnsDate.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:outputText value="#{row.TnsDate}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsDate.tooltip}" id="ot10">
+            <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.TnsDate.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.LUsersUserName.name}" filterable="true"
+                   sortable="true" headerText="User Name" id="resId1c65" width="150" align="center"
+                   inlineStyle="text-align:left;">
+          <af:selectOneChoice value="#{row.bindings.LUsersUserName.inputValue}"
+                              label="#{row.bindings.LUsersUserName.label}"
+                              required="#{bindings.TnsLogDateView1.hints.LUsersUserName.mandatory}"
+                              shortDesc="#{bindings.TnsLogDateView1.hints.LUsersUserName.tooltip}" readOnly="true"
+                              id="soc3">
+            <f:selectItems value="#{row.bindings.LUsersUserName.items}" id="si3"/>
+            <f:validator binding="#{row.bindings.LUsersUserName.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsLogOldNew.name}" filterable="true" sortable="true"
+                   headerText="Log OLD NEW" id="resId1c22" width="150" inlineStyle="text-align:left;" align="center">
+          <af:outputText value="#{row.TnsLogOldNew}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsLogOldNew.tooltip}"
+                         id="ot22"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.InfoDmlOpeName.name}" filterable="true"
+                   sortable="true" headerText="Operation Name" id="resId1c49"
+                   width="150" align="center" inlineStyle="text-align:left;">
+          <af:selectOneChoice value="#{row.bindings.InfoDmlOpeName.inputValue}"
+                              label="#{row.bindings.InfoDmlOpeName.label}"
+                              required="#{bindings.TnsLogDateView1.hints.InfoDmlOpeName.mandatory}"
+                              shortDesc="#{bindings.TnsLogDateView1.hints.InfoDmlOpeName.tooltip}" readOnly="true"
+                              id="soc1">
+            <f:selectItems value="#{row.bindings.InfoDmlOpeName.items}" id="si1"/>
+            <f:validator binding="#{row.bindings.InfoDmlOpeName.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.ViewInfoName.name}" filterable="true" sortable="true"
+                   headerText="View Name" id="resId1c55" width="150" align="center" inlineStyle="text-align:left;">
+          <af:selectOneChoice value="#{row.bindings.ViewInfoName.inputValue}" label="#{row.bindings.ViewInfoName.label}"
+                              required="#{bindings.TnsLogDateView1.hints.ViewInfoName.mandatory}"
+                              shortDesc="#{bindings.TnsLogDateView1.hints.ViewInfoName.tooltip}" readOnly="true"
+                              id="soc2">
+            <f:selectItems value="#{row.bindings.ViewInfoName.items}" id="si2"/>
+            <f:validator binding="#{row.bindings.ViewInfoName.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsAmount.name}" filterable="true" sortable="true"
+                   headerText="Amount" id="resId1c4"
+                   inlineStyle="text-align:left;" align="center" width="150">
+          <af:outputText value="#{row.TnsAmount}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsAmount.tooltip}"
+                         id="ot4">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsAmount.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsQty.name}" filterable="true" sortable="true"
+                   headerText="Quantity" id="resId1c31" align="center" width="150" inlineStyle="text-align:left;">
+          <af:outputText value="#{row.TnsQty}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsQty.tooltip}" id="ot31">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsQty.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsRate.name}" filterable="true" sortable="true"
+                   headerText="Rate" id="resId1c32" width="150" align="center" inlineStyle="text-align:right;">
+          <af:outputText value="#{row.TnsRate}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsRate.tooltip}" id="ot32">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsRate.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsNewrate.name}" filterable="true" sortable="true"
+                   headerText="New Rate" id="resId1c24"
+                   inlineStyle="text-align:right;" width="150" align="center">
+          <af:outputText value="#{row.TnsNewrate}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsNewrate.tooltip}"
+                         id="ot24">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsNewrate.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsInfo.name}" filterable="true" sortable="true"
+                   headerText="Information" id="resId1c16" align="center" width="150" inlineStyle="text-align:left;">
+          <af:outputText value="#{row.TnsInfo}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsInfo.tooltip}"
+                         id="ot16"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsInfoStart.name}" filterable="true" sortable="true"
+                   headerText="Information Start" id="resId1c17"
+                   inlineStyle="text-align:left;" align="center" width="150">
+          <af:outputText value="#{row.TnsInfoStart}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsInfoStart.tooltip}"
+                         id="ot17"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsAdjAcRef.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsAdjAcRef.label}" id="resId1c1" rendered="false">
+          <af:outputText value="#{row.TnsAdjAcRef}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsAdjAcRef.tooltip}"
+                         id="ot1">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsAdjAcRef.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsAdjDate.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsAdjDate.label}" id="resId1c2">
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.TnsLogDateViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsAdjDate.value}"
+                          id="id1">
+              <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.TnsAdjDate.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:outputText value="#{row.TnsAdjDate}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsAdjDate.tooltip}"
+                         id="ot2">
+            <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.TnsAdjDate.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsAdjId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsAdjId.label}" id="resId1c3" rendered="false">
+          <af:outputText value="#{row.TnsAdjId}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsAdjId.tooltip}"
+                         id="ot3">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsAdjId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsBankNameId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsBankNameId.label}" id="resId1c5" rendered="false">
+          <af:outputText value="#{row.TnsBankNameId}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.TnsBankNameId.tooltip}" id="ot5">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsBankNameId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsBankTnsTypeIdFk.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.TnsBankTnsTypeIdFk.label}"
+                   id="resId1c6" rendered="false">
+          <af:outputText value="#{row.TnsBankTnsTypeIdFk}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.TnsBankTnsTypeIdFk.tooltip}" id="ot6">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.TnsLogDateView1.hints.TnsBankTnsTypeIdFk.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsBrCode.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsBrCode.label}" id="resId1c7">
+          <af:outputText value="#{row.TnsBrCode}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsBrCode.tooltip}"
+                         id="ot7"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsCoaCactNumber.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.TnsCoaCactNumber.label}" id="resId1c8"
+                   rendered="false">
+          <af:outputText value="#{row.TnsCoaCactNumber}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.TnsCoaCactNumber.tooltip}" id="ot8">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsCoaCactNumber.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsCoaDactNumber.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.TnsCoaDactNumber.label}" id="resId1c9"
+                   rendered="false">
+          <af:outputText value="#{row.TnsCoaDactNumber}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.TnsCoaDactNumber.tooltip}" id="ot9">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsCoaDactNumber.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsDetail.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsDetail.label}" id="resId1c11">
+          <af:outputText value="#{row.TnsDetail}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsDetail.tooltip}"
+                         id="ot11"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsEtc.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsEtc.label}" id="resId1c12">
+          <af:outputText value="#{row.TnsEtc}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsEtc.tooltip}" id="ot12"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsFreightfactor.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.TnsFreightfactor.label}" id="resId1c13"
+                   rendered="false">
+          <af:outputText value="#{row.TnsFreightfactor}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.TnsFreightfactor.tooltip}" id="ot13">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsFreightfactor.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsGroup.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsGroup.label}" id="resId1c14" rendered="false">
+          <af:outputText value="#{row.TnsGroup}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsGroup.tooltip}"
+                         id="ot14">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsGroup.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsId.label}" id="resId1c15">
+          <af:outputText value="#{row.TnsId}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsId.tooltip}" id="ot15">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsIsClaimedId.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.TnsIsClaimedId.label}" id="resId1c18">
+          <af:outputText value="#{row.TnsIsClaimedId}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.TnsIsClaimedId.tooltip}" id="ot18">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsIsClaimedId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsIsDebit.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsIsDebit.label}" id="resId1c19" rendered="false">
+          <af:outputText value="#{row.TnsIsDebit}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsIsDebit.tooltip}"
+                         id="ot19">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsIsDebit.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsLogDate.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsLogDate.label}" id="resId1c20">
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.TnsLogDateViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsLogDate.value}"
+                          id="id3">
+              <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.TnsLogDate.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:outputText value="#{row.TnsLogDate}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsLogDate.tooltip}"
+                         id="ot20">
+            <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.TnsLogDate.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsLogId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsLogId.label}" id="resId1c21" rendered="false">
+          <af:outputText value="#{row.TnsLogId}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsLogId.tooltip}"
+                         id="ot21">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsLogId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsLogOpeF.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsLogOpeF.label}" id="resId1c23">
+          <af:outputText value="#{row.TnsLogOpeF}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsLogOpeF.tooltip}"
+                         id="ot23">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsLogOpeF.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsOildId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsOildId.label}" id="resId1c25" rendered="false">
+          <af:outputText value="#{row.TnsOildId}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsOildId.tooltip}"
+                         id="ot25">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsOildId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsOildLoadDate.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.TnsOildLoadDate.label}" id="resId1c26"
+                   rendered="false">
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.TnsLogDateViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsOildLoadDate.value}"
+                          id="id4">
+              <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.TnsOildLoadDate.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:outputText value="#{row.TnsOildLoadDate}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.TnsOildLoadDate.tooltip}" id="ot26">
+            <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.TnsOildLoadDate.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsOildLoadId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsOildLoadId.label}" id="resId1c27" rendered="false">
+          <af:outputText value="#{row.TnsOildLoadId}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.TnsOildLoadId.tooltip}" id="ot27">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsOildLoadId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsOiltId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsOiltId.label}" id="resId1c28" rendered="false">
+          <af:outputText value="#{row.TnsOiltId}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsOiltId.tooltip}"
+                         id="ot28">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsOiltId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsParentTnsId.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.TnsParentTnsId.label}" id="resId1c29"
+                   rendered="false">
+          <af:outputText value="#{row.TnsParentTnsId}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.TnsParentTnsId.tooltip}" id="ot29">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsParentTnsId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsPurchaseRateLogIdFk.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.TnsPurchaseRateLogIdFk.label}"
+                   id="resId1c30" rendered="false">
+          <af:outputText value="#{row.TnsPurchaseRateLogIdFk}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.TnsPurchaseRateLogIdFk.tooltip}" id="ot30">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.TnsLogDateView1.hints.TnsPurchaseRateLogIdFk.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsReverseEntry.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.TnsReverseEntry.label}" id="resId1c33"
+                   rendered="false">
+          <af:outputText value="#{row.TnsReverseEntry}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.TnsReverseEntry.tooltip}" id="ot33">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsReverseEntry.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsSDate.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsSDate.label}" id="resId1c34">
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.TnsLogDateViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsSDate.value}"
+                          id="id5">
+              <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.TnsSDate.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:outputText value="#{row.TnsSDate}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsSDate.tooltip}"
+                         id="ot34">
+            <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.TnsSDate.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsSaleRateLogIdFk.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.TnsSaleRateLogIdFk.label}"
+                   id="resId1c35" rendered="false">
+          <af:outputText value="#{row.TnsSaleRateLogIdFk}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.TnsSaleRateLogIdFk.tooltip}" id="ot35">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.TnsLogDateView1.hints.TnsSaleRateLogIdFk.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsSlipDate.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsSlipDate.label}" id="resId1c36" rendered="false">
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.TnsLogDateViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsSlipDate.value}"
+                          id="id6">
+              <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.TnsSlipDate.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:outputText value="#{row.TnsSlipDate}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsSlipDate.tooltip}"
+                         id="ot36">
+            <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.TnsSlipDate.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsSlipNo.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsSlipNo.label}" id="resId1c37">
+          <af:outputText value="#{row.TnsSlipNo}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsSlipNo.tooltip}"
+                         id="ot37"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsStId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsStId.label}" id="resId1c38" rendered="false">
+          <af:outputText value="#{row.TnsStId}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsStId.tooltip}" id="ot38">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsStId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsTnsTypeIdFk.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.TnsTnsTypeIdFk.label}" id="resId1c39"
+                   rendered="false">
+          <af:outputText value="#{row.TnsTnsTypeIdFk}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.TnsTnsTypeIdFk.tooltip}" id="ot39">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsTnsTypeIdFk.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.TnsTnsviewId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.TnsTnsviewId.label}" id="resId1c40" rendered="false">
+          <af:outputText value="#{row.TnsTnsviewId}" shortDesc="#{bindings.TnsLogDateView1.hints.TnsTnsviewId.tooltip}"
+                         id="ot40">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.TnsTnsviewId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.AcitvityIdFk.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.AcitvityIdFk.label}" id="resId1c41" rendered="false">
+          <af:outputText value="#{row.AcitvityIdFk}" shortDesc="#{bindings.TnsLogDateView1.hints.AcitvityIdFk.tooltip}"
+                         id="ot41">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.AcitvityIdFk.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.UserOpeEntityNameId.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.UserOpeEntityNameId.label}"
+                   id="resId1c42" rendered="false">
+          <af:outputText value="#{row.UserOpeEntityNameId}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.UserOpeEntityNameId.tooltip}" id="ot42">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.TnsLogDateView1.hints.UserOpeEntityNameId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.UserOpeEntityTnsId.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.UserOpeEntityTnsId.label}"
+                   id="resId1c43" rendered="false">
+          <af:outputText value="#{row.UserOpeEntityTnsId}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.UserOpeEntityTnsId.tooltip}" id="ot43">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.TnsLogDateView1.hints.UserOpeEntityTnsId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.UserOpeF.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.UserOpeF.label}" id="resId1c44" rendered="false">
+          <af:outputText value="#{row.UserOpeF}" shortDesc="#{bindings.TnsLogDateView1.hints.UserOpeF.tooltip}"
+                         id="ot44">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.UserOpeF.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.UserOpeId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.UserOpeId.label}" id="resId1c45" rendered="false">
+          <af:outputText value="#{row.UserOpeId}" shortDesc="#{bindings.TnsLogDateView1.hints.UserOpeId.tooltip}"
+                         id="ot45">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.UserOpeId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.UserOpeTime.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.UserOpeTime.label}" id="resId1c46">
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.TnsLogDateViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.UserOpeTime.value}"
+                          id="id7">
+              <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.UserOpeTime.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:outputText value="#{row.UserOpeTime}" shortDesc="#{bindings.TnsLogDateView1.hints.UserOpeTime.tooltip}"
+                         id="ot46">
+            <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.UserOpeTime.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.UserOpeViewNameId.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.UserOpeViewNameId.label}"
+                   id="resId1c47" rendered="false">
+          <af:outputText value="#{row.UserOpeViewNameId}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.UserOpeViewNameId.tooltip}" id="ot47">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.TnsLogDateView1.hints.UserOpeViewNameId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.InfoDmlOpeId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.InfoDmlOpeId.label}" id="resId1c48" rendered="false">
+          <af:outputText value="#{row.InfoDmlOpeId}" shortDesc="#{bindings.TnsLogDateView1.hints.InfoDmlOpeId.tooltip}"
+                         id="ot48">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.InfoDmlOpeId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.AcitvityId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.AcitvityId.label}" id="resId1c50" rendered="false">
+          <af:outputText value="#{row.AcitvityId}" shortDesc="#{bindings.TnsLogDateView1.hints.AcitvityId.tooltip}"
+                         id="ot49">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.AcitvityId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.AcitvityNameId.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.AcitvityNameId.label}" id="resId1c51"
+                   rendered="false">
+          <af:outputText value="#{row.AcitvityNameId}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.AcitvityNameId.tooltip}" id="ot50">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.AcitvityNameId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.ActivityTime.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.ActivityTime.label}" id="resId1c52">
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.TnsLogDateViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.ActivityTime.value}"
+                          id="id8">
+              <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.ActivityTime.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:outputText value="#{row.ActivityTime}" shortDesc="#{bindings.TnsLogDateView1.hints.ActivityTime.tooltip}"
+                         id="ot51">
+            <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.ActivityTime.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.UserLogIdFk.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.UserLogIdFk.label}" id="resId1c53" rendered="false">
+          <af:outputText value="#{row.UserLogIdFk}" shortDesc="#{bindings.TnsLogDateView1.hints.UserLogIdFk.tooltip}"
+                         id="ot52">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.UserLogIdFk.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.ViewInfoId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.ViewInfoId.label}" id="resId1c54" rendered="false">
+          <af:outputText value="#{row.ViewInfoId}" shortDesc="#{bindings.TnsLogDateView1.hints.ViewInfoId.tooltip}"
+                         id="ot53">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.ViewInfoId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.LUserIdFk.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.LUserIdFk.label}" id="resId1c56" rendered="false">
+          <af:outputText value="#{row.LUserIdFk}" shortDesc="#{bindings.TnsLogDateView1.hints.LUserIdFk.tooltip}"
+                         id="ot54">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.LUserIdFk.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.UserLogAuthF.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.UserLogAuthF.label}" id="resId1c57" rendered="false">
+          <af:outputText value="#{row.UserLogAuthF}" shortDesc="#{bindings.TnsLogDateView1.hints.UserLogAuthF.tooltip}"
+                         id="ot55">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.UserLogAuthF.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.UserLogAuthReason.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.UserLogAuthReason.label}"
+                   id="resId1c58" rendered="false">
+          <af:outputText value="#{row.UserLogAuthReason}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.UserLogAuthReason.tooltip}" id="ot56">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.TnsLogDateView1.hints.UserLogAuthReason.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.UserLogId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.UserLogId.label}" id="resId1c59" rendered="false">
+          <af:outputText value="#{row.UserLogId}" shortDesc="#{bindings.TnsLogDateView1.hints.UserLogId.tooltip}"
+                         id="ot57">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.UserLogId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.UserLogInTime.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.UserLogInTime.label}" id="resId1c60">
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.TnsLogDateViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.UserLogInTime.value}"
+                          id="id9">
+              <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.UserLogInTime.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:outputText value="#{row.UserLogInTime}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.UserLogInTime.tooltip}" id="ot58">
+            <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.UserLogInTime.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.UserLogOutReason.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.UserLogOutReason.label}" id="resId1c61"
+                   rendered="false">
+          <af:outputText value="#{row.UserLogOutReason}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.UserLogOutReason.tooltip}" id="ot59">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.UserLogOutReason.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.UserLogOutTime.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.UserLogOutTime.label}" id="resId1c62">
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.TnsLogDateViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.UserLogOutTime.value}"
+                          id="id10">
+              <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.UserLogOutTime.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:outputText value="#{row.UserLogOutTime}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.UserLogOutTime.tooltip}" id="ot60">
+            <af:convertDateTime pattern="#{bindings.TnsLogDateView1.hints.UserLogOutTime.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.UserLogSessionId.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TnsLogDateView1.hints.UserLogSessionId.label}" id="resId1c63"
+                   rendered="false">
+          <af:outputText value="#{row.UserLogSessionId}"
+                         shortDesc="#{bindings.TnsLogDateView1.hints.UserLogSessionId.tooltip}" id="ot61"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.TnsLogDateView1.hints.LUsersUserId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TnsLogDateView1.hints.LUsersUserId.label}" id="resId1c64" rendered="false">
+          <af:outputText value="#{row.LUsersUserId}" shortDesc="#{bindings.TnsLogDateView1.hints.LUsersUserId.tooltip}"
+                         id="ot62">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsLogDateView1.hints.LUsersUserId.format}"/>
+          </af:outputText>
+        </af:column>
+      </af:table>
+    </af:panelCollection>
+  </af:panelGroupLayout>
+</ui:composition>

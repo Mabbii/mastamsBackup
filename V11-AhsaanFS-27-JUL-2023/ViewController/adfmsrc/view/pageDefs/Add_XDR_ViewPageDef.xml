@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="Add_XDR_ViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XdporateVO1" RangeSize="25" DataControl="VOAPPDataControl" id="XdporateVO1Iterator"/>
+    <searchRegion Binds="XdporateVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="XdporateVO1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XdporateVO1Iterator" id="XdrId">
+      <AttrNames>
+        <Item Value="XdrId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XdporateVO1Iterator" id="XdrPmg">
+      <AttrNames>
+        <Item Value="XdrPmg"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XdporateVO1Iterator" id="XdrHsd">
+      <AttrNames>
+        <Item Value="XdrHsd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XdporateVO1Iterator" id="XdrDate">
+      <AttrNames>
+        <Item Value="XdrDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XdporateVO1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="XdporateVO1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="XdporateVO1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="XdporateVO1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="XdporateVO1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="XdporateVO1Iterator" id="XdporateVO1">
+      <nodeDefinition DefName="model.XdporateVO" Name="XdporateVO10">
+        <AttrNames>
+          <Item Value="XdrId"/>
+          <Item Value="XdrPmg"/>
+          <Item Value="XdrHsd"/>
+          <Item Value="XdrDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

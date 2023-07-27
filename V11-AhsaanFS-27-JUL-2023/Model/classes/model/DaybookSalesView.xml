@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DayBookSalesView"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  ComponentClass="model.DayBookSalesViewImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.DayBookSalesView_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="BINDDCSTARTDATE"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp"/>
+  <EntityUsage
+    Name="DaybookSales"
+    Entity="model.DaybookSales"/>
+  <EntityUsage
+    Name="DateCounter"
+    Entity="model.DateCounter"
+    Association="model.DaybookSalesDateCounteFk1Assoc"
+    AssociationEnd="model.DaybookSalesDateCounteFk1Assoc.DateCounter"
+    SourceUsage="model.DayBookSalesView.DaybookSales"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.DateCounter.DcId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.DaybookSales.DcIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="Product"
+    Entity="model.Product"
+    Association="model.Product_DayBSales_Assoc"
+    AssociationEnd="model.Product_DayBSales_Assoc.Product"
+    SourceUsage="model.DayBookSalesView.DaybookSales"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Product.ProductId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.DaybookSales.ProductIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="DbsId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="DbsId"
+    EntityUsage="DaybookSales"
+    AliasName="DBS_ID"/>
+  <ViewAttribute
+    Name="ProductIdFk"
+    PrecisionRule="true"
+    EntityAttrName="ProductIdFk"
+    EntityUsage="DaybookSales"
+    AliasName="PRODUCT_ID_FK"/>
+  <ViewAttribute
+    Name="DbsQty"
+    PrecisionRule="true"
+    EntityAttrName="DbsQty"
+    EntityUsage="DaybookSales"
+    AliasName="DBS_QTY"/>
+  <ViewAttribute
+    Name="DbsRate"
+    PrecisionRule="true"
+    EntityAttrName="DbsRate"
+    EntityUsage="DaybookSales"
+    AliasName="DBS_RATE"/>
+  <ViewAttribute
+    Name="DbsAmount"
+    PrecisionRule="true"
+    EntityAttrName="DbsAmount"
+    EntityUsage="DaybookSales"
+    AliasName="DBS_AMOUNT"/>
+  <ViewAttribute
+    Name="DcIdFk"
+    PrecisionRule="true"
+    EntityAttrName="DcIdFk"
+    EntityUsage="DaybookSales"
+    AliasName="DC_ID_FK"/>
+  <ViewAttribute
+    Name="DbsDiff"
+    PrecisionRule="true"
+    EntityAttrName="DbsDiff"
+    EntityUsage="DaybookSales"
+    AliasName="DBS_DIFF"/>
+  <ViewAttribute
+    Name="DbsFAmount"
+    PrecisionRule="true"
+    EntityAttrName="DbsFAmount"
+    EntityUsage="DaybookSales"
+    AliasName="DBS_F_AMOUNT"/>
+  <ViewAttribute
+    Name="DbsFQty"
+    PrecisionRule="true"
+    EntityAttrName="DbsFQty"
+    EntityUsage="DaybookSales"
+    AliasName="DBS_F_QTY"/>
+  <ViewAttribute
+    Name="DbsQtyDiff"
+    PrecisionRule="true"
+    EntityAttrName="DbsQtyDiff"
+    EntityUsage="DaybookSales"
+    AliasName="DBS_QTY_DIFF"/>
+  <ViewAttribute
+    Name="DcStartDate"
+    PrecisionRule="true"
+    EntityAttrName="DcStartDate"
+    EntityUsage="DateCounter"
+    AliasName="DC_START_DATE">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="DayBookSalesViewRow"/>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DcId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="DcId"
+    EntityUsage="DateCounter"
+    AliasName="DC_ID"/>
+  <ViewAttribute
+    Name="ProductShortname"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ProductShortname"
+    EntityUsage="Product"
+    AliasName="PRODUCT_SHORTNAME"/>
+  <ViewAttribute
+    Name="ProductId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="ProductId"
+    EntityUsage="Product"
+    AliasName="PRODUCT_ID"/>
+  <ViewCriteria
+    Name="DayBookSalesViewCriteria"
+    ViewObjectName="model.DayBookSalesView"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="DayBookSalesViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="DcStartDate"
+        ViewAttribute="DcStartDate"
+        Operator="="
+        Conjunction="AND"
+        Value=":BINDDCSTARTDATE"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="DbsId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="productforallllviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ProductForALL1" RangeSize="25" DataControl="VOAPPDataControl" id="ProductForALL1Iterator"/>
+    <searchRegion Binds="ProductForALL1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ProductForALL1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="ProductForALL1Iterator" StaticList="false" Uses="LOV_ProducttypeName"
+                  id="ProducttypeName"/>
+    <attributeValues IterBinding="ProductForALL1Iterator" id="ProductId">
+      <AttrNames>
+        <Item Value="ProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductForALL1Iterator" id="ProductName">
+      <AttrNames>
+        <Item Value="ProductName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductForALL1Iterator" id="ProductShortname">
+      <AttrNames>
+        <Item Value="ProductShortname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductForALL1Iterator" id="ProductTypeId">
+      <AttrNames>
+        <Item Value="ProductTypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductForALL1Iterator" id="ProducttypeId1">
+      <AttrNames>
+        <Item Value="ProducttypeId1"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ProductForALL1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="ProductForALL1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="ProductForALL1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="ProductForALL1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="ProductForALL1Iterator" id="ProductForALL1">
+      <nodeDefinition DefName="model.ProductForALL" Name="ProductForALL10">
+        <AttrNames>
+          <Item Value="ProductId"/>
+          <Item Value="ProductName"/>
+          <Item Value="ProductShortname"/>
+          <Item Value="ProductTypeId"/>
+          <Item Value="ProducttypeId1"/>
+          <Item Value="ProducttypeName"/>
+          <Item Value="ProductKms"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ProductForALL1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <attributeValues IterBinding="ProductForALL1Iterator" id="ProductKms">
+      <AttrNames>
+        <Item Value="ProductKms"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

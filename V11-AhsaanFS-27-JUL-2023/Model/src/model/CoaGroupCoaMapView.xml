@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CoaGroupCoaMapView"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="CoaPartyAll1"
+    ViewObjectName="model.CoaPartyAll"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CoaGroupView1"
+    ViewObjectName="model.CoaGroupView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CoaName"
+    ListVOName="CoaPartyAll1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CoaIdFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CoaName"/>
+      <Item Value="CoaActNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CoaGroupName"
+    ListVOName="CoaGroupView1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CoaGroupName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CoaGroupIdFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CoaGroupName"/>
+      <Item Value="CoaGroupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CoaGroupName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="CoaGroupCoaMapEO"
+    Entity="model.CoaGroupCoaMapEO"/>
+  <EntityUsage
+    Name="CoaGroupEO"
+    Entity="model.CoaGroupEO"
+    Association="model.CoaGroupCoaMapView_Assoc"
+    AssociationEnd="model.CoaGroupCoaMapView_Assoc.CoaGroupEO"
+    SourceUsage="model.CoaGroupCoaMapView.CoaGroupCoaMapEO"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.CoaGroupEO.CoaGroupId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.CoaGroupCoaMapEO.CoaGroupIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="ChartOfAccounts"
+    Entity="model.ChartOfAccounts"
+    Association="model.CoaGroupCoaAccounttView_Assoc"
+    AssociationEnd="model.CoaGroupCoaAccounttView_Assoc.ChartOfAccounts"
+    SourceUsage="model.CoaGroupCoaMapView.CoaGroupCoaMapEO"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.ChartOfAccounts.CoaActNumber"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.CoaGroupCoaMapEO.CoaIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="CoaGrpCoaMapId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaGrpCoaMapId"
+    EntityUsage="CoaGroupCoaMapEO"
+    AliasName="COA_GRP_COA_MAP_ID"/>
+  <ViewAttribute
+    Name="CoaIdFk"
+    PrecisionRule="true"
+    EntityAttrName="CoaIdFk"
+    EntityUsage="CoaGroupCoaMapEO"
+    AliasName="COA_ID_FK"/>
+  <ViewAttribute
+    Name="CoaGroupIdFk"
+    PrecisionRule="true"
+    EntityAttrName="CoaGroupIdFk"
+    EntityUsage="CoaGroupCoaMapEO"
+    AliasName="COA_GROUP_ID_FK"/>
+  <ViewAttribute
+    Name="CoaName"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaName"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_NAME"
+    LOVName="LOV_CoaName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaActNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaActNumber"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_ACT_NUMBER"/>
+  <ViewAttribute
+    Name="CoaGroupName"
+    PrecisionRule="true"
+    EntityAttrName="CoaGroupName"
+    EntityUsage="CoaGroupEO"
+    AliasName="COA_GROUP_NAME"
+    LOVName="LOV_CoaGroupName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaGroupId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaGroupId"
+    EntityUsage="CoaGroupEO"
+    AliasName="COA_GROUP_ID"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="CoaGrpCoaMapId"/>
+  </AttrArray>
+</ViewObject>

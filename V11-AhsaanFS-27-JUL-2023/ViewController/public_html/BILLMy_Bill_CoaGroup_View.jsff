@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="205" id="ps1">
+        <f:facet name="first">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                    <af:gridCell width="30%" id="gc1" inlineStyle="border-right-color:Black;">
+                        <af:panelFormLayout id="pfl1" inlineStyle="border-right-color:Black;">
+                            <af:outputText value="Party Group" id="ot10"
+                                           inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                            <af:spacer width="10" height="25" id="s2"/>
+                            <af:inputText value="#{bindings.CoaGroupId.inputValue}"
+                                          label="#{bindings.CoaGroupId.hints.label}"
+                                          required="#{bindings.CoaGroupId.hints.mandatory}"
+                                          columns="#{bindings.CoaGroupId.hints.displayWidth}"
+                                          maximumLength="#{bindings.CoaGroupId.hints.precision}"
+                                          shortDesc="#{bindings.CoaGroupId.hints.tooltip}" id="it1" rendered="false">
+                                <f:validator binding="#{bindings.CoaGroupId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaGroupId.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.CoaGroupName.inputValue}"
+                                          label="Party Group"
+                                          required="#{bindings.CoaGroupName.hints.mandatory}"
+                                          columns="#{bindings.CoaGroupName.hints.displayWidth}"
+                                          maximumLength="#{bindings.CoaGroupName.hints.precision}"
+                                          shortDesc="#{bindings.CoaGroupName.hints.tooltip}" id="it2">
+                                <f:validator binding="#{bindings.CoaGroupName.validator}"/>
+                            </af:inputText>
+                            <af:spacer width="10" height="28" id="s1"/>
+                            <f:facet name="footer">
+                                <af:panelGroupLayout layout="horizontal" id="pgl2">
+                                    <af:panelGroupLayout layout="horizontal" id="pgl3">
+                                        <af:button actionListener="#{bindings.First.execute}"
+                                        icon="#{resource['images:first_hor_ena.png']}"
+                                                   disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                                        <af:button actionListener="#{bindings.Previous.execute}"
+                                        icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                                   disabled="#{!bindings.Previous.enabled}" partialSubmit="true"
+                                                   id="b2"/>
+                                        <af:button actionListener="#{bindings.Next.execute}"
+                                        icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                                   disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                                        <af:button actionListener="#{bindings.Last.execute}"
+                                        icon="#{resource['images:last_hor_ena.png']}"
+                                                   disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                                    </af:panelGroupLayout>
+                                    <af:outputText value="--" id="ot61"/>
+                                    <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                                    icon="#{resource['images:commit.png']}"
+                                               disabled="#{!bindings.Commit.enabled}"/>
+                                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                    icon="#{resource['images:add.png']}"
+                                               disabled="#{!bindings.CreateInsert.enabled}" id="b6"/>
+                                               <af:outputText value="----" id="ot62"/>
+                                    <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                    icon="#{resource['images:rollback.png']}"
+                                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                                        <af:resetActionListener/>
+                                    </af:button>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelFormLayout>
+                    </af:gridCell>
+                    <af:gridCell width="50%" marginEnd="5px" id="gc2" inlineStyle="border-left-color:Maroon;">
+                        <af:panelFormLayout id="pfl2" inlineStyle="border-left-color:Maroon;">
+                            <af:outputText value="Party Group MAP" id="ot11"
+                                           inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                            <af:inputText value="#{bindings.CoaGrpCoaMapId.inputValue}"
+                                          label="#{bindings.CoaGrpCoaMapId.hints.label}"
+                                          required="#{bindings.CoaGrpCoaMapId.hints.mandatory}"
+                                          columns="#{bindings.CoaGrpCoaMapId.hints.displayWidth}"
+                                          maximumLength="#{bindings.CoaGrpCoaMapId.hints.precision}"
+                                          shortDesc="#{bindings.CoaGrpCoaMapId.hints.tooltip}" id="it3"
+                                          rendered="false">
+                                <f:validator binding="#{bindings.CoaGrpCoaMapId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaGrpCoaMapId.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.CoaIdFk.inputValue}" label="#{bindings.CoaIdFk.hints.label}"
+                                          required="#{bindings.CoaIdFk.hints.mandatory}"
+                                          columns="#{bindings.CoaIdFk.hints.displayWidth}"
+                                          maximumLength="#{bindings.CoaIdFk.hints.precision}"
+                                          shortDesc="#{bindings.CoaIdFk.hints.tooltip}" id="it4" rendered="false">
+                                <f:validator binding="#{bindings.CoaIdFk.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaIdFk.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.CoaGroupIdFk.inputValue}"
+                                          label="#{bindings.CoaGroupIdFk.hints.label}"
+                                          required="#{bindings.CoaGroupIdFk.hints.mandatory}"
+                                          columns="#{bindings.CoaGroupIdFk.hints.displayWidth}"
+                                          maximumLength="#{bindings.CoaGroupIdFk.hints.precision}"
+                                          shortDesc="#{bindings.CoaGroupIdFk.hints.tooltip}" id="it5" rendered="false">
+                                <f:validator binding="#{bindings.CoaGroupIdFk.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaGroupIdFk.format}"/>
+                            </af:inputText>
+                            <af:inputListOfValues id="coaNameId"
+                                                  popupTitle="Search and Select: #{bindings.CoaName.hints.label}"
+                                                  value="#{bindings.CoaName.inputValue}"
+                                                  label="Party Name"
+                                                  model="#{bindings.CoaName.listOfValuesModel}"
+                                                  required="#{bindings.CoaName.hints.mandatory}"
+                                                  columns="#{bindings.CoaName.hints.displayWidth}"
+                                                  shortDesc="#{bindings.CoaName.hints.tooltip}" autoSubmit="true">
+                                <f:validator binding="#{bindings.CoaName.validator}"/>
+                                <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName.suggestedItems}"/>
+                            </af:inputListOfValues>
+                            <af:inputText value="#{bindings.CoaActNumber.inputValue}"
+                                          label="#{bindings.CoaActNumber.hints.label}"
+                                          required="#{bindings.CoaActNumber.hints.mandatory}"
+                                          columns="#{bindings.CoaActNumber.hints.displayWidth}"
+                                          maximumLength="#{bindings.CoaActNumber.hints.precision}"
+                                          shortDesc="#{bindings.CoaActNumber.hints.tooltip}" id="it6">
+                                <f:validator binding="#{bindings.CoaActNumber.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber.format}"/>
+                            </af:inputText>
+                            <af:inputListOfValues id="coaGroupName1Id"
+                                                  popupTitle="Search and Select: #{bindings.CoaGroupName1.hints.label}"
+                                                  value="#{bindings.CoaGroupName1.inputValue}"
+                                                  label="Party Group"
+                                                  model="#{bindings.CoaGroupName1.listOfValuesModel}"
+                                                  required="#{bindings.CoaGroupName1.hints.mandatory}"
+                                                  columns="#{bindings.CoaGroupName1.hints.displayWidth}"
+                                                  shortDesc="#{bindings.CoaGroupName1.hints.tooltip}" autoSubmit="true">
+                                <f:validator binding="#{bindings.CoaGroupName1.validator}"/>
+                                <af:autoSuggestBehavior suggestedItems="#{bindings.CoaGroupName1.suggestedItems}"/>
+                            </af:inputListOfValues>
+                            <af:inputText value="#{bindings.CoaGroupId1.inputValue}"
+                                          label="#{bindings.CoaGroupId1.hints.label}"
+                                          required="#{bindings.CoaGroupId1.hints.mandatory}"
+                                          columns="#{bindings.CoaGroupId1.hints.displayWidth}"
+                                          maximumLength="#{bindings.CoaGroupId1.hints.precision}"
+                                          shortDesc="#{bindings.CoaGroupId1.hints.tooltip}" id="it7" rendered="false">
+                                <f:validator binding="#{bindings.CoaGroupId1.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaGroupId1.format}"/>
+                            </af:inputText>
+                            <f:facet name="footer">
+                                <af:panelGroupLayout layout="horizontal" id="pgl4">
+                                    <af:panelGroupLayout layout="horizontal" id="pgl5">
+                                        <af:button actionListener="#{bindings.First1.execute}"
+                                        icon="#{resource['images:first_hor_ena.png']}"
+                                                   disabled="#{!bindings.First1.enabled}" partialSubmit="true" id="b8"/>
+                                        <af:button actionListener="#{bindings.Previous1.execute}"
+                                        icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                                   disabled="#{!bindings.Previous1.enabled}" partialSubmit="true"
+                                                   id="b9"/>
+                                        <af:button actionListener="#{bindings.Next1.execute}"
+                                        icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                                   disabled="#{!bindings.Next1.enabled}" partialSubmit="true" id="b10"/>
+                                        <af:button actionListener="#{bindings.Last1.execute}"
+                                        icon="#{resource['images:last_hor_ena.png']}"
+                                                   disabled="#{!bindings.Last1.enabled}" partialSubmit="true" id="b11"/>
+                                    </af:panelGroupLayout>
+                                    <af:outputText value="--" id="ot614"/>
+                                    <af:button text="Submit" id="b12" actionListener="#{bindings.Commit.execute}"
+                                    icon="#{resource['images:commit.png']}"
+                                               disabled="#{!bindings.Commit.enabled}"/>
+                                    <af:button actionListener="#{bindings.CreateInsert1.execute}" text="CreateInsert1"
+                                    icon="#{resource['images:add.png']}"
+                                               disabled="#{!bindings.CreateInsert1.enabled}" id="b13"/>
+                                               <af:outputText value="----" id="ot63"/>
+                                    <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                    icon="#{resource['images:rollback.png']}"
+                                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b14">
+                                        <af:resetActionListener/>
+                                    </af:button>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelFormLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelGridLayout id="pgl6">
+                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                    <af:gridCell marginStart="10px" width="30%" id="gc3">
+                        <af:panelCollection id="pc1">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar"/>
+                            <af:table value="#{bindings.CoaGroupView1.collectionModel}" var="row"
+                                      rows="#{bindings.CoaGroupView1.rangeSize}"
+                                      emptyText="#{bindings.CoaGroupView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.CoaGroupView1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.CoaGroupView1.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.CoaGroupView1.rangeSize}"
+                                      filterModel="#{bindings.CoaGroupView1Query.queryDescriptor}" filterVisible="true"
+                                      queryListener="#{bindings.CoaGroupView1Query.processQuery}" varStatus="vs"
+                                      id="t1" partialTriggers=":::b1 :::b2 :::b3 :::b4 :::b6" width="309"
+                                      inlineStyle="border-top-color:Window; border-bottom-color:Window; border-right-color:Window;"
+                                      autoHeightRows="1500" maxClientRows="10000">
+                                <af:column sortProperty="#{bindings.CoaGroupView1.hints.CoaGroupId.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CoaGroupView1.hints.CoaGroupId.label}" id="c1"
+                                           rendered="false">
+                                    <af:outputText value="#{row.CoaGroupId}"
+                                                   shortDesc="#{bindings.CoaGroupView1.hints.CoaGroupId.tooltip}"
+                                                   id="ot1">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CoaGroupView1.hints.CoaGroupId.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CoaGroupView1.hints.CoaGroupName.name}"
+                                           
+                                           headerText="Party Group" id="c2"
+                                           width="270"
+                                           inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                           align="center" sortable="true" filterable="true">
+                                    <af:outputText value="#{row.CoaGroupName}"
+                                                   shortDesc="#{bindings.CoaGroupView1.hints.CoaGroupName.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                            </af:table>
+                            <f:facet name="statusbar"/>
+                        </af:panelCollection>
+                    </af:gridCell>
+                    <af:gridCell marginStart="10px" width="50%" marginEnd="5px" id="gc4">
+                        <af:panelCollection id="pc2">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar"/>
+                            <af:table value="#{bindings.CoaGroupCoaMapView1.collectionModel}" var="row"
+                                      rows="#{bindings.CoaGroupCoaMapView1.rangeSize}"
+                                      emptyText="#{bindings.CoaGroupCoaMapView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.CoaGroupCoaMapView1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.CoaGroupCoaMapView1.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.CoaGroupCoaMapView1.rangeSize}"
+                                      filterModel="#{bindings.CoaGroupCoaMapView1Query.queryDescriptor}"
+                                      filterVisible="true"
+                                      queryListener="#{bindings.CoaGroupCoaMapView1Query.processQuery}" varStatus="vs"
+                                      id="t2"
+                                      partialTriggers=":::b8 :::b9 :::b10 :::b11 :::b13 :::b12 :::b14 :::b1 :::b2 :::b3 :::b4 :::b5 :::b6 :::b7"
+                                      width="474"
+                                      inlineStyle="border-top-color:Window; border-bottom-color:Window; border-right-color:Window;"
+                                      maxClientRows="10000" autoHeightRows="1500">
+                                <af:column sortProperty="#{bindings.CoaGroupCoaMapView1.hints.CoaName.name}"
+                                           
+                                           headerText="Party Name" id="c6"
+                                           width="250"
+                                           inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                           align="center" sortable="true" filterable="true">
+                                    <af:outputText value="#{row.CoaName}"
+                                                   shortDesc="#{bindings.CoaGroupCoaMapView1.hints.CoaName.tooltip}"
+                                                   id="ot6"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CoaGroupCoaMapView1.hints.CoaGroupName.name}"
+                                           
+                                           headerText="Party Group"
+                                           id="c8" width="200"
+                                           inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                           align="center" sortable="true" filterable="true">
+                                    <af:outputText value="#{row.CoaGroupName}"
+                                                   shortDesc="#{bindings.CoaGroupCoaMapView1.hints.CoaGroupName.tooltip}"
+                                                   id="ot8"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CoaGroupCoaMapView1.hints.CoaActNumber.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CoaGroupCoaMapView1.hints.CoaActNumber.label}"
+                                           id="c7" rendered="false">
+                                    <af:outputText value="#{row.CoaActNumber}"
+                                                   shortDesc="#{bindings.CoaGroupCoaMapView1.hints.CoaActNumber.tooltip}"
+                                                   id="ot7">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CoaGroupCoaMapView1.hints.CoaActNumber.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CoaGroupCoaMapView1.hints.CoaGrpCoaMapId.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CoaGroupCoaMapView1.hints.CoaGrpCoaMapId.label}"
+                                           id="c3" rendered="false">
+                                    <af:outputText value="#{row.CoaGrpCoaMapId}"
+                                                   shortDesc="#{bindings.CoaGroupCoaMapView1.hints.CoaGrpCoaMapId.tooltip}"
+                                                   id="ot3">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CoaGroupCoaMapView1.hints.CoaGrpCoaMapId.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CoaGroupCoaMapView1.hints.CoaIdFk.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CoaGroupCoaMapView1.hints.CoaIdFk.label}" id="c4"
+                                           rendered="false">
+                                    <af:outputText value="#{row.CoaIdFk}"
+                                                   shortDesc="#{bindings.CoaGroupCoaMapView1.hints.CoaIdFk.tooltip}"
+                                                   id="ot4">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CoaGroupCoaMapView1.hints.CoaIdFk.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CoaGroupCoaMapView1.hints.CoaGroupIdFk.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CoaGroupCoaMapView1.hints.CoaGroupIdFk.label}"
+                                           id="c5" rendered="false">
+                                    <af:outputText value="#{row.CoaGroupIdFk}"
+                                                   shortDesc="#{bindings.CoaGroupCoaMapView1.hints.CoaGroupIdFk.tooltip}"
+                                                   id="ot5">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CoaGroupCoaMapView1.hints.CoaGroupIdFk.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CoaGroupCoaMapView1.hints.CoaGroupId.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CoaGroupCoaMapView1.hints.CoaGroupId.label}" id="c9"
+                                           rendered="false">
+                                    <af:outputText value="#{row.CoaGroupId}"
+                                                   shortDesc="#{bindings.CoaGroupCoaMapView1.hints.CoaGroupId.tooltip}"
+                                                   id="ot9">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CoaGroupCoaMapView1.hints.CoaGroupId.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                            <f:facet name="statusbar"/>
+                        </af:panelCollection>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

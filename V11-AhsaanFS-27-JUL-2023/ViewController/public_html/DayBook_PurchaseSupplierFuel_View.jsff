@@ -1,0 +1,820 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="388" id="ps1"
+                      inlineStyle="border-left-color:Window; border-right-color:Window; border-top-color:Window; border-bottom-color:Window; width:1265px; height:900px;">
+        <f:facet name="first">
+            <af:panelBox id="pb1">
+                <f:facet name="toolbar"/>
+                <af:panelFormLayout id="pfl1" maxColumns="3" rows="2">
+                    <af:outputText value="Purchase Supplier Fuel" id="ot1"
+                                   inlineStyle="font-size:x-large; font-weight:bold; font-style:italic;"/>
+                    <af:inputDate value="#{bindings.TnsDate.inputValue}" label="#{bindings.TnsDate.hints.label}"
+                                  required="#{bindings.TnsDate.hints.mandatory}"
+                                  columns="#{bindings.TnsDate.hints.displayWidth}"
+                                  shortDesc="#{bindings.TnsDate.hints.tooltip}" id="id1" autoSubmit="true">
+                        <f:validator binding="#{bindings.TnsDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.TnsDate.format}"/>
+                    </af:inputDate>
+                    <af:inputListOfValues id="coaNameId" popupTitle="Search and Select: #{bindings.CoaName.hints.label}"
+                                          value="#{bindings.CoaName.inputValue}" label="#{bindings.CoaName.hints.label}"
+                                          model="#{bindings.CoaName.listOfValuesModel}"
+                                          required="#{bindings.CoaName.hints.mandatory}"
+                                          columns="#{bindings.CoaName.hints.displayWidth}"
+                                          shortDesc="#{bindings.CoaName.hints.tooltip}" autoSubmit="true">
+                        <f:validator binding="#{bindings.CoaName.validator}"/>
+                        <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName.suggestedItems}"/>
+                    </af:inputListOfValues>
+                    <af:inputListOfValues id="coaName1Id"
+                                          popupTitle="Search and Select: #{bindings.CoaName1.hints.label}"
+                                          value="#{bindings.CoaName1.inputValue}"
+                                          label="#{bindings.CoaName1.hints.label}"
+                                          model="#{bindings.CoaName1.listOfValuesModel}"
+                                          required="#{bindings.CoaName1.hints.mandatory}"
+                                          columns="#{bindings.CoaName1.hints.displayWidth}"
+                                          shortDesc="#{bindings.CoaName1.hints.tooltip}" autoSubmit="true">
+                        <f:validator binding="#{bindings.CoaName1.validator}"/>
+                        <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName1.suggestedItems}"/>
+                    </af:inputListOfValues>
+                    <af:inputComboboxListOfValues id="purchaseRateLogR1Id"
+                                                  popupTitle="Search and Select: #{bindings.PurchaseRateLogR1.hints.label}"
+                                                  value="#{bindings.PurchaseRateLogR1.inputValue}"
+                                                  label="#{bindings.PurchaseRateLogR1.hints.label}"
+                                                  model="#{bindings.PurchaseRateLogR1.listOfValuesModel}"
+                                                  required="#{bindings.PurchaseRateLogR1.hints.mandatory}"
+                                                  columns="#{bindings.PurchaseRateLogR1.hints.displayWidth}"
+                                                  shortDesc="#{bindings.PurchaseRateLogR1.hints.tooltip}"
+                                                  autoSubmit="true">
+                        <f:validator binding="#{bindings.PurchaseRateLogR1.validator}"/>
+                    </af:inputComboboxListOfValues>
+                    <af:inputListOfValues id="oildShortnameId"
+                                          popupTitle="Search and Select: #{bindings.OildShortname.hints.label}"
+                                          value="#{bindings.OildShortname.inputValue}"
+                                          label="#{bindings.OildShortname.hints.label}"
+                                          model="#{bindings.OildShortname.listOfValuesModel}"
+                                          required="#{bindings.OildShortname.hints.mandatory}"
+                                          columns="#{bindings.OildShortname.hints.displayWidth}"
+                                          shortDesc="#{bindings.OildShortname.hints.tooltip}" autoSubmit="true">
+                        <f:validator binding="#{bindings.OildShortname.validator}"/>
+                        <af:autoSuggestBehavior suggestedItems="#{bindings.OildShortname.suggestedItems}"/>
+                    </af:inputListOfValues>
+                    <af:inputListOfValues id="oiltRegistrationId"
+                                          popupTitle="Search and Select: #{bindings.OiltRegistration.hints.label}"
+                                          value="#{bindings.OiltRegistration.inputValue}"
+                                          label="#{bindings.OiltRegistration.hints.label}"
+                                          model="#{bindings.OiltRegistration.listOfValuesModel}"
+                                          required="#{bindings.OiltRegistration.hints.mandatory}"
+                                          columns="#{bindings.OiltRegistration.hints.displayWidth}"
+                                          shortDesc="#{bindings.OiltRegistration.hints.tooltip}" autoSubmit="true">
+                        <f:validator binding="#{bindings.OiltRegistration.validator}"/>
+                        <af:autoSuggestBehavior suggestedItems="#{bindings.OiltRegistration.suggestedItems}"/>
+                    </af:inputListOfValues>
+                    <af:inputListOfValues id="oiltRegistration1Id"
+                                          popupTitle="Search and Select: #{bindings.OiltRegistration1.hints.label}"
+                                          value="#{bindings.OiltRegistration1.inputValue}"
+                                          label="#{bindings.OiltRegistration1.hints.label}"
+                                          model="#{bindings.OiltRegistration1.listOfValuesModel}"
+                                          required="#{bindings.OiltRegistration1.hints.mandatory}"
+                                          columns="#{bindings.OiltRegistration1.hints.displayWidth}"
+                                          shortDesc="#{bindings.OiltRegistration1.hints.tooltip}" autoSubmit="true">
+                        <f:validator binding="#{bindings.OiltRegistration1.validator}"/>
+                        <af:autoSuggestBehavior suggestedItems="#{bindings.OiltRegistration1.suggestedItems}"/>
+                    </af:inputListOfValues>
+                    <af:inputText value="#{bindings.TnsRate.inputValue}" label="#{bindings.TnsRate.hints.label}"
+                                  required="#{bindings.TnsRate.hints.mandatory}"
+                                  columns="#{bindings.TnsRate.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsRate.hints.precision}"
+                                  shortDesc="#{bindings.TnsRate.hints.tooltip}" id="it14" autoSubmit="true"
+                                  readOnly="true">
+                        <f:validator binding="#{bindings.TnsRate.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.TnsQty.inputValue}" label="#{bindings.TnsQty.hints.label}"
+                                  required="#{bindings.TnsQty.hints.mandatory}"
+                                  columns="#{bindings.TnsQty.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsQty.hints.precision}"
+                                  shortDesc="#{bindings.TnsQty.hints.tooltip}" id="it13" autoSubmit="true">
+                        <f:validator binding="#{bindings.TnsQty.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsQty.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.TnsNewrate.inputValue}" label="#{bindings.TnsNewrate.hints.label}"
+                                  required="#{bindings.TnsNewrate.hints.mandatory}"
+                                  columns="#{bindings.TnsNewrate.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsNewrate.hints.precision}"
+                                  shortDesc="#{bindings.TnsNewrate.hints.tooltip}" id="it9" autoSubmit="true">
+                        <f:validator binding="#{bindings.TnsNewrate.validator}"/>
+                    </af:inputText>
+                    <af:outputText value="#{bindings.TnsFormatAmount.inputValue}"
+                                   shortDesc="#{bindings.TnsFormatAmount.hints.tooltip}" id="it6"
+                                   inlineStyle="font-size:large; font-weight:bold;">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsFormatAmount.format}"/>
+                    </af:outputText>
+                    <af:inputText value="#{bindings.TnsAmount.inputValue}" label="#{bindings.TnsAmount.hints.label}"
+                                  required="#{bindings.TnsAmount.hints.mandatory}"
+                                  columns="#{bindings.TnsAmount.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsAmount.hints.precision}"
+                                  shortDesc="#{bindings.TnsAmount.hints.tooltip}" id="it2" readOnly="true">
+                        <f:validator binding="#{bindings.TnsAmount.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsAmount.format}"/>
+                    </af:inputText>
+                    <af:outputText value="#{bindings.TnsSpellAmount.inputValue}"
+                                   shortDesc="#{bindings.TnsSpellAmount.hints.tooltip}" id="it16"
+                                   inlineStyle="font-size:large; font-weight:bold;"/>
+                    <af:inputText value="#{bindings.TnsInfo.inputValue}" label="#{bindings.TnsInfo.hints.label}"
+                                  required="#{bindings.TnsInfo.hints.mandatory}"
+                                  columns="#{bindings.TnsInfo.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsInfo.hints.precision}"
+                                  shortDesc="#{bindings.TnsInfo.hints.tooltip}" id="it7" autoSubmit="true">
+                        <f:validator binding="#{bindings.TnsInfo.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.TnsCoaCactNumber.inputValue}"
+                                  label="#{bindings.TnsCoaCactNumber.hints.label}"
+                                  required="#{bindings.TnsCoaCactNumber.hints.mandatory}"
+                                  columns="#{bindings.TnsCoaCactNumber.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsCoaCactNumber.hints.precision}"
+                                  shortDesc="#{bindings.TnsCoaCactNumber.hints.tooltip}" id="it3" rendered="false">
+                        <f:validator binding="#{bindings.TnsCoaCactNumber.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsCoaCactNumber.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.TnsCoaDactNumber.inputValue}"
+                                  label="#{bindings.TnsCoaDactNumber.hints.label}"
+                                  required="#{bindings.TnsCoaDactNumber.hints.mandatory}"
+                                  columns="#{bindings.TnsCoaDactNumber.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsCoaDactNumber.hints.precision}"
+                                  shortDesc="#{bindings.TnsCoaDactNumber.hints.tooltip}" id="it4" rendered="false">
+                        <f:validator binding="#{bindings.TnsCoaDactNumber.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsCoaDactNumber.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.TnsDetail.inputValue}" label="#{bindings.TnsDetail.hints.label}"
+                                  required="#{bindings.TnsDetail.hints.mandatory}"
+                                  columns="#{bindings.TnsDetail.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsDetail.hints.precision}"
+                                  shortDesc="#{bindings.TnsDetail.hints.tooltip}" id="it5" rendered="false">
+                        <f:validator binding="#{bindings.TnsDetail.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.TnsInfoStart.inputValue}"
+                                  label="#{bindings.TnsInfoStart.hints.label}"
+                                  required="#{bindings.TnsInfoStart.hints.mandatory}"
+                                  columns="#{bindings.TnsInfoStart.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsInfoStart.hints.precision}"
+                                  shortDesc="#{bindings.TnsInfoStart.hints.tooltip}" id="it8" autoSubmit="true">
+                        <f:validator binding="#{bindings.TnsInfoStart.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.TnsOildId.inputValue}" label="#{bindings.TnsOildId.hints.label}"
+                                  required="#{bindings.TnsOildId.hints.mandatory}"
+                                  columns="#{bindings.TnsOildId.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsOildId.hints.precision}"
+                                  shortDesc="#{bindings.TnsOildId.hints.tooltip}" id="it10" rendered="false">
+                        <f:validator binding="#{bindings.TnsOildId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsOildId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.TnsOiltId.inputValue}" label="#{bindings.TnsOiltId.hints.label}"
+                                  required="#{bindings.TnsOiltId.hints.mandatory}"
+                                  columns="#{bindings.TnsOiltId.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsOiltId.hints.precision}"
+                                  shortDesc="#{bindings.TnsOiltId.hints.tooltip}" id="it11" rendered="false">
+                        <f:validator binding="#{bindings.TnsOiltId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsOiltId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.TnsPurchaseRateLogIdFk.inputValue}"
+                                  label="#{bindings.TnsPurchaseRateLogIdFk.hints.label}"
+                                  required="#{bindings.TnsPurchaseRateLogIdFk.hints.mandatory}"
+                                  columns="#{bindings.TnsPurchaseRateLogIdFk.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsPurchaseRateLogIdFk.hints.precision}"
+                                  shortDesc="#{bindings.TnsPurchaseRateLogIdFk.hints.tooltip}" id="it12"
+                                  rendered="false">
+                        <f:validator binding="#{bindings.TnsPurchaseRateLogIdFk.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsPurchaseRateLogIdFk.format}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.TnsSlipDate.inputValue}" label="#{bindings.TnsSlipDate.hints.label}"
+                                  required="#{bindings.TnsSlipDate.hints.mandatory}"
+                                  columns="#{bindings.TnsSlipDate.hints.displayWidth}"
+                                  shortDesc="#{bindings.TnsSlipDate.hints.tooltip}" id="id2" autoSubmit="true">
+                        <f:validator binding="#{bindings.TnsSlipDate.validator}"/>
+                        <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                    </af:inputDate>
+                    <af:inputText value="#{bindings.TnsSlipNo.inputValue}" label="#{bindings.TnsSlipNo.hints.label}"
+                                  required="#{bindings.TnsSlipNo.hints.mandatory}"
+                                  columns="#{bindings.TnsSlipNo.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsSlipNo.hints.precision}"
+                                  shortDesc="#{bindings.TnsSlipNo.hints.tooltip}" id="it15" autoSubmit="true">
+                        <f:validator binding="#{bindings.TnsSlipNo.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.TnsId.inputValue}" label="#{bindings.TnsId.hints.label}"
+                                  required="#{bindings.TnsId.hints.mandatory}"
+                                  columns="#{bindings.TnsId.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsId.hints.precision}"
+                                  shortDesc="#{bindings.TnsId.hints.tooltip}" id="it1" readOnly="true">
+                        <f:validator binding="#{bindings.TnsId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.TnsStorageOiltIdFk.inputValue}"
+                                  label="#{bindings.TnsStorageOiltIdFk.hints.label}"
+                                  required="#{bindings.TnsStorageOiltIdFk.hints.mandatory}"
+                                  columns="#{bindings.TnsStorageOiltIdFk.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsStorageOiltIdFk.hints.precision}"
+                                  shortDesc="#{bindings.TnsStorageOiltIdFk.hints.tooltip}" id="it17" rendered="false">
+                        <f:validator binding="#{bindings.TnsStorageOiltIdFk.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsStorageOiltIdFk.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.TnsTnsTypeIdFk.inputValue}"
+                                  label="#{bindings.TnsTnsTypeIdFk.hints.label}"
+                                  required="#{bindings.TnsTnsTypeIdFk.hints.mandatory}"
+                                  columns="#{bindings.TnsTnsTypeIdFk.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsTnsTypeIdFk.hints.precision}"
+                                  shortDesc="#{bindings.TnsTnsTypeIdFk.hints.tooltip}" id="it18" rendered="false">
+                        <f:validator binding="#{bindings.TnsTnsTypeIdFk.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsTnsTypeIdFk.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.TnsTnsviewId.inputValue}"
+                                  label="#{bindings.TnsTnsviewId.hints.label}"
+                                  required="#{bindings.TnsTnsviewId.hints.mandatory}"
+                                  columns="#{bindings.TnsTnsviewId.hints.displayWidth}"
+                                  maximumLength="#{bindings.TnsTnsviewId.hints.precision}"
+                                  shortDesc="#{bindings.TnsTnsviewId.hints.tooltip}" id="it19" rendered="false">
+                        <f:validator binding="#{bindings.TnsTnsviewId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsTnsviewId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.OildId.inputValue}" label="#{bindings.OildId.hints.label}"
+                                  required="#{bindings.OildId.hints.mandatory}"
+                                  columns="#{bindings.OildId.hints.displayWidth}"
+                                  maximumLength="#{bindings.OildId.hints.precision}"
+                                  shortDesc="#{bindings.OildId.hints.tooltip}" id="it20" rendered="false">
+                        <f:validator binding="#{bindings.OildId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.OildId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.OiltId.inputValue}" label="#{bindings.OiltId.hints.label}"
+                                  required="#{bindings.OiltId.hints.mandatory}"
+                                  columns="#{bindings.OiltId.hints.displayWidth}"
+                                  maximumLength="#{bindings.OiltId.hints.precision}"
+                                  shortDesc="#{bindings.OiltId.hints.tooltip}" id="it21" rendered="false">
+                        <f:validator binding="#{bindings.OiltId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.OiltId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.OiltCapacity.inputValue}"
+                                  label="#{bindings.OiltCapacity.hints.label}"
+                                  required="#{bindings.OiltCapacity.hints.mandatory}"
+                                  columns="#{bindings.OiltCapacity.hints.displayWidth}"
+                                  maximumLength="#{bindings.OiltCapacity.hints.precision}"
+                                  shortDesc="#{bindings.OiltCapacity.hints.tooltip}" id="it22" readOnly="true">
+                        <f:validator binding="#{bindings.OiltCapacity.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.OiltCapacity.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.OiltId1.inputValue}" label="#{bindings.OiltId1.hints.label}"
+                                  required="#{bindings.OiltId1.hints.mandatory}"
+                                  columns="#{bindings.OiltId1.hints.displayWidth}"
+                                  maximumLength="#{bindings.OiltId1.hints.precision}"
+                                  shortDesc="#{bindings.OiltId1.hints.tooltip}" id="it23" rendered="false">
+                        <f:validator binding="#{bindings.OiltId1.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.OiltId1.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CoaActNumber.inputValue}"
+                                  label="#{bindings.CoaActNumber.hints.label}"
+                                  required="#{bindings.CoaActNumber.hints.mandatory}"
+                                  columns="#{bindings.CoaActNumber.hints.displayWidth}"
+                                  maximumLength="#{bindings.CoaActNumber.hints.precision}"
+                                  shortDesc="#{bindings.CoaActNumber.hints.tooltip}" id="it24" readOnly="true">
+                        <f:validator binding="#{bindings.CoaActNumber.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CoaBalance.inputValue}" label="#{bindings.CoaBalance.hints.label}"
+                                  required="#{bindings.CoaBalance.hints.mandatory}"
+                                  columns="#{bindings.CoaBalance.hints.displayWidth}"
+                                  maximumLength="#{bindings.CoaBalance.hints.precision}"
+                                  shortDesc="#{bindings.CoaBalance.hints.tooltip}" id="it25" readOnly="true">
+                        <f:validator binding="#{bindings.CoaBalance.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaBalance.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CoaPartyId.inputValue}" label="#{bindings.CoaPartyId.hints.label}"
+                                  required="#{bindings.CoaPartyId.hints.mandatory}"
+                                  columns="#{bindings.CoaPartyId.hints.displayWidth}"
+                                  maximumLength="#{bindings.CoaPartyId.hints.precision}"
+                                  shortDesc="#{bindings.CoaPartyId.hints.tooltip}" id="it26" rendered="false">
+                        <f:validator binding="#{bindings.CoaPartyId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaPartyId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CoaActNumber1.inputValue}"
+                                  label="#{bindings.CoaActNumber1.hints.label}"
+                                  required="#{bindings.CoaActNumber1.hints.mandatory}"
+                                  columns="#{bindings.CoaActNumber1.hints.displayWidth}"
+                                  maximumLength="#{bindings.CoaActNumber1.hints.precision}"
+                                  shortDesc="#{bindings.CoaActNumber1.hints.tooltip}" id="it27" readOnly="true">
+                        <f:validator binding="#{bindings.CoaActNumber1.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber1.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CoaBalance1.inputValue}" label="#{bindings.CoaBalance1.hints.label}"
+                                  required="#{bindings.CoaBalance1.hints.mandatory}"
+                                  columns="#{bindings.CoaBalance1.hints.displayWidth}"
+                                  maximumLength="#{bindings.CoaBalance1.hints.precision}"
+                                  shortDesc="#{bindings.CoaBalance1.hints.tooltip}" id="it28" readOnly="true">
+                        <f:validator binding="#{bindings.CoaBalance1.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaBalance1.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CoaProductId.inputValue}"
+                                  label="#{bindings.CoaProductId.hints.label}"
+                                  required="#{bindings.CoaProductId.hints.mandatory}"
+                                  columns="#{bindings.CoaProductId.hints.displayWidth}"
+                                  maximumLength="#{bindings.CoaProductId.hints.precision}"
+                                  shortDesc="#{bindings.CoaProductId.hints.tooltip}" id="it29" rendered="false">
+                        <f:validator binding="#{bindings.CoaProductId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaProductId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CoaQtyBalance.inputValue}"
+                                  label="#{bindings.CoaQtyBalance.hints.label}"
+                                  required="#{bindings.CoaQtyBalance.hints.mandatory}"
+                                  columns="#{bindings.CoaQtyBalance.hints.displayWidth}"
+                                  maximumLength="#{bindings.CoaQtyBalance.hints.precision}"
+                                  shortDesc="#{bindings.CoaQtyBalance.hints.tooltip}" id="it30" readOnly="true">
+                        <f:validator binding="#{bindings.CoaQtyBalance.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaQtyBalance.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.PurchaseRateLogId.inputValue}"
+                                  label="#{bindings.PurchaseRateLogId.hints.label}"
+                                  required="#{bindings.PurchaseRateLogId.hints.mandatory}"
+                                  columns="#{bindings.PurchaseRateLogId.hints.displayWidth}"
+                                  maximumLength="#{bindings.PurchaseRateLogId.hints.precision}"
+                                  shortDesc="#{bindings.PurchaseRateLogId.hints.tooltip}" id="it31" rendered="false">
+                        <f:validator binding="#{bindings.PurchaseRateLogId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.PurchaseRateLogId.format}"/>
+                    </af:inputText>
+                    <f:facet name="footer">
+                        <af:panelGroupLayout layout="horizontal" id="pgl2">
+                            <af:button actionListener="#{bindings.First.execute}"
+                                       icon="#{resource['images:first_hor_ena.png']}"
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                            <af:button actionListener="#{bindings.Previous.execute}"
+                                       icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                            <af:button actionListener="#{bindings.Next.execute}"
+                                       icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                            <af:button actionListener="#{bindings.Last.execute}"
+                                       icon="#{resource['images:last_hor_ena.png']}"
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                            <af:panelGroupLayout id="pgl1" layout="horizontal">
+                                <af:outputText value="---------------" id="ot40"/>
+                                <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                                           icon="#{resource['images:commit.png']}"
+                                           disabled="#{!bindings.Commit.enabled}"/>
+                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                           icon="#{resource['images:add.png']}"
+                                           disabled="#{!bindings.CreateInsert.enabled}" id="b6"/>
+                                <af:outputText value="-----------------------------" id="ot41"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                           icon="#{resource['images:rollback.png']}"
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                                    <af:resetActionListener/>
+                                </af:button>
+                                <af:outputText value="------------------------------------------------" id="ot42"/>
+                                <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                           disabled="#{!bindings.Delete.enabled}" id="b8"
+                                           icon="#{resource['images:garbg.png']}" inlineStyle="color:Red;"/>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:panelFormLayout>
+            </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.PurchaseSupplierFuel1.collectionModel}" var="row"
+                          rows="#{bindings.PurchaseSupplierFuel1.rangeSize}"
+                          emptyText="#{bindings.PurchaseSupplierFuel1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.PurchaseSupplierFuel1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.PurchaseSupplierFuel1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.PurchaseSupplierFuel1.rangeSize}"
+                          filterModel="#{bindings.PurchaseSupplierFuel1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.PurchaseSupplierFuel1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 :::b1 :::b2 :::b3 :::b4 :::b6 :::b8 :::b5 :::b7"
+                          scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsDate.label}"
+                               id="c1" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               width="80">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.PurchaseSupplierFuel1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsDate.value}"
+                                          id="id3">
+                                <af:convertDateTime pattern="#{bindings.PurchaseSupplierFuel1.hints.TnsDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.TnsDate}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsDate.tooltip}" id="ot2">
+                            <af:convertDateTime pattern="#{bindings.PurchaseSupplierFuel1.hints.TnsDate.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.CoaName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.CoaName.label}"
+                               id="c29" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               width="150">
+                        <af:outputText value="#{row.CoaName}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.CoaName.tooltip}" id="ot30"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.CoaName1.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.CoaName1.label}"
+                               id="c33" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               width="80">
+                        <af:outputText value="#{row.CoaName1}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.CoaName1.tooltip}" id="ot34"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.PurchaseRateLogR.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.PurchaseRateLogR.label}" id="c38"
+                               align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               width="80">
+                        <af:selectOneChoice value="#{row.bindings.PurchaseRateLogR.inputValue}"
+                                            label="#{row.bindings.PurchaseRateLogR.label}"
+                                            required="#{bindings.PurchaseSupplierFuel1.hints.PurchaseRateLogR.mandatory}"
+                                            shortDesc="#{bindings.PurchaseSupplierFuel1.hints.PurchaseRateLogR.tooltip}"
+                                            readOnly="true" id="soc2">
+                            <f:selectItems value="#{row.bindings.PurchaseRateLogR.items}" id="si2"/>
+                            <f:validator binding="#{row.bindings.PurchaseRateLogR.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.OildShortname.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.OildShortname.label}" id="c22"
+                               align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               width="80">
+                        <af:outputText value="#{row.OildShortname}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.OildShortname.tooltip}"
+                                       id="ot23"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.OiltRegistration.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.OiltRegistration.label}" id="c24"
+                               align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               width="80">
+                        <af:outputText value="#{row.OiltRegistration}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.OiltRegistration.tooltip}"
+                                       id="ot25"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.OiltRegistration1.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.OiltRegistration1.label}" id="c27"
+                               align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;">
+                        <af:outputText value="#{row.OiltRegistration1}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.OiltRegistration1.tooltip}"
+                                       id="ot28"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsRate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsRate.label}"
+                               id="c15" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               width="80">
+                        <af:outputText value="#{row.TnsRate}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsRate.tooltip}" id="ot16"/>
+                    </af:column>
+					<af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsAmount.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsAmount.label}"
+                               id="c3" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               rendered="true" width="90">
+                        <af:outputText value="#{row.TnsAmount}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsAmount.tooltip}" id="ot4">
+                            
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsFormatAmount.name}"
+                               filterable="true" sortable="true" headerText="Formatted Amount" id="c7"
+                               align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               width="90">
+                        <af:outputText value="#{row.TnsFormatAmount}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsFormatAmount.tooltip}"
+                                       id="ot8">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.TnsFormatAmount.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsQty.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsQty.label}"
+                               id="c14" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               width="80">
+                        <af:outputText value="#{row.TnsQty}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsQty.tooltip}" id="ot15">
+                            <af:convertNumber groupingUsed="true"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.TnsQty.format}"
+                                              messageDetailConvertNumber="#,###,##"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsNewrate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsNewrate.label}"
+                               id="c10" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               width="80">
+                        <af:outputText value="#{row.TnsNewrate}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsNewrate.tooltip}"
+                                       id="ot11"/>
+                    </af:column>
+                    
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsInfo.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsInfo.label}"
+                               id="c8" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;">
+                        <af:outputText value="#{row.TnsInfo}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsInfo.tooltip}" id="ot9"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsSlipDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsSlipDate.label}"
+                               id="c16" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               width="80">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.PurchaseSupplierFuel1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsSlipDate.value}"
+                                          id="id4">
+                                <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.TnsSlipDate}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsSlipDate.tooltip}"
+                                       id="ot17">
+                            <af:convertDateTime pattern="#{bindings.PurchaseSupplierFuel1.hints.TnsSlipDate.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsSlipNo.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsSlipNo.label}"
+                               id="c17" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               width="80">
+                        <af:outputText value="#{row.TnsSlipNo}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsSlipNo.tooltip}" id="ot18"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.CoaBalance.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.CoaBalance.label}"
+							   rendered="false"
+                               id="c31" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.CoaBalance}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.CoaBalance.tooltip}" id="ot32">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.CoaBalance.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.CoaBalance1.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.CoaBalance1.label}"
+							   rendered="false"
+                               id="c35" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.CoaBalance1}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.CoaBalance1.tooltip}"
+                                       id="ot36">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.CoaBalance1.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.CoaQtyBalance.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.CoaQtyBalance.label}" id="c37"
+							   rendered="false"
+                               align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.CoaQtyBalance}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.CoaQtyBalance.tooltip}"
+                                       id="ot38">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.CoaQtyBalance.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsId.label}" id="c2"
+                               rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.TnsId}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsId.tooltip}" id="ot3">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.TnsId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsCoaCactNumber.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsCoaCactNumber.label}" id="c4"
+                               rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.TnsCoaCactNumber}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsCoaCactNumber.tooltip}"
+                                       id="ot5">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.TnsCoaCactNumber.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsCoaDactNumber.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsCoaDactNumber.label}" id="c5"
+                               rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.TnsCoaDactNumber}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsCoaDactNumber.tooltip}"
+                                       id="ot6">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.TnsCoaDactNumber.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsDetail.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsDetail.label}"
+                               id="c6" rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.TnsDetail}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsDetail.tooltip}" id="ot7"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsInfoStart.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsInfoStart.label}" id="c9"
+                               rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.TnsInfoStart}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsInfoStart.tooltip}"
+                                       id="ot10"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsOildId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsOildId.label}"
+                               id="c11" rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.TnsOildId}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsOildId.tooltip}" id="ot12">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.TnsOildId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsOiltId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsOiltId.label}"
+                               id="c12" rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.TnsOiltId}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsOiltId.tooltip}" id="ot13">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.TnsOiltId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsPurchaseRateLogIdFk.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsPurchaseRateLogIdFk.label}"
+                               id="c13" rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.TnsPurchaseRateLogIdFk}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsPurchaseRateLogIdFk.tooltip}"
+                                       id="ot14">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.TnsPurchaseRateLogIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsSpellAmount.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsSpellAmount.label}" id="c18"
+                               rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.TnsSpellAmount}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsSpellAmount.tooltip}"
+                                       id="ot19"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsStorageOiltIdFk.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsStorageOiltIdFk.label}" id="c19"
+                               rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.TnsStorageOiltIdFk}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsStorageOiltIdFk.tooltip}"
+                                       id="ot20">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.TnsStorageOiltIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsTnsTypeIdFk.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsTnsTypeIdFk.label}" id="c20"
+                               rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.TnsTnsTypeIdFk}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsTnsTypeIdFk.tooltip}"
+                                       id="ot21">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.TnsTnsTypeIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.TnsTnsviewId.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.TnsTnsviewId.label}" id="c21"
+                               rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.TnsTnsviewId}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.TnsTnsviewId.tooltip}"
+                                       id="ot22">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.TnsTnsviewId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.OildId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.OildId.label}"
+                               id="c23" rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.OildId}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.OildId.tooltip}" id="ot24">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.OildId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.OiltId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.OiltId.label}"
+                               id="c25" rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.OiltId}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.OiltId.tooltip}" id="ot26">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.OiltId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.OiltCapacity.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.OiltCapacity.label}" id="c26"
+                               rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.OiltCapacity}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.OiltCapacity.tooltip}"
+                                       id="ot27">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.OiltCapacity.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.OiltId1.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.OiltId1.label}"
+                               id="c28" rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.OiltId1}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.OiltId1.tooltip}" id="ot29">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.OiltId1.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.CoaActNumber.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.CoaActNumber.label}" id="c30"
+                               rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.CoaActNumber}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.CoaActNumber.tooltip}"
+                                       id="ot31">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.CoaActNumber.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.CoaPartyId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurchaseSupplierFuel1.hints.CoaPartyId.label}"
+                               id="c32" rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.CoaPartyId}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.CoaPartyId.tooltip}" id="ot33">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.CoaPartyId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.CoaActNumber1.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.CoaActNumber1.label}" id="c34"
+                               rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.CoaActNumber1}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.CoaActNumber1.tooltip}"
+                                       id="ot35">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.CoaActNumber1.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.CoaProductId.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.CoaProductId.label}" id="c36"
+                               rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.CoaProductId}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.CoaProductId.tooltip}"
+                                       id="ot37">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.CoaProductId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseSupplierFuel1.hints.PurchaseRateLogId.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseSupplierFuel1.hints.PurchaseRateLogId.label}" id="c39"
+                               rendered="false" align="center"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;">
+                        <af:outputText value="#{row.PurchaseRateLogId}"
+                                       shortDesc="#{bindings.PurchaseSupplierFuel1.hints.PurchaseRateLogId.tooltip}"
+                                       id="ot39">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseSupplierFuel1.hints.PurchaseRateLogId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

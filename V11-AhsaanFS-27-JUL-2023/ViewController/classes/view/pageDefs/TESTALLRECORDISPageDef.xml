@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="TESTALLRECORDISPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="IncomeStatementDetailsView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="IncomeStatementDetailsView1Iterator"/>
+    <searchRegion Binds="IncomeStatementDetailsView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="IncomeStatementDetailsView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="IncomeStatementDetailsView1Iterator" id="IncomeStatementDetailsView1">
+      <nodeDefinition DefName="model.IncomeStatementDetailsView" Name="IncomeStatementDetailsView10">
+        <AttrNames>
+          <Item Value="IsId"/>
+          <Item Value="IsCoaName"/>
+          <Item Value="IsCoaId"/>
+          <Item Value="IsDebit"/>
+          <Item Value="IsCredit"/>
+          <Item Value="IsBalance"/>
+          <Item Value="IsCat"/>
+          <Item Value="IsHdIdFk"/>
+          <Item Value="IsHdMonthYear"/>
+          <Item Value="IsHdId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

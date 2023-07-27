@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="jspxPageDef"
+                Package="MeterReadings">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MeterReadingsView1" RangeSize="25" DataControl="VOAPPDataControl" id="MeterReadingsView1Iterator"/>
+    <searchRegion Binds="MeterReadingsView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="MeterReadingsView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MeterReadingsView1Iterator" id="MeterReadingsView1">
+      <nodeDefinition DefName="model.MeterReadingsView" Name="MeterReadingsView10">
+        <AttrNames>
+          <Item Value="MeterRId"/>
+          <Item Value="MeterRReadings"/>
+          <Item Value="MeterRNozalIdFk"/>
+          <Item Value="MeterRDate"/>
+          <Item Value="MeterRPrevious"/>
+          <Item Value="MeterRCurrent"/>
+          <Item Value="MeterRSale"/>
+          <Item Value="MeterRProductId"/>
+          <Item Value="DcIdFk"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

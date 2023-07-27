@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OmcPartyFkAssoc"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Omc"
+    Cardinality="1"
+    Source="true"
+    Owner="model.Omc">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Omc"/>
+      <Attr Name="_foreignKey" Value="model.Omc.OmcPk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Omc.OmcId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Party"
+    Cardinality="-1"
+    Owner="model.Party">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Party"/>
+      <Attr Name="_foreignKey" Value="model.Party.OmcPartyFk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Party.PomcId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="oiltankerVIEWPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OilTankerAllView1" RangeSize="25" DataControl="VOAPPDataControl" id="OilTankerAllView1Iterator"/>
+    <searchRegion Binds="OilTankerAllView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="OilTankerAllView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="OilTankerAllView1Iterator" id="OiltId">
+      <AttrNames>
+        <Item Value="OiltId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OilTankerAllView1Iterator" id="OiltRegistration">
+      <AttrNames>
+        <Item Value="OiltRegistration"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OilTankerAllView1Iterator" id="OiltCapacity">
+      <AttrNames>
+        <Item Value="OiltCapacity"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="OilTankerAllView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="OilTankerAllView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="OilTankerAllView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="OilTankerAllView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="OilTankerAllView1Iterator" id="OilTankerAllView1">
+      <nodeDefinition DefName="model.OilTankerAllView" Name="OilTankerAllView10">
+        <AttrNames>
+          <Item Value="OiltId"/>
+          <Item Value="OiltRegistration"/>
+          <Item Value="OiltCapacity"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="OilTankerAllView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

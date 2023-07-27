@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="ShowUploadPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ImagesTableVO1" RangeSize="25" DataControl="VOAPPDataControl" id="ImagesTableVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ImagesTableVO1Iterator" id="ImageId">
+      <AttrNames>
+        <Item Value="ImageId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ImagesTableVO1Iterator" id="ImageDescription">
+      <AttrNames>
+        <Item Value="ImageDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ImagesTableVO1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="ImagesTableVO1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="ImagesTableVO1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="ImagesTableVO1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <attributeValues IterBinding="ImagesTableVO1Iterator" id="ImageBlob">
+      <AttrNames>
+        <Item Value="ImageBlob"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ImagesTableVO1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

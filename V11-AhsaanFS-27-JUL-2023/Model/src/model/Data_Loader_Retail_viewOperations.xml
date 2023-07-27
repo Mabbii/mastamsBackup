@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE OperationDefinitions SYSTEM "jbo_03_01.dtd">
+<OperationDefinitions xmlns="http://xmlns.oracle.com/bc4j" Name="Data_Loader_Retail_viewOperations">
+  <ExpressionCodeSource
+    Name="Data_Loader_Retail_viewRow"
+    Type="Static"
+    URI="model/Data_Loader_Retail_viewRow.bcs"/>
+</OperationDefinitions>

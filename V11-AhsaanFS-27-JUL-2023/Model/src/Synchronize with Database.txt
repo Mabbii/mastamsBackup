@@ -1,0 +1,30 @@
+The following Synchronization Actions were performed successfully:
+
+Entity :DataLoaderSaleDisc
+  Attribute :DlsdSlipNo
+    Change Primary Key to:false
+  Attribute :DlsdSlipDate
+    Change Primary Key to:false
+  Attribute :DlsdInfo
+    Change Primary Key to:false
+  Attribute :DlsdVehicleIdFk
+    Change Primary Key to:false
+  Attribute :DlsdDiscAmount
+    Change Primary Key to:false
+  Attribute :DlsdDiscRate
+    Change Primary Key to:false
+  Attribute :DlsdAmount
+    Change Primary Key to:false
+  Attribute :DlsdRate
+    Change Primary Key to:false
+  Attribute :DlsdQty
+    Change Primary Key to:false
+  Attribute :DlsdCactIdFk
+    Change Primary Key to:false
+  Attribute :DlsdDactIdFk
+    Change Primary Key to:false
+  Attribute :DlsdDate
+    Change Primary Key to:false
+  Attribute :DlsdId
+    Change Primary Key to:false
+  Remove Key Constraint: DataloadersalediscPrimaryKey

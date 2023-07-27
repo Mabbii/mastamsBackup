@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="HomeView">
+    <page>/HomeView.jsf</page>
+  </view>
+  <task-flow-call id="AccountsTf">
+    <?audit suppress oracle.adfdt.controller.adfc.source.audit.PageFragmentSemanticsDoNotMatch2b?>
+    <task-flow-reference>
+      <document>/WEB-INF/ShahidCheckTf.xml</document>
+      <id>AccountsTf</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <task-flow-call id="RatesTF">
+    <task-flow-reference>
+      <document>/WEB-INF/RatesTF.xml</document>
+      <id>RatesTF</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <task-flow-call id="ManagementTF">
+    <task-flow-reference>
+      <document>/WEB-INF/ManagementTF.xml</document>
+      <id>ManagementTF</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <task-flow-call id="SupplyTF">
+    <task-flow-reference>
+      <document>/WEB-INF/SupplyTF.xml</document>
+      <id>SupplyTF</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <task-flow-call id="RetailTF">
+    <task-flow-reference>
+      <document>/WEB-INF/RetailTF.xml</document>
+      <id>RetailTF</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <task-flow-call id="AccountOpeningTF">
+    <task-flow-reference>
+      <document>/WEB-INF/AccountOpeningTF.xml</document>
+      <id>AccountOpeningTF</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <task-flow-call id="ReportsTF">
+    <task-flow-reference>
+      <document>/WEB-INF/ReportsTF.xml</document>
+      <id>ReportsTF</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <task-flow-call id="DayBookTF">
+    <task-flow-reference>
+      <document>/WEB-INF/DayBookTF.xml</document>
+      <id>DayBookTF</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <task-flow-call id="StockTf">
+    <task-flow-reference>
+      <document>/WEB-INF/StockTf.xml</document>
+      <id>StockTf</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <task-flow-call id="InitiallizeDateTF">
+    <task-flow-reference>
+      <document>/WEB-INF/InitiallizeDateTF.xml</document>
+      <id>InitiallizeDateTF</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <task-flow-call id="financialstatements">
+    <task-flow-reference>
+      <document>/WEB-INF/financialstatements.xml</document>
+      <id>financialstatements</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <task-flow-call id="DataLoader">
+    <task-flow-reference>
+      <document>/WEB-INF/DataLoader.xml</document>
+      <id>DataLoader</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <control-flow-rule id="__11">
+    <from-activity-id>HomeView</from-activity-id>
+    <control-flow-case id="__25">
+      <from-outcome>tobounded</from-outcome>
+      <to-activity-id>toanother</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__29">
+      <from-outcome>tohomenew</from-outcome>
+      <to-activity-id>AccountsTf</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__12">
+      <from-outcome>ToRatesTF</from-outcome>
+      <to-activity-id>RatesTF</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__13">
+      <from-outcome>TomanagmentTF</from-outcome>
+      <to-activity-id>ManagementTF</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__14">
+      <from-outcome>ToSupplyTF</from-outcome>
+      <to-activity-id>SupplyTF</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__15">
+      <from-outcome>ToRetailTF</from-outcome>
+      <to-activity-id>RetailTF</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__24">
+      <from-outcome>ToaccountOpening</from-outcome>
+      <to-activity-id>AccountOpeningTF</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__34">
+      <from-outcome>ToReport</from-outcome>
+      <to-activity-id>ReportsTF</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__39">
+      <from-outcome>ToDayBook</from-outcome>
+      <to-activity-id>DayBookTF</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__40">
+      <from-outcome>ToStock</from-outcome>
+      <to-activity-id>StockTf</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__45">
+      <from-outcome>ToInitializeDate</from-outcome>
+      <to-activity-id>InitiallizeDateTF</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__26">
+    <from-activity-id>toanother</from-activity-id>
+    <control-flow-case id="__28">
+      <from-outcome>tohomemy</from-outcome>
+      <to-activity-id>HomeView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__30">
+    <from-activity-id>AccountsTf</from-activity-id>
+    <control-flow-case id="__31">
+      <from-outcome>taskFlowReturn1</from-outcome>
+      <to-activity-id>HomeView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__16">
+    <from-activity-id>RatesTF</from-activity-id>
+    <control-flow-case id="__17">
+      <from-outcome>taskFlowReturn1</from-outcome>
+      <to-activity-id>HomeView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__18">
+    <from-activity-id>RetailTF</from-activity-id>
+    <control-flow-case id="__19">
+      <from-outcome>taskFlowReturn1</from-outcome>
+      <to-activity-id>HomeView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__20">
+    <from-activity-id>SupplyTF</from-activity-id>
+    <control-flow-case id="__21">
+      <from-outcome>taskFlowReturn1</from-outcome>
+      <to-activity-id>HomeView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__22">
+    <from-activity-id>ManagementTF</from-activity-id>
+    <control-flow-case id="__23">
+      <from-outcome>taskFlowReturn1</from-outcome>
+      <to-activity-id>HomeView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__32">
+    <from-activity-id>AccountOpeningTF</from-activity-id>
+    <control-flow-case id="__33">
+      <from-outcome>taskFlowReturn1</from-outcome>
+      <to-activity-id>HomeView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__35">
+    <from-activity-id>ReportsTF</from-activity-id>
+    <control-flow-case id="__36">
+      <from-outcome>taskFlowReturn1</from-outcome>
+      <to-activity-id>HomeView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__37">
+    <from-activity-id>DayBookTF</from-activity-id>
+    <control-flow-case id="__38">
+      <from-outcome>taskFlowReturn1</from-outcome>
+      <to-activity-id>HomeView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__43">
+    <from-activity-id>StockTf</from-activity-id>
+    <control-flow-case id="__44">
+      <from-outcome>taskFlowReturn1</from-outcome>
+      <to-activity-id>HomeView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__46">
+    <from-activity-id>InitiallizeDateTF</from-activity-id>
+    <control-flow-case id="__47">
+      <from-outcome>taskFlowReturn1</from-outcome>
+      <to-activity-id>HomeView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__49">
+    <from-activity-id>financialstatements</from-activity-id>
+    <control-flow-case id="__50">
+      <from-outcome>ToFinanceStatement</from-outcome>
+      <to-activity-id>HomeView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__1">
+    <managed-bean-name>home</managed-bean-name>
+    <managed-bean-class>view.backing.home</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1MAIN PAGE.jsf-->
+  </managed-bean>
+  <managed-bean id="__2">
+    <managed-bean-name>backing_untitled1</managed-bean-name>
+    <managed-bean-class>view.GLedgerBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1BILL.jsf-->
+  </managed-bean>
+  <managed-bean id="__3">
+    <managed-bean-name>Refreshbean</managed-bean-name>
+    <managed-bean-class>view.Refreshclass</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__4">
+    <managed-bean-name>GLedgerBean</managed-bean-name>
+    <managed-bean-class>view.GLedgerBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__5">
+    <managed-bean-name>AuthBean</managed-bean-name>
+    <managed-bean-class>view.AuthBeanClass</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__6">
+    <managed-bean-name>MainPageBean</managed-bean-name>
+    <managed-bean-class>view.MainPageBeanClass</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__7">
+    <managed-bean-name>OpssBenPass</managed-bean-name>
+    <managed-bean-class>view.OpssBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__8">
+    <managed-bean-name>Imagebean</managed-bean-name>
+    <managed-bean-class>view.ImageUpload</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__9">
+    <managed-bean-name>ChageSwither</managed-bean-name>
+    <managed-bean-class>view.ChangeSwitcer</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__10">
+    <managed-bean-name>PageLoadBean</managed-bean-name>
+    <managed-bean-class>view.PageLoadBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__27">
+    <managed-bean-name>backing_MyHomeView</managed-bean-name>
+    <managed-bean-class>view.backing.MyHomeView</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1HomeView.jsf-->
+  </managed-bean>
+  <managed-bean id="__41">
+    <managed-bean-name>PrintPageBean</managed-bean-name>
+    <managed-bean-class>view.backing.PrintPage</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__42">
+    <managed-bean-name>UserProfileBean</managed-bean-name>
+    <managed-bean-class>view.UserProfile</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="OpeningBalanceForLiabilitiesTF">
+    <default-activity>OpeningBalanceForLiabilitiesview</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__1">
+      <managed-bean-name>backing_OpeningBalanceForLiabilitiesview</managed-bean-name>
+      <managed-bean-class>view.backing.OpeningBalanceForLiabilitiesview</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1OpeningBalanceForLiabilitiesview.jsff-->
+    </managed-bean>
+    <managed-bean id="__2">
+      <managed-bean-name>backing_OpeningBalanceForLiabilitiesview2</managed-bean-name>
+      <managed-bean-class>view.backing.OpeningBalanceForLiabilitiesview2</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1OpeningBalanceForLiabilitiesview.jsff-->
+    </managed-bean>
+    <view id="OpeningBalanceForLiabilitiesview">
+      <page>/OpeningBalanceForLiabilitiesview.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

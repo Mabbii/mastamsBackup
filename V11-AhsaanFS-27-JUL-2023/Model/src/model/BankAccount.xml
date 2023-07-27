@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BankAccount"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="BANK_ACCOUNT"
+  AliasName="BankAccount"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="BActId"
+    ColumnName="B_ACT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="BANK_ACCOUNT"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="BActTitle"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="B_ACT_TITLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="NVARCHAR2"
+    TableName="BANK_ACCOUNT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BActNo"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="B_ACT_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="BANK_ACCOUNT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BActShort"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="B_ACT_SHORT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="BANK_ACCOUNT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BActBranchcode"
+    Precision="8"
+    ColumnName="B_ACT_BRANCHCODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="BANK_ACCOUNT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BActBranchname"
+    Precision="20"
+    ColumnName="B_ACT_BRANCHNAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="BANK_ACCOUNT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BActBankname"
+    Precision="20"
+    ColumnName="B_ACT_BANKNAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="BANK_ACCOUNT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="ChartOfAccounts"
+    Association="model.BankaccountCoaFkAssoc"
+    AssociationEnd="model.BankaccountCoaFkAssoc.ChartOfAccounts"
+    AssociationOtherEnd="model.BankaccountCoaFkAssoc.BankAccount"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="BankAccountPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="BANK_ACCOUNT_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BankAccount.BActId"/>
+    </AttrArray>
+  </Key>
+</Entity>

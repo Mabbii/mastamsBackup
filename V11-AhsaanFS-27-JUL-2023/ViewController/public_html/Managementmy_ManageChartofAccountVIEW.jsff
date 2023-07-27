@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="459" id="ps1">
+        <f:facet name="first">
+            <af:panelBox id="pb1">
+                <f:facet name="toolbar"/>
+                <af:panelFormLayout id="pfl1" labelAlignment="start">
+                    <af:outputText value="Manage Chart Of Account" id="ot8"
+                                   inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                    <af:inputDate value="#{bindings.CoaMngSysDate.inputValue}"
+                                  label="#{bindings.CoaMngSysDate.hints.label}"
+                                  required="#{bindings.CoaMngSysDate.hints.mandatory}"
+                                  columns="#{bindings.CoaMngSysDate.hints.displayWidth}"
+                                  shortDesc="#{bindings.CoaMngSysDate.hints.tooltip}" id="id1" readOnly="true">
+                        <f:validator binding="#{bindings.CoaMngSysDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.CoaMngSysDate.format}"/>
+                    </af:inputDate>
+                    <af:inputListOfValues id="coaNameId" popupTitle="Search and Select: #{bindings.CoaName.hints.label}"
+                                          value="#{bindings.CoaName.inputValue}" label="#{bindings.CoaName.hints.label}"
+                                          model="#{bindings.CoaName.listOfValuesModel}"
+                                          required="#{bindings.CoaName.hints.mandatory}"
+                                          columns="#{bindings.CoaName.hints.displayWidth}"
+                                          shortDesc="#{bindings.CoaName.hints.tooltip}" autoSubmit="true">
+                        <f:validator binding="#{bindings.CoaName.validator}"/>
+                        <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName.suggestedItems}"/>
+                    </af:inputListOfValues>
+                    <af:selectOneChoice value="#{bindings.CoaMngExemptSalesPurchase.inputValue}"
+                                        label="#{bindings.CoaMngExemptSalesPurchase.label}"
+                                        required="#{bindings.CoaMngExemptSalesPurchase.hints.mandatory}"
+                                        shortDesc="#{bindings.CoaMngExemptSalesPurchase.hints.tooltip}" id="soc11">
+                        <f:selectItems value="#{bindings.CoaMngExemptSalesPurchase.items}" id="si11"/>
+                        <f:validator binding="#{bindings.CoaMngExemptSalesPurchase.validator}"/>
+                    </af:selectOneChoice>
+                    <af:selectOneChoice value="#{bindings.CoaMngDrBlock.inputValue}"
+                                        label="#{bindings.CoaMngDrBlock.label}"
+                                        required="#{bindings.CoaMngDrBlock.hints.mandatory}"
+                                        shortDesc="#{bindings.CoaMngDrBlock.hints.tooltip}" id="soc1">
+                        <f:selectItems value="#{bindings.CoaMngDrBlock.items}" id="si1"/>
+                        <f:validator binding="#{bindings.CoaMngDrBlock.validator}"/>
+                    </af:selectOneChoice>
+                    <af:selectOneChoice value="#{bindings.CoaMngCrBlock.inputValue}"
+                                        label="#{bindings.CoaMngCrBlock.label}"
+                                        required="#{bindings.CoaMngCrBlock.hints.mandatory}"
+                                        shortDesc="#{bindings.CoaMngCrBlock.hints.tooltip}" id="soc2">
+                        <f:selectItems value="#{bindings.CoaMngCrBlock.items}" id="si2"/>
+                        <f:validator binding="#{bindings.CoaMngCrBlock.validator}"/>
+                    </af:selectOneChoice>
+                    <af:selectOneChoice value="#{bindings.CoaMngAllBlock.inputValue}"
+                                        label="#{bindings.CoaMngAllBlock.label}"
+                                        required="#{bindings.CoaMngAllBlock.hints.mandatory}"
+                                        shortDesc="#{bindings.CoaMngAllBlock.hints.tooltip}" id="soc3">
+                        <f:selectItems value="#{bindings.CoaMngAllBlock.items}" id="si3"/>
+                        <f:validator binding="#{bindings.CoaMngAllBlock.validator}"/>
+                    </af:selectOneChoice>
+                    <af:selectOneChoice value="#{bindings.CoaMngShowBlock.inputValue}"
+                                        label="#{bindings.CoaMngShowBlock.label}"
+                                        required="#{bindings.CoaMngShowBlock.hints.mandatory}"
+                                        shortDesc="#{bindings.CoaMngShowBlock.hints.tooltip}" id="soc4">
+                        <f:selectItems value="#{bindings.CoaMngShowBlock.items}" id="si4"/>
+                        <f:validator binding="#{bindings.CoaMngShowBlock.validator}"/>
+                    </af:selectOneChoice>
+                    <af:selectOneChoice value="#{bindings.CoaMngShowAsBank.inputValue}"
+                                        label="#{bindings.CoaMngShowAsBank.label}"
+                                        required="#{bindings.CoaMngShowAsBank.hints.mandatory}"
+                                        shortDesc="#{bindings.CoaMngShowAsBank.hints.tooltip}" id="soc9">
+                        <f:selectItems value="#{bindings.CoaMngShowAsBank.items}" id="si9"/>
+                        <f:validator binding="#{bindings.CoaMngShowAsBank.validator}"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.CoaMngBlockReason.inputValue}"
+                                  label="#{bindings.CoaMngBlockReason.hints.label}"
+                                  required="#{bindings.CoaMngBlockReason.hints.mandatory}"
+                                  columns="#{bindings.CoaMngBlockReason.hints.displayWidth}"
+                                  maximumLength="#{bindings.CoaMngBlockReason.hints.precision}"
+                                  shortDesc="#{bindings.CoaMngBlockReason.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.CoaMngBlockReason.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CoaMngCoaIdFk.inputValue}"
+                                  label="#{bindings.CoaMngCoaIdFk.hints.label}"
+                                  required="#{bindings.CoaMngCoaIdFk.hints.mandatory}"
+                                  columns="#{bindings.CoaMngCoaIdFk.hints.displayWidth}"
+                                  maximumLength="#{bindings.CoaMngCoaIdFk.hints.precision}"
+                                  shortDesc="#{bindings.CoaMngCoaIdFk.hints.tooltip}" id="it4" rendered="false">
+                        <f:validator binding="#{bindings.CoaMngCoaIdFk.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaMngCoaIdFk.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CoaMngId.inputValue}" label="#{bindings.CoaMngId.hints.label}"
+                                  required="#{bindings.CoaMngId.hints.mandatory}"
+                                  columns="#{bindings.CoaMngId.hints.displayWidth}"
+                                  maximumLength="#{bindings.CoaMngId.hints.precision}"
+                                  shortDesc="#{bindings.CoaMngId.hints.tooltip}" id="it1" readOnly="true"
+                                  inlineStyle="text-align:right;" rendered="false">
+                        <f:validator binding="#{bindings.CoaMngId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaMngId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CoaMngName.inputValue}" label="#{bindings.CoaMngName.hints.label}"
+                                  required="#{bindings.CoaMngName.hints.mandatory}"
+                                  columns="#{bindings.CoaMngName.hints.displayWidth}"
+                                  maximumLength="#{bindings.CoaMngName.hints.precision}"
+                                  shortDesc="#{bindings.CoaMngName.hints.tooltip}" partialTriggers="coaNameId" id="it2"
+                                  rendered="false">
+                        <f:validator binding="#{bindings.CoaMngName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CoaActNumber.inputValue}"
+                                  label="#{bindings.CoaActNumber.hints.label}"
+                                  required="#{bindings.CoaActNumber.hints.mandatory}"
+                                  columns="#{bindings.CoaActNumber.hints.displayWidth}"
+                                  maximumLength="#{bindings.CoaActNumber.hints.precision}"
+                                  shortDesc="#{bindings.CoaActNumber.hints.tooltip}" id="it5" readOnly="true"
+                                  inlineStyle="text-align:right;">
+                        <f:validator binding="#{bindings.CoaActNumber.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber.format}"/>
+                    </af:inputText>
+                    <f:facet name="footer">
+                        <af:panelGroupLayout layout="horizontal" id="pgl2" halign="left">
+                            <af:panelGroupLayout layout="horizontal" id="pgl3">
+                                <af:button actionListener="#{bindings.First.execute}" text="First"
+                                           disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                                <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                                <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                           disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                                <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                           disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                                <af:spacer width="10" height="10" id="s8"/>
+                                <af:spacer width="10" height="10" id="s9"/>
+                                <af:spacer width="10" height="10" id="s10"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                                    <af:resetActionListener/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s1"/>
+                                <af:spacer width="10" height="10" id="s2"/>
+                                <af:spacer width="10" height="10" id="s3"/>
+                                <af:spacer width="10" height="10" id="s4"/>
+                                <af:spacer width="10" height="10" id="s5"/>
+                                <af:spacer width="10" height="10" id="s6"/>
+                                <af:spacer width="10" height="10" id="s7"/>
+                            </af:panelGroupLayout>
+                            <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}">
+                            <af:showPopupBehavior popupId="p1" triggerType="click"/>
+                                </af:button>
+                            <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                       disabled="#{!bindings.CreateInsert.enabled}" id="b6"/>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                                    <af:noteWindow id="nw1">
+                                            <b style="color:Maroon;">Submitted</b>
+                                    </af:noteWindow>
+                                </af:popup>
+                </af:panelFormLayout>
+            </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelGroupLayout layout="scroll" id="pgl1">
+                <af:table value="#{bindings.COA_MANAGE_VIEW1.collectionModel}" var="row"
+                          rows="#{bindings.COA_MANAGE_VIEW1.rangeSize}"
+                          emptyText="#{bindings.COA_MANAGE_VIEW1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.COA_MANAGE_VIEW1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.COA_MANAGE_VIEW1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.COA_MANAGE_VIEW1.rangeSize}"
+                          filterModel="#{bindings.COA_MANAGE_VIEW1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.COA_MANAGE_VIEW1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 ::b5 ::b7" scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngSysDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngSysDate.label}"
+                               id="c1">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.COA_MANAGE_VIEW1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.CoaMngSysDate.value}"
+                                          id="id2">
+                                <af:convertDateTime pattern="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngSysDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.CoaMngSysDate}"
+                                       shortDesc="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngSysDate.tooltip}" id="ot1">
+                            <af:convertDateTime pattern="dd-MMM-yyyy hh:mm:ss a"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.COA_MANAGE_VIEW1.hints.CoaName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.COA_MANAGE_VIEW1.hints.CoaName.label}" id="c2">
+                        <af:outputText value="#{row.CoaName}"
+                                       shortDesc="#{bindings.COA_MANAGE_VIEW1.hints.CoaName.tooltip}" id="ot2"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngExemptSalesPurchase.label}" id="c13">
+                        <af:selectOneChoice value="#{row.bindings.CoaMngExemptSalesPurchase.inputValue}"
+                                            label="#{row.bindings.CoaMngExemptSalesPurchase.label}"
+                                            required="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngExemptSalesPurchase.mandatory}"
+                                            shortDesc="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngExemptSalesPurchase.tooltip}"
+                                            readOnly="true" id="soc12">
+                            <f:selectItems value="#{row.bindings.CoaMngExemptSalesPurchase.items}" id="si12"/>
+                            <f:validator binding="#{row.bindings.CoaMngExemptSalesPurchase.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngDrBlock.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngDrBlock.label}"
+                               id="c3">
+                        <af:selectOneChoice value="#{row.bindings.CoaMngDrBlock.inputValue}"
+                                            label="#{row.bindings.CoaMngDrBlock.label}"
+                                            required="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngDrBlock.mandatory}"
+                                            shortDesc="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngDrBlock.tooltip}"
+                                            readOnly="true" id="soc5">
+                            <f:selectItems value="#{row.bindings.CoaMngDrBlock.items}" id="si5"/>
+                            <f:validator binding="#{row.bindings.CoaMngDrBlock.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngCrBlock.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngCrBlock.label}"
+                               id="c4">
+                        <af:selectOneChoice value="#{row.bindings.CoaMngCrBlock.inputValue}"
+                                            label="#{row.bindings.CoaMngCrBlock.label}"
+                                            required="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngCrBlock.mandatory}"
+                                            shortDesc="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngCrBlock.tooltip}"
+                                            readOnly="true" id="soc6">
+                            <f:selectItems value="#{row.bindings.CoaMngCrBlock.items}" id="si6"/>
+                            <f:validator binding="#{row.bindings.CoaMngCrBlock.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngAllBlock.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngAllBlock.label}"
+                               id="c5">
+                        <af:selectOneChoice value="#{row.bindings.CoaMngAllBlock.inputValue}"
+                                            label="#{row.bindings.CoaMngAllBlock.label}"
+                                            required="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngAllBlock.mandatory}"
+                                            shortDesc="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngAllBlock.tooltip}"
+                                            readOnly="true" id="soc7">
+                            <f:selectItems value="#{row.bindings.CoaMngAllBlock.items}" id="si7"/>
+                            <f:validator binding="#{row.bindings.CoaMngAllBlock.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngShowBlock.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngShowBlock.label}"
+                               id="c6">
+                        <af:selectOneChoice value="#{row.bindings.CoaMngShowBlock.inputValue}"
+                                            label="#{row.bindings.CoaMngShowBlock.label}"
+                                            required="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngShowBlock.mandatory}"
+                                            shortDesc="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngShowBlock.tooltip}"
+                                            readOnly="true" id="soc8">
+                            <f:selectItems value="#{row.bindings.CoaMngShowBlock.items}" id="si8"/>
+                            <f:validator binding="#{row.bindings.CoaMngShowBlock.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngBlockReason.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngBlockReason.label}" id="c7">
+                        <af:outputText value="#{row.CoaMngBlockReason}"
+                                       shortDesc="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngBlockReason.tooltip}"
+                                       id="ot3"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.COA_MANAGE_VIEW1.hints.CoaActNumber.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.COA_MANAGE_VIEW1.hints.CoaActNumber.label}"
+                               id="c8" inlineStyle="text-align:right;">
+                        <af:outputText value="#{row.CoaActNumber}"
+                                       shortDesc="#{bindings.COA_MANAGE_VIEW1.hints.CoaActNumber.tooltip}" id="ot4">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.COA_MANAGE_VIEW1.hints.CoaActNumber.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngShowAsBank.label}" id="c12">
+                        <af:selectOneChoice value="#{row.bindings.CoaMngShowAsBank.inputValue}"
+                                            label="#{row.bindings.CoaMngShowAsBank.label}"
+                                            required="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngShowAsBank.mandatory}"
+                                            shortDesc="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngShowAsBank.tooltip}"
+                                            readOnly="true" id="soc10">
+                            <f:selectItems value="#{row.bindings.CoaMngShowAsBank.items}" id="si10"/>
+                            <f:validator binding="#{row.bindings.CoaMngShowAsBank.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngName.label}" id="c9">
+                        <af:outputText value="#{row.CoaMngName}"
+                                       shortDesc="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngName.tooltip}" id="ot5"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngCoaIdFk.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngCoaIdFk.label}"
+                               id="c10">
+                        <af:outputText value="#{row.CoaMngCoaIdFk}"
+                                       shortDesc="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngCoaIdFk.tooltip}" id="ot6">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngCoaIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngId.label}" id="c11"
+                               inlineStyle="text-align:right;">
+                        <af:outputText value="#{row.CoaMngId}"
+                                       shortDesc="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngId.tooltip}" id="ot7">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.COA_MANAGE_VIEW1.hints.CoaMngId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelGroupLayout>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

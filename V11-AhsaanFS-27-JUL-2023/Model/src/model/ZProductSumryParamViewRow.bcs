@@ -1,0 +1,19 @@
+//Groovy Scripts for model.ZProductSumryParamView
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="ZPdctSParamStartDate")
+def ZPdctSParamStartDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="ZPdctSParamEndDate")
+def ZPdctSParamEndDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

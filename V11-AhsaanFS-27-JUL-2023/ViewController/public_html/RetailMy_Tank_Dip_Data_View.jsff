@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="180" id="ps1">
+        <f:facet name="first">
+            <af:panelGroupLayout layout="vertical" id="pgl1">
+                <af:panelGroupLayout layout="vertical" id="pgl2">
+                    <af:panelHeader text="TankDipData" id="ph1">
+                        <af:query id="qryId1" headerText="." disclosed="true"
+                                  value="#{bindings.TankDipDataViewCriteriaQuery.queryDescriptor}"
+                                  model="#{bindings.TankDipDataViewCriteriaQuery.queryModel}"
+                                  queryListener="#{bindings.TankDipDataViewCriteriaQuery.processQuery}"
+                                  queryOperationListener="#{bindings.TankDipDataViewCriteriaQuery.processQueryOperation}"
+                                  resultComponentId="::pc1:resId1" searchButtonText="Search"
+                                  saveButtonText="." resetButtonText="." addFieldsButtonText="."/>
+                    </af:panelHeader>
+                </af:panelGroupLayout>
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t2">
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Show" immediate="true" id="b1"
+                                   icon="#{resource['images:find.png']}">
+                            <af:resetActionListener/>
+                        </af:button>
+                        <af:button actionListener="#{bindings.Commit.execute}" text="Submit" id="b2"
+                                   icon="#{resource['images:commit.png']}"/>
+                    </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.TankDipDataView1.collectionModel}" var="row"
+                          rows="#{bindings.TankDipDataView1.rangeSize}"
+                          emptyText="#{bindings.TankDipDataView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.TankDipDataView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.TankDipDataView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.TankDipDataView1.rangeSize}"
+                          filterModel="#{bindings.TankDipDataViewCriteriaQuery.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.TankDipDataViewCriteriaQuery.processQuery}" varStatus="vs"
+                          id="resId1" partialTriggers="::pc1:b1 ::b1">
+                    <af:column sortProperty="#{bindings.TankDipDataView1.hints.TankInfoName.name}"
+                               headerText="#{bindings.TankDipDataView1.hints.TankInfoName.label}" id="resId1c2"
+                               width="150" align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:selectOneChoice value="#{row.bindings.TankInfoName.inputValue}"
+                                            label="#{row.bindings.TankInfoName.label}"
+                                            required="#{bindings.TankDipDataView1.hints.TankInfoName.mandatory}"
+                                            shortDesc="#{bindings.TankDipDataView1.hints.TankInfoName.tooltip}"
+                                            readOnly="true" id="soc1">
+                            <f:selectItems value="#{row.bindings.TankInfoName.items}" id="si1"/>
+                            <f:validator binding="#{row.bindings.TankInfoName.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDipDataView1.hints.TankDipValue.name}" headerText="#{bindings.TankDipDataView1.hints.TankDipValue.label}"
+                               id="resId1c1" width="150" align="center"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:inputText value="#{row.TankDipValue}"
+                                      shortDesc="#{bindings.TankDipDataView1.hints.TankDipValue.tooltip}" id="ot1"
+                                      label="Label 1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDipDataView1.hints.TankDipValue.format}"/>
+                        </af:inputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

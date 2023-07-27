@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="IncomecalculateviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZRptIsView2" RangeSize="1500" DataControl="VOAPPDataControl" id="ZRptIsView2Iterator"/>
+    <iterator Binds="ZRptIsParamView1" RangeSize="25" DataControl="VOAPPDataControl" id="ZRptIsParamView1Iterator"/>
+    <searchRegion Binds="ZRptIsView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ZRptIsView2Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ZRptIsParamView1Iterator" id="ZRptIsParamId">
+      <AttrNames>
+        <Item Value="ZRptIsParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptIsParamView1Iterator" id="ZRptIsParamDetails">
+      <AttrNames>
+        <Item Value="ZRptIsParamDetails"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptIsParamView1Iterator" id="ZRptIsParamDate">
+      <AttrNames>
+        <Item Value="ZRptIsParamDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptIsParamView1Iterator" id="ZRptIsParamPasskey">
+      <AttrNames>
+        <Item Value="ZRptIsParamPasskey"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ZRptIsView2Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="ZRptIsView2Iterator" id="ZRptIsView2">
+      <nodeDefinition DefName="model.ZRptIsView" Name="ZRptIsView20">
+        <AttrNames>
+          <Item Value="ZRptIsId"/>
+          <Item Value="ZRptIsName"/>
+          <Item Value="ZRptIsDebit"/>
+          <Item Value="ZRptIsCredit"/>
+          <Item Value="ZRptIsBalannce"/>
+          <Item Value="ZRptIsCat"/>
+          <Item Value="ZRptIsParamIdFk"/>
+          <Item Value="ZRptIsCoaId"/>
+          <Item Value="ZRptIsQty"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BillVehicleDetailBillFk1Assoc"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="BillVehicleParamEO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.BillVehicleParamEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="BillVehicleParamEO"/>
+      <Attr Name="_foreignKey" Value="model.BillVehicleParamEO.BillVehicleParamPk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BillVehicleParamEO.BillVehParmId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="BillVehicleDetailEO"
+    Cardinality="-1"
+    Owner="model.BillVehicleDetailEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="BillVehicleDetailEO"/>
+      <Attr Name="_foreignKey" Value="model.BillVehicleDetailEO.BillVehicleDetailBillFk1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BillVehicleDetailEO.BillVehParamIdFk"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

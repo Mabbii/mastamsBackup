@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="taskFlowCall1">
+    <default-activity>setBindDC_ID</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__5">
+      <name>DcidParam</name>
+      <value>#{pageFlowScope.DcidParam}</value>
+      <class>java.lang.Long</class>
+    </input-parameter-definition>
+    <method-call id="setBindDC_ID">
+      <method>#{bindings.setBindDC_ID.execute}</method>
+      <outcome>
+        <fixed-outcome>setBindDC_ID</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="MyMeter">
+      <page>/MyMeter.jspx</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome>
+        <name>taskFlowReturn1</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>setBindDC_ID</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>setBindDC_ID</from-outcome>
+        <to-activity-id>MyMeter</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>MyMeter</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

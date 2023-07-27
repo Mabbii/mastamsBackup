@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <f:view beforePhase="#{backingBeanScope.PrintPageBean.beforePhaseMethod}">
+        <af:panelBox id="pb1">
+            <f:facet name="toolbar">
+                <af:button id="b4" inlineStyle="padding-top:0px;" icon="#{resource['images:print.png']}">
+                    <af:showPrintablePageBehavior/>
+                </af:button>
+            </f:facet>
+            <af:image source="#{resource['images:Bandagi FS Logo.png']}" shortDesc="Bandagi Fs Logo"
+                      id="i1"/>
+            <af:panelSplitter orientation="vertical" splitterPosition="239" id="ps1" partialTriggers="ps1"
+                              inlineStyle="width:748px; height:860px;">
+                <f:facet name="first">
+                    <af:panelFormLayout id="pfl1" partialTriggers="pc1:t1">
+                        <af:outputText value="Income StateMent (Calculate)" id="ot8"
+                                       inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                        <af:inputText value="#{bindings.IsCustoParamId.inputValue}"
+                                      label="#{bindings.IsCustoParamId.hints.label}"
+                                      required="#{bindings.IsCustoParamId.hints.mandatory}"
+                                      columns="#{bindings.IsCustoParamId.hints.displayWidth}"
+                                      maximumLength="#{bindings.IsCustoParamId.hints.precision}"
+                                      shortDesc="#{bindings.IsCustoParamId.hints.tooltip}" id="it1" rendered="false">
+                            <f:validator binding="#{bindings.IsCustoParamId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.IsCustoParamId.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.IsCustoParamDetails.inputValue}" label="Detail"
+                                      required="#{bindings.IsCustoParamDetails.hints.mandatory}"
+                                      columns="#{bindings.IsCustoParamDetails.hints.displayWidth}"
+                                      maximumLength="#{bindings.IsCustoParamDetails.hints.precision}"
+                                      shortDesc="#{bindings.IsCustoParamDetails.hints.tooltip}" id="it2">
+                            <f:validator binding="#{bindings.IsCustoParamDetails.validator}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.IsCustoParamStartDate.inputValue}"
+                                      label="#{bindings.IsCustoParamStartDate.hints.label}"
+                                      required="#{bindings.IsCustoParamStartDate.hints.mandatory}"
+                                      columns="#{bindings.IsCustoParamStartDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.IsCustoParamStartDate.hints.tooltip}" id="id1">
+                            <f:validator binding="#{bindings.IsCustoParamStartDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>
+                        <af:inputDate value="#{bindings.IsCustoParamEndDate.inputValue}"
+                                      label="#{bindings.IsCustoParamEndDate.hints.label}"
+                                      required="#{bindings.IsCustoParamEndDate.hints.mandatory}"
+                                      columns="#{bindings.IsCustoParamEndDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.IsCustoParamEndDate.hints.tooltip}" id="id2">
+                            <f:validator binding="#{bindings.IsCustoParamEndDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>
+                        <af:inputText value="#{bindings.IsCustoParamPassKey.inputValue}"
+                                      label="#{bindings.IsCustoParamPassKey.hints.label}"
+                                      required="#{bindings.IsCustoParamPassKey.hints.mandatory}"
+                                      columns="#{bindings.IsCustoParamPassKey.hints.displayWidth}"
+                                      maximumLength="#{bindings.IsCustoParamPassKey.hints.precision}"
+                                      shortDesc="#{bindings.IsCustoParamPassKey.hints.tooltip}" id="it3" secret="true">
+                            <f:validator binding="#{bindings.IsCustoParamPassKey.validator}"/>
+                        </af:inputText>
+                        <f:facet name="footer">
+                            <af:panelGroupLayout id="pgl2">
+                                <af:spacer width="100" height="10" id="s3"/>
+                                <af:button actionListener="#{bindings.Execute.execute}" text="Show"
+                                           disabled="#{!bindings.Execute.enabled}" id="b2"
+                                           icon="#{resource['images:find.png']}"/>
+                                <af:spacer width="60" height="10" id="s1"/>
+                                <af:button text="Submit" id="b1" actionListener="#{bindings.Commit.execute}"
+                                           icon="#{resource['images:commit.png']}"/>
+                                <af:spacer width="250" height="10" id="s2"/>
+                                <af:button text="Excel" icon="#{resource['images:export.png']}" id="b3">
+                                    <af:exportCollectionActionListener type="excelHTML" exportedId="pc1:t1"
+                                                                       filename="Income Statement.xls"/>
+                                </af:button>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.ZRptIsCustoView1.collectionModel}" var="row"
+                                  rows="#{bindings.ZRptIsCustoView1.rangeSize}"
+                                  emptyText="#{bindings.ZRptIsCustoView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.ZRptIsCustoView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.ZRptIsCustoView1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.ZRptIsCustoView1.rangeSize}"
+                                  filterModel="#{bindings.ZRptIsCustoView1Query.queryDescriptor}" filterVisible="true"
+                                  queryListener="#{bindings.ZRptIsCustoView1Query.processQuery}" varStatus="vs" id="t1"
+                                  partialTriggers="::b2 ::b1 :::b2 :::b1" scrollPolicy="page" width="680"
+                                  inlineStyle="border-right-color:Window; background-color:Window;" maxClientRows="10000">
+                            <af:column sortProperty="#{bindings.ZRptIsCustoView1.hints.IsCustoName.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptIsCustoView1.hints.IsCustoName.label}" id="c1"
+                                       align="center"
+                                       inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;" width="220">
+                                <af:outputText value="#{row.IsCustoName}"
+                                               shortDesc="#{bindings.ZRptIsCustoView1.hints.IsCustoName.tooltip}"
+                                               id="ot1" inlineStyle="font-weight:bold;"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.ZRptIsCustoView1.hints.IsCustoQty.label}" id="c8"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                       align="center" width="80">
+                                <af:outputText value="#{row.IsCustoQty}"
+                                               shortDesc="#{bindings.ZRptIsCustoView1.hints.IsCustoQty.tooltip}"
+                                               id="ot9" inlineStyle="font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptIsCustoView1.hints.IsCustoQty.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptIsCustoView1.hints.IsCustoDebit.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptIsCustoView1.hints.IsCustoDebit.label}" id="c2"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                       width="100">
+                                <af:outputText value="#{row.IsCustoDebit}"
+                                               shortDesc="#{bindings.ZRptIsCustoView1.hints.IsCustoDebit.tooltip}"
+                                               id="ot2" inlineStyle="font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptIsCustoView1.hints.IsCustoDebit.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptIsCustoView1.hints.IsCustoCredit.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptIsCustoView1.hints.IsCustoCredit.label}" id="c3"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                       width="100">
+                                <af:outputText value="#{row.IsCustoCredit}"
+                                               shortDesc="#{bindings.ZRptIsCustoView1.hints.IsCustoCredit.tooltip}"
+                                               id="ot3" inlineStyle="font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptIsCustoView1.hints.IsCustoCredit.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptIsCustoView1.hints.IsCustoBalance.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptIsCustoView1.hints.IsCustoBalance.label}" id="c4"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                       width="100">
+                                <af:outputText value="#{row.IsCustoBalance}"
+                                               shortDesc="#{bindings.ZRptIsCustoView1.hints.IsCustoBalance.tooltip}"
+                                               id="ot4" inlineStyle="font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptIsCustoView1.hints.IsCustoBalance.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptIsCustoView1.hints.IsCustoCat.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptIsCustoView1.hints.IsCustoCat.label}" id="c5"
+                                       rendered="false">
+                                <af:outputText value="#{row.IsCustoCat}"
+                                               shortDesc="#{bindings.ZRptIsCustoView1.hints.IsCustoCat.tooltip}"
+                                               id="ot5">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptIsCustoView1.hints.IsCustoCat.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptIsCustoView1.hints.IsCustoparamIdFk.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptIsCustoView1.hints.IsCustoparamIdFk.label}" id="c6"
+                                       rendered="false">
+                                <af:outputText value="#{row.IsCustoparamIdFk}"
+                                               shortDesc="#{bindings.ZRptIsCustoView1.hints.IsCustoparamIdFk.tooltip}"
+                                               id="ot6">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptIsCustoView1.hints.IsCustoparamIdFk.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZRptIsCustoView1.hints.IsCustoCoaId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZRptIsCustoView1.hints.IsCustoCoaId.label}" id="c7"
+                                       rendered="false">
+                                <af:outputText value="#{row.IsCustoCoaId}"
+                                               shortDesc="#{bindings.ZRptIsCustoView1.hints.IsCustoCoaId.tooltip}"
+                                               id="ot7">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZRptIsCustoView1.hints.IsCustoCoaId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </f:facet>
+            </af:panelSplitter>
+        </af:panelBox>
+    </f:view>
+</ui:composition>

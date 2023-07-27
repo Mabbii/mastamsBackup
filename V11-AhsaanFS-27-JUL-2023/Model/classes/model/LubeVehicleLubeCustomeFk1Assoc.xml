@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LubeVehicleLubeCustomeFk1Assoc"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="LubeCustomer"
+    Cardinality="1"
+    Source="true"
+    Owner="model.LubeCustomer">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="LubeCustomer"/>
+      <Attr Name="_foreignKey" Value="model.LubeCustomer.LubeCustomerPk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.LubeCustomer.LcId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="LubeVehicle"
+    Cardinality="-1"
+    Owner="model.LubeVehicle">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="LubeVehicle"/>
+      <Attr Name="_foreignKey" Value="model.LubeVehicle.LubeVehicleLubeCustomeFk1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.LubeVehicle.LcIdFk"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

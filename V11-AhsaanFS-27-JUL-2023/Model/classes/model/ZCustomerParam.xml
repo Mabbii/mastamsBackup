@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ZCustomerParam"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="Z_CUSTOMER_PARAM"
+  AliasName="ZCustomerParam"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="ZcaId"
+    IsNotNull="true"
+    ColumnName="ZCA_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="Z_CUSTOMER_PARAM"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="ZcaStartDate"
+    ColumnName="ZCA_START_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="Z_CUSTOMER_PARAM">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="ZCustomerParamRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.ZCustomerParam.ZcaStartDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ZcaEndDate"
+    ColumnName="ZCA_END_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="Z_CUSTOMER_PARAM">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="ZCustomerParamRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.ZCustomerParam.ZcaEndDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="ZCustomerDetail"
+    Association="model.ZCustomerDetailZCustoFk1Assoc"
+    AssociationEnd="model.ZCustomerDetailZCustoFk1Assoc.ZCustomerDetail"
+    AssociationOtherEnd="model.ZCustomerDetailZCustoFk1Assoc.ZCustomerParam"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="ZCustomerParamPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="Z_CUSTOMER_PARAM_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZCustomerParam.ZcaId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</Entity>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="OMCNONJOURNALVIEWPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OMCNONJournalView1" RangeSize="25" DataControl="VOAPPDataControl" id="OMCNONJournalView1Iterator"/>
+    <searchRegion Binds="OMCNONJournalView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="OMCNONJournalView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="OMCNONJournalView1Iterator" id="OmcId">
+      <AttrNames>
+        <Item Value="OmcId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OMCNONJournalView1Iterator" id="OmcName">
+      <AttrNames>
+        <Item Value="OmcName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OMCNONJournalView1Iterator" id="OmcShortname">
+      <AttrNames>
+        <Item Value="OmcShortname"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="OMCNONJournalView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="OMCNONJournalView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="OMCNONJournalView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="OMCNONJournalView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="OMCNONJournalView1Iterator" id="OMCNONJournalView1">
+      <nodeDefinition DefName="model.OMCNONJournalView" Name="OMCNONJournalView10">
+        <AttrNames>
+          <Item Value="OmcId"/>
+          <Item Value="OmcName"/>
+          <Item Value="OmcShortname"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="OMCNONJournalView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

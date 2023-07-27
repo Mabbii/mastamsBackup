@@ -1,0 +1,19 @@
+//Groovy Scripts for model.Gle_ForStockLedger
+
+package model
+
+import oracle.jbo.script.annotation.VariableExpression;
+
+@VariableExpression(path="BindGlesStartDate")
+def BindGlesStartDate_VariableScript_Variable()
+{
+adf.currentDateTime
+}
+
+
+@VariableExpression(path="BindglesEndDate")
+def BindglesEndDate_VariableScript_Variable()
+{
+adf.currentDateTime
+}
+

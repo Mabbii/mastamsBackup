@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="ReceiptOmcReportviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZRptRecieptOmcParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="ZRptRecieptOmcParamView1Iterator"/>
+    <iterator Binds="ZRptRecieptOmcDataView1" RangeSize="50" DataControl="VOAPPDataControl"
+              id="ZRptRecieptOmcDataView1Iterator"/>
+    <searchRegion Binds="ZRptRecieptOmcDataView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ZRptRecieptOmcDataView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="ZRptRecieptOmcParamView1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <attributeValues IterBinding="ZRptRecieptOmcParamView1Iterator" id="RecieptOmcParamId">
+      <AttrNames>
+        <Item Value="RecieptOmcParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptRecieptOmcParamView1Iterator" id="RecieptOmcParamStartDate">
+      <AttrNames>
+        <Item Value="RecieptOmcParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptRecieptOmcParamView1Iterator" id="RecieptOmcParamEndDate">
+      <AttrNames>
+        <Item Value="RecieptOmcParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptRecieptOmcParamView1Iterator" id="RecieptOmcParamOmcId">
+      <AttrNames>
+        <Item Value="RecieptOmcParamOmcId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptRecieptOmcParamView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="ZRptRecieptOmcDataView1Iterator" id="ZRptRecieptOmcDataView1">
+      <nodeDefinition DefName="model.ZRptRecieptOmcDataView" Name="ZRptRecieptOmcDataView10">
+        <AttrNames>
+          <Item Value="RecieptOmcDataDate"/>
+          <Item Value="RecieptOmcDataOmcPump"/>
+          <Item Value="RecieptOmcDataCustomer"/>
+          <Item Value="RecieptOmcDataAmount"/>
+          <Item Value="RecieptOmcDataBranchCode"/>
+          <Item Value="RecieptOmcDataSlipDate"/>
+          <Item Value="RecieptOmcDataSlipNo"/>
+          <Item Value="RecieptOmcDataRefBank"/>
+          <Item Value="RecieptOmcDataTType"/>
+          <Item Value="RecieptOmcDataParamIdFk"/>
+          <Item Value="RecieptOmcDataEtc"/>
+          <Item Value="RecieptOmcDataDetails"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ZRptRecieptOmcDataView1Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

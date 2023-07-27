@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TankDryDataTankDryInFk1Assoc"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="TankDryDataInput"
+    Cardinality="1"
+    Source="true"
+    Owner="model.TankDryDataInput">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="TankDryDataInput"/>
+      <Attr Name="_foreignKey" Value="model.TankDryDataInput.TankDryInputDataPk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.TankDryDataInput.TddInputId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="TankDryData"
+    Cardinality="-1"
+    Owner="model.TankDryData">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="TankDryData"/>
+      <Attr Name="_foreignKey" Value="model.TankDryData.TankDryDataTankDryInFk1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.TankDryData.TddInputIdFk"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

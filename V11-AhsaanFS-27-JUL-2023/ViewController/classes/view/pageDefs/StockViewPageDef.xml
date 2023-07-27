@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="StockViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="StockTransferTF1" taskFlowId="/WEB-INF/StockTransferTF.xml#StockTransferTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="stockGainTF1" taskFlowId="/WEB-INF/stockGainTF.xml#stockGainTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="stocklossBACKDTF1" taskFlowId="/WEB-INF/stocklossBACKDTF.xml#stocklossBACKDTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Tank_Dry_Data_Input_TF1" taskFlowId="/WEB-INF/Tank_Dry_Data_Input_TF.xml#Tank_Dry_Data_Input_TF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Tank_Dry_Meter_Input_TF1" taskFlowId="/WEB-INF/Tank_Dry_Meter_Input_TF.xml#Tank_Dry_Meter_Input_TF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="DefaultStockTF1" taskFlowId="/WEB-INF/DefaultStockTF.xml#DefaultStockTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <methodAction id="CallAMTaskFlowActivity" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="CallAMTaskFlowActivity" IsViewObjectMethod="false" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.CallAMTaskFlowActivity.dataControl.dataProvider">
+      <NamedData NDName="Task" NDType="int"/>
+      <NamedData NDName="userName" NDType="java.lang.String"/>
+      <NamedData NDName="sessionID" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

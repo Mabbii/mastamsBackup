@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ZRptIsPostingParam"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="Z_RPT_IS_POSTING_PARAM"
+  AliasName="ZRptIsPostingParam"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="ZRptIsPostPId"
+    ColumnName="Z_RPT_IS_POST_P_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_IS_POSTING_PARAM"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="ZRptIsPostPDetails"
+    Precision="20"
+    ColumnName="Z_RPT_IS_POST_P_DETAILS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="Z_RPT_IS_POSTING_PARAM">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ZRptIsPostPDate"
+    ColumnName="Z_RPT_IS_POST_P_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="Z_RPT_IS_POSTING_PARAM"/>
+  <Attribute
+    Name="ZRptIsPostPPasskey"
+    Precision="30"
+    ColumnName="Z_RPT_IS_POST_P_PASSKEY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="Z_RPT_IS_POSTING_PARAM">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="ZRptIsPostingParamPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="Z_RPT_IS_POSTING_PARAM_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptIsPostingParam.ZRptIsPostPId"/>
+    </AttrArray>
+  </Key>
+</Entity>

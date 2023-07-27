@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="562" id="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1">
+                <af:inputText value="#{bindings.UserProfileId.inputValue}" label="#{bindings.UserProfileId.hints.label}"
+                              required="#{bindings.UserProfileId.hints.mandatory}"
+                              columns="#{bindings.UserProfileId.hints.displayWidth}"
+                              maximumLength="#{bindings.UserProfileId.hints.precision}"
+                              shortDesc="#{bindings.UserProfileId.hints.tooltip}" id="it1">
+                    <f:validator binding="#{bindings.UserProfileId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.UserProfileId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.UserProfileName.inputValue}"
+                              label="#{bindings.UserProfileName.hints.label}"
+                              required="#{bindings.UserProfileName.hints.mandatory}"
+                              columns="#{bindings.UserProfileName.hints.displayWidth}"
+                              maximumLength="#{bindings.UserProfileName.hints.precision}"
+                              shortDesc="#{bindings.UserProfileName.hints.tooltip}" id="it2">
+                    <f:validator binding="#{bindings.UserProfileName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.UserProfileEmail.inputValue}"
+                              label="#{bindings.UserProfileEmail.hints.label}"
+                              required="#{bindings.UserProfileEmail.hints.mandatory}"
+                              columns="#{bindings.UserProfileEmail.hints.displayWidth}"
+                              maximumLength="#{bindings.UserProfileEmail.hints.precision}"
+                              shortDesc="#{bindings.UserProfileEmail.hints.tooltip}" id="it3">
+                    <f:validator binding="#{bindings.UserProfileEmail.validator}"/>
+                </af:inputText>
+                <af:deck id="d1">
+                    <af:image id="i1" source="/UserServlet?id=#{bindings.UserProfileId.inputValue}"
+                              shortDesc="#{bindings.UserProfileImage.hints.tooltip}"/>
+                </af:deck>
+                <af:inputFile label="Upload" id="if1" value="#{UserProfileBean.file}"/>
+                <af:button text="Upload Image" id="b6" action="#{UserProfileBean.uploadImage}"/>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl1">
+                        <af:panelGroupLayout layout="horizontal" id="pgl2">
+                            <af:button actionListener="#{bindings.First.execute}" text="First"
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                            <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                            <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                            <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                            <af:outputText value="----------" id="ot1"/>
+                        </af:panelGroupLayout>
+                        <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                                   disabled="#{!bindings.Commit.enabled}"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b7"/>
+                        <af:outputText value="-----------------------" id="ot2"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b8">
+                            <af:resetActionListener/>
+                        </af:button>
+                        <af:outputText value="----------------------------" id="ot3"/>
+                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                   disabled="#{!bindings.Delete.enabled}" id="b9"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second"/>
+    </af:panelSplitter>
+</ui:composition>

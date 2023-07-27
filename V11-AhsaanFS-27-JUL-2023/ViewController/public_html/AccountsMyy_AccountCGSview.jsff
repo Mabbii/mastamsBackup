@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="202" id="ps1" partialTriggers="ps1">
+        <f:facet name="first">
+            <af:panelBox id="pb1">
+                <f:facet name="toolbar"/>
+                <af:panelFormLayout id="pfl1" partialTriggers="pc1:t1">
+                    <af:outputText value="CGS Account" id="ot4"
+                                   inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                    <af:inputText value="#{bindings.AcCgsId.inputValue}" label="#{bindings.AcCgsId.hints.label}"
+                                  required="#{bindings.AcCgsId.hints.mandatory}"
+                                  columns="#{bindings.AcCgsId.hints.displayWidth}"
+                                  maximumLength="#{bindings.AcCgsId.hints.precision}"
+                                  shortDesc="#{bindings.AcCgsId.hints.tooltip}" id="it1" readOnly="true"
+                                  inlineStyle="text-align:right;">
+                        <f:validator binding="#{bindings.AcCgsId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.AcCgsId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.AcCgsName.inputValue}" label="#{bindings.AcCgsName.hints.label}"
+                                  required="#{bindings.AcCgsName.hints.mandatory}"
+                                  columns="#{bindings.AcCgsName.hints.displayWidth}"
+                                  maximumLength="#{bindings.AcCgsName.hints.precision}"
+                                  shortDesc="#{bindings.AcCgsName.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.AcCgsName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.AcCgsDetail.inputValue}" label="#{bindings.AcCgsDetail.hints.label}"
+                                  required="#{bindings.AcCgsDetail.hints.mandatory}"
+                                  columns="#{bindings.AcCgsDetail.hints.displayWidth}"
+                                  maximumLength="#{bindings.AcCgsDetail.hints.precision}"
+                                  shortDesc="#{bindings.AcCgsDetail.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.AcCgsDetail.validator}"/>
+                    </af:inputText>
+                    <f:facet name="footer">
+                        <af:panelGroupLayout layout="horizontal" id="pgl1">
+                            <af:panelGroupLayout layout="horizontal" id="pgl3">
+                                <af:button actionListener="#{bindings.First.execute}"
+                                           disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"
+                                           icon="#{resource['images:first_hor_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Previous.execute}"
+                                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"
+                                           icon="#{resource['images:previoustraversalarrow_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Next.execute}"
+                                           disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
+                                           icon="#{resource['images:nexttraversalarrow_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Last.execute}"
+                                           disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"
+                                           icon="#{resource['images:last_hor_ena.png']}"/>
+                                <af:outputText value="---------" id="ot7"/>
+                            </af:panelGroupLayout>
+                            <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                                       icon="#{resource['images:commit.png']}" disabled="#{!bindings.Commit.enabled}">
+                                       
+                                </af:button>
+                            <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                       disabled="#{!bindings.CreateInsert.enabled}" id="b6"
+                                       icon="#{resource['images:add.png']}"/>
+                            <af:outputText value="--------------" id="ot6"/>
+                            <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                       disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7"
+                                       icon="#{resource['images:rollback.png']}">
+                                <af:resetActionListener/>
+                            </af:button>
+                            
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:panelFormLayout>
+            </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar">
+                    <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot5" inlineStyle="color:Maroon; font-size:large;"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.AC_CGS_View1.collectionModel}" var="row"
+                          rows="#{bindings.AC_CGS_View1.rangeSize}"
+                          emptyText="#{bindings.AC_CGS_View1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" selectedRowKeys="#{bindings.AC_CGS_View1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.AC_CGS_View1.collectionModel.makeCurrent}" rowSelection="single"
+                          fetchSize="#{bindings.AC_CGS_View1.rangeSize}"
+                          filterModel="#{bindings.AC_CGS_View1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.AC_CGS_View1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 ::b5 ::b7 :::b1 :::b2 :::b3 :::b4 :::b6 :::b5 :::b7" scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.AC_CGS_View1.hints.AcCgsId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.AC_CGS_View1.hints.AcCgsId.label}" id="c1"
+                               inlineStyle="text-align:right;">
+                        <af:outputText value="#{row.AcCgsId}" shortDesc="#{bindings.AC_CGS_View1.hints.AcCgsId.tooltip}"
+                                       id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.AC_CGS_View1.hints.AcCgsId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AC_CGS_View1.hints.AcCgsName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.AC_CGS_View1.hints.AcCgsName.label}" id="c2"
+                               width="130" align="center" inlineStyle="text-align:left;">
+                        <af:outputText value="#{row.AcCgsName}"
+                                       shortDesc="#{bindings.AC_CGS_View1.hints.AcCgsName.tooltip}" id="ot2"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AC_CGS_View1.hints.AcCgsDetail.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.AC_CGS_View1.hints.AcCgsDetail.label}" id="c3"
+                               width="200" align="center" inlineStyle="text-align:left;">
+                        <af:outputText value="#{row.AcCgsDetail}"
+                                       shortDesc="#{bindings.AC_CGS_View1.hints.AcCgsDetail.tooltip}" id="ot3"/>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

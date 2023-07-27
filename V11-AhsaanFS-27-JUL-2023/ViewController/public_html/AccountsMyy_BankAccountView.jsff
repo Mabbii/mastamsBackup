@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelSplitter orientation="vertical" splitterPosition="211" id="ps1" partialTriggers="ps1">
+    <f:facet name="first">
+      <af:panelBox id="pb1">
+        <f:facet name="toolbar"/>
+        <af:panelFormLayout id="pfl1" maxColumns="2" rows="2" partialTriggers="pc1:t1">
+          <af:outputText value="Add New Bank A/C" id="ot8"
+                         inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+          <af:inputText value="#{bindings.BActId.inputValue}" label="#{bindings.BActId.hints.label}"
+                        required="#{bindings.BActId.hints.mandatory}" columns="#{bindings.BActId.hints.displayWidth}"
+                        maximumLength="#{bindings.BActId.hints.precision}" shortDesc="#{bindings.BActId.hints.tooltip}"
+                        id="it1" inlineStyle="text-align:right;">
+            <f:validator binding="#{bindings.BActId.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.BActId.format}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.BActTitle.inputValue}" label="#{bindings.BActTitle.hints.label}"
+                        required="#{bindings.BActTitle.hints.mandatory}"
+                        columns="#{bindings.BActTitle.hints.displayWidth}"
+                        maximumLength="#{bindings.BActTitle.hints.precision}"
+                        shortDesc="#{bindings.BActTitle.hints.tooltip}" id="it2">
+            <f:validator binding="#{bindings.BActTitle.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.BActNo.inputValue}" label="#{bindings.BActNo.hints.label}"
+                        required="#{bindings.BActNo.hints.mandatory}" columns="#{bindings.BActNo.hints.displayWidth}"
+                        maximumLength="#{bindings.BActNo.hints.precision}" shortDesc="#{bindings.BActNo.hints.tooltip}"
+                        id="it3" inlineStyle="text-align:right;">
+            <f:validator binding="#{bindings.BActNo.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.BActShort.inputValue}" label="#{bindings.BActShort.hints.label}"
+                        required="#{bindings.BActShort.hints.mandatory}"
+                        columns="#{bindings.BActShort.hints.displayWidth}"
+                        maximumLength="#{bindings.BActShort.hints.precision}"
+                        shortDesc="#{bindings.BActShort.hints.tooltip}" id="it4">
+            <f:validator binding="#{bindings.BActShort.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.BActBranchcode.inputValue}" label="#{bindings.BActBranchcode.hints.label}"
+                        required="#{bindings.BActBranchcode.hints.mandatory}"
+                        columns="#{bindings.BActBranchcode.hints.displayWidth}"
+                        maximumLength="#{bindings.BActBranchcode.hints.precision}"
+                        shortDesc="#{bindings.BActBranchcode.hints.tooltip}" id="it5" inlineStyle="text-align:right;">
+            <f:validator binding="#{bindings.BActBranchcode.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.BActBranchname.inputValue}" label="#{bindings.BActBranchname.hints.label}"
+                        required="#{bindings.BActBranchname.hints.mandatory}"
+                        columns="#{bindings.BActBranchname.hints.displayWidth}"
+                        maximumLength="#{bindings.BActBranchname.hints.precision}"
+                        shortDesc="#{bindings.BActBranchname.hints.tooltip}" id="it6">
+            <f:validator binding="#{bindings.BActBranchname.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.BActBankname.inputValue}" label="#{bindings.BActBankname.hints.label}"
+                        required="#{bindings.BActBankname.hints.mandatory}"
+                        columns="#{bindings.BActBankname.hints.displayWidth}"
+                        maximumLength="#{bindings.BActBankname.hints.precision}"
+                        shortDesc="#{bindings.BActBankname.hints.tooltip}" id="it7">
+            <f:validator binding="#{bindings.BActBankname.validator}"/>
+          </af:inputText>
+          <f:facet name="footer">
+            <af:panelGroupLayout layout="horizontal" id="pgl9">
+              <af:panelGroupLayout layout="horizontal" id="pgl3">
+                <af:button actionListener="#{bindings.First.execute}" disabled="#{!bindings.First.enabled}"
+                           partialSubmit="true" id="b1" icon="#{resource['images:first_hor_ena.png']}"/>
+                <af:button actionListener="#{bindings.Previous.execute}" disabled="#{!bindings.Previous.enabled}"
+                           partialSubmit="true" id="b2" icon="#{resource['images:previoustraversalarrow_ena.png']}"/>
+                <af:button actionListener="#{bindings.Next.execute}" disabled="#{!bindings.Next.enabled}"
+                           partialSubmit="true" id="b3" icon="#{resource['images:nexttraversalarrow_ena.png']}"/>
+                <af:button actionListener="#{bindings.Last.execute}" disabled="#{!bindings.Last.enabled}"
+                           partialSubmit="true" id="b4" icon="#{resource['images:last_hor_ena.png']}"/>
+                <af:outputText value="---------" id="ot9"/>
+              </af:panelGroupLayout>
+              <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                         icon="#{resource['images:commit.png']}" disabled="#{!bindings.Commit.enabled}">
+                         
+                                </af:button>
+              <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                         disabled="#{!bindings.CreateInsert.enabled}" id="b6" icon="#{resource['images:add.png']}"/>
+              <af:outputText value="--------------" id="ot18"/>
+              <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                         disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7"
+                         icon="#{resource['images:rollback.png']}">
+                <af:resetActionListener/>
+              </af:button>
+              
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelFormLayout>
+      </af:panelBox>
+    </f:facet>
+    <f:facet name="second">
+      <af:panelCollection id="pc1">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar"/>
+        <f:facet name="statusbar">
+        <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot4" inlineStyle="color:Maroon; font-size:large;"/>
+                    </af:toolbar>
+                </f:facet>
+        <af:table value="#{bindings.BankAccountView1.collectionModel}" var="row"
+                  rows="#{bindings.BankAccountView1.rangeSize}"
+                  emptyText="#{bindings.BankAccountView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" selectedRowKeys="#{bindings.BankAccountView1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.BankAccountView1.collectionModel.makeCurrent}" rowSelection="single"
+                  fetchSize="#{bindings.BankAccountView1.rangeSize}"
+                  filterModel="#{bindings.BankAccountView1Query.queryDescriptor}" filterVisible="true"
+                  queryListener="#{bindings.BankAccountView1Query.processQuery}" varStatus="vs" id="t1"
+                  partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 ::b5 ::b7 :::b1 :::b2 :::b3 :::b4 :::b6 :::b5 :::b7" scrollPolicy="page">
+          <af:column sortProperty="#{bindings.BankAccountView1.hints.BActId.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.BankAccountView1.hints.BActId.label}" id="c1"
+                     inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                     align="center" rendered="false">
+            <af:outputText value="#{row.BActId}" shortDesc="#{bindings.BankAccountView1.hints.BActId.tooltip}" id="ot1">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.BankAccountView1.hints.BActId.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.BankAccountView1.hints.BActBankname.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.BankAccountView1.hints.BActBankname.label}" id="c7"
+                     width="150" align="center"
+                     inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+            <af:outputText value="#{row.BActBankname}"
+                           shortDesc="#{bindings.BankAccountView1.hints.BActBankname.tooltip}" id="ot7"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.BankAccountView1.hints.BActShort.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.BankAccountView1.hints.BActShort.label}" id="c4" width="150" align="center"
+                     inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+            <af:outputText value="#{row.BActShort}" shortDesc="#{bindings.BankAccountView1.hints.BActShort.tooltip}"
+                           id="ot14"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.BankAccountView1.hints.BActBranchname.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.BankAccountView1.hints.BActBranchname.label}" id="c6"
+                     width="150" align="center"
+                     inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+            <af:outputText value="#{row.BActBranchname}"
+                           shortDesc="#{bindings.BankAccountView1.hints.BActBranchname.tooltip}" id="ot6"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.BankAccountView1.hints.BActBranchcode.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.BankAccountView1.hints.BActBranchcode.label}" id="c5"
+                     inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;" align="center">
+            <af:outputText value="#{row.BActBranchcode}"
+                           shortDesc="#{bindings.BankAccountView1.hints.BActBranchcode.tooltip}" id="ot5"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.BankAccountView1.hints.BActTitle.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.BankAccountView1.hints.BActTitle.label}" id="c2" width="150" align="center"
+                     inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+            <af:outputText value="#{row.BActTitle}" shortDesc="#{bindings.BankAccountView1.hints.BActTitle.tooltip}"
+                           id="ot2"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.BankAccountView1.hints.BActNo.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.BankAccountView1.hints.BActNo.label}" id="c3"
+                     inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                     width="130" align="center">
+            <af:outputText value="#{row.BActNo}" shortDesc="#{bindings.BankAccountView1.hints.BActNo.tooltip}"
+                           id="ot3"/>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+    </f:facet>
+  </af:panelSplitter>
+</ui:composition>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ImagesTableEO"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="IMAGES_TABLE"
+  AliasName="ImagesTableEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="ImageId"
+    ColumnName="IMAGE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="IMAGES_TABLE"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="ImageDescription"
+    Precision="100"
+    ColumnName="IMAGE_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="IMAGES_TABLE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ImageBlob"
+    IsQueriable="false"
+    ColumnName="IMAGE_BLOB"
+    SQLType="BLOB"
+    Type="oracle.jbo.domain.BlobDomain"
+    ColumnType="BLOB"
+    TableName="IMAGES_TABLE"/>
+  <Attribute
+    Name="CoaAccIdFk"
+    ColumnName="COA_ACC_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="IMAGES_TABLE"/>
+  <AccessorAttribute
+    Name="ChartOfAccounts"
+    Association="model.ImageId_Coa_AccIdFk_Assoc"
+    AssociationEnd="model.ImageId_Coa_AccIdFk_Assoc.ChartOfAccounts"
+    AssociationOtherEnd="model.ImageId_Coa_AccIdFk_Assoc.ImagesTableEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="ImagesTablePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="IMAGES_TABLE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ImagesTableEO.ImageId"/>
+    </AttrArray>
+  </Key>
+</Entity>

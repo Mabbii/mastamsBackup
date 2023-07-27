@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="MAIN_PAGEPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="glentryTF1" taskFlowId="/WEB-INF/glentryTF.xml#glentryTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="gsupplierPurchaseTF1" taskFlowId="/WEB-INF/gsupplierPurchaseTF.xml#gsupplierPurchaseTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="OMCNONGENRALTF1" taskFlowId="/WEB-INF/OMCNONGENRALTF.xml#OMCNONGENRALTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="OILTANKERtf1" taskFlowId="/WEB-INF/OILTANKERtf.xml#OILTANKERtf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="partygenralTF1" taskFlowId="/WEB-INF/partygenralTF.xml#partygenralTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="productfrgenralTF1" taskFlowId="/WEB-INF/productfrallTF.xml#productfrgenralTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="oildepoTF1" taskFlowId="/WEB-INF/oildepoTF.xml#oildepoTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="omcpumpTF1" taskFlowId="/WEB-INF/omcpumpTF.xml#omcpumpTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ExpenseTF1" taskFlowId="/WEB-INF/ExpenseTF.xml#ExpenseTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="receiptTF1" taskFlowId="/WEB-INF/receiptTF.xml#receiptTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="purchaserateomcpmpTF1" taskFlowId="/WEB-INF/purchaserateomcpmpTF.xml#purchaserateomcpmpTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="saleessssTF1" taskFlowId="/WEB-INF/saleessssTF.xml#saleessssTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="stocklossTF1" taskFlowId="/WEB-INF/stocklossTF.xml#stocklossTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="stockGainTF1" taskFlowId="/WEB-INF/stockGainTF.xml#stockGainTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="stockGainBACKDTF1" taskFlowId="/WEB-INF/stockGainBACKDTF.xml#stockGainBACKDTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="OpeningBalanceForProductTF1"
+              taskFlowId="/WEB-INF/OpeningBalanceForProductTF.xml#OpeningBalanceForProductTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="OpeningBalanceForRevenueCGSTF1"
+              taskFlowId="/WEB-INF/OpeningBalanceForRevenueCGSTF.xml#OpeningBalanceForRevenueCGSTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="OpeningBalanceForLiabilitiesTF1"
+              taskFlowId="/WEB-INF/OpeningBalanceForLiabilitiesTF.xml#OpeningBalanceForLiabilitiesTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="OpeningBalanceForExpenseRevenueTF1"
+              taskFlowId="/WEB-INF/OpeningBalanceForExpenseRevenueTF.xml#OpeningBalanceForExpenseRevenueTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="GournalVoucherTF1" taskFlowId="/WEB-INF/GournalVoucherTF.xml#GournalVoucherTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="BackJvouchertf1" taskFlowId="/WEB-INF/BackJvouchertf.xml#BackJvouchertf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PurchaseOmcPumpBackDateTF1"
+              taskFlowId="/WEB-INF/PurchaseOmcPumpBackDateTF.xml#PurchaseOmcPumpBackDateTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Payment_Receiept_Omcpump1" taskFlowId="/WEB-INF/Payment_Receiept_Omcpump.xml#Payment_Receiept_Omcpump"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="OpeningBalanceForAssetTF1" taskFlowId="/WEB-INF/OpeningBalanceForAssetTF.xml#OpeningBalanceForAssetTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="DefaultTF1" taskFlowId="/WEB-INF/DefaultTF.xml#DefaultTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="salerateTF1" taskFlowId="/WEB-INF/salerateTF.xml#salerateTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="purchaseTF1" taskFlowId="/WEB-INF/purchaseTF.xml#purchaseTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="receiptomcTF1" taskFlowId="/WEB-INF/receiptomcTF.xml#receiptomcTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="purchaseOMCPUMPtf1" taskFlowId="/WEB-INF/purchaseOMCPUMPtf.xml#purchaseOMCPUMPtf"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="paymentTF2" taskFlowId="/WEB-INF/paymentTF.xml#paymentTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="paymentomcpumpTF1" taskFlowId="/WEB-INF/paymentsupplierTF.xml#paymentomcpumpTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PUchasefromGsupplierTF1" taskFlowId="/WEB-INF/PUchasefromGsupplierTF.xml#PUchasefromGsupplierTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="AccountRecieveAbleTF1" taskFlowId="/WEB-INF/AccountRecieveAbleTF.xml#AccountRecieveAbleTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="AccountPayAbleTF1" taskFlowId="/WEB-INF/AccountPayAbleTF.xml#AccountPayAbleTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="BankAccountTF1" taskFlowId="/WEB-INF/BankAccountTF.xml#BankAccountTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="receiptsupplierTF1" taskFlowId="/WEB-INF/receiptsupplierTF.xml#receiptsupplierTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="AllTrancationTF1" taskFlowId="/WEB-INF/AllTrancationTF.xml#AllTrancationTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="AccountCapitalTF1" taskFlowId="/WEB-INF/AccountCapitalTF.xml#AccountCapitalTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="AccountCGStf1" taskFlowId="/WEB-INF/AccountCGStf.xml#AccountCGStf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="AccountRevenueTF1" taskFlowId="/WEB-INF/AccountRevenueTF.xml#AccountRevenueTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Expenseview2TF1" taskFlowId="/WEB-INF/Expenseview2TF.xml#Expenseview2TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PurchaseFromSupplierBackDTF1"
+              taskFlowId="/WEB-INF/PurchaseFromSupplierBackDTF.xml#PurchaseFromSupplierBackDTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PurchaseOmcPumpBackDateTF2"
+              taskFlowId="/WEB-INF/PurchaseOmcPumpBackDateTF.xml#PurchaseOmcPumpBackDateTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="RecieptOMCBackDateTF1" taskFlowId="/WEB-INF/RecieptOMCBackDateTF.xml#RecieptOMCBackDateTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PAYMENT_RECIEPT_OMCPUMPBACKTF1"
+              taskFlowId="/WEB-INF/PAYMENT_RECIEPT_OMCPUMPBACKTF.xml#PAYMENT_RECIEPT_OMCPUMPBACKTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PaymentOMCPumpBackDTF1" taskFlowId="/WEB-INF/PaymentOMCPumpBackDTF.xml#PaymentOMCPumpBackDTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="SallesAllBackDTF1" taskFlowId="/WEB-INF/SallesAllBackDTF.xml#SallesAllBackDTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="RECEIPT_CUSTOMER_BACKtf1" taskFlowId="/WEB-INF/RECEIPT_CUSTOMER_BACKtf.xml#RECEIPT_CUSTOMER_BACKtf"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PaymentSupplierBackDTF1" taskFlowId="/WEB-INF/PaymentSupplierBackDTF.xml#PaymentSupplierBackDTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="BankNameTF1" taskFlowId="/WEB-INF/ReferenceBankTF.xml#BankNameTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ExpenseBACKDtf1" taskFlowId="/WEB-INF/ExpenseBACKDtf.xml#ExpenseBACKDtf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="paymentomcpumpTF2" taskFlowId="/WEB-INF/paymentsupplierTF.xml#paymentomcpumpTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ManageChartofAccountTF1" taskFlowId="/WEB-INF/ManageChartofAccountTF.xml#ManageChartofAccountTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="productpckingTF1" taskFlowId="/WEB-INF/ReceiptClaimedTF.xml#productpckingTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="rebateTF1" taskFlowId="/WEB-INF/ReceiptUnclaimeddTF.xml#rebateTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="BankNameTF2" taskFlowId="/WEB-INF/ReferenceBankTF.xml#BankNameTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="TrialBalanceTF1" taskFlowId="/WEB-INF/TrialBalanceTF.xml#TrialBalanceTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="IncomeDetailedTF1" taskFlowId="/WEB-INF/IncomeDetailedTF.xml#IncomeDetailedTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ReceiptClaimedBackDateTF1" taskFlowId="/WEB-INF/ReceiptClaimedBackDateTF.xml#ReceiptClaimedBackDateTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ReceiptUnClaimedBACKDateTF1"
+              taskFlowId="/WEB-INF/ReceiptUnClaimedBACKDateTF.xml#ReceiptUnClaimedBACKDateTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="GlerportTF1" taskFlowId="/WEB-INF/GlerportTF.xml#GlerportTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="GournalLedgerdetaildTF1" taskFlowId="/WEB-INF/GournalLedgerdetaildTF.xml#GournalLedgerdetaildTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="IncomeADJUSTMNTTF1" taskFlowId="/WEB-INF/IncomeADJUSTMNTTF.xml#IncomeADJUSTMNTTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="IncomecalculateTF1" taskFlowId="/WEB-INF/IncomecalculateTF.xml#IncomecalculateTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PURCHASERATEOMCPUMPtf1" taskFlowId="/WEB-INF/PURCHASERATELoggOMCPUMPtf.xml#PURCHASERATEOMCPUMPtf"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PurchaseRtaeLogSupplierTF1"
+              taskFlowId="/WEB-INF/PurchaseRtaeLogSupplierTF.xml#PurchaseRtaeLogSupplierTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="SaleRateLogTF1" taskFlowId="/WEB-INF/SaleRateLogTF.xml#SaleRateLogTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="salesreportcustomerTF1" taskFlowId="/WEB-INF/salesreportcustomerTF.xml#salesreportcustomerTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="salesReportALLTF1" taskFlowId="/WEB-INF/salesReportALLTF.xml#salesReportALLTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PurchaseAllDataReportTF1" taskFlowId="/WEB-INF/PurchaseAllDataReportTF.xml#PurchaseAllDataReportTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PurchaseSupplierTF1" taskFlowId="/WEB-INF/PurchaseSupplierReportTF.xml#PurchaseSupplierTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PurchaseOMCPumpReportTF1" taskFlowId="/WEB-INF/PurchaseOMCPumpReportTF.xml#PurchaseOMCPumpReportTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="OmcPumpCreditLimitTF1" taskFlowId="/WEB-INF/OmcPumpCreditLimitTF.xml#OmcPumpCreditLimitTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="OmcOnlycreditLimitTF1" taskFlowId="/WEB-INF/OmcOnlycreditLimitTF.xml#OmcOnlycreditLimitTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="OmcPumpCreditLimitReportTF1"
+              taskFlowId="/WEB-INF/OmcPumpCreditLimitReportTF.xml#OmcPumpCreditLimitReportTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Supplier_Credit_LimitTF1" taskFlowId="/WEB-INF/Supplier_Credit_LimitTF.xml#Supplier_Credit_LimitTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Customer_debit_limitTF1" taskFlowId="/WEB-INF/Customer_debit_limitTF.xml#Customer_debit_limitTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="OmcPump_OnlyCredit_limitReportTF1"
+              taskFlowId="/WEB-INF/OmcPump_OnlyCredit_limitReportTF.xml#OmcPump_OnlyCredit_limitReportTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Supplier_Credit_limitReportTF1"
+              taskFlowId="/WEB-INF/Supplier_Credit_limitReportTF.xml#Supplier_Credit_limitReportTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Supplier_Credit_limit_DetailedReportTF1"
+              taskFlowId="/WEB-INF/Supplier_Credit_limit_DetailedReportTF.xml#Supplier_Credit_limit_DetailedReportTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Customer_Dedit_limit_ReportTF1"
+              taskFlowId="/WEB-INF/Customer_Dedit_limit_ReportTF.xml#Customer_Dedit_limit_ReportTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Customer_Dedit_limit_DetailedReportTF1"
+              taskFlowId="/WEB-INF/Customer_Dedit_limit_DetailedReportTF.xml#Customer_Dedit_limit_DetailedReportTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="TrialBalanceShortTF1" taskFlowId="/WEB-INF/TrialBalanceShortTF.xml#TrialBalanceShortTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ReceiptOmcReportTF1" taskFlowId="/WEB-INF/ReceiptOmcReportTF.xml#ReceiptOmcReportTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="IncomeCalculateCustomDateToDateTF1"
+              taskFlowId="/WEB-INF/IncomeCalculateCustomDateToDateTF.xml#IncomeCalculateCustomDateToDateTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="TreeTf1" taskFlowId="/WEB-INF/TreeTf.xml#TreeTf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="SaleRateView1" RangeSize="10" DataControl="VOAPPDataControl" id="SaleRateView1Iterator"/>
+    <taskFlow id="AccountCapitalTF2" taskFlowId="/WEB-INF/AccountCapitalTF.xml#AccountCapitalTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ChangePass1" taskFlowId="/WEB-INF/ChangePass.xml#ChangePass" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Images_TableTF1" taskFlowId="/WEB-INF/Images_TableTF.xml#Images_TableTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="XdporateVO1" RangeSize="10" DataControl="VOAPPDataControl" id="XdporateVO1Iterator"/>
+    <taskFlow id="XDRP_TF1" taskFlowId="/WEB-INF/XDRP_TF.xml#XDRP_TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Image_LadgerTF1" taskFlowId="/WEB-INF/Image_LadgerTF.xml#Image_LadgerTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="TnsLogDateTF1" taskFlowId="/WEB-INF/TnsLogDateTF.xml#TnsLogDateTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="StockLB1" taskFlowId="/WEB-INF/StockLB.xml#StockLB" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Stock_Backtf1" taskFlowId="/WEB-INF/Stock_Backtf.xml#Stock_Backtf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="NewOmcCreditLimit1" taskFlowId="/WEB-INF/NewOmcCreditLimit.xml#NewOmcCreditLimit"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="DateSelectedTF1" taskFlowId="/WEB-INF/DateSelectedTF.xml#DateSelectedTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <methodAction id="CallAMTaskFlowActivity" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="CallAMTaskFlowActivity" IsViewObjectMethod="false" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.CallAMTaskFlowActivity.dataControl.dataProvider">
+      <NamedData NDName="Task" NDType="int"/>
+      <NamedData NDName="userName" NDType="java.lang.String"/>
+      <NamedData NDName="sessionID" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="execINSERTUSERLOG" RequiresUpdateModel="true" Action="invokeMethod" MethodName="execINSERTUSERLOG"
+                  IsViewObjectMethod="false" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.execINSERTUSERLOG.dataControl.dataProvider">
+      <NamedData NDName="pSessionId" NDType="java.lang.String"/>
+      <NamedData NDName="pUserName" NDType="java.lang.String"/>
+      <NamedData NDName="pAuthF" NDType="int"/>
+      <NamedData NDName="pAuthReason" NDType="int"/>
+    </methodAction>
+    <methodAction id="execPLSQLCheckLoginAttempts" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="execPLSQLCheckLoginAttempts" IsViewObjectMethod="false" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.execPLSQLCheckLoginAttempts.dataControl.dataProvider"
+                  ReturnName="data.VOAPPDataControl.methodResults.execPLSQLCheckLoginAttempts_execPLSQLCheckLoginAttempts_dataControl_dataProvider_execPLSQLCheckLoginAttempts_result">
+      <NamedData NDName="aStringParam" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="execUpdateUserLOG" RequiresUpdateModel="true" Action="invokeMethod" MethodName="execUpdateUserLOG"
+                  IsViewObjectMethod="false" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.execUpdateUserLOG.dataControl.dataProvider">
+      <NamedData NDName="pSessionId" NDType="java.lang.String"/>
+      <NamedData NDName="pUserName" NDType="java.lang.String"/>
+      <NamedData NDName="pOutReason" NDType="int"/>
+    </methodAction>
+    <attributeValues IterBinding="SaleRateView1Iterator" id="SaleRateR">
+      <AttrNames>
+        <Item Value="SaleRateR"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XdporateVO1Iterator" id="XdrPmg">
+      <AttrNames>
+        <Item Value="XdrPmg"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XdporateVO1Iterator" id="XdrHsd">
+      <AttrNames>
+        <Item Value="XdrHsd"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

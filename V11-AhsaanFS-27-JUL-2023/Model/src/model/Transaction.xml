@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Transaction"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="TRANSACTION"
+  AliasName="Transaction"
+  BindingStyle="OracleName"
+  RowClass="model.TransactionImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Init|Access"/>
+  </DesignTime>
+  <Attribute
+    Name="TnsId"
+    ColumnName="TNS_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="TnsDate"
+    IsNotNull="true"
+    ColumnName="TNS_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="TRANSACTION"
+    ChangeIndicator="true">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="TransactionRow"/>
+  </Attribute>
+  <Attribute
+    Name="TnsAmount"
+    IsNotNull="true"
+    Precision="29"
+    Scale="7"
+    ColumnName="TNS_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsDetail"
+    Precision="80"
+    ColumnName="TNS_DETAIL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TRANSACTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TnsInfo"
+    Precision="80"
+    ColumnName="TNS_INFO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TRANSACTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TnsGroup"
+    ColumnName="TNS_GROUP"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsTnsTypeIdFk"
+    IsNotNull="true"
+    ColumnName="TNS_TNS_TYPE_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsRate"
+    Precision="29"
+    Scale="10"
+    ColumnName="TNS_RATE"
+    SQLType="NUMERIC"
+    Type="java.lang.String"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsQty"
+    ColumnName="TNS_QTY"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"
+    Precision="29"
+    Scale="10"/>
+  <Attribute
+    Name="TnsOiltId"
+    ColumnName="TNS_OILT_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsOildId"
+    ColumnName="TNS_OILD_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsStId"
+    ColumnName="TNS_ST_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsCoaDactNumber"
+    IsNotNull="true"
+    ColumnName="TNS_COA_DACT_NUMBER"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsCoaCactNumber"
+    IsNotNull="true"
+    ColumnName="TNS_COA_CACT_NUMBER"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsAdjDate"
+    ColumnName="TNS_ADJ_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsBankTnsTypeIdFk"
+    ColumnName="TNS_BANK_TNS_TYPE_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsSlipNo"
+    ColumnName="TNS_SLIP_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TRANSACTION"
+    Precision="40"/>
+  <Attribute
+    Name="TnsSlipDate"
+    ColumnName="TNS_SLIP_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsTnsviewId"
+    ColumnName="TNS_TNSVIEW_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsNewrate"
+    Precision="27"
+    Scale="7"
+    ColumnName="TNS_NEWRATE"
+    SQLType="NUMERIC"
+    Type="java.lang.String"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsFreightfactor"
+    Precision="19"
+    Scale="4"
+    ColumnName="TNS_FREIGHTFACTOR"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsIsDebit"
+    ColumnName="TNS_IS_DEBIT"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"
+    Precision="1"
+    Scale="0"/>
+  <Attribute
+    Name="TnsIsClaimedId"
+    Precision="19"
+    Scale="0"
+    ColumnName="TNS_IS_CLAIMED_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsAdjId"
+    ColumnName="TNS_ADJ_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsReverseEntry"
+    ColumnName="TNS_REVERSE_ENTRY"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsPurchaseRateLogIdFk"
+    ColumnName="TNS_PURCHASE_RATE_LOG_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsSaleRateLogIdFk"
+    ColumnName="TNS_SALE_RATE_LOG_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsEtc"
+    Precision="300"
+    ColumnName="TNS_ETC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TRANSACTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TnsParentTnsId"
+    ColumnName="TNS_PARENT_TNS_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsBankNameId"
+    ColumnName="TNS_BANK_NAME_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsBrCode"
+    ColumnName="TNS_BR_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TRANSACTION"
+    Precision="20"/>
+  <Attribute
+    Name="TnsOildLoadId"
+    ColumnName="TNS_OILD_LOAD_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsOildLoadDate"
+    ColumnName="TNS_OILD_LOAD_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsFormatAmount"
+    Precision="29"
+    Scale="7"
+    ColumnName="TNS_FORMAT_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsSpellAmount"
+    Precision="175"
+    ColumnName="TNS_SPELL_AMOUNT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TRANSACTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="175"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TnsSDate"
+    ColumnName="TNS_S_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsAdjAcRef"
+    ColumnName="TNS_ADJ_AC_REF"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsInfoStart"
+    Precision="30"
+    ColumnName="TNS_INFO_START"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TRANSACTION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DcIdFk"
+    ColumnName="DC_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsCrDr"
+    ColumnName="TNS_CR_DR"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsStorageOiltIdFk"
+    ColumnName="TNS_STORAGE_OILT_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsDiscRate"
+    Precision="29"
+    Scale="10"
+    ColumnName="TNS_DISC_RATE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="TnsDiscAmt"
+    Precision="19"
+    Scale="2"
+    ColumnName="TNS_DISC_AMT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <Attribute
+    Name="VehicleIdFk"
+    ColumnName="VEHICLE_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="TRANSACTION"/>
+  <AccessorAttribute
+    Name="GeneralLedgerEntry"
+    Association="model.TnsGleFkAssoc"
+    AssociationEnd="model.TnsGleFkAssoc.GeneralLedgerEntry"
+    AssociationOtherEnd="model.TnsGleFkAssoc.Transaction"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TransactionType"
+    Association="model.TnstypeTnsFkAssoc"
+    AssociationEnd="model.TnstypeTnsFkAssoc.TransactionType"
+    AssociationOtherEnd="model.TnstypeTnsFkAssoc.Transaction"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Storagetank"
+    Association="model.TnsStorageTankFkAssoc"
+    AssociationEnd="model.TnsStorageTankFkAssoc.Storagetank"
+    AssociationOtherEnd="model.TnsStorageTankFkAssoc.Transaction"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ChartOfAccounts"
+    Association="model.COA_TNS_DACT_ID_FK_Assoc"
+    AssociationEnd="model.COA_TNS_DACT_ID_FK_Assoc.ChartOfAccounts"
+    AssociationOtherEnd="model.COA_TNS_DACT_ID_FK_Assoc.Transaction"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ChartOfAccounts1"
+    Association="model.COA_TNS_CACT_ID_FK_Assoc"
+    AssociationEnd="model.COA_TNS_CACT_ID_FK_Assoc.ChartOfAccounts1"
+    AssociationOtherEnd="model.COA_TNS_CACT_ID_FK_Assoc.Transaction1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="BankTnsType"
+    Association="model.BANKTNSTYPE_TNS_FK_Assoc"
+    AssociationEnd="model.BANKTNSTYPE_TNS_FK_Assoc.BankTnsType"
+    AssociationOtherEnd="model.BANKTNSTYPE_TNS_FK_Assoc.Transaction"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="TnsView"
+    Association="model.TNSVIEW_TNS_FK_Assoc"
+    AssociationEnd="model.TNSVIEW_TNS_FK_Assoc.TnsView"
+    AssociationOtherEnd="model.TNSVIEW_TNS_FK_Assoc.Transaction"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="OilDepo"
+    Association="model.TNS_OILD_FK_Assoc"
+    AssociationEnd="model.TNS_OILD_FK_Assoc.OilDepo"
+    AssociationOtherEnd="model.TNS_OILD_FK_Assoc.Transaction"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="OilTanker"
+    Association="model.TNS_OILT_FK_Assoc"
+    AssociationEnd="model.TNS_OILT_FK_Assoc.OilTanker"
+    AssociationOtherEnd="model.TNS_OILT_FK_Assoc.Transaction"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Transaction"
+    Association="model.TNSTNSReverseENTRY"
+    AssociationEnd="model.TNSTNSReverseENTRY.Transaction"
+    AssociationOtherEnd="model.TNSTNSReverseENTRY.TnsPurchaseReturnTransaction"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TnsPurchaseReturnTransaction"
+    Association="model.TNSTNSReverseENTRY"
+    AssociationEnd="model.TNSTNSReverseENTRY.TnsPurchaseReturnTransaction"
+    AssociationOtherEnd="model.TNSTNSReverseENTRY.Transaction"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="PurchaseRateLog"
+    Association="model.PurchaseRateLog_TNS_FK_Assoc"
+    AssociationEnd="model.PurchaseRateLog_TNS_FK_Assoc.PurchaseRateLog"
+    AssociationOtherEnd="model.PurchaseRateLog_TNS_FK_Assoc.Transaction"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SaleRateLog"
+    Association="model.SaleRateLog_TNS_FK_Assoc"
+    AssociationEnd="model.SaleRateLog_TNS_FK_Assoc.SaleRateLog"
+    AssociationOtherEnd="model.SaleRateLog_TNS_FK_Assoc.Transaction"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="BankName"
+    Association="model.BANKNAME_TNS_ASSOC"
+    AssociationEnd="model.BANKNAME_TNS_ASSOC.BankName"
+    AssociationOtherEnd="model.BANKNAME_TNS_ASSOC.Transaction"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="OilDepo1"
+    Association="model.TNS_OILD_LOAD_D_ASSOC"
+    AssociationEnd="model.TNS_OILD_LOAD_D_ASSOC.OilDepo1"
+    AssociationOtherEnd="model.TNS_OILD_LOAD_D_ASSOC.Transaction1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="OilTanker1"
+    Association="model.OILTSTORAGE_TRANSECTION_ASSOC"
+    AssociationEnd="model.OILTSTORAGE_TRANSECTION_ASSOC.OilTanker1"
+    AssociationOtherEnd="model.OILTSTORAGE_TRANSECTION_ASSOC.Transaction1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Vehicle1"
+    Association="model.Vehicle_TNS_Assoc"
+    AssociationEnd="model.Vehicle_TNS_Assoc.Vehicle1"
+    AssociationOtherEnd="model.Vehicle_TNS_Assoc.Transaction"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="TransactionPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="TRANSACTION_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="TransactionTnsIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"TNS_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="TRANSACTION_TNS_ID_CHECK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="TnsOildepoFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="OIL_DEPO_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="TNS_OILDEPO_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsOildId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="TnsOiltankerFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="OIL_TANKER_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="TNS_OILTANKER_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsOiltId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="TnsStorageTankFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="STORAGETANK_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="TNS_STORAGE_TANK_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsStId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="TnstypeTnsFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="TRANSACTION_TYPE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="TNSTYPE_TNS_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsTnsTypeIdFk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Transaction">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CHART_OF_ACCOUNTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsCoaDactNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Transaction1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CHART_OF_ACCOUNTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsCoaCactNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Transaction10">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="TRANSACTION_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION10"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="fk_Transaction11">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PURCHASE_RATE_LOG_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION11"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsPurchaseRateLogIdFk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Transaction12">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SALE_RATE_LOG_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION12"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsSaleRateLogIdFk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Transaction13">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="BANK_NAME_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION13"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsBankNameId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Transaction14">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="DRCRTABLE_PRIMARY_KEY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION14"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsIsDebit"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Transaction15">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="OIL_DEPO_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION15"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsOildLoadId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Transaction16">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="OIL_TANKER_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION16"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsStorageOiltIdFk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Transaction17">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="VEHICLE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION17"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.VehicleIdFk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Transaction2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CHART_OF_ACCOUNTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsCoaDactNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Transaction3">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CHART_OF_ACCOUNTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsCoaCactNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Transaction4">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="BANK_TNS_TYPE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION4"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsBankTnsTypeIdFk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Transaction5">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="TNS_VIEW_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION5"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsTnsviewId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Transaction6">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="OIL_DEPO_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION6"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsOildId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Transaction7">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="OIL_TANKER_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION7"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Transaction.TnsOiltId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Transaction8">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PURCHASE_RATE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION8"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="fk_Transaction9">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SALE_RATE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANSACTION9"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+</Entity>

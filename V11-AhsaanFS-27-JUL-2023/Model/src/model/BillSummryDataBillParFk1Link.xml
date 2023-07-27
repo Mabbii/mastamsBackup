@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BillSummryDataBillParFk1Link"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  EntityAssociation="model.BillSummryDataBillParFk1Assoc">
+  <ViewLinkDefEnd
+    Name="BillParam_View"
+    Cardinality="1"
+    Source="true"
+    Owner="model.BillParam_View">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="BillParam_View"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BillParam_View.BillParamId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="BillSummryData_View"
+    Cardinality="-1"
+    Owner="model.BillSummryData_View">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="BillSummryData_View"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BillSummryData_View.BillParamIdFk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

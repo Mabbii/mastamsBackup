@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="LEDGERPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variableUsage DataControl="VOAPPDataControl" Binds="GleForJournalLedgerReport1.variablesMap.BindCoaName"
+                     Name="ExecuteWithParams_BindCoaName" IsQueriable="false"/>
+      <variableUsage DataControl="VOAPPDataControl" Binds="GleForJournalLedgerReport1.variablesMap.BindGleStartDate"
+                     Name="ExecuteWithParams_BindGleStartDate" IsQueriable="false"/>
+      <variableUsage DataControl="VOAPPDataControl" Binds="GleForJournalLedgerReport1.variablesMap.BindGleEndDate"
+                     Name="ExecuteWithParams_BindGleEndDate" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="GleForJournalLedgerReport1" RangeSize="50" DataControl="VOAPPDataControl"
+              id="GleForJournalLedgerReport1Iterator"/>
+    <iterator Binds="ZRptTbView1" RangeSize="10" DataControl="VOAPPDataControl" id="ZRptTbView1Iterator"/>
+    <searchRegion Binds="GleForJournalLedgerReport1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="GleForJournalLedgerReport1Query"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GleForJournalLedgerReport1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindCoaName" NDType="java.lang.String" NDValue="${bindings.ExecuteWithParams_BindCoaName}"/>
+      <NamedData NDName="BindGleStartDate" NDType="java.sql.Timestamp"
+                 NDValue="${bindings.ExecuteWithParams_BindGleStartDate}"/>
+      <NamedData NDName="BindGleEndDate" NDType="java.sql.Timestamp"
+                 NDValue="${bindings.ExecuteWithParams_BindGleEndDate}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="BindCoaName">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindCoaName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindGleStartDate">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindGleStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindGleEndDate">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindGleEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptTbView1Iterator" id="ZRptTbName">
+      <AttrNames>
+        <Item Value="ZRptTbName"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="refreshQuery" RequiresUpdateModel="true" Action="invokeMethod" MethodName="refreshQuery"
+                  IsViewObjectMethod="true" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.refreshQuery.dataControl.GleForJournalLedgerReport1">
+      <NamedData NDName="coaName" NDType="java.lang.String"/>
+      <NamedData NDName="startDate" NDType="java.sql.Timestamp"/>
+      <NamedData NDName="endDate" NDType="java.sql.Timestamp"/>
+    </methodAction>
+    <attributeValues IterBinding="ZRptTbView1Iterator" id="ZRptTbDateStart">
+      <AttrNames>
+        <Item Value="ZRptTbDateStart"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptTbView1Iterator" id="ZRptTbDate">
+      <AttrNames>
+        <Item Value="ZRptTbDate"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="GleForJournalLedgerReport1Iterator" id="GleForJournalLedgerReport1">
+      <nodeDefinition DefName="model.GleForJournalLedgerReport" Name="GleForJournalLedgerReport10">
+        <AttrNames>
+          <Item Value="GleAcInTnsAcNo"/>
+          <Item Value="GleBalance"/>
+          <Item Value="GleCoaActNumber"/>
+          <Item Value="GleCredit"/>
+          <Item Value="GleCreditQty"/>
+          <Item Value="GleDate"/>
+          <Item Value="GleDebit"/>
+          <Item Value="GleDetails"/>
+          <Item Value="GleEtc"/>
+          <Item Value="GlePlFlag"/>
+          <Item Value="GleQty"/>
+          <Item Value="GleRate"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaActNumber"/>
+          <Item Value="CoaName1"/>
+          <Item Value="CoaActNumber1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

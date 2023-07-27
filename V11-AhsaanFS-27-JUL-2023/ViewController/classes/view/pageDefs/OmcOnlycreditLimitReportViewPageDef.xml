@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="OmcOnlycreditLimitReportViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZRptOmcCreditLimitParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="ZRptOmcCreditLimitParamView1Iterator"/>
+    <iterator Binds="ZRptOmcCreditLimitDataView1" RangeSize="50" DataControl="VOAPPDataControl"
+              id="ZRptOmcCreditLimitDataView1Iterator"/>
+    <searchRegion Binds="ZRptOmcCreditLimitDataView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ZRptOmcCreditLimitDataView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="ZRptOmcCreditLimitParamView1Iterator" StaticList="false" Uses="LOV_CoaName"
+                  id="CoaName"/>
+    <attributeValues IterBinding="ZRptOmcCreditLimitParamView1Iterator" id="CreditLimitParamId">
+      <AttrNames>
+        <Item Value="CreditLimitParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOmcCreditLimitParamView1Iterator" id="CreditLimitParamStartDate">
+      <AttrNames>
+        <Item Value="CreditLimitParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOmcCreditLimitParamView1Iterator" id="CreditLimitParamEndDate">
+      <AttrNames>
+        <Item Value="CreditLimitParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOmcCreditLimitParamView1Iterator" id="CreditLimitParamOmcId">
+      <AttrNames>
+        <Item Value="CreditLimitParamOmcId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOmcCreditLimitParamView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ZRptOmcCreditLimitDataView1Iterator" id="ZRptOmcCreditLimitDataView1">
+      <nodeDefinition DefName="model.ZRptOmcCreditLimitDataView" Name="ZRptOmcCreditLimitDataView10">
+        <AttrNames>
+          <Item Value="CreditLimitOmcId"/>
+          <Item Value="CreditLimitDate"/>
+          <Item Value="CreditLimitOmcCrdLimit"/>
+          <Item Value="CreditLimitLedgerBalance"/>
+          <Item Value="CreditLimitPurchases"/>
+          <Item Value="CreditLimitPayments"/>
+          <Item Value="CreditLimitNetBalance"/>
+          <Item Value="CreditBalanceWithLimit"/>
+          <Item Value="CreditLimitOmcName"/>
+          <Item Value="CreditLimitComments"/>
+          <Item Value="CreditLimitCat"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ZRptOmcCreditLimitDataView1Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

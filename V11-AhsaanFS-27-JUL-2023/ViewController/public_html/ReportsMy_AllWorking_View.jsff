@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <f:view beforePhase="#{backingBeanScope.PrintPageBean.beforePhaseMethod}">
+        <af:panelBox id="pb1">
+            <f:facet name="toolbar"/>
+            <af:image source="#{resource['images:Ahsaan FS Logo.png']}" shortDesc="Ahsaan Fs Logo" id="i1"/>
+            <af:panelSplitter orientation="vertical" splitterPosition="280" id="ps1">
+                <f:facet name="first">
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputText value="#{bindings.ZAwpId.inputValue}" label="#{bindings.ZAwpId.hints.label}"
+                                      required="#{bindings.ZAwpId.hints.mandatory}"
+                                      columns="#{bindings.ZAwpId.hints.displayWidth}"
+                                      maximumLength="#{bindings.ZAwpId.hints.precision}"
+                                      shortDesc="#{bindings.ZAwpId.hints.tooltip}" id="it1" rendered="false">
+                            <f:validator binding="#{bindings.ZAwpId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ZAwpId.format}"/>
+                        </af:inputText>
+                        <af:outputText value="Daily Working" id="ot15"
+                                       inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                        <af:inputDate value="#{bindings.ZAwpStartDate.inputValue}"
+                                      label="#{bindings.ZAwpStartDate.hints.label}"
+                                      required="#{bindings.ZAwpStartDate.hints.mandatory}"
+                                      columns="#{bindings.ZAwpStartDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.ZAwpStartDate.hints.tooltip}" id="id1" autoSubmit="true">
+                            <f:validator binding="#{bindings.ZAwpStartDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy "/>
+                        </af:inputDate>
+                        <af:inputDate value="#{bindings.ZAwpEndDate.inputValue}"
+                                      label="#{bindings.ZAwpEndDate.hints.label}"
+                                      required="#{bindings.ZAwpEndDate.hints.mandatory}"
+                                      columns="#{bindings.ZAwpEndDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.ZAwpEndDate.hints.tooltip}" id="id2" autoSubmit="true">
+                            <f:validator binding="#{bindings.ZAwpEndDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy "/>
+                        </af:inputDate>
+                        <af:selectOneChoice value="#{bindings.ZAwpOption.inputValue}"
+                                            label="#{bindings.ZAwpOption.label}"
+                                            required="#{bindings.ZAwpOption.hints.mandatory}"
+                                            shortDesc="#{bindings.ZAwpOption.hints.tooltip}" id="soc1"
+                                            autoSubmit="true">
+                            <f:selectItems value="#{bindings.ZAwpOption.items}" id="si1"/>
+                            <f:validator binding="#{bindings.ZAwpOption.validator}"/>
+                        </af:selectOneChoice>
+                        <f:facet name="footer">
+                            <af:panelGroupLayout id="pgl1">
+                                <af:button text="Show" id="b2" actionListener="#{bindings.Execute.execute}" 
+                                            icon="#{resource['images:find.png']}" disabled="#{!bindings.Execute.enabled}"/>
+                                <af:spacer width="50" height="10" id="s1"/>
+                                <af:button text="Submit" id="b1" icon="#{resource['images:commit.png']}" actionListener="#{bindings.Commit.execute}"
+                                           disabled="#{!bindings.Commit.enabled}"/>
+                                <af:spacer width="50" height="10" id="s2"/>
+                                <af:button text="EXCEL" id="b3" icon="#{resource['images:export.png']}"
+                                           inlineStyle="color:Purple;">
+                                    <af:exportCollectionActionListener type="excelHTML" exportedId="pc1:t1"
+                                                                       filename="TRIAL BALANCE.XLS"/>
+                                </af:button>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.ZAllWorkView2.collectionModel}" var="row"
+                                  rows="#{bindings.ZAllWorkView2.rangeSize}"
+                                  emptyText="#{bindings.ZAllWorkView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.ZAllWorkView2.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.ZAllWorkView2.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.ZAllWorkView2.rangeSize}"
+                                  filterModel="#{bindings.ZAllWorkView2Query.queryDescriptor}" filterVisible="true"
+                                  queryListener="#{bindings.ZAllWorkView2Query.processQuery}" varStatus="vs" id="t1"
+                                  partialTriggers=":::b2" width="1500"
+                                  inlineStyle="background-color:Window; border-left-color:Window; border-right-color:Window; border-top-color:Window; border-bottom-color:Window;">
+                            <af:column sortProperty="#{bindings.ZAllWorkView2.hints.ZAwId.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZAllWorkView2.hints.ZAwId.label}" id="c1"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                       rendered="false" align="center">
+                                <af:outputText value="#{row.ZAwId}"
+                                               shortDesc="#{bindings.ZAllWorkView2.hints.ZAwId.tooltip}" id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZAllWorkView2.hints.ZAwId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZAllWorkView2.hints.ZAwDate.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZAllWorkView2.hints.ZAwDate.label}"
+                                       id="c2"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left; font-size:medium;"
+                                       align="center">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.ZAllWorkView2Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ZAwDate.value}"
+                                                  id="id3">
+                                        <af:convertDateTime pattern="#{bindings.ZAllWorkView2.hints.ZAwDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.ZAwDate}"
+                                               shortDesc="#{bindings.ZAllWorkView2.hints.ZAwDate.tooltip}" id="ot2">
+                                    <af:convertDateTime pattern="dd-MMM-yyyy "/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZAllWorkView2.hints.ZAwDetails.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZAllWorkView2.hints.ZAwDetails.label}"
+                                       id="c3"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left; font-size:medium; #{row.ZAwDate == null?'text-align:center;':''} #{row.ZAwDate != null?'text-align:left;':''}"
+                                       align="center" width="200">
+                                <af:outputText value="#{row.ZAwDetails}" inlineStyle="#{row.ZAwDate == null?'font-size:large;':''} #{row.ZAwDate != null?'font-size:medium;':''} #{row.ZAwDate == null?'font-weight:bold;':''}"
+                                               shortDesc="#{bindings.ZAllWorkView2.hints.ZAwDetails.tooltip}" id="ot3"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZAllWorkView2.hints.ZAwTnsType.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZAllWorkView2.hints.ZAwTnsType.label}"
+                                       id="c4"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                       rendered="false" align="center">
+                                <af:outputText value="#{row.ZAwTnsType}"
+                                               shortDesc="#{bindings.ZAllWorkView2.hints.ZAwTnsType.tooltip}" id="ot4"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZAllWorkView2.hints.ZAwCactNumber.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZAllWorkView2.hints.ZAwCactNumber.label}" id="c5"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                       rendered="false" align="center">
+                                <af:outputText value="#{row.ZAwCactNumber}"
+                                               shortDesc="#{bindings.ZAllWorkView2.hints.ZAwCactNumber.tooltip}"
+                                               id="ot5">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZAllWorkView2.hints.ZAwCactNumber.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZAllWorkView2.hints.ZAwCactAcName.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZAllWorkView2.hints.ZAwCactAcName.label}" id="c6"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left; font-size:medium;"
+                                       align="center" width="250">
+                                <af:outputText value="#{row.ZAwCactAcName}"
+                                               shortDesc="#{bindings.ZAllWorkView2.hints.ZAwCactAcName.tooltip}"
+                                               id="ot6"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZAllWorkView2.hints.ZAwDactNumber.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZAllWorkView2.hints.ZAwDactNumber.label}" id="c7"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                       rendered="false" align="center">
+                                <af:outputText value="#{row.ZAwDactNumber}"
+                                               shortDesc="#{bindings.ZAllWorkView2.hints.ZAwDactNumber.tooltip}"
+                                               id="ot7">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZAllWorkView2.hints.ZAwDactNumber.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZAllWorkView2.hints.ZAwDactAcName.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZAllWorkView2.hints.ZAwDactAcName.label}" id="c8"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left; font-size:medium;"
+                                       align="center" width="250">
+                                <af:outputText value="#{row.ZAwDactAcName}"
+                                               shortDesc="#{bindings.ZAllWorkView2.hints.ZAwDactAcName.tooltip}"
+                                               id="ot8"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZAllWorkView2.hints.ZAwQty.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZAllWorkView2.hints.ZAwQty.label}"
+                                       id="c9"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right; font-size:medium;"
+                                       align="center" width="90">
+                                <af:outputText value="#{row.ZAwQty}"
+                                               shortDesc="#{bindings.ZAllWorkView2.hints.ZAwQty.tooltip}" id="ot9">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZAllWorkView2.hints.ZAwQty.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZAllWorkView2.hints.ZAwRate.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZAllWorkView2.hints.ZAwRate.label}"
+                                       id="c10"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right; font-size:medium;"
+                                       align="center" width="90">
+                                <af:outputText value="#{row.ZAwRate}"
+                                               shortDesc="#{bindings.ZAllWorkView2.hints.ZAwRate.tooltip}" id="ot10">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZAllWorkView2.hints.ZAwRate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZAllWorkView2.hints.ZAwAmount.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZAllWorkView2.hints.ZAwAmount.label}"
+                                       id="c11"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right; font-size:medium; #{row.ZAwDate == null?'font-size:large;':''}  #{row.ZAwDate == null?'font-weight:bolder;':''}"
+                                       align="center" width="120">
+                                <af:outputText value="#{row.ZAwAmount}"
+                                               shortDesc="#{bindings.ZAllWorkView2.hints.ZAwAmount.tooltip}" id="ot11">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZAllWorkView2.hints.ZAwAmount.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZAllWorkView2.hints.ZAwpIdFk.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZAllWorkView2.hints.ZAwpIdFk.label}"
+                                       id="c12"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                       rendered="false" align="center">
+                                <af:outputText value="#{row.ZAwpIdFk}"
+                                               shortDesc="#{bindings.ZAllWorkView2.hints.ZAwpIdFk.tooltip}" id="ot12">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZAllWorkView2.hints.ZAwpIdFk.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZAllWorkView2.hints.ZAwTnsView.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZAllWorkView2.hints.ZAwTnsView.label}"
+                                       id="c13"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                       rendered="false" align="center">
+                                <af:outputText value="#{row.ZAwTnsView}"
+                                               shortDesc="#{bindings.ZAllWorkView2.hints.ZAwTnsView.tooltip}" id="ot13">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZAllWorkView2.hints.ZAwTnsView.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZAllWorkView2.hints.ZAwHeadings.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ZAllWorkView2.hints.ZAwHeadings.label}"
+                                       id="c14"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                       align="center" rendered="false">
+                                <af:outputText value="#{row.ZAwHeadings}"
+                                               shortDesc="#{bindings.ZAllWorkView2.hints.ZAwHeadings.tooltip}"
+                                               id="ot14">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZAllWorkView2.hints.ZAwHeadings.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </f:facet>
+            </af:panelSplitter>
+        </af:panelBox>
+    </f:view>
+</ui:composition>

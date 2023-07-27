@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="DayBook_Expensive_ViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Expensive1" RangeSize="25" DataControl="VOAPPDataControl" id="Expensive1Iterator"/>
+    <searchRegion Binds="Expensive1Iterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="Expensive1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="Expensive1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <listOfValues IterBinding="Expensive1Iterator" StaticList="false" Uses="LOV_BankTnsTypeName" id="BankTnsTypeName"/>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsDate">
+      <AttrNames>
+        <Item Value="TnsDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsFormatAmount">
+      <AttrNames>
+        <Item Value="TnsFormatAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsSpellAmount">
+      <AttrNames>
+        <Item Value="TnsSpellAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsSlipDate">
+      <AttrNames>
+        <Item Value="TnsSlipDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsSlipNo">
+      <AttrNames>
+        <Item Value="TnsSlipNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsInfo">
+      <AttrNames>
+        <Item Value="TnsInfo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsCoaCactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaCactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsCoaDactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaDactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="CoaBalance">
+      <AttrNames>
+        <Item Value="CoaBalance"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="CoaBalance1">
+      <AttrNames>
+        <Item Value="CoaBalance1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsId">
+      <AttrNames>
+        <Item Value="TnsId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsDetail">
+      <AttrNames>
+        <Item Value="TnsDetail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsTnsTypeIdFk">
+      <AttrNames>
+        <Item Value="TnsTnsTypeIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsTnsviewId">
+      <AttrNames>
+        <Item Value="TnsTnsviewId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsBankTnsTypeIdFk">
+      <AttrNames>
+        <Item Value="TnsBankTnsTypeIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsSDate">
+      <AttrNames>
+        <Item Value="TnsSDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="BankTnsTypeId">
+      <AttrNames>
+        <Item Value="BankTnsTypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="CoaCode">
+      <AttrNames>
+        <Item Value="CoaCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="CoaCode1">
+      <AttrNames>
+        <Item Value="CoaCode1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="CoaActNumber1">
+      <AttrNames>
+        <Item Value="CoaActNumber1"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Expensive1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="Expensive1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="Expensive1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="Expensive1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="Expensive1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="Expensive1Iterator" id="Expensive1">
+      <nodeDefinition DefName="model.Expensive" Name="Expensive10">
+        <AttrNames>
+          <Item Value="TnsDate"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaName1"/>
+          <Item Value="BankTnsTypeName"/>
+          <Item Value="TnsAmount"/>
+          <Item Value="TnsInfo"/>
+          <Item Value="TnsSlipDate"/>
+          <Item Value="TnsSlipNo"/>
+          <Item Value="TnsDetail"/>
+          <Item Value="TnsCoaCactNumber"/>
+          <Item Value="TnsCoaDactNumber"/>
+          <Item Value="TnsTnsTypeIdFk"/>
+          <Item Value="TnsTnsviewId"/>
+          <Item Value="TnsBankTnsTypeIdFk"/>
+          <Item Value="TnsFormatAmount"/>
+          <Item Value="TnsSpellAmount"/>
+          <Item Value="TnsSDate"/>
+          <Item Value="TnsId"/>
+          <Item Value="BankTnsTypeId"/>
+          <Item Value="CoaBalance"/>
+          <Item Value="CoaCode"/>
+          <Item Value="CoaActNumber"/>
+          <Item Value="CoaBalance1"/>
+          <Item Value="CoaCode1"/>
+          <Item Value="CoaActNumber1"/>
+          <Item Value="TnsQty"/>
+          <Item Value="TnsRate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsQty">
+      <AttrNames>
+        <Item Value="TnsQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsRate">
+      <AttrNames>
+        <Item Value="TnsRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Expensive1Iterator" id="TnsAmount">
+      <AttrNames>
+        <Item Value="TnsAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Expensive1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <listOfValues IterBinding="Expensive1Iterator" StaticList="false" Uses="LOV_CoaName1" id="CoaName1"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    
+    <af:document title="Rates View" id="d1" binding="#{backingBeanScope.backing_MyHomeView.d1}"
+    smallIconSource="#{resource['images:adfdi_logo_16.png']}">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                <f:facet name="center">
+                    <af:panelStretchLayout id="psl1">
+                        <f:facet name="top">
+                            <af:toolbar id="t1">
+                                <af:button text="Nozzle Retail Rate" id="b1"
+                                           icon="#{resource['images:barcode.png']}"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallNozalRetailRate}">
+                                    <af:setPropertyListener from="NozalRetailRateFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s2"/>
+                                <af:button text="Sale Rate" id="b2"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallSaleRate}"
+                                           icon="#{resource['images:price (1).png']}">
+                                    <af:setPropertyListener from="SaleRateFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s3"/>
+                                <af:button text="Purchase Rate Supplier" id="b3"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallPurchaseRateSupplier}"
+                                           icon="#{resource['images:price.png']}">
+                                    <af:setPropertyListener from="PurchaseRateSupplierFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s4"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="center">
+                            <af:switcher id="s1" binding="#{backingBeanScope.backing_MyHomeView.switcher}"
+                                         facetName="DefaultRatesFC" defaultFacet="DefaultRatesFC">
+                                <f:facet name="NozalRetailRateFc">
+                                    <af:region value="#{bindings.NozalRetailRateTf1.regionModel}" id="r4"/>
+                                </f:facet>
+                                <f:facet name="SaleRateFc">
+                                    <af:region value="#{bindings.SaleRateLogTF2.regionModel}" id="r3"/>
+                                </f:facet>
+                                <f:facet name="PurchaseRateSupplierFc">
+                                    <af:region value="#{bindings.PurchaseRtaeLogSupplierTF1.regionModel}" id="r1"/>
+                                </f:facet>
+                                <f:facet name="DefaultRatesFC">
+                                    <af:region value="#{bindings.DefaultRateTF1.regionModel}" id="r2"/>
+                                </f:facet>
+                            </af:switcher>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="header">
+                <af:link text="Ahsaan Filling Station" id="ll4" action="#{PageLoadBean.RedirecttoHome}"
+                             inlineStyle="color:Maroon; font-size:x-large; font-style:italic; font-weight:bold;"/>
+                </f:facet>
+                <f:facet name="status"/>
+                <f:attribute name="headerGlobalSize" value="35"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

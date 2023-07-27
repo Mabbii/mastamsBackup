@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24" id="ReportsView_C_GleviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZCGleParamView1" RangeSize="25" DataControl="VOAPPDataControl" id="ZCGleParamView1Iterator"/>
+    <iterator Binds="ZCGleView1" RangeSize="1500" DataControl="VOAPPDataControl" id="ZCGleView1Iterator"/>
+    <searchRegion Binds="ZCGleView1Iterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ZCGleView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="ZCGleParamView1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <attributeValues IterBinding="ZCGleParamView1Iterator" id="ZCGleParamId">
+      <AttrNames>
+        <Item Value="ZCGleParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZCGleParamView1Iterator" id="ZCGleParamStartDate">
+      <AttrNames>
+        <Item Value="ZCGleParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZCGleParamView1Iterator" id="ZCGleParamEndDate">
+      <AttrNames>
+        <Item Value="ZCGleParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZCGleParamView1Iterator" id="ZCGleParamCoaActNumber">
+      <AttrNames>
+        <Item Value="ZCGleParamCoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZCGleParamView1Iterator" id="CoaBalance">
+      <AttrNames>
+        <Item Value="CoaBalance"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZCGleParamView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ZCGleView1Iterator" id="ZCGleView1">
+      <nodeDefinition DefName="model.ZCGleView" Name="ZCGleView10">
+        <AttrNames>
+          <Item Value="ZCGleId"/>
+          <Item Value="ZCGleDate"/>
+          <Item Value="ZCGleDebit"/>
+          <Item Value="ZCGleCredit"/>
+          <Item Value="ZCGleBalance"/>
+          <Item Value="ZCGleCoaActNumber"/>
+          <Item Value="ZCGleQty"/>
+          <Item Value="ZCGleRate"/>
+          <Item Value="ZCGleSlipNo"/>
+          <Item Value="ZCGleEtc"/>
+          <Item Value="ZCGleOildLoadDate"/>
+          <Item Value="ZCGleDebitQty"/>
+          <Item Value="ZCGleCreditQty"/>
+          <Item Value="ZCGleQtyBal"/>
+          <Item Value="ZCGleCgsRate"/>
+          <Item Value="ZCGleParamIdFk"/>
+          <Item Value="ZCGleGleId"/>
+          <Item Value="ZCGleDrCr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

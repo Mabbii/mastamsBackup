@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TankDryDataMInputTanFk1Link"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  EntityAssociation="model.TankDryDataMInputTanFk1Assoc">
+  <ViewLinkDefEnd
+    Name="TankDryDataView"
+    Cardinality="1"
+    Source="true"
+    Owner="model.TankDryDataView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="TankDryDataView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.TankDryDataView.TddId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="TankDryDataMInputView"
+    Cardinality="-1"
+    Owner="model.TankDryDataMInputView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="TankDryDataMInputView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.TankDryDataMInputView.TddIdFk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

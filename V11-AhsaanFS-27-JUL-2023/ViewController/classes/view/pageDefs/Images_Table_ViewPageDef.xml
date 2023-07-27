@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="Images_Table_ViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ImagesTableVO1" RangeSize="25" DataControl="VOAPPDataControl" id="ImagesTableVO1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ImagesTableVO1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="ImagesTableVO1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="ImagesTableVO1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="ImagesTableVO1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="ImagesTableVO1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <listOfValues IterBinding="ImagesTableVO1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <attributeValues IterBinding="ImagesTableVO1Iterator" id="ImageId">
+      <AttrNames>
+        <Item Value="ImageId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ImagesTableVO1Iterator" id="ImageDescription">
+      <AttrNames>
+        <Item Value="ImageDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ImagesTableVO1Iterator" id="CoaAccIdFk">
+      <AttrNames>
+        <Item Value="CoaAccIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ImagesTableVO1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

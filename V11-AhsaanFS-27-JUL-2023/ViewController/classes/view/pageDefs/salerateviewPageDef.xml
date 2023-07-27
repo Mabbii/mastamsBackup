@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="salerateviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SaleRateView1" RangeSize="25" DataControl="VOAPPDataControl" id="SaleRateView1Iterator"/>
+    <searchRegion Binds="SaleRateView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SaleRateView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="SaleRateView1Iterator" StaticList="false" Uses="LOV_PartyName" id="PartyName"/>
+    <listOfValues IterBinding="SaleRateView1Iterator" StaticList="false" Uses="LOV_ProductShortname"
+                  id="ProductShortname"/>
+    <attributeValues IterBinding="SaleRateView1Iterator" id="SaleRateId">
+      <AttrNames>
+        <Item Value="SaleRateId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateView1Iterator" id="SaleRateR">
+      <AttrNames>
+        <Item Value="SaleRateR"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateView1Iterator" id="SaleRateStartDate">
+      <AttrNames>
+        <Item Value="SaleRateStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateView1Iterator" id="PpartyId">
+      <AttrNames>
+        <Item Value="PpartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateView1Iterator" id="PproductId">
+      <AttrNames>
+        <Item Value="PproductId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateView1Iterator" id="SaleRateEndDate">
+      <AttrNames>
+        <Item Value="SaleRateEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateView1Iterator" id="SaleRateDate">
+      <AttrNames>
+        <Item Value="SaleRateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateView1Iterator" id="PartyId">
+      <AttrNames>
+        <Item Value="PartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateView1Iterator" id="ProductId">
+      <AttrNames>
+        <Item Value="ProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SaleRateView1Iterator" id="PtypeId">
+      <AttrNames>
+        <Item Value="PtypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SaleRateView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="SaleRateView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="SaleRateView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="SaleRateView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="SaleRateView1Iterator" id="SaleRateView1">
+      <nodeDefinition DefName="model.SaleRateView" Name="SaleRateView10">
+        <AttrNames>
+          <Item Value="SaleRateId"/>
+          <Item Value="SaleRateR"/>
+          <Item Value="SaleRateStartDate"/>
+          <Item Value="SaleRateEndDate"/>
+          <Item Value="SaleRateDate"/>
+          <Item Value="SaleRateDetails"/>
+          <Item Value="PartyName"/>
+          <Item Value="ProductShortname"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SaleRateView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <attributeValues IterBinding="SaleRateView1Iterator" id="SaleRateDetails">
+      <AttrNames>
+        <Item Value="SaleRateDetails"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

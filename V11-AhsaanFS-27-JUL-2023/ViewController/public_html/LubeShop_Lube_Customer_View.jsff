@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="225" id="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1" maxColumns="2" rows="2">
+                <af:outputText value="Lube Customer" id="ot7"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:inputText value="#{bindings.LcId.inputValue}" label="#{bindings.LcId.hints.label}"
+                              required="#{bindings.LcId.hints.mandatory}" columns="#{bindings.LcId.hints.displayWidth}"
+                              maximumLength="#{bindings.LcId.hints.precision}"
+                              shortDesc="#{bindings.LcId.hints.tooltip}" id="it1">
+                    <f:validator binding="#{bindings.LcId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.LcId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LcName.inputValue}" label="#{bindings.LcName.hints.label}"
+                              required="#{bindings.LcName.hints.mandatory}"
+                              columns="#{bindings.LcName.hints.displayWidth}"
+                              maximumLength="#{bindings.LcName.hints.precision}"
+                              shortDesc="#{bindings.LcName.hints.tooltip}" id="it2">
+                    <f:validator binding="#{bindings.LcName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LcAddress.inputValue}" label="#{bindings.LcAddress.hints.label}"
+                              required="#{bindings.LcAddress.hints.mandatory}"
+                              columns="#{bindings.LcAddress.hints.displayWidth}"
+                              maximumLength="#{bindings.LcAddress.hints.precision}"
+                              shortDesc="#{bindings.LcAddress.hints.tooltip}" id="it3">
+                    <f:validator binding="#{bindings.LcAddress.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LcCity.inputValue}" label="#{bindings.LcCity.hints.label}"
+                              required="#{bindings.LcCity.hints.mandatory}"
+                              columns="#{bindings.LcCity.hints.displayWidth}"
+                              maximumLength="#{bindings.LcCity.hints.precision}"
+                              shortDesc="#{bindings.LcCity.hints.tooltip}" id="it4">
+                    <f:validator binding="#{bindings.LcCity.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LcPhone.inputValue}" label="#{bindings.LcPhone.hints.label}"
+                              required="#{bindings.LcPhone.hints.mandatory}"
+                              columns="#{bindings.LcPhone.hints.displayWidth}"
+                              maximumLength="#{bindings.LcPhone.hints.precision}"
+                              shortDesc="#{bindings.LcPhone.hints.tooltip}" id="it5">
+                    <f:validator binding="#{bindings.LcPhone.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LcEmail.inputValue}" label="#{bindings.LcEmail.hints.label}"
+                              required="#{bindings.LcEmail.hints.mandatory}"
+                              columns="#{bindings.LcEmail.hints.displayWidth}"
+                              maximumLength="#{bindings.LcEmail.hints.precision}"
+                              shortDesc="#{bindings.LcEmail.hints.tooltip}" id="it6">
+                    <f:validator binding="#{bindings.LcEmail.validator}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl1">
+                        <af:panelGroupLayout layout="horizontal" id="pgl3">
+                                <af:button actionListener="#{bindings.First.execute}"
+                                           disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"
+                                           icon="#{resource['images:first_hor_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Previous.execute}"
+                                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"
+                                           icon="#{resource['images:previoustraversalarrow_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Next.execute}"
+                                           disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
+                                           icon="#{resource['images:nexttraversalarrow_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Last.execute}"
+                                           disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"
+                                           icon="#{resource['images:last_hor_ena.png']}"/>
+                                <af:outputText value="---------" id="ot50"/>
+                            </af:panelGroupLayout>
+                        <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                                   disabled="#{!bindings.Commit.enabled}" icon="#{resource['images:commit.png']}"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b6"
+                                   icon="#{resource['images:add.png']}"/>
+                        <af:outputText value="-------------------" id="ot8"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7"
+                                   icon="#{resource['images:rollback.png']}">
+                            <af:resetActionListener/>
+                        </af:button>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.LubeCustomerView1.collectionModel}" var="row"
+                          rows="#{bindings.LubeCustomerView1.rangeSize}"
+                          emptyText="#{bindings.LubeCustomerView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.LubeCustomerView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.LubeCustomerView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.LubeCustomerView1.rangeSize}"
+                          filterModel="#{bindings.LubeCustomerView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.LubeCustomerView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers=":::b1 :::b2 :::b3 :::b4 :::b6">
+                    <af:column sortProperty="#{bindings.LubeCustomerView1.hints.LcId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.LubeCustomerView1.hints.LcId.label}" id="c1"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="60">
+                        <af:outputText value="#{row.LcId}" shortDesc="#{bindings.LubeCustomerView1.hints.LcId.tooltip}"
+                                       id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.LubeCustomerView1.hints.LcId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.LubeCustomerView1.hints.LcName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.LubeCustomerView1.hints.LcName.label}" id="c2"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="150">
+                        <af:outputText value="#{row.LcName}"
+                                       shortDesc="#{bindings.LubeCustomerView1.hints.LcName.tooltip}" id="ot2"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.LubeCustomerView1.hints.LcAddress.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.LubeCustomerView1.hints.LcAddress.label}" id="c3"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="200">
+                        <af:outputText value="#{row.LcAddress}"
+                                       shortDesc="#{bindings.LubeCustomerView1.hints.LcAddress.tooltip}" id="ot3"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.LubeCustomerView1.hints.LcCity.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.LubeCustomerView1.hints.LcCity.label}" id="c4"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.LcCity}"
+                                       shortDesc="#{bindings.LubeCustomerView1.hints.LcCity.tooltip}" id="ot4"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.LubeCustomerView1.hints.LcPhone.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.LubeCustomerView1.hints.LcPhone.label}" id="c5"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="120">
+                        <af:outputText value="#{row.LcPhone}"
+                                       shortDesc="#{bindings.LubeCustomerView1.hints.LcPhone.tooltip}" id="ot5"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.LubeCustomerView1.hints.LcEmail.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.LubeCustomerView1.hints.LcEmail.label}" id="c6"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="150">
+                        <af:outputText value="#{row.LcEmail}"
+                                       shortDesc="#{bindings.LubeCustomerView1.hints.LcEmail.tooltip}" id="ot6"/>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

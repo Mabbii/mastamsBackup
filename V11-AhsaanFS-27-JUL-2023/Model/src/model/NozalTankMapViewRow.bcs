@@ -1,0 +1,12 @@
+//Groovy Scripts for model.NozalTankMapView
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="NTMapDate")
+def NTMapDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

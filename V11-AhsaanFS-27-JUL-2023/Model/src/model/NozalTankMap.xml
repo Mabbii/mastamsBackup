@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="NozalTankMap"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="NOZAL_TANK_MAP"
+  AliasName="NozalTankMap"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="NTMapId"
+    ColumnName="N_T_MAP_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="NOZAL_TANK_MAP"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="NTMapDate"
+    ColumnName="N_T_MAP_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="NOZAL_TANK_MAP"/>
+  <Attribute
+    Name="NTMapNazalIdFk"
+    ColumnName="N_T_MAP_NAZAL_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="NOZAL_TANK_MAP"/>
+  <Attribute
+    Name="NTMapTankIdFk"
+    ColumnName="N_T_MAP_TANK_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="NOZAL_TANK_MAP"/>
+  <AccessorAttribute
+    Name="Nozal"
+    Association="model.NozalTankMapNozalFk1Assoc"
+    AssociationEnd="model.NozalTankMapNozalFk1Assoc.Nozal"
+    AssociationOtherEnd="model.NozalTankMapNozalFk1Assoc.NozalTankMap"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="TankInfo"
+    Association="model.NozalTankMapTankInfoFk1Assoc"
+    AssociationEnd="model.NozalTankMapTankInfoFk1Assoc.TankInfo"
+    AssociationOtherEnd="model.NozalTankMapTankInfoFk1Assoc.NozalTankMap"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="NozalTankMapPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="NOZAL_TANK_MAP_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.NozalTankMap.NTMapId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="NozalTankMapNozalFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="NOZAL_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="NOZAL_TANK_MAP_NOZAL_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.NozalTankMap.NTMapNazalIdFk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="NozalTankMapTankInfoFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="TANK_INFO_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="NOZAL_TANK_MAP_TANK_INFO_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.NozalTankMap.NTMapTankIdFk"/>
+    </AttrArray>
+  </Key>
+</Entity>

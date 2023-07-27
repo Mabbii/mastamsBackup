@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="OilTankerStorageviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OilTanker_With_Storage_only1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="OilTanker_With_Storage_only1Iterator"/>
+    <searchRegion Binds="OilTanker_With_Storage_only1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="OilTanker_With_Storage_only1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="OilTanker_With_Storage_only1Iterator" id="OiltCapacity">
+      <AttrNames>
+        <Item Value="OiltCapacity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OilTanker_With_Storage_only1Iterator" id="OiltId">
+      <AttrNames>
+        <Item Value="OiltId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OilTanker_With_Storage_only1Iterator" id="OiltRegistration">
+      <AttrNames>
+        <Item Value="OiltRegistration"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OilTanker_With_Storage_only1Iterator" id="OiltStorageFlag">
+      <AttrNames>
+        <Item Value="OiltStorageFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OilTanker_With_Storage_only1Iterator" id="OiltTankFlag">
+      <AttrNames>
+        <Item Value="OiltTankFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OilTanker_With_Storage_only1Iterator" id="TankInfoIdFk">
+      <AttrNames>
+        <Item Value="TankInfoIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="OilTanker_With_Storage_only1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="OilTanker_With_Storage_only1Iterator" id="Previous" RequiresUpdateModel="true"
+            Action="previous"/>
+    <action IterBinding="OilTanker_With_Storage_only1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="OilTanker_With_Storage_only1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="OilTanker_With_Storage_only1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="OilTanker_With_Storage_only1Iterator" id="OilTanker_With_Storage_only1">
+      <nodeDefinition DefName="model.OilTanker_With_Storage_only" Name="OilTanker_With_Storage_only10">
+        <AttrNames>
+          <Item Value="OiltCapacity"/>
+          <Item Value="OiltId"/>
+          <Item Value="OiltRegistration"/>
+          <Item Value="OiltStorageFlag"/>
+          <Item Value="OiltTankFlag"/>
+          <Item Value="TankInfoIdFk"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

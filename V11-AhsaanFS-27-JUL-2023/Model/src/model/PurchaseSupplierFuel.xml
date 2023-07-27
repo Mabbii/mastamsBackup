@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PurchaseSupplierFuel"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  RowClass="model.PurchaseSupplierFuelRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.PurchaseSupplierFuel_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="OilTankerAllView1"
+    ViewObjectName="model.OilTankerAllView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="Oil_Depo_without_Storage1"
+    ViewObjectName="model.Oil_Depo_without_Storage"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="coapartysupplieronly1"
+    ViewObjectName="model.coapartysupplieronly"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PurchaseRateLogForSupplier1"
+    ViewObjectName="model.PurchaseRateLogForSupplier"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="PurchaseRateLogForSupplierCriteria"
+      FullName="model.PurchaseRateLogForSupplier.PurchaseRateLogForSupplierCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="BindParty">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[CoaPartyId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="BindProduct">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[CoaProductId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="COA_Product_Fuel_Only1"
+    ViewObjectName="model.COA_Product_Fuel_Only"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OILTANKER_S_AND_TANKS1"
+    ViewObjectName="model.OILTANKER_S_AND_TANKS"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_OiltRegistration"
+    ListVOName="OilTankerAllView1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OiltRegistration"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TnsOiltId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OiltRegistration"/>
+      <Item Value="OiltId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OiltRegistration"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OildShortname"
+    ListVOName="Oil_Depo_without_Storage1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OildShortname"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TnsOildId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OildShortname"/>
+      <Item Value="OildId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OildShortname"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CoaName"
+    ListVOName="coapartysupplieronly1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TnsCoaCactNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CoaName"/>
+      <Item Value="CoaActNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PurchaseRateLogR"
+    ListVOName="PurchaseRateLogForSupplier1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="PurchaseRateLogR"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TnsPurchaseRateLogIdFk"/>
+      <Item Value="TnsRate"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PurchaseRateLogR"/>
+      <Item Value="PurchaseRateLogId"/>
+      <Item Value="PurchaseRateLogR"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PurchaseRateLogR"/>
+      <Item Value="PurchaseRateLogDate"/>
+      <Item Value="PurchaseRateLogDetails"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CoaName1"
+    ListVOName="COA_Product_Fuel_Only1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CoaName1"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TnsCoaDactNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProductShortname"/>
+      <Item Value="CoaActNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProductShortname"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OiltRegistration1"
+    ListVOName="OILTANKER_S_AND_TANKS1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OiltRegistration1"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TnsStorageOiltIdFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OiltRegistration"/>
+      <Item Value="OiltId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OiltRegistration"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Transaction"
+    Entity="model.Transaction"/>
+  <EntityUsage
+    Name="OilDepo"
+    Entity="model.OilDepo"
+    Association="model.TNS_OILD_FK_Assoc"
+    AssociationEnd="model.TNS_OILD_FK_Assoc.OilDepo"
+    SourceUsage="model.PurchaseSupplierFuel.Transaction"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.OilDepo.OildId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Transaction.TnsOildId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="OilTanker"
+    Entity="model.OilTanker"
+    Association="model.TNS_OILT_FK_Assoc"
+    AssociationEnd="model.TNS_OILT_FK_Assoc.OilTanker"
+    SourceUsage="model.PurchaseSupplierFuel.Transaction"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.OilTanker.OiltId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Transaction.TnsOiltId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="OilTanker1"
+    Entity="model.OilTanker"
+    Association="model.OILTSTORAGE_TRANSECTION_ASSOC"
+    AssociationEnd="model.OILTSTORAGE_TRANSECTION_ASSOC.OilTanker1"
+    SourceUsage="model.PurchaseSupplierFuel.Transaction"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.OilTanker.OiltId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Transaction.TnsStorageOiltIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="ChartOfAccounts"
+    Entity="model.ChartOfAccounts"
+    Association="model.COA_TNS_CACT_ID_FK_Assoc"
+    AssociationEnd="model.COA_TNS_CACT_ID_FK_Assoc.ChartOfAccounts1"
+    SourceUsage="model.PurchaseSupplierFuel.Transaction"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.ChartOfAccounts.CoaActNumber"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Transaction.TnsCoaCactNumber"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="ChartOfAccounts1"
+    Entity="model.ChartOfAccounts"
+    Association="model.COA_TNS_DACT_ID_FK_Assoc"
+    AssociationEnd="model.COA_TNS_DACT_ID_FK_Assoc.ChartOfAccounts"
+    SourceUsage="model.PurchaseSupplierFuel.Transaction"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.ChartOfAccounts.CoaActNumber"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Transaction.TnsCoaDactNumber"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="PurchaseRateLog"
+    Entity="model.PurchaseRateLog"
+    Association="model.PurchaseRateLog_TNS_FK_Assoc"
+    AssociationEnd="model.PurchaseRateLog_TNS_FK_Assoc.PurchaseRateLog"
+    SourceUsage="model.PurchaseSupplierFuel.Transaction"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.PurchaseRateLog.PurchaseRateLogId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Transaction.TnsPurchaseRateLogIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="TnsDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TnsDate"
+    EntityUsage="Transaction"
+    AliasName="TNS_DATE"
+    IsUpdateable="while_insert">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="PurchaseSupplierFuelRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.TnsDate_LABEL"/>
+        <FMT_FORMATTER
+          ResId="model.PurchaseSupplierFuel.TnsDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="model.PurchaseSupplierFuel.TnsDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="TnsId"
+    EntityUsage="Transaction"
+    AliasName="TNS_ID"/>
+  <ViewAttribute
+    Name="TnsAmount"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TnsAmount"
+    EntityUsage="Transaction"
+    AliasName="TNS_AMOUNT"
+    DefaultValue="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.TnsAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsCoaCactNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TnsCoaCactNumber"
+    EntityUsage="Transaction"
+    AliasName="TNS_COA_CACT_NUMBER"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="TnsCoaDactNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TnsCoaDactNumber"
+    EntityUsage="Transaction"
+    AliasName="TNS_COA_DACT_NUMBER"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="TnsDetail"
+    PrecisionRule="true"
+    EntityAttrName="TnsDetail"
+    EntityUsage="Transaction"
+    AliasName="TNS_DETAIL"
+    DefaultValue="Purchase Supplier (Fuel)"/>
+  <ViewAttribute
+    Name="TnsFormatAmount"
+    PrecisionRule="true"
+    EntityAttrName="TnsFormatAmount"
+    EntityUsage="Transaction"
+    AliasName="TNS_FORMAT_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="model.PurchaseSupplierFuel.TnsFormatAmount_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="model.PurchaseSupplierFuel.TnsFormatAmount_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsInfo"
+    PrecisionRule="true"
+    EntityAttrName="TnsInfo"
+    EntityUsage="Transaction"
+    AliasName="TNS_INFO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.TnsInfo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsInfoStart"
+    PrecisionRule="true"
+    EntityAttrName="TnsInfoStart"
+    EntityUsage="Transaction"
+    AliasName="TNS_INFO_START"/>
+  <ViewAttribute
+    Name="TnsNewrate"
+    PrecisionRule="true"
+    EntityAttrName="TnsNewrate"
+    EntityUsage="Transaction"
+    AliasName="TNS_NEWRATE"
+    DefaultValue="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.TnsNewrate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsOildId"
+    PrecisionRule="true"
+    EntityAttrName="TnsOildId"
+    EntityUsage="Transaction"
+    AliasName="TNS_OILD_ID"
+    DefaultValue="3"/>
+  <ViewAttribute
+    Name="TnsOiltId"
+    PrecisionRule="true"
+    EntityAttrName="TnsOiltId"
+    EntityUsage="Transaction"
+    AliasName="TNS_OILT_ID"/>
+  <ViewAttribute
+    Name="TnsPurchaseRateLogIdFk"
+    PrecisionRule="true"
+    EntityAttrName="TnsPurchaseRateLogIdFk"
+    EntityUsage="Transaction"
+    AliasName="TNS_PURCHASE_RATE_LOG_ID_FK"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="TnsQty"
+    PrecisionRule="true"
+    EntityAttrName="TnsQty"
+    EntityUsage="Transaction"
+    AliasName="TNS_QTY"
+    DefaultValue="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.TnsQty_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsRate"
+    PrecisionRule="true"
+    EntityAttrName="TnsRate"
+    EntityUsage="Transaction"
+    AliasName="TNS_RATE"
+    DefaultValue="0"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.TnsRate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsSlipDate"
+    PrecisionRule="true"
+    EntityAttrName="TnsSlipDate"
+    EntityUsage="Transaction"
+    AliasName="TNS_SLIP_DATE">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="PurchaseSupplierFuelRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.TnsSlipDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsSlipNo"
+    PrecisionRule="true"
+    EntityAttrName="TnsSlipNo"
+    EntityUsage="Transaction"
+    AliasName="TNS_SLIP_NO"
+    DefaultValue="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.TnsSlipNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsSpellAmount"
+    PrecisionRule="true"
+    EntityAttrName="TnsSpellAmount"
+    EntityUsage="Transaction"
+    AliasName="TNS_SPELL_AMOUNT"/>
+  <ViewAttribute
+    Name="TnsStorageOiltIdFk"
+    PrecisionRule="true"
+    EntityAttrName="TnsStorageOiltIdFk"
+    EntityUsage="Transaction"
+    AliasName="TNS_STORAGE_OILT_ID_FK"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="TnsTnsTypeIdFk"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TnsTnsTypeIdFk"
+    EntityUsage="Transaction"
+    AliasName="TNS_TNS_TYPE_ID_FK"
+    DefaultValue="3"/>
+  <ViewAttribute
+    Name="TnsTnsviewId"
+    PrecisionRule="true"
+    EntityAttrName="TnsTnsviewId"
+    EntityUsage="Transaction"
+    AliasName="TNS_TNSVIEW_ID"
+    DefaultValue="6"/>
+  <ViewAttribute
+    Name="OildShortname"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OildShortname"
+    EntityUsage="OilDepo"
+    AliasName="OILD_SHORTNAME"
+    LOVName="LOV_OildShortname">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.OildShortname_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OildId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="OildId"
+    EntityUsage="OilDepo"
+    AliasName="OILD_ID"/>
+  <ViewAttribute
+    Name="OiltRegistration"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OiltRegistration"
+    EntityUsage="OilTanker"
+    AliasName="OILT_REGISTRATION#"
+    LOVName="LOV_OiltRegistration">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.OiltRegistration_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OiltId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="OiltId"
+    EntityUsage="OilTanker"
+    AliasName="OILT_ID"/>
+  <ViewAttribute
+    Name="OiltCapacity"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OiltCapacity"
+    EntityUsage="OilTanker"
+    AliasName="OILT_CAPACITY"/>
+  <ViewAttribute
+    Name="OiltRegistration1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OiltRegistration"
+    EntityUsage="OilTanker1"
+    AliasName="OILT_REGISTRATION1"
+    LOVName="LOV_OiltRegistration1">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.OiltRegistration1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OiltId1"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="OiltId"
+    EntityUsage="OilTanker1"
+    AliasName="OILT_ID1"/>
+  <ViewAttribute
+    Name="CoaName"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaName"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_NAME"
+    LOVName="LOV_CoaName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.CoaName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaActNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaActNumber"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_ACT_NUMBER"/>
+  <ViewAttribute
+    Name="CoaBalance"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="CoaBalance"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_BALANCE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.CoaBalance_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaPartyId"
+    PrecisionRule="true"
+    EntityAttrName="CoaPartyId"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_PARTY_ID"/>
+  <ViewAttribute
+    Name="CoaName1"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaName"
+    EntityUsage="ChartOfAccounts1"
+    AliasName="COA_NAME1"
+    LOVName="LOV_CoaName1">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.CoaName1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaActNumber1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaActNumber"
+    EntityUsage="ChartOfAccounts1"
+    AliasName="COA_ACT_NUMBER1"/>
+  <ViewAttribute
+    Name="CoaBalance1"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="CoaBalance"
+    EntityUsage="ChartOfAccounts1"
+    AliasName="COA_BALANCE1">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.CoaBalance1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaProductId"
+    PrecisionRule="true"
+    EntityAttrName="CoaProductId"
+    EntityUsage="ChartOfAccounts1"
+    AliasName="COA_PRODUCT_ID"/>
+  <ViewAttribute
+    Name="CoaQtyBalance"
+    PrecisionRule="true"
+    EntityAttrName="CoaQtyBalance"
+    EntityUsage="ChartOfAccounts1"
+    AliasName="COA_QTY_BALANCE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.CoaQtyBalance_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PurchaseRateLogR"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PurchaseRateLogR"
+    EntityUsage="PurchaseRateLog"
+    AliasName="PURCHASE_RATE_LOG_R"
+    LOVName="LOV_PurchaseRateLogR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.PurchaseSupplierFuel.PurchaseRateLogR_LABEL"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PurchaseRateLogId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="PurchaseRateLogId"
+    EntityUsage="PurchaseRateLog"
+    AliasName="PURCHASE_RATE_LOG_ID"/>
+  <ViewAttribute
+    Name="TnsSDate"
+    PrecisionRule="true"
+    EntityAttrName="TnsSDate"
+    EntityUsage="Transaction"
+    AliasName="TNS_S_DATE"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="TnsId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+  <DeclarativeWhereClause
+    Name="DeclarativeWhereClause">
+    <ViewCriteria
+      Name="ViewObjWhereCriteria"
+      ViewObjectName="model.PurchaseSupplierFuel"
+      Conjunction="AND"
+      Mode="3">
+      <ViewCriteriaRow
+        Name="ViewObjWhereCriteria_row_0"
+        UpperColumns="1">
+        <ViewCriteriaItem
+          Name="TnsTnsviewId"
+          ViewAttribute="TnsTnsviewId"
+          Operator="="
+          Conjunction="AND"
+          Value="6"
+          Required="Optional"/>
+      </ViewCriteriaRow>
+    </ViewCriteria>
+  </DeclarativeWhereClause>
+  <SortCriteria>
+    <Sort
+      Attribute="TnsSDate"
+      Ascending="false"/>
+  </SortCriteria>
+  <SortCriteria>
+    <Sort
+      Attribute="TnsSDate"
+      Ascending="false"/>
+  </SortCriteria>
+</ViewObject>

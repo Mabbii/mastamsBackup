@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="DefaultViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OMCNONJournalView1" RangeSize="25" DataControl="VOAPPDataControl" id="OMCNONJournalView1Iterator"/>
+    <iterator Binds="OilDepoView1" RangeSize="-1" DataControl="VOAPPDataControl" id="OilDepoView1Iterator"/>
+    <iterator Binds="BankNameView1" RangeSize="-1" DataControl="VOAPPDataControl" id="BankNameView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="OMCNONJournalView1Iterator" id="OmcId">
+      <AttrNames>
+        <Item Value="OmcId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OMCNONJournalView1Iterator" id="OmcName">
+      <AttrNames>
+        <Item Value="OmcName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OMCNONJournalView1Iterator" id="OmcShortname">
+      <AttrNames>
+        <Item Value="OmcShortname"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="OilDepoView1Iterator" id="OilDepoView1" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="model.OilDepoView" Name="OilDepoView1">
+        <AttrNames>
+          <Item Value="OildId"/>
+          <Item Value="OildName"/>
+          <Item Value="OildShortname"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="BankNameView1Iterator" id="BankNameView1" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="model.BankNameView" Name="BankNameView1">
+        <AttrNames>
+          <Item Value="BankNameId"/>
+          <Item Value="BankName1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="PurchaseOmcPumpBackDatefviewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PurchaseFromeOMCPUMPBackD1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="PurchaseFromeOMCPUMPBackD1Iterator"/>
+    <iterator Binds="PurchaseOmcPumpBack1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="PurchaseOmcPumpBack1Iterator"/>
+    <searchRegion Binds="PurchaseOmcPumpBack1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PurchaseOmcPumpBack1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="PurchaseFromeOMCPUMPBackD1Iterator" id="PurchaseFromeOMCPUMPBackD1">
+      <nodeDefinition DefName="model.PurchaseFromOMCPUMPBackD" Name="PurchaseFromeOMCPUMPBackD10">
+        <AttrNames>
+          <Item Value="TnsDate"/>
+          <Item Value="TnsDetail"/>
+          <Item Value="TnsInfo"/>
+          <Item Value="TnsRate"/>
+          <Item Value="TnsNewrate"/>
+          <Item Value="TnsQty"/>
+          <Item Value="TnsAmount"/>
+          <Item Value="TnsSlipDate"/>
+          <Item Value="TnsSlipNo"/>
+          <Item Value="TnsCoaCactNumber"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaBalance"/>
+          <Item Value="TnsCoaDactNumber"/>
+          <Item Value="OildShortname"/>
+          <Item Value="OiltRegistration"/>
+          <Item Value="OiltCapacity"/>
+          <Item Value="TnsFreightfactor"/>
+          <Item Value="PurchaseRateLogR"/>
+          <Item Value="CoaName1"/>
+          <Item Value="CoaBalance1"/>
+          <Item Value="CoaQtyBalance"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues IterBinding="PurchaseOmcPumpBack1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <listOfValues IterBinding="PurchaseOmcPumpBack1Iterator" StaticList="false" Uses="LOV_OildShortname"
+                  id="OildShortname"/>
+    <listOfValues IterBinding="PurchaseOmcPumpBack1Iterator" StaticList="false" Uses="LOV_OiltRegistration"
+                  id="OiltRegistration"/>
+    <listOfValues IterBinding="PurchaseOmcPumpBack1Iterator" StaticList="false" Uses="LOV_PurchaseRateLogR"
+                  id="PurchaseRateLogR"/>
+    <listOfValues IterBinding="PurchaseOmcPumpBack1Iterator" StaticList="false" Uses="LOV_CoaName1" id="CoaName1"/>
+    <listOfValues IterBinding="PurchaseOmcPumpBack1Iterator" StaticList="false" Uses="LOV_OildShortname1"
+                  id="OildShortname1"/>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsDate">
+      <AttrNames>
+        <Item Value="TnsDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsId">
+      <AttrNames>
+        <Item Value="TnsId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsInfo">
+      <AttrNames>
+        <Item Value="TnsInfo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsRate">
+      <AttrNames>
+        <Item Value="TnsRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsNewrate">
+      <AttrNames>
+        <Item Value="TnsNewrate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsQty">
+      <AttrNames>
+        <Item Value="TnsQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsAmount">
+      <AttrNames>
+        <Item Value="TnsAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsSlipDate">
+      <AttrNames>
+        <Item Value="TnsSlipDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsSlipNo">
+      <AttrNames>
+        <Item Value="TnsSlipNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsTnsTypeIdFk">
+      <AttrNames>
+        <Item Value="TnsTnsTypeIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsPurchaseRateLogIdFk">
+      <AttrNames>
+        <Item Value="TnsPurchaseRateLogIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsCoaCactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaCactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsCoaDactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaDactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="CoaCode">
+      <AttrNames>
+        <Item Value="CoaCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="CoaBalance">
+      <AttrNames>
+        <Item Value="CoaBalance"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="CoaPartyId">
+      <AttrNames>
+        <Item Value="CoaPartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="OildId">
+      <AttrNames>
+        <Item Value="OildId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="OiltId">
+      <AttrNames>
+        <Item Value="OiltId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="OiltCapacity">
+      <AttrNames>
+        <Item Value="OiltCapacity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="PurchaseRateLogId">
+      <AttrNames>
+        <Item Value="PurchaseRateLogId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="CoaActNumber1">
+      <AttrNames>
+        <Item Value="CoaActNumber1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="CoaCode1">
+      <AttrNames>
+        <Item Value="CoaCode1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="CoaBalance1">
+      <AttrNames>
+        <Item Value="CoaBalance1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="CoaProductId">
+      <AttrNames>
+        <Item Value="CoaProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="CoaQtyBalance">
+      <AttrNames>
+        <Item Value="CoaQtyBalance"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="OildId1">
+      <AttrNames>
+        <Item Value="OildId1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsOildLoadDate">
+      <AttrNames>
+        <Item Value="TnsOildLoadDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsOildLoadId">
+      <AttrNames>
+        <Item Value="TnsOildLoadId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsTnsviewId">
+      <AttrNames>
+        <Item Value="TnsTnsviewId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsOiltId">
+      <AttrNames>
+        <Item Value="TnsOiltId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsOildId">
+      <AttrNames>
+        <Item Value="TnsOildId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="PurchaseOmcPumpBack1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="PurchaseOmcPumpBack1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="PurchaseOmcPumpBack1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="PurchaseOmcPumpBack1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="PurchaseOmcPumpBack1Iterator" id="PurchaseOmcPumpBack1">
+      <nodeDefinition DefName="model.PurchaseOmcPumpBack" Name="PurchaseOmcPumpBack10">
+        <AttrNames>
+          <Item Value="TnsDate"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaName1"/>
+          <Item Value="TnsRate"/>
+          <Item Value="TnsQty"/>
+          <Item Value="OildShortname"/>
+          <Item Value="OiltRegistration"/>
+          <Item Value="OildShortname1"/>
+          <Item Value="TnsAmount"/>
+          <Item Value="TnsId"/>
+          <Item Value="TnsDetail"/>
+          <Item Value="TnsInfo"/>
+          <Item Value="TnsNewrate"/>
+          <Item Value="TnsSlipDate"/>
+          <Item Value="TnsSlipNo"/>
+          <Item Value="TnsCoaCactNumber"/>
+          <Item Value="TnsCoaDactNumber"/>
+          <Item Value="CoaBalance"/>
+          <Item Value="OiltCapacity"/>
+          <Item Value="CoaBalance1"/>
+          <Item Value="CoaQtyBalance"/>
+          <Item Value="TnsOildLoadDate"/>
+          <Item Value="PurchaseRateLogR"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="PurchaseOmcPumpBack1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <action IterBinding="PurchaseOmcPumpBack1Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsFormatAmount">
+      <AttrNames>
+        <Item Value="TnsFormatAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseOmcPumpBack1Iterator" id="TnsSpellAmount">
+      <AttrNames>
+        <Item Value="TnsSpellAmount"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

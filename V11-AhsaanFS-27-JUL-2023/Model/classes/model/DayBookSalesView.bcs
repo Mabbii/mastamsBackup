@@ -1,0 +1,12 @@
+//Groovy Scripts for model.DayBookSalesView
+
+package model
+
+import oracle.jbo.script.annotation.VariableExpression;
+
+@VariableExpression(path="BindDCStartDate")
+def BindDCStartDate_VariableScript_Variable()
+{
+adf.currentDateTime
+}
+

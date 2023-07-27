@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Omc"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="OMC"
+  AliasName="Omc"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="OmcId"
+    ColumnName="OMC_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="OMC"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="OmcName"
+    Precision="45"
+    ColumnName="OMC_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OMC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OmcShortname"
+    Precision="12"
+    ColumnName="OMC_SHORTNAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OMC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Party"
+    Association="model.OmcPartyFkAssoc"
+    AssociationEnd="model.OmcPartyFkAssoc.Party"
+    AssociationOtherEnd="model.OmcPartyFkAssoc.Omc"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="OmcCreditlimit"
+    Association="model.OMC_OMCCreditLimit_FK_Assoc"
+    AssociationEnd="model.OMC_OMCCreditLimit_FK_Assoc.OmcCreditlimit"
+    AssociationOtherEnd="model.OMC_OMCCreditLimit_FK_Assoc.Omc"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="RebateRate"
+    Association="model.OMC_RebateRate_FK_Assoc"
+    AssociationEnd="model.OMC_RebateRate_FK_Assoc.RebateRate"
+    AssociationOtherEnd="model.OMC_RebateRate_FK_Assoc.Omc"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ChartOfAccounts"
+    Association="model.COA_OMC_FK_Assoc"
+    AssociationEnd="model.COA_OMC_FK_Assoc.ChartOfAccounts"
+    AssociationOtherEnd="model.COA_OMC_FK_Assoc.Omc"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="OmcPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="OMC_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Omc.OmcId"/>
+    </AttrArray>
+  </Key>
+</Entity>

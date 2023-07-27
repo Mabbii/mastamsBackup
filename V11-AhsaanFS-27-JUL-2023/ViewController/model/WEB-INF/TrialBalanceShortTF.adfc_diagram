@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">TrialBalanceShortView</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">35.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>TrialBalanceShortView&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">140.23535</property>
+      <property
+         name="page">/TrialBalanceShortView.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>callmethodd&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">callmethodd</property>
+      <property
+         name="x">335.0</property>
+      <property
+         name="y">131.59766</property>
+      <property
+         name="documentReference">/WEB-INF/callmethodd.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">callmethodd</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">call</property>
+      <property
+         name="sdm:polyPoints">R46,76.0,136.38477,293.86133,127.74707,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="TaskFlowCall3"
+      to="View2">
+      <property
+         name="fromOutcome">taskFlowReturn1</property>
+      <property
+         name="sdm:polyPoints">L54,294.0,134.74707,76.138626,143.38477,R54</property>
+   </ControlFlowCase>
+</SDM>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="Tank_Dry_Data_Input_ViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TankDryDataInputView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="TankDryDataInputView1Iterator"/>
+    <searchRegion Binds="TankDryDataInputView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TankDryDataInputView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="TankDryDataInputView1Iterator" id="TddInputDate">
+      <AttrNames>
+        <Item Value="TddInputDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="TankDryDataInputView1Iterator" StaticList="false" Uses="LOV_TankInfoName" id="TankInfoName"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="TankDryDataInputView1Iterator" StaticList="false" Uses="LOV_TankInfoName1" id="TankInfoName1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="TankDryDataInputView1Iterator" id="TddInputTankNew">
+      <AttrNames>
+        <Item Value="TddInputTankNew"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankDryDataInputView1Iterator" id="TddInputTankOld">
+      <AttrNames>
+        <Item Value="TddInputTankOld"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankDryDataInputView1Iterator" id="TddInputDipLtr">
+      <AttrNames>
+        <Item Value="TddInputDipLtr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankDryDataInputView1Iterator" id="TddInputDip">
+      <AttrNames>
+        <Item Value="TddInputDip"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankDryDataInputView1Iterator" id="TddInputId">
+      <AttrNames>
+        <Item Value="TddInputId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankDryDataInputView1Iterator" id="PipeLineGroupId">
+      <AttrNames>
+        <Item Value="PipeLineGroupId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankDryDataInputView1Iterator" id="TankInfoId">
+      <AttrNames>
+        <Item Value="TankInfoId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankDryDataInputView1Iterator" id="TankInfoId1">
+      <AttrNames>
+        <Item Value="TankInfoId1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankDryDataInputView1Iterator" id="PipeLineGroupIdFk">
+      <AttrNames>
+        <Item Value="PipeLineGroupIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="TankDryDataInputView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="TankDryDataInputView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="TankDryDataInputView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="TankDryDataInputView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="TankDryDataInputView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <list IterBinding="TankDryDataInputView1Iterator" StaticList="false" Uses="LOV_TddInputDipFlag"
+          id="TddInputDipFlag" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="TankDryDataInputView1Iterator" id="TankDryDataInputView1">
+      <nodeDefinition DefName="model.TankDryDataInputView" Name="TankDryDataInputView10">
+        <AttrNames>
+          <Item Value="TddInputDate"/>
+          <Item Value="TankInfoName"/>
+          <Item Value="TankInfoName1"/>
+          <Item Value="TddInputDipFlag"/>
+          <Item Value="TddInputDipLtr"/>
+          <Item Value="PipeLineGroupCaption"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="TankDryDataInputView1Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <listOfValues IterBinding="TankDryDataInputView1Iterator" StaticList="false" Uses="LOV_PipeLineGroupCaption"
+                  id="PipeLineGroupCaption"/>
+  </bindings>
+</pageDefinition>

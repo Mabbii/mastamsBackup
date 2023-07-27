@@ -1,0 +1,344 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="385" id="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1" maxColumns="2" rows="2">
+                <af:outputText value="DL Sale With Discount" id="ot1"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:inputDate value="#{bindings.DlsdDate.inputValue}" label="#{bindings.DlsdDate.hints.label}"
+                              required="#{bindings.DlsdDate.hints.mandatory}"
+                              columns="#{bindings.DlsdDate.hints.displayWidth}"
+                              shortDesc="#{bindings.DlsdDate.hints.tooltip}" id="id1">
+                    <f:validator binding="#{bindings.DlsdDate.validator}"/>
+                    <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                </af:inputDate>
+                <af:inputListOfValues id="coaNameId" popupTitle="Search and Select: #{bindings.CoaName.hints.label}"
+                                      value="#{bindings.CoaName.inputValue}" label="#{bindings.CoaName.hints.label}"
+                                      model="#{bindings.CoaName.listOfValuesModel}"
+                                      required="#{bindings.CoaName.hints.mandatory}"
+                                      columns="#{bindings.CoaName.hints.displayWidth}"
+                                      shortDesc="#{bindings.CoaName.hints.tooltip}" autoSubmit="true">
+                    <f:validator binding="#{bindings.CoaName.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputListOfValues id="coaName1Id" popupTitle="Search and Select: #{bindings.CoaName1.hints.label}"
+                                      value="#{bindings.CoaName1.inputValue}" label="#{bindings.CoaName1.hints.label}"
+                                      model="#{bindings.CoaName1.listOfValuesModel}"
+                                      required="#{bindings.CoaName1.hints.mandatory}"
+                                      columns="#{bindings.CoaName1.hints.displayWidth}"
+                                      shortDesc="#{bindings.CoaName1.hints.tooltip}" autoSubmit="true">
+                    <f:validator binding="#{bindings.CoaName1.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName1.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputListOfValues id="vehicleRegNoId"
+                                      popupTitle="Search and Select: #{bindings.VehicleRegNo.hints.label}"
+                                      value="#{bindings.VehicleRegNo.inputValue}"
+                                      label="#{bindings.VehicleRegNo.hints.label}"
+                                      model="#{bindings.VehicleRegNo.listOfValuesModel}"
+                                      required="#{bindings.VehicleRegNo.hints.mandatory}"
+                                      columns="#{bindings.VehicleRegNo.hints.displayWidth}"
+                                      shortDesc="#{bindings.VehicleRegNo.hints.tooltip}" autoSubmit="true">
+                    <f:validator binding="#{bindings.VehicleRegNo.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.VehicleRegNo.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputText value="#{bindings.DlsdDactIdFk.inputValue}" label="#{bindings.DlsdDactIdFk.hints.label}"
+                              required="#{bindings.DlsdDactIdFk.hints.mandatory}"
+                              columns="#{bindings.DlsdDactIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.DlsdDactIdFk.hints.precision}"
+                              shortDesc="#{bindings.DlsdDactIdFk.hints.tooltip}" id="it2" rendered="false">
+                    <f:validator binding="#{bindings.DlsdDactIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DlsdDactIdFk.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DlsdCactIdFk.inputValue}" label="#{bindings.DlsdCactIdFk.hints.label}"
+                              required="#{bindings.DlsdCactIdFk.hints.mandatory}"
+                              columns="#{bindings.DlsdCactIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.DlsdCactIdFk.hints.precision}"
+                              shortDesc="#{bindings.DlsdCactIdFk.hints.tooltip}" id="it3" rendered="false">
+                    <f:validator binding="#{bindings.DlsdCactIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DlsdCactIdFk.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DlsdQty.inputValue}" label="#{bindings.DlsdQty.hints.label}"
+                              required="#{bindings.DlsdQty.hints.mandatory}"
+                              columns="#{bindings.DlsdQty.hints.displayWidth}"
+                              maximumLength="#{bindings.DlsdQty.hints.precision}"
+                              shortDesc="#{bindings.DlsdQty.hints.tooltip}" id="it4" autoSubmit="true">
+                    <f:validator binding="#{bindings.DlsdQty.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DlsdQty.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DlsdRate.inputValue}" label="#{bindings.DlsdRate.hints.label}"
+                              required="#{bindings.DlsdRate.hints.mandatory}"
+                              columns="#{bindings.DlsdRate.hints.displayWidth}"
+                              maximumLength="#{bindings.DlsdRate.hints.precision}"
+                              shortDesc="#{bindings.DlsdRate.hints.tooltip}" id="it5" autoSubmit="true" readOnly="true">
+                    <f:validator binding="#{bindings.DlsdRate.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DlsdAmount.inputValue}" label="#{bindings.DlsdAmount.hints.label}"
+                              required="#{bindings.DlsdAmount.hints.mandatory}"
+                              columns="#{bindings.DlsdAmount.hints.displayWidth}"
+                              maximumLength="#{bindings.DlsdAmount.hints.precision}"
+                              shortDesc="#{bindings.DlsdAmount.hints.tooltip}" id="it6" readOnly="true">
+                    <f:validator binding="#{bindings.DlsdAmount.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DlsdAmount.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DlsdDiscRate.inputValue}" label="#{bindings.DlsdDiscRate.hints.label}"
+                              required="#{bindings.DlsdDiscRate.hints.mandatory}"
+                              columns="#{bindings.DlsdDiscRate.hints.displayWidth}"
+                              maximumLength="#{bindings.DlsdDiscRate.hints.precision}"
+                              shortDesc="#{bindings.DlsdDiscRate.hints.tooltip}" id="it7" autoSubmit="true">
+                    <f:validator binding="#{bindings.DlsdDiscRate.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DlsdDiscAmount.inputValue}"
+                              label="#{bindings.DlsdDiscAmount.hints.label}"
+                              required="#{bindings.DlsdDiscAmount.hints.mandatory}"
+                              columns="#{bindings.DlsdDiscAmount.hints.displayWidth}"
+                              maximumLength="#{bindings.DlsdDiscAmount.hints.precision}"
+                              shortDesc="#{bindings.DlsdDiscAmount.hints.tooltip}" id="it8" readOnly="true">
+                    <f:validator binding="#{bindings.DlsdDiscAmount.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DlsdDiscAmount.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DlsdVehicleIdFk.inputValue}"
+                              label="#{bindings.DlsdVehicleIdFk.hints.label}"
+                              required="#{bindings.DlsdVehicleIdFk.hints.mandatory}"
+                              columns="#{bindings.DlsdVehicleIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.DlsdVehicleIdFk.hints.precision}"
+                              shortDesc="#{bindings.DlsdVehicleIdFk.hints.tooltip}"
+                              id="it9" rendered="false">
+                    <f:validator binding="#{bindings.DlsdVehicleIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DlsdVehicleIdFk.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DlsdInfo.inputValue}" label="#{bindings.DlsdInfo.hints.label}"
+                              required="#{bindings.DlsdInfo.hints.mandatory}"
+                              columns="#{bindings.DlsdInfo.hints.displayWidth}"
+                              maximumLength="#{bindings.DlsdInfo.hints.precision}"
+                              shortDesc="#{bindings.DlsdInfo.hints.tooltip}" id="it10">
+                    <f:validator binding="#{bindings.DlsdInfo.validator}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.DlsdSlipDate.inputValue}" label="#{bindings.DlsdSlipDate.hints.label}"
+                              required="#{bindings.DlsdSlipDate.hints.mandatory}"
+                              columns="#{bindings.DlsdSlipDate.hints.displayWidth}"
+                              shortDesc="#{bindings.DlsdSlipDate.hints.tooltip}" id="id2">
+                    <f:validator binding="#{bindings.DlsdSlipDate.validator}"/>
+                    <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.DlsdSlipNo.inputValue}" label="#{bindings.DlsdSlipNo.hints.label}"
+                              required="#{bindings.DlsdSlipNo.hints.mandatory}"
+                              columns="#{bindings.DlsdSlipNo.hints.displayWidth}"
+                              maximumLength="#{bindings.DlsdSlipNo.hints.precision}"
+                              shortDesc="#{bindings.DlsdSlipNo.hints.tooltip}" id="it11">
+                    <f:validator binding="#{bindings.DlsdSlipNo.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CoaActNumber.inputValue}" label="#{bindings.CoaActNumber.hints.label}"
+                              required="#{bindings.CoaActNumber.hints.mandatory}"
+                              columns="#{bindings.CoaActNumber.hints.displayWidth}"
+                              maximumLength="#{bindings.CoaActNumber.hints.precision}"
+                              shortDesc="#{bindings.CoaActNumber.hints.tooltip}" id="it12" readOnly="true">
+                    <f:validator binding="#{bindings.CoaActNumber.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DlsdId.inputValue}" label="#{bindings.DlsdId.hints.label}"
+                              required="#{bindings.DlsdId.hints.mandatory}"
+                              columns="#{bindings.DlsdId.hints.displayWidth}"
+                              maximumLength="#{bindings.DlsdId.hints.precision}"
+                              shortDesc="#{bindings.DlsdId.hints.tooltip}" id="it1" readOnly="true">
+                    <f:validator binding="#{bindings.DlsdId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DlsdId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CoaActNumber1.inputValue}" label="#{bindings.CoaActNumber1.hints.label}"
+                              required="#{bindings.CoaActNumber1.hints.mandatory}"
+                              columns="#{bindings.CoaActNumber1.hints.displayWidth}"
+                              maximumLength="#{bindings.CoaActNumber1.hints.precision}"
+                              shortDesc="#{bindings.CoaActNumber1.hints.tooltip}" id="it13" readOnly="true">
+                    <f:validator binding="#{bindings.CoaActNumber1.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber1.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.VehicleId.inputValue}" label="#{bindings.VehicleId.hints.label}"
+                              required="#{bindings.VehicleId.hints.mandatory}"
+                              columns="#{bindings.VehicleId.hints.displayWidth}"
+                              maximumLength="#{bindings.VehicleId.hints.precision}"
+                              shortDesc="#{bindings.VehicleId.hints.tooltip}" id="it14" rendered="false">
+                    <f:validator binding="#{bindings.VehicleId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.VehicleId.format}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl2">
+                        <af:panelGroupLayout layout="horizontal" id="pgl3">
+                            <af:button actionListener="#{bindings.First.execute}"
+							icon="#{resource['images:first_hor_ena.png']}"
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                            <af:button actionListener="#{bindings.Previous.execute}" 
+							icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                            <af:button actionListener="#{bindings.Next.execute}" 
+							icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                            <af:button actionListener="#{bindings.Last.execute}" 
+							icon="#{resource['images:last_hor_ena.png']}"
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                        </af:panelGroupLayout>
+						<af:outputText value="---------" id="ot61"/>
+                        <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+						icon="#{resource['images:commit.png']}"
+                                   disabled="#{!bindings.Commit.enabled}"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+						icon="#{resource['images:add.png']}"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b6"/>
+								   <af:outputText value="------------------" id="ot62"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+						icon="#{resource['images:rollback.png']}"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                            <af:resetActionListener/>
+                        </af:button>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.DataLoaderSaleDiscView1.collectionModel}" var="row"
+                          rows="#{bindings.DataLoaderSaleDiscView1.rangeSize}"
+                          emptyText="#{bindings.DataLoaderSaleDiscView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.DataLoaderSaleDiscView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.DataLoaderSaleDiscView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.DataLoaderSaleDiscView1.rangeSize}"
+                          filterModel="#{bindings.DataLoaderSaleDiscView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.DataLoaderSaleDiscView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 :::b1 :::b2 :::b3 :::b4 :::b6">
+                    <af:column sortProperty="#{bindings.DataLoaderSaleDiscView1.hints.DlsdDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DataLoaderSaleDiscView1.hints.DlsdDate.label}"
+                               id="c1"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="80" align="center">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.DataLoaderSaleDiscView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.DlsdDate.value}"
+                                          id="id3">
+                                <af:convertDateTime pattern="#{bindings.DataLoaderSaleDiscView1.hints.DlsdDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.DlsdDate}"
+                                       shortDesc="#{bindings.DataLoaderSaleDiscView1.hints.DlsdDate.tooltip}" id="ot2">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DataLoaderSaleDiscView1.hints.CoaName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DataLoaderSaleDiscView1.hints.CoaName.label}"
+                               id="c10"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="150" align="center">
+                        <af:outputText value="#{row.CoaName}"
+                                       shortDesc="#{bindings.DataLoaderSaleDiscView1.hints.CoaName.tooltip}" id="ot11"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DataLoaderSaleDiscView1.hints.CoaName1.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DataLoaderSaleDiscView1.hints.CoaName1.label}"
+                               id="c11"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="110" align="center">
+                        <af:outputText value="#{row.CoaName1}"
+                                       shortDesc="#{bindings.DataLoaderSaleDiscView1.hints.CoaName1.tooltip}"
+                                       id="ot12"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DataLoaderSaleDiscView1.hints.VehicleRegNo.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.DataLoaderSaleDiscView1.hints.VehicleRegNo.label}" id="c12"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="90" align="center">
+                        <af:outputText value="#{row.VehicleRegNo}"
+                                       shortDesc="#{bindings.DataLoaderSaleDiscView1.hints.VehicleRegNo.tooltip}"
+                                       id="ot13"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DataLoaderSaleDiscView1.hints.DlsdQty.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DataLoaderSaleDiscView1.hints.DlsdQty.label}"
+                               id="c2"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="90" align="center">
+                        <af:outputText value="#{row.DlsdQty}"
+                                       shortDesc="#{bindings.DataLoaderSaleDiscView1.hints.DlsdQty.tooltip}" id="ot3">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.DataLoaderSaleDiscView1.hints.DlsdQty.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DataLoaderSaleDiscView1.hints.DlsdRate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DataLoaderSaleDiscView1.hints.DlsdRate.label}"
+                               id="c3"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="90" align="center">
+                        <af:outputText value="#{row.DlsdRate}"
+                                       shortDesc="#{bindings.DataLoaderSaleDiscView1.hints.DlsdRate.tooltip}" id="ot4"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DataLoaderSaleDiscView1.hints.DlsdAmount.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.DataLoaderSaleDiscView1.hints.DlsdAmount.label}" id="c4"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="90" align="center">
+                        <af:outputText value="#{row.DlsdAmount}"
+                                       shortDesc="#{bindings.DataLoaderSaleDiscView1.hints.DlsdAmount.tooltip}"
+                                       id="ot5">
+                            <af:convertNumber groupingUsed="true"
+                                              pattern="#{bindings.DataLoaderSaleDiscView1.hints.DlsdAmount.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DataLoaderSaleDiscView1.hints.DlsdDiscRate.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.DataLoaderSaleDiscView1.hints.DlsdDiscRate.label}" id="c5"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="90" align="center">
+                        <af:outputText value="#{row.DlsdDiscRate}"
+                                       shortDesc="#{bindings.DataLoaderSaleDiscView1.hints.DlsdDiscRate.tooltip}"
+                                       id="ot6"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DataLoaderSaleDiscView1.hints.DlsdDiscAmount.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.DataLoaderSaleDiscView1.hints.DlsdDiscAmount.label}" id="c6"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="90" align="center">
+                        <af:outputText value="#{row.DlsdDiscAmount}"
+                                       shortDesc="#{bindings.DataLoaderSaleDiscView1.hints.DlsdDiscAmount.tooltip}"
+                                       id="ot7">
+                            <af:convertNumber groupingUsed="true"
+                                              pattern="#{bindings.DataLoaderSaleDiscView1.hints.DlsdDiscAmount.format}"
+                                              messageDetailConvertNumber="#,###,##"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DataLoaderSaleDiscView1.hints.DlsdInfo.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DataLoaderSaleDiscView1.hints.DlsdInfo.label}"
+                               id="c7"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="150" align="center">
+                        <af:outputText value="#{row.DlsdInfo}"
+                                       shortDesc="#{bindings.DataLoaderSaleDiscView1.hints.DlsdInfo.tooltip}" id="ot8"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DataLoaderSaleDiscView1.hints.DlsdSlipDate.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.DataLoaderSaleDiscView1.hints.DlsdSlipDate.label}" id="c8"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="80" align="center">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.DataLoaderSaleDiscView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.DlsdSlipDate.value}"
+                                          id="id4">
+                                <af:convertDateTime pattern="#{bindings.DataLoaderSaleDiscView1.hints.DlsdSlipDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.DlsdSlipDate}"
+                                       shortDesc="#{bindings.DataLoaderSaleDiscView1.hints.DlsdSlipDate.tooltip}"
+                                       id="ot9">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DataLoaderSaleDiscView1.hints.DlsdSlipNo.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.DataLoaderSaleDiscView1.hints.DlsdSlipNo.label}" id="c9"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               align="center">
+                        <af:outputText value="#{row.DlsdSlipNo}"
+                                       shortDesc="#{bindings.DataLoaderSaleDiscView1.hints.DlsdSlipNo.tooltip}"
+                                       id="ot10"/>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

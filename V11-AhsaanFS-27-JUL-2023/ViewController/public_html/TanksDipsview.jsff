@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="162" id="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1" maxColumns="2" rows="2">
+                <af:outputText value="Tank Dip" id="ot10"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:inputDate value="#{bindings.TankDipDate.inputValue}" label="Date"
+                              required="#{bindings.TankDipDate.hints.mandatory}"
+                              columns="#{bindings.TankDipDate.hints.displayWidth}"
+                              shortDesc="#{bindings.TankDipDate.hints.tooltip}" id="id1"
+                              inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                    <f:validator binding="#{bindings.TankDipDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.TankDipDate.format}"/>
+                </af:inputDate>
+                <af:inputListOfValues id="tankInfoNameId"
+                                      popupTitle="Search and Select: #{bindings.TankInfoName.hints.label}"
+                                      value="#{bindings.TankInfoName.inputValue}"
+                                      label="Tank"
+                                      model="#{bindings.TankInfoName.listOfValuesModel}"
+                                      required="#{bindings.TankInfoName.hints.mandatory}"
+                                      columns="#{bindings.TankInfoName.hints.displayWidth}"
+                                      shortDesc="#{bindings.TankInfoName.hints.tooltip}" autoSubmit="true">
+                    <f:validator binding="#{bindings.TankInfoName.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.TankInfoName.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputText value="#{bindings.TankLtrValue.inputValue}" label="Liters"
+                              required="#{bindings.TankLtrValue.hints.mandatory}"
+                              columns="#{bindings.TankLtrValue.hints.displayWidth}"
+                              maximumLength="#{bindings.TankLtrValue.hints.precision}"
+                              shortDesc="#{bindings.TankLtrValue.hints.tooltip}" id="it4">
+                    <f:validator binding="#{bindings.TankLtrValue.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TankLtrValue.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TankDipValue.inputValue}" label="Dip"
+                              required="#{bindings.TankDipValue.hints.mandatory}"
+                              columns="#{bindings.TankDipValue.hints.displayWidth}"
+                              maximumLength="#{bindings.TankDipValue.hints.precision}"
+                              shortDesc="#{bindings.TankDipValue.hints.tooltip}" id="it2">
+                    <f:validator binding="#{bindings.TankDipValue.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TankDipValue.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TankDipFlag.inputValue}" label="#{bindings.TankDipFlag.hints.label}"
+                              required="#{bindings.TankDipFlag.hints.mandatory}"
+                              columns="#{bindings.TankDipFlag.hints.displayWidth}"
+                              maximumLength="#{bindings.TankDipFlag.hints.precision}"
+                              shortDesc="#{bindings.TankDipFlag.hints.tooltip}" id="it5">
+                    <f:validator binding="#{bindings.TankDipFlag.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TankDipFlag.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TankDipId.inputValue}" label="#{bindings.TankDipId.hints.label}"
+                              required="#{bindings.TankDipId.hints.mandatory}"
+                              columns="#{bindings.TankDipId.hints.displayWidth}"
+                              maximumLength="#{bindings.TankDipId.hints.precision}"
+                              shortDesc="#{bindings.TankDipId.hints.tooltip}" id="it1" rendered="false">
+                    <f:validator binding="#{bindings.TankDipId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TankDipId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TankInfoIdFk.inputValue}" label="#{bindings.TankInfoIdFk.hints.label}"
+                              required="#{bindings.TankInfoIdFk.hints.mandatory}"
+                              columns="#{bindings.TankInfoIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.TankInfoIdFk.hints.precision}"
+                              shortDesc="#{bindings.TankInfoIdFk.hints.tooltip}"
+                              id="it3" rendered="false">
+                    <f:validator binding="#{bindings.TankInfoIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TankInfoIdFk.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DcIdFk.inputValue}" label="#{bindings.DcIdFk.hints.label}"
+                              required="#{bindings.DcIdFk.hints.mandatory}"
+                              columns="#{bindings.DcIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.DcIdFk.hints.precision}"
+                              shortDesc="#{bindings.DcIdFk.hints.tooltip}" id="it6" rendered="false">
+                    <f:validator binding="#{bindings.DcIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DcIdFk.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TankInfoId.inputValue}" label="#{bindings.TankInfoId.hints.label}"
+                              required="#{bindings.TankInfoId.hints.mandatory}"
+                              columns="#{bindings.TankInfoId.hints.displayWidth}"
+                              maximumLength="#{bindings.TankInfoId.hints.precision}"
+                              shortDesc="#{bindings.TankInfoId.hints.tooltip}" id="it7" rendered="false">
+                    <f:validator binding="#{bindings.TankInfoId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TankInfoId.format}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl2">
+                        <af:panelGroupLayout layout="horizontal" id="pgl3">
+                            <af:button actionListener="#{bindings.First.execute}"
+                            icon="#{resource['images:first_hor_ena.png']}"
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                            <af:button actionListener="#{bindings.Previous.execute}"
+                            icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                            <af:button actionListener="#{bindings.Next.execute}"
+                            icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                            <af:button actionListener="#{bindings.Last.execute}"
+                            icon="#{resource['images:last_hor_ena.png']}"
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                        </af:panelGroupLayout>
+                        <af:outputText value="----------------" id="ot62"/>
+                        <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                        icon="#{resource['images:commit.png']}"
+                                   disabled="#{!bindings.Commit.enabled}"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                        icon="#{resource['images:add.png']}"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b6"/>
+                                   <af:outputText value="---------------------------" id="ot61"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                        icon="#{resource['images:rollback.png']}"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                            <af:resetActionListener/>
+                        </af:button>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.TankDipDataView1.collectionModel}" var="row"
+                          rows="#{bindings.TankDipDataView1.rangeSize}"
+                          emptyText="#{bindings.TankDipDataView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.TankDipDataView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.TankDipDataView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.TankDipDataView1.rangeSize}"
+                          filterModel="#{bindings.TankDipDataView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.TankDipDataView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 :::b1 :::b2 :::b3 :::b4 :::b6">
+                    <af:column sortProperty="#{bindings.TankDipDataView1.hints.TankDipDate.name}" filterable="true"
+                               sortable="true" headerText="Date"
+                               id="c6" width="200" align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.TankDipDataView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TankDipDate.value}"
+                                          id="id2">
+                                <af:convertDateTime pattern="#{bindings.TankDipDataView1.hints.TankDipDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.TankDipDate}"
+                                       shortDesc="#{bindings.TankDipDataView1.hints.TankDipDate.tooltip}" id="ot6">
+                            <af:convertDateTime pattern="#{bindings.TankDipDataView1.hints.TankDipDate.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDipDataView1.hints.TankInfoName.name}" filterable="true"
+                               sortable="true" headerText="Tank"
+                               id="c8" width="200" align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.TankInfoName}"
+                                       shortDesc="#{bindings.TankDipDataView1.hints.TankInfoName.tooltip}" id="ot8"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDipDataView1.hints.TankLtrValue.name}" filterable="true"
+                               sortable="true" headerText="Liters"
+                               id="c4" width="150" align="center"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.TankLtrValue}"
+                                       shortDesc="#{bindings.TankDipDataView1.hints.TankLtrValue.tooltip}" id="ot4">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDipDataView1.hints.TankLtrValue.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDipDataView1.hints.TankDipValue.name}" filterable="true"
+                               sortable="true" headerText="Dip"
+                               id="c2" width="150" align="center"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.TankDipValue}"
+                                       shortDesc="#{bindings.TankDipDataView1.hints.TankDipValue.tooltip}" id="ot2">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDipDataView1.hints.TankDipValue.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDipDataView1.hints.TankDipFlag.name}" filterable="true"
+                               sortable="true" headerText="Dip Flag"
+                               id="c5" align="center"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="150">
+                        <af:outputText value="#{row.TankDipFlag}"
+                                       shortDesc="#{bindings.TankDipDataView1.hints.TankDipFlag.tooltip}" id="ot5">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDipDataView1.hints.TankDipFlag.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDipDataView1.hints.TankDipId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.TankDipDataView1.hints.TankDipId.label}" id="c1"
+                               align="center"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="150" rendered="false">
+                        <af:outputText value="#{row.TankDipId}"
+                                       shortDesc="#{bindings.TankDipDataView1.hints.TankDipId.tooltip}" id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDipDataView1.hints.TankDipId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDipDataView1.hints.TankInfoIdFk.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.TankDipDataView1.hints.TankInfoIdFk.label}"
+                               id="c3" align="center"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="150" rendered="false">
+                        <af:outputText value="#{row.TankInfoIdFk}"
+                                       shortDesc="#{bindings.TankDipDataView1.hints.TankInfoIdFk.tooltip}" id="ot3">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDipDataView1.hints.TankInfoIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDipDataView1.hints.DcIdFk.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.TankDipDataView1.hints.DcIdFk.label}" id="c7"
+                               align="center"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="150" rendered="false">
+                        <af:outputText value="#{row.DcIdFk}"
+                                       shortDesc="#{bindings.TankDipDataView1.hints.DcIdFk.tooltip}" id="ot7">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDipDataView1.hints.DcIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDipDataView1.hints.TankInfoId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.TankDipDataView1.hints.TankInfoId.label}" id="c9"
+                               align="center"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="150" rendered="false">
+                        <af:outputText value="#{row.TankInfoId}"
+                                       shortDesc="#{bindings.TankDipDataView1.hints.TankInfoId.tooltip}" id="ot9">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDipDataView1.hints.TankInfoId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

@@ -1,0 +1,305 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="212" id="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1" maxColumns="2" rows="2">
+                <af:outputText value="Stock Transfer" id="ot14"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:inputDate value="#{bindings.TstDate.inputValue}" label="Date"
+                              required="#{bindings.TstDate.hints.mandatory}"
+                              columns="#{bindings.TstDate.hints.displayWidth}"
+                              shortDesc="#{bindings.TstDate.hints.tooltip}" id="id1">
+                    <f:validator binding="#{bindings.TstDate.validator}"/>
+                    <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                </af:inputDate>
+                <af:inputListOfValues id="oiltRegistration1Id"
+                                      popupTitle="Search and Select: #{bindings.OiltRegistration1.hints.label}"
+                                      value="#{bindings.OiltRegistration1.inputValue}"
+                                      label="#{bindings.OiltRegistration1.hints.label}"
+                                      model="#{bindings.OiltRegistration1.listOfValuesModel}"
+                                      required="#{bindings.OiltRegistration1.hints.mandatory}"
+                                      columns="#{bindings.OiltRegistration1.hints.displayWidth}"
+                                      shortDesc="#{bindings.OiltRegistration1.hints.tooltip}" autoSubmit="true">
+                    <f:validator binding="#{bindings.OiltRegistration1.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.OiltRegistration1.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputListOfValues id="oiltRegistrationId"
+                                      popupTitle="Search and Select: #{bindings.OiltRegistration.hints.label}"
+                                      value="#{bindings.OiltRegistration.inputValue}"
+                                      label="#{bindings.OiltRegistration.hints.label}"
+                                      model="#{bindings.OiltRegistration.listOfValuesModel}"
+                                      required="#{bindings.OiltRegistration.hints.mandatory}"
+                                      columns="#{bindings.OiltRegistration.hints.displayWidth}"
+                                      shortDesc="#{bindings.OiltRegistration.hints.tooltip}" autoSubmit="true">
+                    <f:validator binding="#{bindings.OiltRegistration.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.OiltRegistration.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputListOfValues id="productShortnameId"
+                                      popupTitle="Search and Select: #{bindings.ProductShortname.hints.label}"
+                                      value="#{bindings.ProductShortname.inputValue}"
+                                      label="Product"
+                                      model="#{bindings.ProductShortname.listOfValuesModel}"
+                                      required="#{bindings.ProductShortname.hints.mandatory}"
+                                      columns="#{bindings.ProductShortname.hints.displayWidth}"
+                                      shortDesc="#{bindings.ProductShortname.hints.tooltip}" autoSubmit="true">
+                    <f:validator binding="#{bindings.ProductShortname.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.ProductShortname.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputText value="#{bindings.TstDr.inputValue}" label="#{bindings.TstDr.hints.label}"
+                              required="#{bindings.TstDr.hints.mandatory}"
+                              columns="#{bindings.TstDr.hints.displayWidth}"
+                              maximumLength="#{bindings.TstDr.hints.precision}"
+                              shortDesc="#{bindings.TstDr.hints.tooltip}" id="it2" rendered="false">
+                    <f:validator binding="#{bindings.TstDr.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TstDr.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TstCr.inputValue}" label="#{bindings.TstCr.hints.label}"
+                              required="#{bindings.TstCr.hints.mandatory}"
+                              columns="#{bindings.TstCr.hints.displayWidth}"
+                              maximumLength="#{bindings.TstCr.hints.precision}"
+                              shortDesc="#{bindings.TstCr.hints.tooltip}"
+                              id="it3" rendered="false">
+                    <f:validator binding="#{bindings.TstCr.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TstCr.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TstQuentity.inputValue}" label="Quantity"
+                              required="#{bindings.TstQuentity.hints.mandatory}"
+                              columns="#{bindings.TstQuentity.hints.displayWidth}"
+                              maximumLength="#{bindings.TstQuentity.hints.precision}"
+                              shortDesc="#{bindings.TstQuentity.hints.tooltip}" id="it4">
+                    <f:validator binding="#{bindings.TstQuentity.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TstQuentity.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TstInfo.inputValue}" label="Information"
+                              required="#{bindings.TstInfo.hints.mandatory}"
+                              columns="#{bindings.TstInfo.hints.displayWidth}"
+                              maximumLength="#{bindings.TstInfo.hints.precision}"
+                              shortDesc="#{bindings.TstInfo.hints.tooltip}" id="it5">
+                    <f:validator binding="#{bindings.TstInfo.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TstId.inputValue}" label="Tns ID"
+                              required="#{bindings.TstId.hints.mandatory}"
+                              columns="#{bindings.TstId.hints.displayWidth}"
+                              maximumLength="#{bindings.TstId.hints.precision}"
+                              shortDesc="#{bindings.TstId.hints.tooltip}" id="it1" readOnly="true">
+                    <f:validator binding="#{bindings.TstId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TstId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.ProductIdFk.inputValue}" label="#{bindings.ProductIdFk.hints.label}"
+                              required="#{bindings.ProductIdFk.hints.mandatory}"
+                              columns="#{bindings.ProductIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.ProductIdFk.hints.precision}"
+                              shortDesc="#{bindings.ProductIdFk.hints.tooltip}"
+                              id="it6" rendered="false">
+                    <f:validator binding="#{bindings.ProductIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductIdFk.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.ProductId.inputValue}" label="#{bindings.ProductId.hints.label}"
+                              required="#{bindings.ProductId.hints.mandatory}"
+                              columns="#{bindings.ProductId.hints.displayWidth}"
+                              maximumLength="#{bindings.ProductId.hints.precision}"
+                              shortDesc="#{bindings.ProductId.hints.tooltip}" id="it7" rendered="false">
+                    <f:validator binding="#{bindings.ProductId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.OiltId.inputValue}" label="#{bindings.OiltId.hints.label}"
+                              required="#{bindings.OiltId.hints.mandatory}"
+                              columns="#{bindings.OiltId.hints.displayWidth}"
+                              maximumLength="#{bindings.OiltId.hints.precision}"
+                              shortDesc="#{bindings.OiltId.hints.tooltip}" id="it8" rendered="false">
+                    <f:validator binding="#{bindings.OiltId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.OiltId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.OiltId1.inputValue}" label="#{bindings.OiltId1.hints.label}"
+                              required="#{bindings.OiltId1.hints.mandatory}"
+                              columns="#{bindings.OiltId1.hints.displayWidth}"
+                              maximumLength="#{bindings.OiltId1.hints.precision}"
+                              shortDesc="#{bindings.OiltId1.hints.tooltip}" id="it9" rendered="false">
+                    <f:validator binding="#{bindings.OiltId1.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.OiltId1.format}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl2">
+                        <af:panelGroupLayout layout="horizontal" id="pgl3">
+                            <af:button actionListener="#{bindings.First.execute}"
+                            icon="#{resource['images:first_hor_ena.png']}"
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                            <af:button actionListener="#{bindings.Previous.execute}"
+                            icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                            <af:button actionListener="#{bindings.Next.execute}"
+                            icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                            <af:button actionListener="#{bindings.Last.execute}"
+                            icon="#{resource['images:last_hor_ena.png']}"
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                                       <af:outputText value="--------------" id="ot61"/>
+                        </af:panelGroupLayout>
+                        <af:button id="b5" actionListener="#{bindings.Commit.execute}"
+                        icon="#{resource['images:commit.png']}"
+                                   disabled="#{!bindings.Commit.enabled}" text="Submit"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}"
+                        icon="#{resource['images:add.png']}"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b6" text="CreateInsert"/>
+                                   <af:outputText value="---------------------------" id="ot62"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}"
+                        icon="#{resource['images:rollback.png']}"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7" text="Rollback">
+                            <af:resetActionListener/>
+                        </af:button>
+                        <af:outputText value="--------------------------------------------" id="ot15"/>
+                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                   disabled="#{!bindings.Delete.enabled}" id="b8"
+                                   icon="#{resource['images:garbg.png']}" inlineStyle="color:Red;"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar">
+                    <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot24" inlineStyle="color:Maroon; font-size:large;"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.TankStockTransferView1.collectionModel}" var="row"
+                          rows="#{bindings.TankStockTransferView1.rangeSize}"
+                          emptyText="#{bindings.TankStockTransferView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.TankStockTransferView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.TankStockTransferView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.TankStockTransferView1.rangeSize}"
+                          filterModel="#{bindings.TankStockTransferView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.TankStockTransferView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 :::b1 :::b2 :::b3 :::b4 :::b6 :::b8"
+                          scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.TankStockTransferView1.hints.TstDate.name}" filterable="true"
+                               sortable="true" headerText="Date"
+                               id="c5" align="center" inlineStyle="text-align:left;">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.TankStockTransferView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TstDate.value}"
+                                          id="id2">
+                                <af:convertDateTime pattern="#{bindings.TankStockTransferView1.hints.TstDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.TstDate}"
+                                       shortDesc="#{bindings.TankStockTransferView1.hints.TstDate.tooltip}" id="ot5">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankStockTransferView1.hints.OiltRegistration1.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.TankStockTransferView1.hints.OiltRegistration1.label}" id="c12"
+                               width="200" align="center" inlineStyle="text-align:left;">
+                        <af:outputText value="#{row.OiltRegistration1}"
+                                       shortDesc="#{bindings.TankStockTransferView1.hints.OiltRegistration1.tooltip}"
+                                       id="ot12"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankStockTransferView1.hints.OiltRegistration.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.TankStockTransferView1.hints.OiltRegistration.label}" id="c10"
+                               width="200" align="center" inlineStyle="text-align:left;">
+                        <af:outputText value="#{row.OiltRegistration}"
+                                       shortDesc="#{bindings.TankStockTransferView1.hints.OiltRegistration.tooltip}"
+                                       id="ot10"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankStockTransferView1.hints.ProductShortname.name}"
+                               filterable="true" sortable="true"
+                               headerText="Product" id="c8"
+                               width="150" align="center" inlineStyle="text-align:left;">
+                        <af:outputText value="#{row.ProductShortname}"
+                                       shortDesc="#{bindings.TankStockTransferView1.hints.ProductShortname.tooltip}"
+                                       id="ot8"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankStockTransferView1.hints.TstQuentity.name}"
+                               filterable="true" sortable="true"
+                               headerText="Quantity" id="c4" align="center" inlineStyle="text-align:right;">
+                        <af:outputText value="#{row.TstQuentity}"
+                                       shortDesc="#{bindings.TankStockTransferView1.hints.TstQuentity.tooltip}"
+                                       id="ot4">
+                            <af:convertNumber groupingUsed="true"
+                                              pattern="#{bindings.TankStockTransferView1.hints.TstQuentity.format}"
+                                              messageDetailConvertNumber="#,###,##"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankStockTransferView1.hints.TstDr.name}" filterable="true"
+                               sortable="true" headerText="Debit"
+                               id="c2" align="center" inlineStyle="text-align:right;">
+                        <af:outputText value="#{row.TstDr}"
+                                       shortDesc="#{bindings.TankStockTransferView1.hints.TstDr.tooltip}" id="ot2">
+                            <af:convertNumber groupingUsed="true"
+                                              pattern="#{bindings.TankStockTransferView1.hints.TstDr.format}"
+                                              messageDetailConvertNumber="#,###,##"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankStockTransferView1.hints.TstCr.name}" filterable="true"
+                               sortable="true" headerText="Credit"
+                               id="c3" align="center" inlineStyle="text-align:right;">
+                        <af:outputText value="#{row.TstCr}"
+                                       shortDesc="#{bindings.TankStockTransferView1.hints.TstCr.tooltip}" id="ot3">
+                            <af:convertNumber groupingUsed="true"
+                                              pattern="#{bindings.TankStockTransferView1.hints.TstCr.format}"
+                                              messageDetailConvertNumber="#,###,##"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankStockTransferView1.hints.TstInfo.name}" filterable="true"
+                               sortable="true" headerText="Information"
+                               id="c6" align="center" inlineStyle="text-align:right;">
+                        <af:outputText value="#{row.TstInfo}"
+                                       shortDesc="#{bindings.TankStockTransferView1.hints.TstInfo.tooltip}" id="ot6"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankStockTransferView1.hints.TstId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.TankStockTransferView1.hints.TstId.label}"
+                               id="c1" align="center" inlineStyle="text-align:right;">
+                        <af:outputText value="#{row.TstId}"
+                                       shortDesc="#{bindings.TankStockTransferView1.hints.TstId.tooltip}" id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankStockTransferView1.hints.TstId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankStockTransferView1.hints.ProductIdFk.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.TankStockTransferView1.hints.ProductIdFk.label}" id="c7"
+                               rendered="false">
+                        <af:outputText value="#{row.ProductIdFk}"
+                                       shortDesc="#{bindings.TankStockTransferView1.hints.ProductIdFk.tooltip}"
+                                       id="ot7">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankStockTransferView1.hints.ProductIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankStockTransferView1.hints.ProductId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.TankStockTransferView1.hints.ProductId.label}"
+                               id="c9" rendered="false">
+                        <af:outputText value="#{row.ProductId}"
+                                       shortDesc="#{bindings.TankStockTransferView1.hints.ProductId.tooltip}" id="ot9">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankStockTransferView1.hints.ProductId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankStockTransferView1.hints.OiltId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.TankStockTransferView1.hints.OiltId.label}"
+                               id="c11" rendered="false">
+                        <af:outputText value="#{row.OiltId}"
+                                       shortDesc="#{bindings.TankStockTransferView1.hints.OiltId.tooltip}" id="ot11">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankStockTransferView1.hints.OiltId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankStockTransferView1.hints.OiltId1.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.TankStockTransferView1.hints.OiltId1.label}"
+                               id="c13" rendered="false">
+                        <af:outputText value="#{row.OiltId1}"
+                                       shortDesc="#{bindings.TankStockTransferView1.hints.OiltId1.tooltip}" id="ot13">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankStockTransferView1.hints.OiltId1.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

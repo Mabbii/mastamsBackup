@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View3">
+      <property
+         name="activityId">AccountsMy</property>
+      <property
+         name="pageFragment">false</property>
+      <property
+         name="x">311.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>AccountsMy&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">255.39062</property>
+      <property
+         name="page">/AccountsMyy.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <TaskFlowReturn
+      id="TaskFlowReturn16">
+      <property
+         name="activityId">taskFlowReturn1</property>
+      <property
+         name="x">306.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>taskFlowReturn1&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  taskFlowReturn1&lt;/p></property>
+      <property
+         name="y">472.49414</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="exceptionHandler">false</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase17"
+      from="View3"
+      to="TaskFlowReturn16">
+      <property
+         name="fromOutcome">taskflowback</property>
+      <property
+         name="sdm:polyPoints">B50,311.0,309.04004,306.0,418.14355,T50</property>
+   </ControlFlowCase>
+</SDM>

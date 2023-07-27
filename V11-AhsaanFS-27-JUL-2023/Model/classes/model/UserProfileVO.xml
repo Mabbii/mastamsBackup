@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UserProfileVO"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="UserProfileEO"
+    Entity="model.UserProfileEO"/>
+  <ViewAttribute
+    Name="UserProfileId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UserProfileId"
+    EntityUsage="UserProfileEO"
+    AliasName="USER_PROFILE_ID"/>
+  <ViewAttribute
+    Name="UserProfileName"
+    PrecisionRule="true"
+    EntityAttrName="UserProfileName"
+    EntityUsage="UserProfileEO"
+    AliasName="USER_PROFILE_NAME"/>
+  <ViewAttribute
+    Name="UserProfileEmail"
+    PrecisionRule="true"
+    EntityAttrName="UserProfileEmail"
+    EntityUsage="UserProfileEO"
+    AliasName="USER_PROFILE_EMAIL"/>
+  <ViewAttribute
+    Name="UserProfileImage"
+    IsQueriable="false"
+    PrecisionRule="true"
+    EntityAttrName="UserProfileImage"
+    EntityUsage="UserProfileEO"
+    AliasName="USER_PROFILE_IMAGE"/>
+</ViewObject>

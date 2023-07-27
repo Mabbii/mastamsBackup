@@ -1,0 +1,12 @@
+//Groovy Scripts for model.TankInfoView
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="TankInfoDate")
+def TankInfoDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

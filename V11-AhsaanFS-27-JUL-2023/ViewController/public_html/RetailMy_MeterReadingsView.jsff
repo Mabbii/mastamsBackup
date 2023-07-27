@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="150" id="ps2">
+        <f:facet name="first">
+            <af:panelGroupLayout layout="vertical" id="pgl3">
+                <af:panelHeader text="Meter Readings" id="ph1"
+                                inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;">
+                    <af:query id="qryId1" headerText="." disclosed="true"
+                              value="#{bindings.MrInputViewCriteriaQuery.queryDescriptor}"
+                              model="#{bindings.MrInputViewCriteriaQuery.queryModel}"
+                              queryListener="#{bindings.MrInputViewCriteriaQuery.processQuery}"
+                              queryOperationListener="#{bindings.MrInputViewCriteriaQuery.processQueryOperation}"
+                              resultComponentId="::pc1:resId1" saveButtonText="." searchButtonText="Search"
+                              resetButtonText="." addFieldsButtonText="."/>
+                </af:panelHeader>
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelBox id="pb1">
+                <f:facet name="toolbar"/>
+                <af:panelGridLayout id="pgl1">
+                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                        <af:gridCell marginStart="5px" width="50%" id="gc1">
+                            <af:panelCollection id="pc1">
+                                <f:facet name="menus"/>
+                                <f:facet name="toolbar">
+                                    <af:toolbar id="t1">
+                                        <af:button actionListener="#{bindings.Rollback.execute}" text="Show"
+                                                   immediate="true" id="b2" icon="#{resource['images:find.png']}">
+                                            <af:resetActionListener/>
+                                        </af:button>
+                                        <af:button actionListener="#{bindings.Commit.execute}" text="Submit" id="b1"
+                                                   icon="#{resource['images:commit.png']}"/>
+                                    </af:toolbar>
+                                </f:facet>
+                                <f:facet name="statusbar"/>
+                                <af:table value="#{bindings.MrInputView1.collectionModel}" var="row"
+                                          rows="#{bindings.MrInputView1.rangeSize}"
+                                          emptyText="#{bindings.MrInputView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.MrInputView1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.MrInputView1.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.MrInputView1.rangeSize}"
+                                          filterModel="#{bindings.MrInputViewCriteriaQuery.queryDescriptor}"
+                                          filterVisible="true"
+                                          queryListener="#{bindings.MrInputViewCriteriaQuery.processQuery}"
+                                          varStatus="vs" id="resId1" horizontalGridVisible="true"
+                                          verticalGridVisible="true"
+                                          inlineStyle="border-bottom-color:White; border-right-color:White;">
+                                    <af:column sortProperty="#{bindings.MrInputView1.hints.NozalName}" 
+                                               headerText="Nozzle Name" id="c2"
+                                               width="150" align="center"
+                                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                                        <af:selectOneChoice value="#{row.bindings.NozalName.inputValue}"
+                                                            label="#{row.bindings.NozalName.label}"
+                                                            required="#{bindings.MrInputView1.hints.NozalName.mandatory}"
+                                                            shortDesc="#{bindings.MrInputView1.hints.NozalName.tooltip}"
+                                                            id="soc1" readOnly="true">
+                                            <f:selectItems value="#{row.bindings.NozalName.items}" id="si1"/>
+                                            <f:validator binding="#{row.bindings.NozalName.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.MrInputView1.hints.MriData.name}"
+                                               
+                                               headerText="Meter Reading" id="c1"
+                                               width="160" align="center"
+                                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                                        <af:inputText value="#{row.bindings.MriData.inputValue}"
+                                                      label="#{bindings.MrInputView1.hints.MriData.label}"
+                                                      required="#{bindings.MrInputView1.hints.MriData.mandatory}"
+                                                      columns="#{bindings.MrInputView1.hints.MriData.displayWidth}"
+                                                      maximumLength="#{bindings.MrInputView1.hints.MriData.precision}"
+                                                      shortDesc="#{bindings.MrInputView1.hints.MriData.tooltip}"
+                                                      id="it1"
+                                                      inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                                            <f:validator binding="#{row.bindings.MriData.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.MrInputView1.hints.MriData.format}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.MrInputView1.hints.MriMTest.name}"
+                                               
+                                               headerText="Measure Test" id="c3"
+                                               width="200" align="center"
+                                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                                        <af:inputText value="#{row.bindings.MriMTest.inputValue}"
+                                                      label="#{bindings.MrInputView1.hints.MriMTest.label}"
+                                                      required="#{bindings.MrInputView1.hints.MriMTest.mandatory}"
+                                                      columns="#{bindings.MrInputView1.hints.MriMTest.displayWidth}"
+                                                      maximumLength="#{bindings.MrInputView1.hints.MriMTest.precision}"
+                                                      shortDesc="#{bindings.MrInputView1.hints.MriMTest.tooltip}"
+                                                      id="it2">
+                                            <f:validator binding="#{row.bindings.MriMTest.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.MrInputView1.hints.MriMTest.format}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                            </af:panelCollection>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="80%" marginEnd="5px" id="gc2" inlineStyle="width:100px;">
+                            <af:panelCollection id="pc2">
+                                <f:facet name="menus"/>
+                                <f:facet name="toolbar"/>
+                                <f:facet name="statusbar"/>
+                                <af:table value="#{bindings.MrInputView11.collectionModel}" var="row"
+                                          rows="#{bindings.MrInputView11.rangeSize}"
+                                          emptyText="#{bindings.MrInputView11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.MrInputView11.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.MrInputView11.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.MrInputView11.rangeSize}"
+                                          filterModel="#{bindings.MrInputViewCriteriaQuery.queryDescriptor}"
+                                          filterVisible="true"
+                                          queryListener="#{bindings.MrInputViewCriteriaQuery.processQuery}"
+                                          varStatus="vs" id="t2" width="807"
+                                          inlineStyle="font-size:large; border-right-color:White; border-bottom-color:White; background-color:White;">
+                                    <af:column sortProperty="#{bindings.MrInputView11.hints.NozalName.name}"
+                                               
+                                               headerText="Nozzle Name" id="c4"
+                                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                                               width="150" align="center">
+                                        <af:selectOneChoice value="#{row.bindings.NozalName.inputValue}"
+                                                            label="#{row.bindings.NozalName.label}"
+                                                            required="#{bindings.MrInputView11.hints.NozalName.mandatory}"
+                                                            shortDesc="#{bindings.MrInputView11.hints.NozalName.tooltip}"
+                                                            readOnly="true" id="soc2" inlineStyle="font-size:x-large;">
+                                            <f:selectItems value="#{row.bindings.NozalName.items}" id="si2"/>
+                                            <f:validator binding="#{row.bindings.NozalName.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.MrInputView11.hints.MeterRPrevious.name}"
+                                               
+                                               headerText="Previous Reading" id="c5"
+                                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                                               width="150" align="center">
+                                        <af:outputText value="#{row.MeterRPrevious}"
+                                                       shortDesc="#{bindings.MrInputView11.hints.MeterRPrevious.tooltip}"
+                                                       id="ot1">
+                                            <af:convertNumber groupingUsed="true"
+                                                              pattern="#{bindings.MrInputView11.hints.MeterRPrevious.format}"
+                                                              messageDetailConvertNumber="#,###,##"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.MrInputView11.hints.MeterRCurrent.name}"
+                                               
+                                               headerText="Current Reading" id="c6"
+                                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                                               width="150" align="center">
+                                        <af:outputText value="#{row.MeterRCurrent}"
+                                                       shortDesc="#{bindings.MrInputView11.hints.MeterRCurrent.tooltip}"
+                                                       id="ot2">
+                                            <af:convertNumber groupingUsed="true"
+                                                              pattern="#{bindings.MrInputView11.hints.MeterRCurrent.format}"
+                                                              messageDetailConvertNumber="#,###,##"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.MrInputView11.hints.MeterRSale.name}"
+                                               
+                                               headerText="Total Sale" id="c7"
+                                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                                               width="150" align="center">
+                                        <af:outputText value="#{row.MeterRSale}"
+                                                       shortDesc="#{bindings.MrInputView11.hints.MeterRSale.tooltip}"
+                                                       id="ot3">
+                                            <af:convertNumber groupingUsed="true"
+                                                              pattern="#{bindings.MrInputView11.hints.MeterRSale.format}"
+                                                              messageDetailConvertNumber="#,###,##"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.MrInputView11.hints.MeterRNTest.name}"
+                                               
+                                               headerText="Total Measure Test" id="c8"
+                                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                                               width="150" align="center">
+                                        <af:outputText value="#{row.MeterRNTest}"
+                                                       shortDesc="#{bindings.MrInputView11.hints.MeterRNTest.tooltip}"
+                                                       id="ot4">
+                                            <af:convertNumber groupingUsed="true"
+                                                              pattern="#{bindings.MrInputView11.hints.MeterRNTest.format}"
+                                                              messageDetailConvertNumber="#,###,##"/>
+                                        </af:outputText>
+                                    </af:column>
+                                </af:table>
+                            </af:panelCollection>
+                        </af:gridCell>
+                    </af:gridRow>
+                </af:panelGridLayout>
+            </af:panelBox>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

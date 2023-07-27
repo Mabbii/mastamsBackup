@@ -1,0 +1,1055 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?audit suppress oracle.ide.xml.wellformedness-error?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="TreeReport.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="100%" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Content -->
+                        <af:panelSplitter id="ps1" orientation="vertical" inlineStyle="orphans:2; widows:4;"
+                                          splitterPosition="400">
+                            <f:facet name="first">
+                                <af:panelGroupLayout id="pgl2">
+                                    <af:panelSplitter id="ps2" inlineStyle="width:1267px; height:400px;"
+                                                      orientation="horizontal"
+                                                      splitterPosition="100">
+                                        <f:facet name="first">
+                                            <af:table value="#{bindings.LUsersView2.collectionModel}" var="row"
+                                                      rows="#{bindings.LUsersView2.rangeSize}"
+                                                      emptyText="#{bindings.LUsersView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      rowBandingInterval="0"
+                                                      selectedRowKeys="#{bindings.LUsersView2.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.LUsersView2.collectionModel.makeCurrent}"
+                                                      rowSelection="single"
+                                                      fetchSize="#{bindings.LUsersView2.rangeSize}"
+                                                      filterModel="#{bindings.LUsersView2Query.queryDescriptor}"
+                                                      filterVisible="true"
+                                                      queryListener="#{bindings.LUsersView2Query.processQuery}"
+                                                      varStatus="vs" id="t1">
+                                                <af:column sortProperty="#{bindings.LUsersView2.hints.LUsersUserName.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.LUsersView2.hints.LUsersUserName.label}"
+                                                           id="c1">
+                                                    <af:outputText value="#{row.LUsersUserName}"
+                                                                   shortDesc="#{bindings.LUsersView2.hints.LUsersUserName.tooltip}"
+                                                                   id="ot1"/>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.LUsersView2.hints.LUsersUserId.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.LUsersView2.hints.LUsersUserId.label}"
+                                                           id="c2">
+                                                    <af:outputText value="#{row.LUsersUserId}"
+                                                                   shortDesc="#{bindings.LUsersView2.hints.LUsersUserId.tooltip}"
+                                                                   id="ot2">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.LUsersView2.hints.LUsersUserId.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                            </af:table>
+                                        </f:facet>
+                                        <f:facet name="second">
+                                            <af:table value="#{bindings.LUserSessionView3.collectionModel}" var="row"
+                                                      rows="#{bindings.LUserSessionView3.rangeSize}"
+                                                      emptyText="#{bindings.LUserSessionView3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      rowBandingInterval="0"
+                                                      selectedRowKeys="#{bindings.LUserSessionView3.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.LUserSessionView3.collectionModel.makeCurrent}"
+                                                      rowSelection="single"
+                                                      fetchSize="#{bindings.LUserSessionView3.rangeSize}"
+                                                      filterModel="#{bindings.LUserSessionView3Query.queryDescriptor}"
+                                                      filterVisible="true"
+                                                      queryListener="#{bindings.LUserSessionView3Query.processQuery}"
+                                                      varStatus="vs" id="t2">
+                                                <af:column sortProperty="#{bindings.LUserSessionView3.hints.UserLogId.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.LUserSessionView3.hints.UserLogId.label}"
+                                                           id="c3">
+                                                    <af:outputText value="#{row.UserLogId}"
+                                                                   shortDesc="#{bindings.LUserSessionView3.hints.UserLogId.tooltip}"
+                                                                   id="ot3">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.LUserSessionView3.hints.UserLogId.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.LUserSessionView3.hints.UserLogSessionId.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.LUserSessionView3.hints.UserLogSessionId.label}"
+                                                           id="c4">
+                                                    <af:outputText value="#{row.UserLogSessionId}"
+                                                                   shortDesc="#{bindings.LUserSessionView3.hints.UserLogSessionId.tooltip}"
+                                                                   id="ot4"/>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.LUserSessionView3.hints.UserLogInTime.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.LUserSessionView3.hints.UserLogInTime.label}"
+                                                           id="c5">
+                                                    <f:facet name="filter">
+                                                        <af:inputDate value="#{bindings.LUserSessionView3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.UserLogInTime.value}"
+                                                                      id="id1">
+                                                            <af:convertDateTime pattern="#{bindings.LUserSessionView3.hints.UserLogInTime.format}"/>
+                                                        </af:inputDate>
+                                                    </f:facet>
+                                                    <af:outputText value="#{row.UserLogInTime}"
+                                                                   shortDesc="#{bindings.LUserSessionView3.hints.UserLogInTime.tooltip}"
+                                                                   id="ot5">
+                                                        <af:convertDateTime pattern="#{bindings.LUserSessionView3.hints.UserLogInTime.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.LUserSessionView3.hints.UserLogOutTime.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.LUserSessionView3.hints.UserLogOutTime.label}"
+                                                           id="c6">
+                                                    <f:facet name="filter">
+                                                        <af:inputDate value="#{bindings.LUserSessionView3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.UserLogOutTime.value}"
+                                                                      id="id2">
+                                                            <af:convertDateTime pattern="#{bindings.LUserSessionView3.hints.UserLogOutTime.format}"/>
+                                                        </af:inputDate>
+                                                    </f:facet>
+                                                    <af:outputText value="#{row.UserLogOutTime}"
+                                                                   shortDesc="#{bindings.LUserSessionView3.hints.UserLogOutTime.tooltip}"
+                                                                   id="ot6">
+                                                        <af:convertDateTime pattern="#{bindings.LUserSessionView3.hints.UserLogOutTime.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.LUserSessionView3.hints.UserLogAuthF.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.LUserSessionView3.hints.UserLogAuthF.label}"
+                                                           id="c7">
+                                                    <af:outputText value="#{row.UserLogAuthF}"
+                                                                   shortDesc="#{bindings.LUserSessionView3.hints.UserLogAuthF.tooltip}"
+                                                                   id="ot7">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.LUserSessionView3.hints.UserLogAuthF.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.LUserSessionView3.hints.UserLogAuthReason.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.LUserSessionView3.hints.UserLogAuthReason.label}"
+                                                           id="c8">
+                                                    <af:outputText value="#{row.UserLogAuthReason}"
+                                                                   shortDesc="#{bindings.LUserSessionView3.hints.UserLogAuthReason.tooltip}"
+                                                                   id="ot8">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.LUserSessionView3.hints.UserLogAuthReason.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.LUserSessionView3.hints.UserLogOutReason.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.LUserSessionView3.hints.UserLogOutReason.label}"
+                                                           id="c9">
+                                                    <af:outputText value="#{row.UserLogOutReason}"
+                                                                   shortDesc="#{bindings.LUserSessionView3.hints.UserLogOutReason.tooltip}"
+                                                                   id="ot9">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.LUserSessionView3.hints.UserLogOutReason.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.LUserSessionView3.hints.LUserIdFk.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.LUserSessionView3.hints.LUserIdFk.label}"
+                                                           id="c10">
+                                                    <af:outputText value="#{row.LUserIdFk}"
+                                                                   shortDesc="#{bindings.LUserSessionView3.hints.LUserIdFk.tooltip}"
+                                                                   id="ot10">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.LUserSessionView3.hints.LUserIdFk.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                            </af:table>
+                                        </f:facet>
+                                    </af:panelSplitter>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                            <f:facet name="second">
+                                <af:panelGroupLayout id="pgl3">
+                                    <af:panelSplitter id="ps3" inlineStyle="width:1276px; height:602px;"
+                                                      orientation="vertical">
+                                        <f:facet name="first">
+                                            <af:table value="#{bindings.LUserActivityView3.collectionModel}" var="row"
+                                                      rows="#{bindings.LUserActivityView3.rangeSize}"
+                                                      emptyText="#{bindings.LUserActivityView3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      rowBandingInterval="0"
+                                                      selectedRowKeys="#{bindings.LUserActivityView3.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.LUserActivityView3.collectionModel.makeCurrent}"
+                                                      rowSelection="single"
+                                                      fetchSize="#{bindings.LUserActivityView3.rangeSize}"
+                                                      filterModel="#{bindings.LUserActivityView3Query.queryDescriptor}"
+                                                      filterVisible="true"
+                                                      queryListener="#{bindings.LUserActivityView3Query.processQuery}"
+                                                      varStatus="vs" id="t3">
+                                                <af:column sortProperty="#{bindings.LUserActivityView3.hints.AcitvityId.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.LUserActivityView3.hints.AcitvityId.label}"
+                                                           id="c11">
+                                                    <af:outputText value="#{row.AcitvityId}"
+                                                                   shortDesc="#{bindings.LUserActivityView3.hints.AcitvityId.tooltip}"
+                                                                   id="ot11">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.LUserActivityView3.hints.AcitvityId.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.LUserActivityView3.hints.AcitvityNameId.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.LUserActivityView3.hints.AcitvityNameId.label}"
+                                                           id="c12">
+                                                    <af:outputText value="#{row.AcitvityNameId}"
+                                                                   shortDesc="#{bindings.LUserActivityView3.hints.AcitvityNameId.tooltip}"
+                                                                   id="ot12">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.LUserActivityView3.hints.AcitvityNameId.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.LUserActivityView3.hints.UserLogIdFk.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.LUserActivityView3.hints.UserLogIdFk.label}"
+                                                           id="c13">
+                                                    <af:outputText value="#{row.UserLogIdFk}"
+                                                                   shortDesc="#{bindings.LUserActivityView3.hints.UserLogIdFk.tooltip}"
+                                                                   id="ot13">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.LUserActivityView3.hints.UserLogIdFk.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.LUserActivityView3.hints.ActivityTime.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.LUserActivityView3.hints.ActivityTime.label}"
+                                                           id="c14">
+                                                    <f:facet name="filter">
+                                                        <af:inputDate value="#{bindings.LUserActivityView3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ActivityTime.value}"
+                                                                      id="id3">
+                                                            <af:convertDateTime pattern="#{bindings.LUserActivityView3.hints.ActivityTime.format}"/>
+                                                        </af:inputDate>
+                                                    </f:facet>
+                                                    <af:outputText value="#{row.ActivityTime}"
+                                                                   shortDesc="#{bindings.LUserActivityView3.hints.ActivityTime.tooltip}"
+                                                                   id="ot14">
+                                                        <af:convertDateTime pattern="#{bindings.LUserActivityView3.hints.ActivityTime.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.LUserActivityView3.hints.ViewInfoName.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.LUserActivityView3.hints.ViewInfoName.label}"
+                                                           id="c15">
+                                                    <af:outputText value="#{row.ViewInfoName}"
+                                                                   shortDesc="#{bindings.LUserActivityView3.hints.ViewInfoName.tooltip}"
+                                                                   id="ot15"/>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.LUserActivityView3.hints.ViewInfoId.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.LUserActivityView3.hints.ViewInfoId.label}"
+                                                           id="c16">
+                                                    <af:outputText value="#{row.ViewInfoId}"
+                                                                   shortDesc="#{bindings.LUserActivityView3.hints.ViewInfoId.tooltip}"
+                                                                   id="ot16">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.LUserActivityView3.hints.ViewInfoId.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                            </af:table>
+                                        </f:facet>
+                                        <f:facet name="second">
+                                            <af:panelGroupLayout id="pgl5">
+                                                <af:panelSplitter id="ps5" inlineStyle="width:1270px; height:324px;"
+                                                                  orientation="vertical">
+                                                    <f:facet name="first">
+                                                        <af:table value="#{bindings.LUserOperationView3.collectionModel}"
+                                                                  var="row"
+                                                                  rows="#{bindings.LUserOperationView3.rangeSize}"
+                                                                  emptyText="#{bindings.LUserOperationView3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                                  rowBandingInterval="0"
+                                                                  selectedRowKeys="#{bindings.LUserOperationView3.collectionModel.selectedRow}"
+                                                                  selectionListener="#{bindings.LUserOperationView3.collectionModel.makeCurrent}"
+                                                                  rowSelection="single"
+                                                                  fetchSize="#{bindings.LUserOperationView3.rangeSize}"
+                                                                  filterModel="#{bindings.LUserOperationView3Query.queryDescriptor}"
+                                                                  filterVisible="true"
+                                                                  queryListener="#{bindings.LUserOperationView3Query.processQuery}"
+                                                                  varStatus="vs" id="t4">
+                                                            <af:column sortProperty="#{bindings.LUserOperationView3.hints.UserOpeId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.LUserOperationView3.hints.UserOpeId.label}"
+                                                                       id="c17">
+                                                                <af:outputText value="#{row.UserOpeId}"
+                                                                               shortDesc="#{bindings.LUserOperationView3.hints.UserOpeId.tooltip}"
+                                                                               id="ot17">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.LUserOperationView3.hints.UserOpeId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.LUserOperationView3.hints.UserOpeEntityNameId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.LUserOperationView3.hints.UserOpeEntityNameId.label}"
+                                                                       id="c18">
+                                                                <af:outputText value="#{row.UserOpeEntityNameId}"
+                                                                               shortDesc="#{bindings.LUserOperationView3.hints.UserOpeEntityNameId.tooltip}"
+                                                                               id="ot18">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.LUserOperationView3.hints.UserOpeEntityNameId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.LUserOperationView3.hints.UserOpeViewNameId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.LUserOperationView3.hints.UserOpeViewNameId.label}"
+                                                                       id="c19">
+                                                                <af:outputText value="#{row.UserOpeViewNameId}"
+                                                                               shortDesc="#{bindings.LUserOperationView3.hints.UserOpeViewNameId.tooltip}"
+                                                                               id="ot19">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.LUserOperationView3.hints.UserOpeViewNameId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.LUserOperationView3.hints.UserOpeEntityTnsId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.LUserOperationView3.hints.UserOpeEntityTnsId.label}"
+                                                                       id="c20">
+                                                                <af:outputText value="#{row.UserOpeEntityTnsId}"
+                                                                               shortDesc="#{bindings.LUserOperationView3.hints.UserOpeEntityTnsId.tooltip}"
+                                                                               id="ot20">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.LUserOperationView3.hints.UserOpeEntityTnsId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.LUserOperationView3.hints.UserOpeF.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.LUserOperationView3.hints.UserOpeF.label}"
+                                                                       id="c21">
+                                                                <af:outputText value="#{row.UserOpeF}"
+                                                                               shortDesc="#{bindings.LUserOperationView3.hints.UserOpeF.tooltip}"
+                                                                               id="ot21">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.LUserOperationView3.hints.UserOpeF.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.LUserOperationView3.hints.UserOpeTime.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.LUserOperationView3.hints.UserOpeTime.label}"
+                                                                       id="c22">
+                                                                <f:facet name="filter">
+                                                                    <af:inputDate value="#{bindings.LUserOperationView3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.UserOpeTime.value}"
+                                                                                  id="id4">
+                                                                        <af:convertDateTime pattern="#{bindings.LUserOperationView3.hints.UserOpeTime.format}"/>
+                                                                    </af:inputDate>
+                                                                </f:facet>
+                                                                <af:outputText value="#{row.UserOpeTime}"
+                                                                               shortDesc="#{bindings.LUserOperationView3.hints.UserOpeTime.tooltip}"
+                                                                               id="ot22">
+                                                                    <af:convertDateTime pattern="#{bindings.LUserOperationView3.hints.UserOpeTime.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.LUserOperationView3.hints.AcitvityIdFk.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.LUserOperationView3.hints.AcitvityIdFk.label}"
+                                                                       id="c23">
+                                                                <af:outputText value="#{row.AcitvityIdFk}"
+                                                                               shortDesc="#{bindings.LUserOperationView3.hints.AcitvityIdFk.tooltip}"
+                                                                               id="ot23">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.LUserOperationView3.hints.AcitvityIdFk.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.LUserOperationView3.hints.EntityInfoName.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.LUserOperationView3.hints.EntityInfoName.label}"
+                                                                       id="c24">
+                                                                <af:outputText value="#{row.EntityInfoName}"
+                                                                               shortDesc="#{bindings.LUserOperationView3.hints.EntityInfoName.tooltip}"
+                                                                               id="ot24"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.LUserOperationView3.hints.EntityInfoId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.LUserOperationView3.hints.EntityInfoId.label}"
+                                                                       id="c25">
+                                                                <af:outputText value="#{row.EntityInfoId}"
+                                                                               shortDesc="#{bindings.LUserOperationView3.hints.EntityInfoId.tooltip}"
+                                                                               id="ot25">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.LUserOperationView3.hints.EntityInfoId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.LUserOperationView3.hints.InfoDmlOpeName.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.LUserOperationView3.hints.InfoDmlOpeName.label}"
+                                                                       id="c26">
+                                                                <af:outputText value="#{row.InfoDmlOpeName}"
+                                                                               shortDesc="#{bindings.LUserOperationView3.hints.InfoDmlOpeName.tooltip}"
+                                                                               id="ot26"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.LUserOperationView3.hints.InfoDmlOpeId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.LUserOperationView3.hints.InfoDmlOpeId.label}"
+                                                                       id="c27">
+                                                                <af:outputText value="#{row.InfoDmlOpeId}"
+                                                                               shortDesc="#{bindings.LUserOperationView3.hints.InfoDmlOpeId.tooltip}"
+                                                                               id="ot27">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.LUserOperationView3.hints.InfoDmlOpeId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                        </af:table>
+                                                    </f:facet>
+                                                    <f:facet name="second">
+                                                        <af:table value="#{bindings.TransactionLogView3.collectionModel}"
+                                                                  var="row"
+                                                                  rows="#{bindings.TransactionLogView3.rangeSize}"
+                                                                  emptyText="#{bindings.TransactionLogView3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                                  rowBandingInterval="0"
+                                                                  selectedRowKeys="#{bindings.TransactionLogView3.collectionModel.selectedRow}"
+                                                                  selectionListener="#{bindings.TransactionLogView3.collectionModel.makeCurrent}"
+                                                                  rowSelection="single"
+                                                                  fetchSize="#{bindings.TransactionLogView3.rangeSize}"
+                                                                  filterModel="#{bindings.TransactionLogView3Query.queryDescriptor}"
+                                                                  filterVisible="true"
+                                                                  queryListener="#{bindings.TransactionLogView3Query.processQuery}"
+                                                                  varStatus="vs" id="t5">
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsLogId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsLogId.label}"
+                                                                       id="c28">
+                                                                <af:outputText value="#{row.TnsLogId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsLogId.tooltip}"
+                                                                               id="ot28">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsLogId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsId.label}"
+                                                                       id="c29">
+                                                                <af:outputText value="#{row.TnsId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsId.tooltip}"
+                                                                               id="ot29">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsDate.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsDate.label}"
+                                                                       id="c30">
+                                                                <f:facet name="filter">
+                                                                    <af:inputDate value="#{bindings.TransactionLogView3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsDate.value}"
+                                                                                  id="id5">
+                                                                        <af:convertDateTime pattern="#{bindings.TransactionLogView3.hints.TnsDate.format}"/>
+                                                                    </af:inputDate>
+                                                                </f:facet>
+                                                                <af:outputText value="#{row.TnsDate}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsDate.tooltip}"
+                                                                               id="ot30">
+                                                                    <af:convertDateTime pattern="#{bindings.TransactionLogView3.hints.TnsDate.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsAmount.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsAmount.label}"
+                                                                       id="c31">
+                                                                <af:outputText value="#{row.TnsAmount}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsAmount.tooltip}"
+                                                                               id="ot31">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsAmount.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsDetail.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsDetail.label}"
+                                                                       id="c32">
+                                                                <af:outputText value="#{row.TnsDetail}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsDetail.tooltip}"
+                                                                               id="ot32"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsInfo.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsInfo.label}"
+                                                                       id="c33">
+                                                                <af:outputText value="#{row.TnsInfo}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsInfo.tooltip}"
+                                                                               id="ot33"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsGroup.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsGroup.label}"
+                                                                       id="c34">
+                                                                <af:outputText value="#{row.TnsGroup}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsGroup.tooltip}"
+                                                                               id="ot34">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsGroup.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsTnsTypeIdFk.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsTnsTypeIdFk.label}"
+                                                                       id="c35">
+                                                                <af:outputText value="#{row.TnsTnsTypeIdFk}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsTnsTypeIdFk.tooltip}"
+                                                                               id="ot35">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsTnsTypeIdFk.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsRate.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsRate.label}"
+                                                                       id="c36">
+                                                                <af:outputText value="#{row.TnsRate}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsRate.tooltip}"
+                                                                               id="ot36">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsRate.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsQty.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsQty.label}"
+                                                                       id="c37">
+                                                                <af:outputText value="#{row.TnsQty}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsQty.tooltip}"
+                                                                               id="ot37">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsQty.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsOiltId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsOiltId.label}"
+                                                                       id="c38">
+                                                                <af:outputText value="#{row.TnsOiltId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsOiltId.tooltip}"
+                                                                               id="ot38">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsOiltId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsOildId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsOildId.label}"
+                                                                       id="c39">
+                                                                <af:outputText value="#{row.TnsOildId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsOildId.tooltip}"
+                                                                               id="ot39">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsOildId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsStId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsStId.label}"
+                                                                       id="c40">
+                                                                <af:outputText value="#{row.TnsStId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsStId.tooltip}"
+                                                                               id="ot40">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsStId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsCoaDactNumber.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsCoaDactNumber.label}"
+                                                                       id="c41">
+                                                                <af:outputText value="#{row.TnsCoaDactNumber}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsCoaDactNumber.tooltip}"
+                                                                               id="ot41">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsCoaDactNumber.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsCoaCactNumber.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsCoaCactNumber.label}"
+                                                                       id="c42">
+                                                                <af:outputText value="#{row.TnsCoaCactNumber}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsCoaCactNumber.tooltip}"
+                                                                               id="ot42">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsCoaCactNumber.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsAdjDate.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsAdjDate.label}"
+                                                                       id="c43">
+                                                                <f:facet name="filter">
+                                                                    <af:inputDate value="#{bindings.TransactionLogView3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsAdjDate.value}"
+                                                                                  id="id6">
+                                                                        <af:convertDateTime pattern="#{bindings.TransactionLogView3.hints.TnsAdjDate.format}"/>
+                                                                    </af:inputDate>
+                                                                </f:facet>
+                                                                <af:outputText value="#{row.TnsAdjDate}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsAdjDate.tooltip}"
+                                                                               id="ot43">
+                                                                    <af:convertDateTime pattern="#{bindings.TransactionLogView3.hints.TnsAdjDate.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsTnsviewId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsTnsviewId.label}"
+                                                                       id="c44">
+                                                                <af:outputText value="#{row.TnsTnsviewId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsTnsviewId.tooltip}"
+                                                                               id="ot44">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsTnsviewId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsBankTnsTypeIdFk.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsBankTnsTypeIdFk.label}"
+                                                                       id="c45">
+                                                                <af:outputText value="#{row.TnsBankTnsTypeIdFk}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsBankTnsTypeIdFk.tooltip}"
+                                                                               id="ot45">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsBankTnsTypeIdFk.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsSlipNo.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsSlipNo.label}"
+                                                                       id="c46">
+                                                                <af:outputText value="#{row.TnsSlipNo}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsSlipNo.tooltip}"
+                                                                               id="ot46"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsSlipDate.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsSlipDate.label}"
+                                                                       id="c47">
+                                                                <f:facet name="filter">
+                                                                    <af:inputDate value="#{bindings.TransactionLogView3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsSlipDate.value}"
+                                                                                  id="id7">
+                                                                        <af:convertDateTime pattern="#{bindings.TransactionLogView3.hints.TnsSlipDate.format}"/>
+                                                                    </af:inputDate>
+                                                                </f:facet>
+                                                                <af:outputText value="#{row.TnsSlipDate}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsSlipDate.tooltip}"
+                                                                               id="ot47">
+                                                                    <af:convertDateTime pattern="#{bindings.TransactionLogView3.hints.TnsSlipDate.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsEtc.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsEtc.label}"
+                                                                       id="c48">
+                                                                <af:outputText value="#{row.TnsEtc}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsEtc.tooltip}"
+                                                                               id="ot48"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsPurchaseRateLogIdFk.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsPurchaseRateLogIdFk.label}"
+                                                                       id="c49">
+                                                                <af:outputText value="#{row.TnsPurchaseRateLogIdFk}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsPurchaseRateLogIdFk.tooltip}"
+                                                                               id="ot49">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsPurchaseRateLogIdFk.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsNewrate.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsNewrate.label}"
+                                                                       id="c50">
+                                                                <af:outputText value="#{row.TnsNewrate}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsNewrate.tooltip}"
+                                                                               id="ot50">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsNewrate.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsFreightfactor.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsFreightfactor.label}"
+                                                                       id="c51">
+                                                                <af:outputText value="#{row.TnsFreightfactor}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsFreightfactor.tooltip}"
+                                                                               id="ot51">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsFreightfactor.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsSaleRateLogIdFk.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsSaleRateLogIdFk.label}"
+                                                                       id="c52">
+                                                                <af:outputText value="#{row.TnsSaleRateLogIdFk}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsSaleRateLogIdFk.tooltip}"
+                                                                               id="ot52">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsSaleRateLogIdFk.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsIsDebit.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsIsDebit.label}"
+                                                                       id="c53">
+                                                                <af:outputText value="#{row.TnsIsDebit}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsIsDebit.tooltip}"
+                                                                               id="ot53">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsIsDebit.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsParentTnsId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsParentTnsId.label}"
+                                                                       id="c54">
+                                                                <af:outputText value="#{row.TnsParentTnsId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsParentTnsId.tooltip}"
+                                                                               id="ot54">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsParentTnsId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsIsClaimedId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsIsClaimedId.label}"
+                                                                       id="c55">
+                                                                <af:outputText value="#{row.TnsIsClaimedId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsIsClaimedId.tooltip}"
+                                                                               id="ot55">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsIsClaimedId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsReverseEntry.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsReverseEntry.label}"
+                                                                       id="c56">
+                                                                <af:outputText value="#{row.TnsReverseEntry}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsReverseEntry.tooltip}"
+                                                                               id="ot56">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsReverseEntry.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsAdjId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsAdjId.label}"
+                                                                       id="c57">
+                                                                <af:outputText value="#{row.TnsAdjId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsAdjId.tooltip}"
+                                                                               id="ot57">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsAdjId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsSDate.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsSDate.label}"
+                                                                       id="c58">
+                                                                <f:facet name="filter">
+                                                                    <af:inputDate value="#{bindings.TransactionLogView3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsSDate.value}"
+                                                                                  id="id8">
+                                                                        <af:convertDateTime pattern="#{bindings.TransactionLogView3.hints.TnsSDate.format}"/>
+                                                                    </af:inputDate>
+                                                                </f:facet>
+                                                                <af:outputText value="#{row.TnsSDate}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsSDate.tooltip}"
+                                                                               id="ot58">
+                                                                    <af:convertDateTime pattern="#{bindings.TransactionLogView3.hints.TnsSDate.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsBankNameId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsBankNameId.label}"
+                                                                       id="c59">
+                                                                <af:outputText value="#{row.TnsBankNameId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsBankNameId.tooltip}"
+                                                                               id="ot59">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsBankNameId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsBrCode.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsBrCode.label}"
+                                                                       id="c60">
+                                                                <af:outputText value="#{row.TnsBrCode}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsBrCode.tooltip}"
+                                                                               id="ot60"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsOildLoadId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsOildLoadId.label}"
+                                                                       id="c61">
+                                                                <af:outputText value="#{row.TnsOildLoadId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsOildLoadId.tooltip}"
+                                                                               id="ot61">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsOildLoadId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsOildLoadDate.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsOildLoadDate.label}"
+                                                                       id="c62">
+                                                                <f:facet name="filter">
+                                                                    <af:inputDate value="#{bindings.TransactionLogView3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsOildLoadDate.value}"
+                                                                                  id="id9">
+                                                                        <af:convertDateTime pattern="#{bindings.TransactionLogView3.hints.TnsOildLoadDate.format}"/>
+                                                                    </af:inputDate>
+                                                                </f:facet>
+                                                                <af:outputText value="#{row.TnsOildLoadDate}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsOildLoadDate.tooltip}"
+                                                                               id="ot62">
+                                                                    <af:convertDateTime pattern="#{bindings.TransactionLogView3.hints.TnsOildLoadDate.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsAdjAcRef.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsAdjAcRef.label}"
+                                                                       id="c63">
+                                                                <af:outputText value="#{row.TnsAdjAcRef}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsAdjAcRef.tooltip}"
+                                                                               id="ot63">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsAdjAcRef.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsInfoStart.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsInfoStart.label}"
+                                                                       id="c64">
+                                                                <af:outputText value="#{row.TnsInfoStart}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsInfoStart.tooltip}"
+                                                                               id="ot64"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsLogDate.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsLogDate.label}"
+                                                                       id="c65">
+                                                                <f:facet name="filter">
+                                                                    <af:inputDate value="#{bindings.TransactionLogView3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsLogDate.value}"
+                                                                                  id="id10">
+                                                                        <af:convertDateTime pattern="#{bindings.TransactionLogView3.hints.TnsLogDate.format}"/>
+                                                                    </af:inputDate>
+                                                                </f:facet>
+                                                                <af:outputText value="#{row.TnsLogDate}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsLogDate.tooltip}"
+                                                                               id="ot65">
+                                                                    <af:convertDateTime pattern="#{bindings.TransactionLogView3.hints.TnsLogDate.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsLogOpeF.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsLogOpeF.label}"
+                                                                       id="c66">
+                                                                <af:outputText value="#{row.TnsLogOpeF}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsLogOpeF.tooltip}"
+                                                                               id="ot66">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsLogOpeF.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsLogOldNew.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsLogOldNew.label}"
+                                                                       id="c67">
+                                                                <af:outputText value="#{row.TnsLogOldNew}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsLogOldNew.tooltip}"
+                                                                               id="ot67"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.CoaName.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.CoaName.label}"
+                                                                       id="c68">
+                                                                <af:selectOneChoice value="#{row.bindings.CoaName.inputValue}"
+                                                                                    label="#{row.bindings.CoaName.label}"
+                                                                                    required="#{bindings.TransactionLogView3.hints.CoaName.mandatory}"
+                                                                                    shortDesc="#{bindings.TransactionLogView3.hints.CoaName.tooltip}"
+                                                                                    readOnly="true" id="soc1">
+                                                                    <f:selectItems value="#{row.bindings.CoaName.items}"
+                                                                                   id="si1"/>
+                                                                    <f:validator binding="#{row.bindings.CoaName.validator}"/>
+                                                                </af:selectOneChoice>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.CoaActNumber.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.CoaActNumber.label}"
+                                                                       id="c69">
+                                                                <af:outputText value="#{row.CoaActNumber}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.CoaActNumber.tooltip}"
+                                                                               id="ot68">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.CoaActNumber.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.CoaName1.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.CoaName1.label}"
+                                                                       id="c70">
+                                                                <af:selectOneChoice value="#{row.bindings.CoaName1.inputValue}"
+                                                                                    label="#{row.bindings.CoaName1.label}"
+                                                                                    required="#{bindings.TransactionLogView3.hints.CoaName1.mandatory}"
+                                                                                    shortDesc="#{bindings.TransactionLogView3.hints.CoaName1.tooltip}"
+                                                                                    readOnly="true" id="soc2">
+                                                                    <f:selectItems value="#{row.bindings.CoaName1.items}"
+                                                                                   id="si2"/>
+                                                                    <f:validator binding="#{row.bindings.CoaName1.validator}"/>
+                                                                </af:selectOneChoice>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.CoaActNumber1.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.CoaActNumber1.label}"
+                                                                       id="c71">
+                                                                <af:outputText value="#{row.CoaActNumber1}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.CoaActNumber1.tooltip}"
+                                                                               id="ot69">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.CoaActNumber1.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.BankName1.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.BankName1.label}"
+                                                                       id="c72">
+                                                                <af:outputText value="#{row.BankName1}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.BankName1.tooltip}"
+                                                                               id="ot70"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.BankNameId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.BankNameId.label}"
+                                                                       id="c73">
+                                                                <af:outputText value="#{row.BankNameId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.BankNameId.tooltip}"
+                                                                               id="ot71">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.BankNameId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.BankTnsTypeName.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.BankTnsTypeName.label}"
+                                                                       id="c74">
+                                                                <af:outputText value="#{row.BankTnsTypeName}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.BankTnsTypeName.tooltip}"
+                                                                               id="ot72"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.BankTnsTypeId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.BankTnsTypeId.label}"
+                                                                       id="c75">
+                                                                <af:outputText value="#{row.BankTnsTypeId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.BankTnsTypeId.tooltip}"
+                                                                               id="ot73">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.BankTnsTypeId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.OildShortname.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.OildShortname.label}"
+                                                                       id="c76">
+                                                                <af:outputText value="#{row.OildShortname}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.OildShortname.tooltip}"
+                                                                               id="ot74"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.OildId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.OildId.label}"
+                                                                       id="c77">
+                                                                <af:outputText value="#{row.OildId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.OildId.tooltip}"
+                                                                               id="ot75">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.OildId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.OiltRegistration.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.OiltRegistration.label}"
+                                                                       id="c78">
+                                                                <af:outputText value="#{row.OiltRegistration}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.OiltRegistration.tooltip}"
+                                                                               id="ot76"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.OiltId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.OiltId.label}"
+                                                                       id="c79">
+                                                                <af:outputText value="#{row.OiltId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.OiltId.tooltip}"
+                                                                               id="ot77">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.OiltId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.OildShortname1.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.OildShortname1.label}"
+                                                                       id="c80">
+                                                                <af:outputText value="#{row.OildShortname1}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.OildShortname1.tooltip}"
+                                                                               id="ot78"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.OildId1.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.OildId1.label}"
+                                                                       id="c81">
+                                                                <af:outputText value="#{row.OildId1}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.OildId1.tooltip}"
+                                                                               id="ot79">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.OildId1.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsTypeName.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsTypeName.label}"
+                                                                       id="c82">
+                                                                <af:outputText value="#{row.TnsTypeName}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsTypeName.tooltip}"
+                                                                               id="ot80"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.TnsTypeId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.TnsTypeId.label}"
+                                                                       id="c83">
+                                                                <af:outputText value="#{row.TnsTypeId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.TnsTypeId.tooltip}"
+                                                                               id="ot81">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.TnsTypeId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.InfoDmlOpeName.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.InfoDmlOpeName.label}"
+                                                                       id="c84">
+                                                                <af:outputText value="#{row.InfoDmlOpeName}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.InfoDmlOpeName.tooltip}"
+                                                                               id="ot82"/>
+                                                            </af:column>
+                                                            <af:column sortProperty="#{bindings.TransactionLogView3.hints.InfoDmlOpeId.name}"
+                                                                       filterable="true" sortable="true"
+                                                                       headerText="#{bindings.TransactionLogView3.hints.InfoDmlOpeId.label}"
+                                                                       id="c85">
+                                                                <af:outputText value="#{row.InfoDmlOpeId}"
+                                                                               shortDesc="#{bindings.TransactionLogView3.hints.InfoDmlOpeId.tooltip}"
+                                                                               id="ot83">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.TransactionLogView3.hints.InfoDmlOpeId.format}"/>
+                                                                </af:outputText>
+                                                            </af:column>
+                                                        </af:table>
+                                                    </f:facet>
+                                                </af:panelSplitter>
+                                            </af:panelGroupLayout>
+                                        </f:facet>
+                                    </af:panelSplitter>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelSplitter>
+                        <f:facet name="second"/>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>
+

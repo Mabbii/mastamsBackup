@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="OmcPump_OnlyCredit_limitReportTF">
+    <default-activity>OmcPump_OnlyCredit_limitReportview</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="OmcPump_OnlyCredit_limitReportview">
+      <page>/SupplyMy_OmcPump_OnlyCredit_limitReportview.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

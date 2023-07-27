@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="TanksDipsviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TankDipDataView1" RangeSize="25" DataControl="VOAPPDataControl" id="TankDipDataView1Iterator"/>
+    <searchRegion Binds="TankDipDataView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TankDipDataView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="TankDipDataView1Iterator" StaticList="false" Uses="LOV_TankInfoName" id="TankInfoName"/>
+    <attributeValues IterBinding="TankDipDataView1Iterator" id="TankDipId">
+      <AttrNames>
+        <Item Value="TankDipId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankDipDataView1Iterator" id="TankDipValue">
+      <AttrNames>
+        <Item Value="TankDipValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankDipDataView1Iterator" id="TankInfoIdFk">
+      <AttrNames>
+        <Item Value="TankInfoIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankDipDataView1Iterator" id="TankLtrValue">
+      <AttrNames>
+        <Item Value="TankLtrValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankDipDataView1Iterator" id="TankDipFlag">
+      <AttrNames>
+        <Item Value="TankDipFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankDipDataView1Iterator" id="TankDipDate">
+      <AttrNames>
+        <Item Value="TankDipDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankDipDataView1Iterator" id="DcIdFk">
+      <AttrNames>
+        <Item Value="DcIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TankDipDataView1Iterator" id="TankInfoId">
+      <AttrNames>
+        <Item Value="TankInfoId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="TankDipDataView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="TankDipDataView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="TankDipDataView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="TankDipDataView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="TankDipDataView1Iterator" id="TankDipDataView1">
+      <nodeDefinition DefName="model.TankDipDataView" Name="TankDipDataView10">
+        <AttrNames>
+          <Item Value="TankDipId"/>
+          <Item Value="TankDipValue"/>
+          <Item Value="TankInfoIdFk"/>
+          <Item Value="TankLtrValue"/>
+          <Item Value="TankDipFlag"/>
+          <Item Value="TankDipDate"/>
+          <Item Value="DcIdFk"/>
+          <Item Value="TankInfoName"/>
+          <Item Value="TankInfoId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="TankDipDataView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow height="100%" id="gr1">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                <!-- Content -->
+                <af:panelBox text="Upload Image" id="pb1">
+                    <f:facet name="toolbar"/>
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputText value="#{bindings.ImageId.inputValue}" label="#{bindings.ImageId.hints.label}"
+                                      required="#{bindings.ImageId.hints.mandatory}"
+                                      columns="#{bindings.ImageId.hints.displayWidth}"
+                                      maximumLength="#{bindings.ImageId.hints.precision}"
+                                      shortDesc="#{bindings.ImageId.hints.tooltip}" id="it1" rendered="false">
+                            <f:validator binding="#{bindings.ImageId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ImageId.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ImageDescription.inputValue}"
+                                      label="#{bindings.ImageDescription.hints.label}"
+                                      required="#{bindings.ImageDescription.hints.mandatory}"
+                                      columns="#{bindings.ImageDescription.hints.displayWidth}"
+                                      maximumLength="#{bindings.ImageDescription.hints.precision}"
+                                      shortDesc="#{bindings.ImageDescription.hints.tooltip}" id="it2">
+                            <f:validator binding="#{bindings.ImageDescription.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.CoaAccIdFk.inputValue}"
+                                      label="#{bindings.CoaAccIdFk.hints.label}"
+                                      required="#{bindings.CoaAccIdFk.hints.mandatory}"
+                                      columns="#{bindings.CoaAccIdFk.hints.displayWidth}"
+                                      maximumLength="#{bindings.CoaAccIdFk.hints.precision}"
+                                      shortDesc="#{bindings.CoaAccIdFk.hints.tooltip}"
+                                      id="it3" rendered="false">
+                            <f:validator binding="#{bindings.CoaAccIdFk.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaAccIdFk.format}"/>
+                        </af:inputText>
+                        <af:inputListOfValues id="coaNameId"
+                                              popupTitle="Search and Select: #{bindings.CoaName.hints.label}"
+                                              value="#{bindings.CoaName.inputValue}"
+                                              label="Customer Name"
+                                              model="#{bindings.CoaName.listOfValuesModel}"
+                                              required="#{bindings.CoaName.hints.mandatory}"
+                                              columns="#{bindings.CoaName.hints.displayWidth}"
+                                              shortDesc="#{bindings.CoaName.hints.tooltip}" autoSubmit="true"
+                                              rendered="false">
+                            <f:validator binding="#{bindings.CoaName.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName.suggestedItems}"/>
+                        </af:inputListOfValues>
+                        <af:image source="/imageservlet?id=#{bindings.ImageId.inputValue}" id="i1"
+                                  inlineStyle="width:1000px; height:800px;"
+                                  shortDesc="#{bindings.ImageBlob.hints.tooltip}"/>
+                        <af:inputFile label="Select" id="if1" value="#{Imagebean.file}" maximumFiles="1"/>
+                        <af:inputText value="#{bindings.CoaActNumber.inputValue}"
+                                      label="#{bindings.CoaActNumber.hints.label}"
+                                      required="#{bindings.CoaActNumber.hints.mandatory}"
+                                      columns="#{bindings.CoaActNumber.hints.displayWidth}"
+                                      maximumLength="#{bindings.CoaActNumber.hints.precision}"
+                                      shortDesc="#{bindings.CoaActNumber.hints.tooltip}" id="it4" rendered="false">
+                            <f:validator binding="#{bindings.CoaActNumber.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber.format}"/>
+                        </af:inputText>
+                        <af:button text="Submit" id="b8" action="#{Imagebean.uploadImage}"/>
+                        <f:facet name="footer">
+                            <af:panelGroupLayout layout="horizontal" id="pgl2">
+                                <af:button actionListener="#{bindings.First.execute}" text="First"
+                                           disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                                <af:spacer width="30" height="10" id="s1"/>
+                                <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                                <af:spacer width="30" height="10" id="s2"/>
+                                <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                           disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                                <af:spacer width="30" height="10" id="s3"/>
+                                <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                           disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                                <af:spacer width="30" height="10" id="s4"/>
+                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                           disabled="#{!bindings.CreateInsert.enabled}" id="b5"/>
+                                <af:spacer width="30" height="10" id="s5"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b6">
+                                    <af:resetActionListener/>
+                                </af:button>
+                                <af:spacer width="30" height="10" id="s6"/>
+                                <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                                           disabled="#{!bindings.Commit.enabled}" id="b7"/>
+                                <af:spacer width="30" height="10" id="s7"/>
+                                <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                           disabled="#{!bindings.Delete.enabled}" id="b9"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </af:panelBox>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

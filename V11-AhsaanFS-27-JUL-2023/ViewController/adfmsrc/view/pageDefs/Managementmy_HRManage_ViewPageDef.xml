@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="Managementmy_HRManage_ViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="HrManageView1" RangeSize="25" DataControl="VOAPPDataControl" id="HrManageView1Iterator"/>
+    <searchRegion Binds="HrManageView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="HrManageView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="HrManageView1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <listOfValues IterBinding="HrManageView1Iterator" StaticList="false" Uses="LOV_CoaName1" id="CoaName1"/>
+    <attributeValues IterBinding="HrManageView1Iterator" id="HrmId">
+      <AttrNames>
+        <Item Value="HrmId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HrManageView1Iterator" id="HrmDebitAc">
+      <AttrNames>
+        <Item Value="HrmDebitAc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HrManageView1Iterator" id="HrmCreditAc">
+      <AttrNames>
+        <Item Value="HrmCreditAc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HrManageView1Iterator" id="HrmAmount">
+      <AttrNames>
+        <Item Value="HrmAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HrManageView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HrManageView1Iterator" id="CoaActNumber1">
+      <AttrNames>
+        <Item Value="CoaActNumber1"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="HrManageView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="HrManageView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="HrManageView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="HrManageView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="HrManageView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <action IterBinding="HrManageView1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="HrManageView1Iterator" id="HrManageView1">
+      <nodeDefinition DefName="model.HrManageView" Name="HrManageView10">
+        <AttrNames>
+          <Item Value="HrmId"/>
+          <Item Value="HrmDebitAc"/>
+          <Item Value="HrmCreditAc"/>
+          <Item Value="HrmAmount"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaActNumber"/>
+          <Item Value="CoaName1"/>
+          <Item Value="CoaActNumber1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

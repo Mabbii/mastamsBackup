@@ -1,0 +1,12 @@
+//Groovy Scripts for model.DayBookSalesView
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="DcStartDate")
+def DcStartDate_ExpressionScript_Expression()
+{
+adf.currentDate
+}
+

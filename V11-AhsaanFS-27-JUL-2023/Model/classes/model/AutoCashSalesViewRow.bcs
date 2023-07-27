@@ -1,0 +1,12 @@
+//Groovy Scripts for model.AutoCashSalesView
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="AcsDate")
+def AcsDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

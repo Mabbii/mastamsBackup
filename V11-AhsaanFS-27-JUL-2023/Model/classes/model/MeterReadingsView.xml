@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MeterReadingsView"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="MeterReadings"
+    Entity="model.MeterReadings"/>
+  <EntityUsage
+    Name="Nozal"
+    Entity="model.Nozal"
+    Association="model.MREAD_NOZAL_Assoc"
+    AssociationEnd="model.MREAD_NOZAL_Assoc.Nozal"
+    SourceUsage="model.MeterReadingsView.MeterReadings"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Nozal.NozalId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.MeterReadings.MeterRNozalIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="Product"
+    Entity="model.Product"
+    Association="model.Product_MeterReading_Assoc"
+    AssociationEnd="model.Product_MeterReading_Assoc.Product"
+    SourceUsage="model.MeterReadingsView.MeterReadings"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Product.ProductId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.MeterReadings.ProductIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="MeterRId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="MeterRId"
+    EntityUsage="MeterReadings"
+    AliasName="METER_R_ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="MeterRReadings"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="MeterRReadings"
+    EntityUsage="MeterReadings"
+    AliasName="METER_R_READINGS">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="model.MeterReadingsView.MeterRReadings_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MeterRDate"
+    PrecisionRule="true"
+    EntityAttrName="MeterRDate"
+    EntityUsage="MeterReadings"
+    AliasName="METER_R_DATE"/>
+  <ViewAttribute
+    Name="MeterRPrevious"
+    PrecisionRule="true"
+    EntityAttrName="MeterRPrevious"
+    EntityUsage="MeterReadings"
+    AliasName="METER_R_PREVIOUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="model.MeterReadingsView.MeterRPrevious_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="model.MeterReadingsView.MeterRPrevious_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MeterRCurrent"
+    PrecisionRule="true"
+    EntityAttrName="MeterRCurrent"
+    EntityUsage="MeterReadings"
+    AliasName="METER_R_CURRENT">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="model.MeterReadingsView.MeterRCurrent_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="model.MeterReadingsView.MeterRCurrent_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MeterRSale"
+    PrecisionRule="true"
+    EntityAttrName="MeterRSale"
+    EntityUsage="MeterReadings"
+    AliasName="METER_R_SALE"/>
+  <ViewAttribute
+    Name="DcIdFk"
+    PrecisionRule="true"
+    EntityAttrName="DcIdFk"
+    EntityUsage="MeterReadings"
+    AliasName="DC_ID_FK"/>
+  <ViewAttribute
+    Name="MriIdFk"
+    PrecisionRule="true"
+    EntityAttrName="MriIdFk"
+    EntityUsage="MeterReadings"
+    AliasName="MRI_ID_FK"/>
+  <ViewAttribute
+    Name="NozalName"
+    IsUnique="true"
+    PrecisionRule="true"
+    EntityAttrName="NozalName"
+    EntityUsage="Nozal"
+    AliasName="NOZAL_NAME"/>
+  <ViewAttribute
+    Name="NozalId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="NozalId"
+    EntityUsage="Nozal"
+    AliasName="NOZAL_ID"/>
+  <ViewAttribute
+    Name="ProductIdFk"
+    PrecisionRule="true"
+    EntityAttrName="ProductIdFk"
+    EntityUsage="MeterReadings"
+    AliasName="PRODUCT_ID_FK"/>
+  <ViewAttribute
+    Name="NozalIdFk"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="NozalIdFk"
+    EntityUsage="MeterReadings"
+    AliasName="NOZAL_ID_FK"/>
+  <ViewAttribute
+    Name="MeterRNTest"
+    PrecisionRule="true"
+    EntityAttrName="MeterRNTest"
+    EntityUsage="MeterReadings"
+    AliasName="METER_R_N_TEST"
+    DefaultValue="0"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="MeterRId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

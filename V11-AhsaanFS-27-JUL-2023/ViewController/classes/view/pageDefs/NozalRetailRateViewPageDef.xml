@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="NozalRetailRateViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Retail_Rate_View1" RangeSize="25" DataControl="VOAPPDataControl" id="Retail_Rate_View1Iterator"/>
+    <searchRegion Binds="Retail_Rate_View1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="Retail_Rate_View1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="Retail_Rate_View1Iterator" StaticList="false" Uses="LOV_ProductShortname"
+                  id="ProductShortname"/>
+    <attributeValues IterBinding="Retail_Rate_View1Iterator" id="RetailRateId">
+      <AttrNames>
+        <Item Value="RetailRateId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Retail_Rate_View1Iterator" id="RetailRateRate">
+      <AttrNames>
+        <Item Value="RetailRateRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Retail_Rate_View1Iterator" id="RetailRateDate">
+      <AttrNames>
+        <Item Value="RetailRateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Retail_Rate_View1Iterator" id="RetailRateProductIdFk">
+      <AttrNames>
+        <Item Value="RetailRateProductIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Retail_Rate_View1Iterator" id="ProductId">
+      <AttrNames>
+        <Item Value="ProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Retail_Rate_View1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="Retail_Rate_View1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="Retail_Rate_View1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="Retail_Rate_View1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="Retail_Rate_View1Iterator" id="Retail_Rate_View1">
+      <nodeDefinition DefName="model.Retail_Rate_View" Name="Retail_Rate_View10">
+        <AttrNames>
+          <Item Value="RetailRateId"/>
+          <Item Value="RetailRateRate"/>
+          <Item Value="RetailRateDate"/>
+          <Item Value="RetailRateProductIdFk"/>
+          <Item Value="ProductShortname"/>
+          <Item Value="ProductId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Retail_Rate_View1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

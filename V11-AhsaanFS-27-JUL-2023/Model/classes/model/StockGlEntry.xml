@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="StockGlEntry"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="STOCK_GL_ENTRY"
+  AliasName="StockGlEntry"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="StkGleId"
+    ColumnName="STK_GLE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="STOCK_GL_ENTRY"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="StkGleDetails"
+    Precision="20"
+    ColumnName="STK_GLE_DETAILS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="STOCK_GL_ENTRY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="StkGleSource"
+    Precision="20"
+    ColumnName="STK_GLE_SOURCE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="STOCK_GL_ENTRY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="StkGleDebit"
+    ColumnName="STK_GLE_DEBIT"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="STOCK_GL_ENTRY"/>
+  <Attribute
+    Name="StkGleCredit"
+    ColumnName="STK_GLE_CREDIT"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="STOCK_GL_ENTRY"/>
+  <Attribute
+    Name="StkGleBalance"
+    IsNotNull="true"
+    ColumnName="STK_GLE_BALANCE"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="STOCK_GL_ENTRY"/>
+  <Attribute
+    Name="StkGleStId"
+    IsNotNull="true"
+    ColumnName="STK_GLE_ST_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="STOCK_GL_ENTRY"/>
+  <Attribute
+    Name="StkGleProductId"
+    IsNotNull="true"
+    ColumnName="STK_GLE_PRODUCT_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="STOCK_GL_ENTRY"/>
+  <AccessorAttribute
+    Name="Storagetank"
+    Association="model.StoragetankStkglentryFkAssoc"
+    AssociationEnd="model.StoragetankStkglentryFkAssoc.Storagetank"
+    AssociationOtherEnd="model.StoragetankStkglentryFkAssoc.StockGlEntry"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="StockTransactionPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="STOCK_TRANSACTION_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.StockGlEntry.StkGleId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ProductStkglentryFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRODUCT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PRODUCT_STKGLENTRY_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.StockGlEntry.StkGleProductId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="StoragetankStkglentryFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="STORAGETANK_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="STORAGETANK_STKGLENTRY_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.StockGlEntry.StkGleStId"/>
+    </AttrArray>
+  </Key>
+</Entity>

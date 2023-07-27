@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="Customer_Trader_debit_limitviewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OmcGournalDebitLimitView1" RangeSize="50" DataControl="VOAPPDataControl"
+              id="OmcGournalDebitLimitView1Iterator"/>
+    <searchRegion Binds="OmcGournalDebitLimitView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="OmcGournalDebitLimitView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="OmcGournalDebitLimitView1Iterator" id="OmcGournalDebitLimitView1">
+      <nodeDefinition DefName="model.OmcGournalDebitLimitView" Name="OmcGournalDebitLimitView10">
+        <AttrNames>
+          <Item Value="CoaActNumber"/>
+          <Item Value="CoaName"/>
+          <Item Value="CusTrdDblmtStartDate"/>
+          <Item Value="CusTrdDblmtLimitDate"/>
+          <Item Value="CusTrdDblmtVolume"/>
+          <Item Value="CusTrdDblmtAmount"/>
+          <Item Value="CusTrdDblmtDetail"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues IterBinding="OmcGournalDebitLimitView1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <attributeValues IterBinding="OmcGournalDebitLimitView1Iterator" id="CusTrdDblmtId">
+      <AttrNames>
+        <Item Value="CusTrdDblmtId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalDebitLimitView1Iterator" id="CusTrdDblmtStartDate">
+      <AttrNames>
+        <Item Value="CusTrdDblmtStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalDebitLimitView1Iterator" id="CusTrdDblmtEndDate">
+      <AttrNames>
+        <Item Value="CusTrdDblmtEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalDebitLimitView1Iterator" id="CusTrdDblmtLimitDate">
+      <AttrNames>
+        <Item Value="CusTrdDblmtLimitDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalDebitLimitView1Iterator" id="CusTrdDblmtSysDate">
+      <AttrNames>
+        <Item Value="CusTrdDblmtSysDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalDebitLimitView1Iterator" id="CusTrdDblmtApprovedFrom">
+      <AttrNames>
+        <Item Value="CusTrdDblmtApprovedFrom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalDebitLimitView1Iterator" id="CusTrdDblmtRate">
+      <AttrNames>
+        <Item Value="CusTrdDblmtRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalDebitLimitView1Iterator" id="CusTrdDblmtVolume">
+      <AttrNames>
+        <Item Value="CusTrdDblmtVolume"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalDebitLimitView1Iterator" id="CusTrdDblmtAmount">
+      <AttrNames>
+        <Item Value="CusTrdDblmtAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalDebitLimitView1Iterator" id="CusTrdDblmtDetail">
+      <AttrNames>
+        <Item Value="CusTrdDblmtDetail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalDebitLimitView1Iterator" id="CusTrdDblmtDevDetail">
+      <AttrNames>
+        <Item Value="CusTrdDblmtDevDetail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalDebitLimitView1Iterator" id="CusTrdDblmtPartyIdFk">
+      <AttrNames>
+        <Item Value="CusTrdDblmtPartyIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalDebitLimitView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="OmcGournalDebitLimitView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="OmcGournalDebitLimitView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="OmcGournalDebitLimitView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="OmcGournalDebitLimitView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="OmcGournalDebitLimitView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

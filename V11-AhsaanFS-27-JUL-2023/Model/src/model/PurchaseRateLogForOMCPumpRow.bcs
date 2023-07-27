@@ -1,0 +1,26 @@
+//Groovy Scripts for model.PurchaseRateLogForOMCPump
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="PurchaseRateLogDate")
+def PurchaseRateLogDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="PurchaseRateLogStartdate")
+def PurchaseRateLogStartdate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="PurchaseRateLogEnddate")
+def PurchaseRateLogEnddate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

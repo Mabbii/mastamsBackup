@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="checkMreading"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.checkMreading_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="MrInput"
+    Entity="model.MrInput"/>
+  <EntityUsage
+    Name="MeterReadings"
+    Entity="model.MeterReadings"
+    Association="model.MeterReadingsMrInputFk1Assoc"
+    AssociationEnd="model.MeterReadingsMrInputFk1Assoc.MeterReadings"
+    SourceUsage="model.checkMreading.MrInput"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.MeterReadings.MriIdFk"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.MrInput.MriId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="DateCounter"
+    Entity="model.DateCounter"
+    Association="model.MrInputDateCounterFk1Assoc"
+    AssociationEnd="model.MrInputDateCounterFk1Assoc.DateCounter"
+    SourceUsage="model.checkMreading.MrInput"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.DateCounter.DcId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.MrInput.DcIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="DcIdFk"
+    PrecisionRule="true"
+    EntityAttrName="DcIdFk"
+    EntityUsage="MrInput"
+    AliasName="DC_ID_FK"/>
+  <ViewAttribute
+    Name="MriData"
+    PrecisionRule="true"
+    EntityAttrName="MriData"
+    EntityUsage="MrInput"
+    AliasName="MRI_DATA"/>
+  <ViewAttribute
+    Name="MriId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="MriId"
+    EntityUsage="MrInput"
+    AliasName="MRI_ID"/>
+  <ViewAttribute
+    Name="NozalIdFk"
+    PrecisionRule="true"
+    EntityAttrName="NozalIdFk"
+    EntityUsage="MrInput"
+    AliasName="NOZAL_ID_FK"/>
+  <ViewAttribute
+    Name="MriDate"
+    PrecisionRule="true"
+    EntityAttrName="MriDate"
+    EntityUsage="MrInput"
+    AliasName="MRI_DATE"/>
+  <ViewAttribute
+    Name="MeterRId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="MeterRId"
+    EntityUsage="MeterReadings"
+    AliasName="METER_R_ID"/>
+  <ViewAttribute
+    Name="MeterRReadings"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="MeterRReadings"
+    EntityUsage="MeterReadings"
+    AliasName="METER_R_READINGS"/>
+  <ViewAttribute
+    Name="MeterRNozalIdFk"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="MeterRNozalIdFk"
+    EntityUsage="MeterReadings"
+    AliasName="METER_R_NOZAL_ID_FK"/>
+  <ViewAttribute
+    Name="MeterRDate"
+    PrecisionRule="true"
+    EntityAttrName="MeterRDate"
+    EntityUsage="MeterReadings"
+    AliasName="METER_R_DATE"/>
+  <ViewAttribute
+    Name="MeterRPrevious"
+    PrecisionRule="true"
+    EntityAttrName="MeterRPrevious"
+    EntityUsage="MeterReadings"
+    AliasName="METER_R_PREVIOUS"/>
+  <ViewAttribute
+    Name="MeterRCurrent"
+    PrecisionRule="true"
+    EntityAttrName="MeterRCurrent"
+    EntityUsage="MeterReadings"
+    AliasName="METER_R_CURRENT"/>
+  <ViewAttribute
+    Name="MeterRSale"
+    PrecisionRule="true"
+    EntityAttrName="MeterRSale"
+    EntityUsage="MeterReadings"
+    AliasName="METER_R_SALE"/>
+  <ViewAttribute
+    Name="MeterRProductId"
+    PrecisionRule="true"
+    EntityAttrName="MeterRProductId"
+    EntityUsage="MeterReadings"
+    AliasName="METER_R_PRODUCT_ID"/>
+  <ViewAttribute
+    Name="DcIdFk1"
+    PrecisionRule="true"
+    EntityAttrName="DcIdFk"
+    EntityUsage="MeterReadings"
+    AliasName="DC_ID_FK1"/>
+  <ViewAttribute
+    Name="MriIdFk"
+    PrecisionRule="true"
+    EntityAttrName="MriIdFk"
+    EntityUsage="MeterReadings"
+    AliasName="MRI_ID_FK"/>
+  <ViewAttribute
+    Name="DcDateCounterMr"
+    PrecisionRule="true"
+    EntityAttrName="DcDateCounterMr"
+    EntityUsage="DateCounter"
+    AliasName="DC_DATE_COUNTER_MR"/>
+  <ViewAttribute
+    Name="DcId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="DcId"
+    EntityUsage="DateCounter"
+    AliasName="DC_ID"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="MriId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="BankNameviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="BankNameView1" RangeSize="25" DataControl="VOAPPDataControl" id="BankNameView1Iterator"/>
+    <searchRegion Binds="BankNameView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="BankNameView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="BankNameView1Iterator" id="BankNameId">
+      <AttrNames>
+        <Item Value="BankNameId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BankNameView1Iterator" id="BankName1">
+      <AttrNames>
+        <Item Value="BankName1"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="BankNameView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="BankNameView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="BankNameView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="BankNameView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="BankNameView1Iterator" id="BankNameView1">
+      <nodeDefinition DefName="model.BankNameView" Name="BankNameView10">
+        <AttrNames>
+          <Item Value="BankNameId"/>
+          <Item Value="BankName1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="BankNameView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

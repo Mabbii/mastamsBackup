@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="IncomeStatementHead"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="INCOME_STATEMENT_HEAD"
+  AliasName="IncomeStatementHead"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="IsHdId"
+    ColumnName="IS_HD_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="INCOME_STATEMENT_HEAD"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="IsHdMonthYear"
+    Precision="20"
+    ColumnName="IS_HD_MONTH_YEAR"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="INCOME_STATEMENT_HEAD">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IsHdStartDate"
+    ColumnName="IS_HD_START_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="INCOME_STATEMENT_HEAD"/>
+  <Attribute
+    Name="IsHdEndDate"
+    ColumnName="IS_HD_END_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="INCOME_STATEMENT_HEAD"/>
+  <Attribute
+    Name="IsHdUserInputDate"
+    ColumnName="IS_HD_USER_INPUT_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="INCOME_STATEMENT_HEAD"/>
+  <Attribute
+    Name="IsHdSysdateDate"
+    ColumnName="IS_HD_SYSDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="INCOME_STATEMENT_HEAD"/>
+  <AccessorAttribute
+    Name="IncomeStatementDetails"
+    Association="model.IncomeStatementDetailsFk1Assoc"
+    AssociationEnd="model.IncomeStatementDetailsFk1Assoc.IncomeStatementDetails"
+    AssociationOtherEnd="model.IncomeStatementDetailsFk1Assoc.IncomeStatementHead"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="IncomeStatementHeadPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="INCOME_STATEMENT_HEAD_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.IncomeStatementHead.IsHdId"/>
+    </AttrArray>
+  </Key>
+</Entity>

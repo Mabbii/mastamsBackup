@@ -1,0 +1,19 @@
+//Groovy Scripts for model.GleForJournalLedgerReport
+
+package model
+
+import oracle.jbo.script.annotation.VariableExpression;
+
+@VariableExpression(path="BindGleEndDate")
+def BindGleEndDate_VariableScript_Variable()
+{
+adf.currentDateTime
+}
+
+
+@VariableExpression(path="BindGleStartDate")
+def BindGleStartDate_VariableScript_Variable()
+{
+adf.currentDateTime
+}
+

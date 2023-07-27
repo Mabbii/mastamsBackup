@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PartyCOA_FK_Assoc"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Party"
+    Cardinality="1"
+    Owner="model.Party"
+    Source="true"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Party1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Party.PartyId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="ChartOfAccounts"
+    Cardinality="-1"
+    Owner="model.ChartOfAccounts">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ChartOfAccounts.CoaPartyId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

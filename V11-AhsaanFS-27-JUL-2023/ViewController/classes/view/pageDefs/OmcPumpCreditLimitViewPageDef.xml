@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="OmcPumpCreditLimitViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OmcPumpCreditLimitView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="OmcPumpCreditLimitView1Iterator"/>
+    <searchRegion Binds="OmcPumpCreditLimitView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="OmcPumpCreditLimitView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="OmcPumpCreditLimitView1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <attributeValues IterBinding="OmcPumpCreditLimitView1Iterator" id="OmcpClId">
+      <AttrNames>
+        <Item Value="OmcpClId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcPumpCreditLimitView1Iterator" id="OmcpClStartDate">
+      <AttrNames>
+        <Item Value="OmcpClStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcPumpCreditLimitView1Iterator" id="OmcpClEndDate">
+      <AttrNames>
+        <Item Value="OmcpClEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcPumpCreditLimitView1Iterator" id="OmcpClLimitDate">
+      <AttrNames>
+        <Item Value="OmcpClLimitDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcPumpCreditLimitView1Iterator" id="OmcpClSysDate">
+      <AttrNames>
+        <Item Value="OmcpClSysDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcPumpCreditLimitView1Iterator" id="OmcpClApprovedFrom">
+      <AttrNames>
+        <Item Value="OmcpClApprovedFrom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcPumpCreditLimitView1Iterator" id="OmcpClRate">
+      <AttrNames>
+        <Item Value="OmcpClRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcPumpCreditLimitView1Iterator" id="OmcpClVolume">
+      <AttrNames>
+        <Item Value="OmcpClVolume"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcPumpCreditLimitView1Iterator" id="OmcpClAmount">
+      <AttrNames>
+        <Item Value="OmcpClAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcPumpCreditLimitView1Iterator" id="OmcpClDetail">
+      <AttrNames>
+        <Item Value="OmcpClDetail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcPumpCreditLimitView1Iterator" id="OmcpClDevDetail">
+      <AttrNames>
+        <Item Value="OmcpClDevDetail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcPumpCreditLimitView1Iterator" id="OmcpClPartyIdFk">
+      <AttrNames>
+        <Item Value="OmcpClPartyIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcPumpCreditLimitView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="OmcPumpCreditLimitView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="OmcPumpCreditLimitView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="OmcPumpCreditLimitView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="OmcPumpCreditLimitView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="OmcPumpCreditLimitView1Iterator" id="OmcPumpCreditLimitView1">
+      <nodeDefinition DefName="model.OmcPumpCreditLimitView" Name="OmcPumpCreditLimitView10">
+        <AttrNames>
+          <Item Value="CoaName"/>
+          <Item Value="OmcpClId"/>
+          <Item Value="OmcpClStartDate"/>
+          <Item Value="OmcpClEndDate"/>
+          <Item Value="OmcpClLimitDate"/>
+          <Item Value="OmcpClSysDate"/>
+          <Item Value="OmcpClApprovedFrom"/>
+          <Item Value="OmcpClRate"/>
+          <Item Value="OmcpClVolume"/>
+          <Item Value="OmcpClAmount"/>
+          <Item Value="OmcpClDetail"/>
+          <Item Value="OmcpClDevDetail"/>
+          <Item Value="CoaActNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="OmcPumpCreditLimitView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

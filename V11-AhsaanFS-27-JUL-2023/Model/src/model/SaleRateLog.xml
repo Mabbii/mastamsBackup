@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SaleRateLog"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SALE_RATE_LOG"
+  AliasName="SaleRateLog"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="SaleRateLogId"
+    ColumnName="SALE_RATE_LOG_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="SALE_RATE_LOG"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="SaleRateLogR"
+    IsNotNull="true"
+    Precision="27"
+    Scale="7"
+    ColumnName="SALE_RATE_LOG_R"
+    SQLType="NUMERIC"
+    Type="java.lang.String"
+    ColumnType="NUMBER"
+    TableName="SALE_RATE_LOG"/>
+  <Attribute
+    Name="SaleRateLogDate"
+    IsNotNull="true"
+    ColumnName="SALE_RATE_LOG_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SALE_RATE_LOG"/>
+  <Attribute
+    Name="SaleRateLogStartdate"
+    IsNotNull="true"
+    ColumnName="SALE_RATE_LOG_STARTDATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SALE_RATE_LOG"/>
+  <Attribute
+    Name="SaleRateLogEnddate"
+    IsNotNull="true"
+    ColumnName="SALE_RATE_LOG_ENDDATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SALE_RATE_LOG"/>
+  <Attribute
+    Name="PpartyIdLog"
+    IsNotNull="true"
+    ColumnName="PPARTY_ID_LOG"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="SALE_RATE_LOG"/>
+  <Attribute
+    Name="PproductIdLog"
+    IsNotNull="true"
+    ColumnName="PPRODUCT_ID_LOG"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="SALE_RATE_LOG"/>
+  <Attribute
+    Name="SaleRateLogDetails"
+    Precision="50"
+    ColumnName="SALE_RATE_LOG_DETAILS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SALE_RATE_LOG">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SaleRateIdFk"
+    IsNotNull="true"
+    ColumnName="SALE_RATE_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="SALE_RATE_LOG"/>
+  <AccessorAttribute
+    Name="Party"
+    Association="model.PARTY_SALERATELOG_FK_Assoc"
+    AssociationEnd="model.PARTY_SALERATELOG_FK_Assoc.Party"
+    AssociationOtherEnd="model.PARTY_SALERATELOG_FK_Assoc.SaleRateLog"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Product"
+    Association="model.PRODUCT_SALERATELOG_FK_Assoc"
+    AssociationEnd="model.PRODUCT_SALERATELOG_FK_Assoc.Product"
+    AssociationOtherEnd="model.PRODUCT_SALERATELOG_FK_Assoc.SaleRateLog"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SaleRate"
+    Association="model.SALERATE_SRLOG_FK_Assoc"
+    AssociationEnd="model.SALERATE_SRLOG_FK_Assoc.SaleRate"
+    AssociationOtherEnd="model.SALERATE_SRLOG_FK_Assoc.SaleRateLog"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Transaction"
+    Association="model.SaleRateLog_TNS_FK_Assoc"
+    AssociationEnd="model.SaleRateLog_TNS_FK_Assoc.Transaction"
+    AssociationOtherEnd="model.SaleRateLog_TNS_FK_Assoc.SaleRateLog"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="SaleRateLogPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SALE_RATE_LOG_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SaleRateLog.SaleRateLogId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="PartySaleratelogFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PARTY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PARTY_SALERATELOG_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SaleRateLog.PpartyIdLog"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ProductSaleratelogFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRODUCT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PRODUCT_SALERATELOG_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SaleRateLog.PproductIdLog"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SalerateSrlogFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SALE_RATE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SALERATE_SRLOG_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SaleRateLog.SaleRateIdFk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SaleRateLog">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PARTY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SALE_RATE_LOG"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SaleRateLog.PpartyIdLog"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SaleRateLog1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRODUCT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SALE_RATE_LOG1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SaleRateLog.PproductIdLog"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SaleRateLog2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SALE_RATE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SALE_RATE_LOG2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.SaleRateLog.SaleRateIdFk"/>
+    </AttrArray>
+  </Key>
+</Entity>

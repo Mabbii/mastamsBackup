@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24"
+                id="ReportsMy_ProductDetailViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZProductDetailParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="ZProductDetailParamView1Iterator"/>
+    <iterator Binds="ZProductDetailView1" RangeSize="500" DataControl="VOAPPDataControl"
+              id="ZProductDetailView1Iterator"/>
+    <searchRegion Binds="ZProductDetailView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ZProductDetailView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="ZProductDetailParamView1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <attributeValues IterBinding="ZProductDetailParamView1Iterator" id="ZPdctDParamId">
+      <AttrNames>
+        <Item Value="ZPdctDParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZProductDetailParamView1Iterator" id="ZPdctDParamStartDate">
+      <AttrNames>
+        <Item Value="ZPdctDParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZProductDetailParamView1Iterator" id="ZPdctDParamEndDate">
+      <AttrNames>
+        <Item Value="ZPdctDParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZProductDetailParamView1Iterator" id="ZPdctDActNumber">
+      <AttrNames>
+        <Item Value="ZPdctDActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZProductDetailParamView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ZProductDetailView1Iterator" id="ZProductDetailView1">
+      <nodeDefinition DefName="model.ZProductDetailView" Name="ZProductDetailView10">
+        <AttrNames>
+          <Item Value="ZPdctDDate"/>
+          <Item Value="ZCGleEtc"/>
+          <Item Value="ZPdctDOpQty"/>
+          <Item Value="ZPdctDInQty"/>
+          <Item Value="ZPdctDOutQty"/>
+          <Item Value="ZPdctDCloseQty"/>
+          <Item Value="ZPdctDCgsRate"/>
+          <Item Value="ZPdctDGleBalance"/>
+          <Item Value="ZPdctDParamIdFk"/>
+          <Item Value="ZPdctDId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

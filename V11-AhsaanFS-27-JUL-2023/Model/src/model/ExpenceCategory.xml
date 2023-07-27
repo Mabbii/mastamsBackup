@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ExpenceCategory"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="EXPENCE_CATEGORY"
+  AliasName="ExpenceCategory"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="ExpcatId"
+    IsNotNull="true"
+    ColumnName="EXPCAT_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="EXPENCE_CATEGORY"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="ExpcatName"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="EXPCAT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EXPENCE_CATEGORY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ExpcatCodeStart"
+    IsNotNull="true"
+    ColumnName="EXPCAT_CODE_START"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="EXPENCE_CATEGORY"/>
+  <Attribute
+    Name="ExpcatCodeEnd"
+    IsNotNull="true"
+    ColumnName="EXPCAT_CODE_END"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="EXPENCE_CATEGORY"/>
+  <Attribute
+    Name="ExpcatCodeCurrent"
+    ColumnName="EXPCAT_CODE_CURRENT"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="EXPENCE_CATEGORY"/>
+  <AccessorAttribute
+    Name="Expense"
+    Association="model.ExpensecategoryExpenseFkAssoc"
+    AssociationEnd="model.ExpensecategoryExpenseFkAssoc.Expense"
+    AssociationOtherEnd="model.ExpensecategoryExpenseFkAssoc.ExpenceCategory"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="ExpenceCategoryPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="EXPENCE_CATEGORY_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ExpenceCategory.ExpcatId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ExpenceCategoryUk1">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="EXPENCE_CATEGORY_UK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ExpenceCategory.ExpcatName"/>
+    </AttrArray>
+  </Key>
+</Entity>

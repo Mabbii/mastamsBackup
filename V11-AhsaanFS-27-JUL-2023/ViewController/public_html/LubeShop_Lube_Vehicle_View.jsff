@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="211" id="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1" maxColumns="2" rows="2">
+                <af:outputText value="Lube Vehicle" id="ot9"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:inputText value="#{bindings.LvId.inputValue}" label="#{bindings.LvId.hints.label}"
+                              required="#{bindings.LvId.hints.mandatory}" columns="#{bindings.LvId.hints.displayWidth}"
+                              maximumLength="#{bindings.LvId.hints.precision}"
+                              shortDesc="#{bindings.LvId.hints.tooltip}" id="it1">
+                    <f:validator binding="#{bindings.LvId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.LvId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LvRegNo.inputValue}" label="#{bindings.LvRegNo.hints.label}"
+                              required="#{bindings.LvRegNo.hints.mandatory}"
+                              columns="#{bindings.LvRegNo.hints.displayWidth}"
+                              maximumLength="#{bindings.LvRegNo.hints.precision}"
+                              shortDesc="#{bindings.LvRegNo.hints.tooltip}" id="it2">
+                    <f:validator binding="#{bindings.LvRegNo.validator}"/>
+                </af:inputText>
+                <af:inputListOfValues id="lcNameId" popupTitle="Search and Select: #{bindings.LcName.hints.label}"
+                                      value="#{bindings.LcName.inputValue}" label="#{bindings.LcName.hints.label}"
+                                      model="#{bindings.LcName.listOfValuesModel}"
+                                      required="#{bindings.LcName.hints.mandatory}"
+                                      columns="#{bindings.LcName.hints.displayWidth}"
+                                      shortDesc="#{bindings.LcName.hints.tooltip}" autoSubmit="true">
+                    <f:validator binding="#{bindings.LcName.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.LcName.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputText value="#{bindings.LvMakeModel.inputValue}" label="#{bindings.LvMakeModel.hints.label}"
+                              required="#{bindings.LvMakeModel.hints.mandatory}"
+                              columns="#{bindings.LvMakeModel.hints.displayWidth}"
+                              maximumLength="#{bindings.LvMakeModel.hints.precision}"
+                              shortDesc="#{bindings.LvMakeModel.hints.tooltip}" id="it3">
+                    <f:validator binding="#{bindings.LvMakeModel.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LcIdFk.inputValue}" label="#{bindings.LcIdFk.hints.label}"
+                              required="#{bindings.LcIdFk.hints.mandatory}"
+                              columns="#{bindings.LcIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.LcIdFk.hints.precision}"
+                              shortDesc="#{bindings.LcIdFk.hints.tooltip}" id="it4" rendered="false">
+                    <f:validator binding="#{bindings.LcIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.LcIdFk.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LvPerdayKms.inputValue}" label="#{bindings.LvPerdayKms.hints.label}"
+                              required="#{bindings.LvPerdayKms.hints.mandatory}"
+                              columns="#{bindings.LvPerdayKms.hints.displayWidth}"
+                              maximumLength="#{bindings.LvPerdayKms.hints.precision}"
+                              shortDesc="#{bindings.LvPerdayKms.hints.tooltip}" id="it5">
+                    <f:validator binding="#{bindings.LvPerdayKms.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.LvPerdayKms.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LvMr.inputValue}" label="#{bindings.LvMr.hints.label}"
+                              required="#{bindings.LvMr.hints.mandatory}" columns="#{bindings.LvMr.hints.displayWidth}"
+                              maximumLength="#{bindings.LvMr.hints.precision}"
+                              shortDesc="#{bindings.LvMr.hints.tooltip}" id="it8">
+                    <f:validator binding="#{bindings.LvMr.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.LvMr.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LvDetails.inputValue}" label="#{bindings.LvDetails.hints.label}"
+                              required="#{bindings.LvDetails.hints.mandatory}"
+                              columns="#{bindings.LvDetails.hints.displayWidth}"
+                              maximumLength="#{bindings.LvDetails.hints.precision}"
+                              shortDesc="#{bindings.LvDetails.hints.tooltip}" id="it6">
+                    <f:validator binding="#{bindings.LvDetails.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LcId.inputValue}" label="#{bindings.LcId.hints.label}"
+                              required="#{bindings.LcId.hints.mandatory}" columns="#{bindings.LcId.hints.displayWidth}"
+                              maximumLength="#{bindings.LcId.hints.precision}"
+                              shortDesc="#{bindings.LcId.hints.tooltip}" id="it7" rendered="false">
+                    <f:validator binding="#{bindings.LcId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.LcId.format}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl1">
+                        <af:panelGroupLayout layout="horizontal" id="pgl3">
+                                <af:button actionListener="#{bindings.First.execute}"
+                                           disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"
+                                           icon="#{resource['images:first_hor_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Previous.execute}"
+                                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"
+                                           icon="#{resource['images:previoustraversalarrow_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Next.execute}"
+                                           disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
+                                           icon="#{resource['images:nexttraversalarrow_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Last.execute}"
+                                           disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"
+                                           icon="#{resource['images:last_hor_ena.png']}"/>
+                                <af:outputText value="---------" id="ot50"/>
+                            </af:panelGroupLayout>
+                        <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                                   disabled="#{!bindings.Commit.enabled}" icon="#{resource['images:commit.png']}"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b6"
+                                   icon="#{resource['images:add.png']}"/>
+                        <af:outputText value="-----------------" id="ot11"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7"
+                                   icon="#{resource['images:rollback.png']}">
+                            <af:resetActionListener/>
+                        </af:button>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.LubeVehicleView1.collectionModel}" var="row"
+                          rows="#{bindings.LubeVehicleView1.rangeSize}"
+                          emptyText="#{bindings.LubeVehicleView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.LubeVehicleView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.LubeVehicleView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.LubeVehicleView1.rangeSize}"
+                          filterModel="#{bindings.LubeVehicleView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.LubeVehicleView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers=":::b1 :::b2 :::b3 :::b4 :::b6">
+                    <af:column sortProperty="#{bindings.LubeVehicleView1.hints.LvId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.LubeVehicleView1.hints.LvId.label}" id="c1"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.LvId}" shortDesc="#{bindings.LubeVehicleView1.hints.LvId.tooltip}"
+                                       id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.LubeVehicleView1.hints.LvId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.LubeVehicleView1.hints.LvRegNo.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.LubeVehicleView1.hints.LvRegNo.label}" id="c2"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.LvRegNo}"
+                                       shortDesc="#{bindings.LubeVehicleView1.hints.LvRegNo.tooltip}" id="ot2"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.LubeVehicleView1.hints.LvMakeModel.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.LubeVehicleView1.hints.LvMakeModel.label}"
+                               id="c3"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.LvMakeModel}"
+                                       shortDesc="#{bindings.LubeVehicleView1.hints.LvMakeModel.tooltip}" id="ot3"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.LubeVehicleView1.hints.LcIdFk.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.LubeVehicleView1.hints.LcIdFk.label}" id="c4"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               rendered="false">
+                        <af:outputText value="#{row.LcIdFk}"
+                                       shortDesc="#{bindings.LubeVehicleView1.hints.LcIdFk.tooltip}" id="ot4">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.LubeVehicleView1.hints.LcIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.LubeVehicleView1.hints.LvPerdayKms.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.LubeVehicleView1.hints.LvPerdayKms.label}"
+                               id="c5"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.LvPerdayKms}"
+                                       shortDesc="#{bindings.LubeVehicleView1.hints.LvPerdayKms.tooltip}" id="ot5">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.LubeVehicleView1.hints.LvPerdayKms.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.LubeVehicleView1.hints.LvDetails.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.LubeVehicleView1.hints.LvDetails.label}" id="c6"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.LvDetails}"
+                                       shortDesc="#{bindings.LubeVehicleView1.hints.LvDetails.tooltip}" id="ot6"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.LubeVehicleView1.hints.LcName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.LubeVehicleView1.hints.LcName.label}" id="c7"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.LcName}"
+                                       shortDesc="#{bindings.LubeVehicleView1.hints.LcName.tooltip}" id="ot7"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.LubeVehicleView1.hints.LcId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.LubeVehicleView1.hints.LcId.label}" id="c8"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               rendered="false">
+                        <af:outputText value="#{row.LcId}" shortDesc="#{bindings.LubeVehicleView1.hints.LcId.tooltip}"
+                                       id="ot8">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.LubeVehicleView1.hints.LcId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

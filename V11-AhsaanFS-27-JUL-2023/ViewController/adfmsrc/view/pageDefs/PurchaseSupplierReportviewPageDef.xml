@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="PurchaseSupplierReportviewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZRptPurchaseDataView1" RangeSize="50" DataControl="VOAPPDataControl"
+              id="ZRptPurchaseDataView1Iterator"/>
+    <searchRegion Binds="ZRptPurchaseDataView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ZRptPurchaseDataView1Query"/>
+    <iterator Binds="ZRptPurchaseParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="ZRptPurchaseParamView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ZRptPurchaseDataView1Iterator" id="ZRptPurchaseDataView1">
+      <nodeDefinition DefName="model.ZRptPurchaseDataView" Name="ZRptPurchaseDataView10">
+        <AttrNames>
+          <Item Value="PurchaseDate"/>
+          <Item Value="PurchaseDataRate"/>
+          <Item Value="PurchaseDataOilTanker"/>
+          <Item Value="PurchaseOilDepo"/>
+          <Item Value="PurchaseHsd"/>
+          <Item Value="PurchasePmg"/>
+          <Item Value="PurchaseSko"/>
+          <Item Value="PurchaseLdo"/>
+          <Item Value="PurchaseHobc"/>
+          <Item Value="PurchaseEtc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues IterBinding="ZRptPurchaseParamView1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <attributeValues IterBinding="ZRptPurchaseParamView1Iterator" id="PurchaseParamId">
+      <AttrNames>
+        <Item Value="PurchaseParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptPurchaseParamView1Iterator" id="PurchaseParamStartDate">
+      <AttrNames>
+        <Item Value="PurchaseParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptPurchaseParamView1Iterator" id="PurchaseParamEndDate">
+      <AttrNames>
+        <Item Value="PurchaseParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptPurchaseParamView1Iterator" id="PurchaseParamCoaId">
+      <AttrNames>
+        <Item Value="PurchaseParamCoaId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptPurchaseParamView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ZRptPurchaseDataView1Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

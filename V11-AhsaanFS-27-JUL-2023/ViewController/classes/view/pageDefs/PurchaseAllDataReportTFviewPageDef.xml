@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="PurchaseAllDataReportTFviewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZRptPurchaseAllParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="ZRptPurchaseAllParamView1Iterator"/>
+    <iterator Binds="ZRptPurchaseAllDataView1" RangeSize="50" DataControl="VOAPPDataControl"
+              id="ZRptPurchaseAllDataView1Iterator"/>
+    <searchRegion Binds="ZRptPurchaseAllDataView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ZRptPurchaseAllDataView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ZRptPurchaseAllParamView1Iterator" id="PurchaseAllParamId">
+      <AttrNames>
+        <Item Value="PurchaseAllParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptPurchaseAllParamView1Iterator" id="PurchaseAllParamStartDate">
+      <AttrNames>
+        <Item Value="PurchaseAllParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptPurchaseAllParamView1Iterator" id="PurchaseAllParamEndDate">
+      <AttrNames>
+        <Item Value="PurchaseAllParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ZRptPurchaseAllDataView1Iterator" id="ZRptPurchaseAllDataView1">
+      <nodeDefinition DefName="model.ZRptPurchaseAllDataView" Name="ZRptPurchaseAllDataView10">
+        <AttrNames>
+          <Item Value="PurchaseAllDataId"/>
+          <Item Value="PurchaseAllDataCoa"/>
+          <Item Value="PurchaseAllDataCoaName"/>
+          <Item Value="PurchaseAllDataHsd"/>
+          <Item Value="PurchaseAllDataHsdRate"/>
+          <Item Value="PurchaseAllDataHsdAmt"/>
+          <Item Value="PurchaseAllDataPmg"/>
+          <Item Value="PurchaseAllDataPmgRate"/>
+          <Item Value="PurchaseAllDataPmgAmt"/>
+          <Item Value="PurchaseAllDataSko"/>
+          <Item Value="PurchaseAllDataSkoRate"/>
+          <Item Value="PurchaseAllDataSkoAmt"/>
+          <Item Value="PurchaseAllDataHobc"/>
+          <Item Value="PurchaseAllDataHobcRate"/>
+          <Item Value="PurchaseAllDataHobcAmt"/>
+          <Item Value="PurchaseAllDataLdo"/>
+          <Item Value="PurchaseAllDataLdoRate"/>
+          <Item Value="PurchaseAllDataLdoAmt"/>
+          <Item Value="PurchaseAllDataCat"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ZRptPurchaseAllDataView1Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

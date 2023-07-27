@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="InitializeDate view" id="d1" binding="#{backingBeanScope.backing_MyHomeView.d1}"
+    smallIconSource="#{resource['images:adfdi_logo_16.png']}">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                <f:facet name="center">
+                    <af:panelStretchLayout id="psl1">
+                        <f:facet name="center">
+                            <af:region value="#{bindings.DateCounterTF1.regionModel}" id="r1"/>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="header">
+                    <af:link text="Ahsaan Filling Station" id="ll4" action="#{PageLoadBean.RedirecttoHome}"
+                             inlineStyle="color:Maroon; font-size:x-large; font-style:italic; font-weight:bold;"/>
+                </f:facet>
+                <f:facet name="branding"/>
+                <f:facet name="status"/>
+                <f:attribute name="headerGlobalSize" value="35"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

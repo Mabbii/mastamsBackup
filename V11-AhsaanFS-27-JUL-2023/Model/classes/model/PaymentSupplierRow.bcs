@@ -1,0 +1,19 @@
+//Groovy Scripts for model.payment
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="TnsSlipDate")
+def TnsSlipDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="TnsDate")
+def TnsDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

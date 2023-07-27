@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="DateCounterSlectTF_DateCounterSlectTF_setBindDcDatePageDef" Package="view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="setBindDcDate" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setBindDcDate"
+                  IsViewObjectMethod="true" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.setBindDcDate.dataControl.DateCounterView1">
+      <NamedData NDName="value" NDType="java.sql.Timestamp"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

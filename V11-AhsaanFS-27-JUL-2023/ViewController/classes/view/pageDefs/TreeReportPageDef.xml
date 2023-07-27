@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="TreeReportPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="LUsersView2" RangeSize="25" DataControl="VOAPPDataControl" id="LUsersView2Iterator"/>
+    <searchRegion Binds="LUsersView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="LUsersView2Query"/>
+    <iterator Binds="LUserSessionView3" RangeSize="25" DataControl="VOAPPDataControl" id="LUserSessionView3Iterator"/>
+    <searchRegion Binds="LUserSessionView3Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="LUserSessionView3Query"/>
+    <iterator Binds="LUserActivityView3" RangeSize="25" DataControl="VOAPPDataControl" id="LUserActivityView3Iterator"/>
+    <searchRegion Binds="LUserActivityView3Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="LUserActivityView3Query"/>
+    <iterator Binds="LUserOperationView3" RangeSize="25" DataControl="VOAPPDataControl"
+              id="LUserOperationView3Iterator"/>
+    <searchRegion Binds="LUserOperationView3Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="LUserOperationView3Query"/>
+    <iterator Binds="TransactionLogView3" RangeSize="25" DataControl="VOAPPDataControl"
+              id="TransactionLogView3Iterator"/>
+    <searchRegion Binds="TransactionLogView3Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TransactionLogView3Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="LUsersView2Iterator" id="LUsersView2">
+      <nodeDefinition DefName="model.LUsersView" Name="LUsersView20">
+        <AttrNames>
+          <Item Value="LUsersUserName"/>
+          <Item Value="LUsersUserId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="LUserSessionView3Iterator" id="LUserSessionView3">
+      <nodeDefinition DefName="model.LUserSessionView" Name="LUserSessionView30">
+        <AttrNames>
+          <Item Value="UserLogId"/>
+          <Item Value="UserLogSessionId"/>
+          <Item Value="UserLogInTime"/>
+          <Item Value="UserLogOutTime"/>
+          <Item Value="UserLogAuthF"/>
+          <Item Value="UserLogAuthReason"/>
+          <Item Value="UserLogOutReason"/>
+          <Item Value="LUserIdFk"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="LUserActivityView3Iterator" id="LUserActivityView3">
+      <nodeDefinition DefName="model.LUserActivityView" Name="LUserActivityView30">
+        <AttrNames>
+          <Item Value="AcitvityId"/>
+          <Item Value="AcitvityNameId"/>
+          <Item Value="UserLogIdFk"/>
+          <Item Value="ActivityTime"/>
+          <Item Value="ViewInfoName"/>
+          <Item Value="ViewInfoId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="LUserOperationView3Iterator" id="LUserOperationView3">
+      <nodeDefinition DefName="model.LUserOperationView" Name="LUserOperationView30">
+        <AttrNames>
+          <Item Value="UserOpeId"/>
+          <Item Value="UserOpeEntityNameId"/>
+          <Item Value="UserOpeViewNameId"/>
+          <Item Value="UserOpeEntityTnsId"/>
+          <Item Value="UserOpeF"/>
+          <Item Value="UserOpeTime"/>
+          <Item Value="AcitvityIdFk"/>
+          <Item Value="EntityInfoName"/>
+          <Item Value="EntityInfoId"/>
+          <Item Value="InfoDmlOpeName"/>
+          <Item Value="InfoDmlOpeId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="TransactionLogView3Iterator" id="TransactionLogView3">
+      <nodeDefinition DefName="model.TransactionLogView" Name="TransactionLogView30">
+        <AttrNames>
+          <Item Value="TnsLogId"/>
+          <Item Value="TnsId"/>
+          <Item Value="TnsDate"/>
+          <Item Value="TnsAmount"/>
+          <Item Value="TnsDetail"/>
+          <Item Value="TnsInfo"/>
+          <Item Value="TnsGroup"/>
+          <Item Value="TnsTnsTypeIdFk"/>
+          <Item Value="TnsRate"/>
+          <Item Value="TnsQty"/>
+          <Item Value="TnsOiltId"/>
+          <Item Value="TnsOildId"/>
+          <Item Value="TnsStId"/>
+          <Item Value="TnsCoaDactNumber"/>
+          <Item Value="TnsCoaCactNumber"/>
+          <Item Value="TnsAdjDate"/>
+          <Item Value="TnsTnsviewId"/>
+          <Item Value="TnsBankTnsTypeIdFk"/>
+          <Item Value="TnsSlipNo"/>
+          <Item Value="TnsSlipDate"/>
+          <Item Value="TnsEtc"/>
+          <Item Value="TnsPurchaseRateLogIdFk"/>
+          <Item Value="TnsNewrate"/>
+          <Item Value="TnsFreightfactor"/>
+          <Item Value="TnsSaleRateLogIdFk"/>
+          <Item Value="TnsIsDebit"/>
+          <Item Value="TnsParentTnsId"/>
+          <Item Value="TnsIsClaimedId"/>
+          <Item Value="TnsReverseEntry"/>
+          <Item Value="TnsAdjId"/>
+          <Item Value="TnsSDate"/>
+          <Item Value="TnsBankNameId"/>
+          <Item Value="TnsBrCode"/>
+          <Item Value="TnsOildLoadId"/>
+          <Item Value="TnsOildLoadDate"/>
+          <Item Value="TnsAdjAcRef"/>
+          <Item Value="TnsInfoStart"/>
+          <Item Value="TnsLogDate"/>
+          <Item Value="TnsLogOpeF"/>
+          <Item Value="TnsLogOldNew"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaActNumber"/>
+          <Item Value="CoaName1"/>
+          <Item Value="CoaActNumber1"/>
+          <Item Value="BankName1"/>
+          <Item Value="BankNameId"/>
+          <Item Value="BankTnsTypeName"/>
+          <Item Value="BankTnsTypeId"/>
+          <Item Value="OildShortname"/>
+          <Item Value="OildId"/>
+          <Item Value="OiltRegistration"/>
+          <Item Value="OiltId"/>
+          <Item Value="OildShortname1"/>
+          <Item Value="OildId1"/>
+          <Item Value="TnsTypeName"/>
+          <Item Value="TnsTypeId"/>
+          <Item Value="InfoDmlOpeName"/>
+          <Item Value="InfoDmlOpeId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

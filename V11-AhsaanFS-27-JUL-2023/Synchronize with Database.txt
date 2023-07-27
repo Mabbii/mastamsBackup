@@ -1,0 +1,273 @@
+The following Synchronization Actions were performed successfully:
+
+Entity :RebateRateLog
+  Attribute :RebrLogId
+    Change Mandatory to:true
+Entity :TnsUnClaimed
+  Attribute :TnsUncId
+    Change Mandatory to:true
+Entity :OilDepo
+  Attribute :OildId
+    Change Mandatory to:true
+  Create Key for Constraint: OIL_DEPO_SHORTNAME_UK
+  Create Key for Constraint: OIL_DEPO_NAME_UK
+Entity :ProductPacking
+  Attribute :PdtPackingId
+    Change Mandatory to:true
+Entity :PurchaseRate
+  Attribute :PpartyId
+    Change Mandatory to:true
+  Attribute :PurchaseRateEnddate
+    Change Mandatory to:true
+  Attribute :PurchaseRateStartdate
+    Change Mandatory to:true
+  Attribute :PurchaseRateDate
+    Change Mandatory to:true
+  Attribute :PurchaseRateId
+    Change Mandatory to:true
+  Remove Key Constraint: fk_PurchaseRate1
+  Remove Key Constraint: fk_PurchaseRate
+Entity :GeneralLedgerEntry
+  Attribute :GleRate
+    Change Column type to NUMBER(29,10)
+    Change Precision, Scale  to (29, 10)
+  Attribute :GleAvgrate
+    Change Column type to NUMBER(29,10)
+    Change Precision, Scale  to (29, 10)
+  Attribute :GleInfo
+    Change Column type to VARCHAR2(100)
+    Change Precision to 100
+  Attribute :GleBalance
+    Change Column type to NUMBER(19,2)
+    Change Precision, Scale  to (19, 2)
+    Change Mandatory to:false
+  Attribute :GleCredit
+    Change Column type to NUMBER(19,2)
+    Change Precision, Scale  to (19, 2)
+  Attribute :GleDebit
+    Change Column type to NUMBER(19,2)
+    Change Precision, Scale  to (19, 2)
+  Attribute :GleDetails
+    Change Column type to VARCHAR2(200)
+    Change Precision to 200
+  Attribute :GleDate
+    Change Mandatory to:true
+  Attribute :GleId
+    Change Mandatory to:true
+  Remove Key Constraint: fk_GeneralLedgerEntry4
+  Remove Key Constraint: fk_GeneralLedgerEntry3
+  Remove Key Constraint: fk_GeneralLedgerEntry2
+  Remove Key Constraint: fk_GeneralLedgerEntry1
+  Remove Key Constraint: fk_GeneralLedgerEntry
+  Create Key for Constraint: TNS_CHILD_GLE_FK
+  Create Entity Association
+  Create Key for Constraint: OIL_T_GLE_FK
+  Create Entity Association
+  Create Key for Constraint: OIL_D_GLE_FK
+  Create Entity Association
+  Create Key for Constraint: COA_GLE_FK_AS_TNS_OTHER_AC
+  Create Entity Association
+  Create Key for Constraint: COA_GLE_FK
+  Create Entity Association
+Entity :Expense
+  Attribute :ExpeId
+    Change Mandatory to:true
+  Attribute :ExpeName
+    Change Column type to VARCHAR2(50)
+    Change Precision to 50
+  Set transient, as column missing for attribute ExpeCode
+  Remove Key Constraint: ExpensePk
+  Create Key for Constraint: EXPENSE_SHORTNAME_UK
+  Create Key for Constraint: EXPENSE_NAME_UK
+  Create Key for Constraint: EXPENSE_PK1
+Entity :RebateRate
+  Attribute :RebrId
+    Change Mandatory to:true
+  Remove Key Constraint: fk_RebateRate1
+  Remove Key Constraint: fk_RebateRate
+Entity :OmcCreditlimit
+  Attribute :OclEndDate
+    Change Column type to DATE
+    Change Mandatory to:true
+  Attribute :OclApplicableFrom
+    Change Column type to DATE
+    Change Mandatory to:true
+  Attribute :OclApprovedFrom
+    Change Column type to DATE
+    Change Mandatory to:true
+  Attribute :OclDate
+    Change Column type to DATE
+    Change Mandatory to:true
+  Attribute :OclId
+    Change Mandatory to:true
+  Remove Key Constraint: fk_OmcCreditlimit
+Entity :ProductType
+  Attribute :ProducttypeId
+    Change Mandatory to:true
+Entity :SaleRateLog
+  Attribute :SaleRateLogId
+    Change Mandatory to:true
+  Remove Key Constraint: fk_SaleRateLog2
+  Remove Key Constraint: fk_SaleRateLog1
+  Remove Key Constraint: fk_SaleRateLog
+Entity :PartyType
+  Attribute :PartyTypeId
+    Change Mandatory to:true
+Entity :CreditLimit
+  Attribute :CreditLimitDate
+    Change Mandatory to:true
+  Attribute :CreditLimitId
+    Change Mandatory to:true
+  Remove Key Constraint: fk_CreditLimit
+Entity :Storagetank
+  Attribute :StId
+    Change Mandatory to:true
+Entity :Test
+  Attribute :Id
+    Change Mandatory to:true
+  Remove Key Constraint: TestPrimaryKey
+  Create Key for Constraint: TEST_PK
+Entity :ChartOfAccounts
+  Attribute :CoaTypename
+    Change Column type to VARCHAR2(200)
+    Change Precision to 200
+  Attribute :CoaName
+    Change Column type to VARCHAR2(120)
+    Change Precision to 120
+    Change Mandatory to:true
+  Attribute :CoaActNumber
+    Change Mandatory to:true
+  Create Attribute for column: COA_OMC_REB_RECBL_ID_FK
+  Remove Key Constraint: fk_ChartOfAccounts1
+  Remove Key Constraint: fk_ChartOfAccounts
+  Remove Key Constraint: ActgroupCoaFk
+  Create Key for Constraint: OMCREBRECBL_COA_FK
+  Create Entity Association
+  Create Key for Constraint: COA_NAME_UK
+Entity :OilTanker
+  Attribute :OiltId
+    Change Mandatory to:true
+  Create Key for Constraint: OILTNKR_REGNO_UK
+Entity :StockGlEntry
+  Attribute :StkGleId
+    Change Mandatory to:true
+Entity :DebitLimit
+  Attribute :DebitLimitEndDate
+    Change Mandatory to:true
+  Attribute :DebitLimitStartDate
+    Change Mandatory to:true
+  Attribute :DebitLimitId
+    Change Mandatory to:true
+  Remove Key Constraint: fk_DebitLimit1
+  Remove Key Constraint: fk_DebitLimit
+Entity :SaleRate
+  Attribute :SaleRateEndDate
+    Change Mandatory to:true
+  Attribute :SaleRateStartDate
+    Change Mandatory to:true
+  Attribute :SaleRateId
+    Change Mandatory to:true
+  Remove Key Constraint: fk_SaleRate1
+  Remove Key Constraint: fk_SaleRate
+Entity :DebitLimitCatagory
+  Attribute :DLimitCatagoryId
+    Change Mandatory to:true
+Entity :TnsView
+  Attribute :TnsViewName
+    Change Column type to VARCHAR2(100)
+    Change Precision to 100
+Entity :Rebate
+  Attribute :RebId
+    Change Mandatory to:true
+Entity :Product
+  Attribute :ProductName
+    Change Column type to VARCHAR2(50)
+    Change Precision to 50
+  Attribute :ProductId
+    Change Mandatory to:true
+  Create Key for Constraint: PRODUCT_SHORTBNAME_UK
+  Create Key for Constraint: PRODUCT_NAME_UK
+Entity :OmcPump
+  Attribute :OmcPumpPartyId
+    Change Mandatory to:true
+    Change Primary Key to:false
+  Key :OmcPumpPk
+    Remove key attribute OmcPumpPartyId
+Entity :PurchaseRateLog
+  Attribute :PurchaseRateLogId
+    Change Mandatory to:true
+  Remove Key Constraint: fk_PurchaseRateLog2
+  Remove Key Constraint: fk_PurchaseRateLog1
+  Remove Key Constraint: fk_PurchaseRateLog
+Entity :Omc
+  Attribute :OmcShortname
+    Change Mandatory to:true
+  Attribute :OmcName
+    Change Mandatory to:true
+  Attribute :OmcId
+    Change Mandatory to:true
+  Create Key for Constraint: OMC_SHORTNAME_UK
+  Create Key for Constraint: OMC_NAME_UK
+Entity :BankAccount
+  Attribute :BActId
+    Change Mandatory to:true
+  Create Key for Constraint: BANK_ACT_TITLE_UK
+  Create Key for Constraint: BANK_ACT_SHORT_UK
+  Create Key for Constraint: BANK_ACT_NO_UK
+Entity :TnsChild
+  Attribute :TnsChildRate
+    Change Column type to NUMBER(29,10)
+    Change Precision, Scale  to (29, 10)
+Entity :Transaction
+  Attribute :TnsIsDebit
+    Change Column type to NUMBER(1,0)
+    Change Precision, Scale  to (1, 0)
+  Attribute :TnsRate
+    Change Column type to NUMBER(29,10)
+    Change Precision, Scale  to (29, 10)
+  Attribute :TnsId
+    Change Mandatory to:true
+  Create Attribute for column: TNS_ETC
+  Create Attribute for column: TNS_PARENT_TNS_ID
+  Remove Key Constraint: fk_Transaction9
+  Remove Key Constraint: fk_Transaction8
+  Remove Key Constraint: fk_Transaction7
+  Remove Key Constraint: fk_Transaction6
+  Remove Key Constraint: fk_Transaction5
+  Remove Key Constraint: fk_Transaction4
+  Remove Key Constraint: fk_Transaction3
+  Remove Key Constraint: fk_Transaction2
+  Remove Key Constraint: fk_Transaction12
+  Remove Key Constraint: fk_Transaction11
+  Remove Key Constraint: fk_Transaction10
+  Remove Key Constraint: fk_Transaction1
+  Remove Key Constraint: fk_Transaction
+  Remove Key Constraint: TnsStorageTankFk
+  Create Key for Constraint: TNS_TNSPARENT_FK
+  Create Entity Association
+  Create Key for Constraint: TNS_SALERATELOG_FK
+  Create Entity Association
+  Create Key for Constraint: TNS_PURCHASERATELOG_FK
+  Create Entity Association
+  Create Key for Constraint: TNSVIEW_TNS_FK
+  Create Entity Association
+  Create Key for Constraint: COA_TNS_DACT_ID_FK
+  Create Entity Association
+  Create Key for Constraint: COA_TNS_CACT_ID_FK
+  Create Entity Association
+  Create Key for Constraint: BANKTNSTYPE_TNS_FK
+  Create Entity Association
+Entity :Party
+  Attribute :PartyCode
+    Change Column type to VARCHAR2(20)
+    Change Precision to 20
+  Attribute :PartyShortname
+    Change Column type to VARCHAR2(50)
+    Change Precision to 50
+  Attribute :PartyName
+    Change Column type to VARCHAR2(60)
+    Change Precision to 60
+  Attribute :PartyId
+    Change Mandatory to:true
+  Create Key for Constraint: PARTY_SHORTNAME_UK
+  Create Key for Constraint: PARTY_NAME_UK

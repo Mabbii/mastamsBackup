@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="GLESearchPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GeneralLedgerEntryView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="GeneralLedgerEntryView1Iterator"/>
+    <searchRegion Criteria="GeneralLedgerEntryViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="GeneralLedgerEntryView1Iterator" id="GeneralLedgerEntryViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="GeneralLedgerEntryView1Iterator" id="GeneralLedgerEntryView1">
+      <nodeDefinition DefName="model.GeneralLedgerEntryView" Name="GeneralLedgerEntryView10">
+        <AttrNames>
+          <Item Value="GleId"/>
+          <Item Value="GleDate"/>
+          <Item Value="GleDetails"/>
+          <Item Value="GleDebit"/>
+          <Item Value="GleCredit"/>
+          <Item Value="GleBalance"/>
+          <Item Value="GleInfo"/>
+          <Item Value="GleCoaActNumber"/>
+          <Item Value="GleTnsId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

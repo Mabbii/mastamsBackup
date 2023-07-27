@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="131" id="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1">
+                <af:outputText value="Auto Cash Sale" id="ot4"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:inputText value="#{bindings.AcsId.inputValue}" label="#{bindings.AcsId.hints.label}"
+                              required="#{bindings.AcsId.hints.mandatory}"
+                              columns="#{bindings.AcsId.hints.displayWidth}"
+                              maximumLength="#{bindings.AcsId.hints.precision}"
+                              shortDesc="#{bindings.AcsId.hints.tooltip}" id="it1" rendered="false">
+                    <f:validator binding="#{bindings.AcsId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.AcsId.format}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.AcsDate.inputValue}" label="Date"
+                              required="#{bindings.AcsDate.hints.mandatory}"
+                              columns="#{bindings.AcsDate.hints.displayWidth}"
+                              shortDesc="#{bindings.AcsDate.hints.tooltip}" id="id1">
+                    <f:validator binding="#{bindings.AcsDate.validator}"/>
+                    <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.DcIdFk.inputValue}" label="#{bindings.DcIdFk.hints.label}"
+                              required="#{bindings.DcIdFk.hints.mandatory}"
+                              columns="#{bindings.DcIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.DcIdFk.hints.precision}"
+                              shortDesc="#{bindings.DcIdFk.hints.tooltip}" id="it2" rendered="false">
+                    <f:validator binding="#{bindings.DcIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DcIdFk.format}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl2">
+                        <af:panelGroupLayout layout="horizontal" id="pgl3">
+                            <af:button actionListener="#{bindings.First.execute}"
+                            icon="#{resource['images:first_hor_ena.png']}"
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                            <af:button actionListener="#{bindings.Previous.execute}"
+                            icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                            <af:button actionListener="#{bindings.Next.execute}"
+                            icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                            <af:button actionListener="#{bindings.Last.execute}"
+                            icon="#{resource['images:last_hor_ena.png']}"
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                        </af:panelGroupLayout>
+                        <af:outputText value="-----------" id="ot62"/>
+                        <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                        icon="#{resource['images:commit.png']}"
+                                   disabled="#{!bindings.Commit.enabled}"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                        icon="#{resource['images:add.png']}"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b6"/>
+                                   <af:outputText value="---------------------" id="ot61"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                        icon="#{resource['images:rollback.png']}"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                            <af:resetActionListener/>
+                        </af:button>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.AutoCashSalesView1.collectionModel}" var="row"
+                          rows="#{bindings.AutoCashSalesView1.rangeSize}"
+                          emptyText="#{bindings.AutoCashSalesView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.AutoCashSalesView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.AutoCashSalesView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.AutoCashSalesView1.rangeSize}"
+                          filterModel="#{bindings.AutoCashSalesView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.AutoCashSalesView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 :::b1 :::b2 :::b3 :::b4 :::b6" scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.AutoCashSalesView1.hints.AcsId.name}" filterable="true"
+                               sortable="true" headerText="id" id="c1" rendered="false">
+                        <af:outputText value="#{row.AcsId}"
+                                       shortDesc="#{bindings.AutoCashSalesView1.hints.AcsId.tooltip}" id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.AutoCashSalesView1.hints.AcsId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AutoCashSalesView1.hints.AcsDate.name}" filterable="true"
+                               sortable="true" headerText="Date" id="c2">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.AutoCashSalesView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.AcsDate.value}"
+                                          id="id2">
+                                <af:convertDateTime pattern="#{bindings.AutoCashSalesView1.hints.AcsDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.AcsDate}"
+                                       shortDesc="#{bindings.AutoCashSalesView1.hints.AcsDate.tooltip}" id="ot2">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AutoCashSalesView1.hints.DcIdFk.name}" filterable="true"
+                               sortable="true" headerText="fk" id="c3" rendered="false">
+                        <af:outputText value="#{row.DcIdFk}"
+                                       shortDesc="#{bindings.AutoCashSalesView1.hints.DcIdFk.tooltip}" id="ot3">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.AutoCashSalesView1.hints.DcIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

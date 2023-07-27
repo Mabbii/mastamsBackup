@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="LubeSaleViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Sale_Lube_View1" RangeSize="25" DataControl="VOAPPDataControl" id="Sale_Lube_View1Iterator"/>
+    <searchRegion Criteria="Sale_Lube_ViewCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="Sale_Lube_View1Iterator" id="SaleLubeViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Sale_Lube_View1Iterator" id="Sale_Lube_View1">
+      <nodeDefinition DefName="model.Sale_Lube_View" Name="Sale_Lube_View10">
+        <AttrNames>
+          <Item Value="ProductShortname"/>
+          <Item Value="SaleLubeQty"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="ReportsViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="GlerportTF1" taskFlowId="/WEB-INF/GlerportTF.xml#GlerportTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="DefaultReportingTF1" taskFlowId="/WEB-INF/DefaultReportingTF.xml#DefaultReportingTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="TrialBalanceShortTF1" taskFlowId="/WEB-INF/TrialBalanceShortTF.xml#TrialBalanceShortTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="StockLedgerTF1" taskFlowId="/WEB-INF/StockLedgerTF.xml#StockLedgerTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="GournalLedgerdetaildTF1" taskFlowId="/WEB-INF/GournalLedgerdetaildTF.xml#GournalLedgerdetaildTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="StorageOilTankerTF1" taskFlowId="/WEB-INF/StorageOilTankerTF.xml#StorageOilTankerTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Bill_DetailData_TF1" taskFlowId="/WEB-INF/Bill_DetailData_TF.xml#Bill_DetailData_TF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Bill_Vehicle_TF1" taskFlowId="/WEB-INF/Bill_Vehicle_TF.xml#Bill_Vehicle_TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="CoaGroupTF1" taskFlowId="/WEB-INF/CoaGroupTF.xml#CoaGroupTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Bill_Vehicle_TF2" taskFlowId="/WEB-INF/Bill_Vehicle_TF.xml#Bill_Vehicle_TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Bill_Group_TF1" taskFlowId="/WEB-INF/Bill_Group_TF.xml#Bill_Group_TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Stock_StockReport1" taskFlowId="/WEB-INF/Stock_StockReport.xml#Stock_StockReport"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="CustomerReport_TF1" taskFlowId="/WEB-INF/CustomerReport_TF.xml#CustomerReport_TF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ReportsView_C_GleTF1" taskFlowId="/WEB-INF/ReportsView_C_GleTF.xml#ReportsView_C_GleTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ReportsMy_ProductDetailTF1"
+              taskFlowId="/WEB-INF/ReportsMy_ProductDetailTF.xml#ReportsMy_ProductDetailTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ReportsMy_ProductSummaryTF1"
+              taskFlowId="/WEB-INF/ReportsMy_ProductSummaryTF.xml#ReportsMy_ProductSummaryTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ReportsMy_StockAnalysis_TF1"
+              taskFlowId="/WEB-INF/ReportsMy_StockAnalysis_TF.xml#ReportsMy_StockAnalysis_TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <methodAction id="CallAMTaskFlowActivity" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="CallAMTaskFlowActivity" IsViewObjectMethod="false" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.CallAMTaskFlowActivity.dataControl.dataProvider">
+      <NamedData NDName="Task" NDType="int"/>
+      <NamedData NDName="userName" NDType="java.lang.String"/>
+      <NamedData NDName="sessionID" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

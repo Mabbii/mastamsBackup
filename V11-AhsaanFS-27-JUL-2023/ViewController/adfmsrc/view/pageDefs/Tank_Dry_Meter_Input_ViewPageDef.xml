@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="Tank_Dry_Meter_Input_ViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TankDryDataMInputView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="TankDryDataMInputView1Iterator"/>
+    <searchRegion Criteria="TankDryDataMInputViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="TankDryDataMInputView1Iterator"
+                  id="TankDryDataMInputViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="TankDryDataMInputView1Iterator" id="TankDryDataMInputView1">
+      <nodeDefinition DefName="model.TankDryDataMInputView" Name="TankDryDataMInputView10">
+        <AttrNames>
+          <Item Value="TddmiId"/>
+          <Item Value="TddmiMiData"/>
+          <Item Value="TddmiMTest"/>
+          <Item Value="TddIdFk"/>
+          <Item Value="TddmiTankOld"/>
+          <Item Value="TddmiTankNew"/>
+          <Item Value="TddmiDip"/>
+          <Item Value="TddmiDate"/>
+          <Item Value="TddmiLtrValue"/>
+          <Item Value="DcIdFk"/>
+          <Item Value="TddmiDipFlag"/>
+          <Item Value="ProductIdFk"/>
+          <Item Value="NozalIdFk"/>
+          <Item Value="TddCountId"/>
+          <Item Value="PipeLineGroupIdFk"/>
+          <Item Value="NozalName"/>
+          <Item Value="NozalId"/>
+          <Item Value="DcStartDate"/>
+          <Item Value="DcId"/>
+          <Item Value="TdndId"/>
+          <Item Value="TdndPreviousReading"/>
+          <Item Value="TdndCurrentReading"/>
+          <Item Value="TdndSale"/>
+          <Item Value="TdndMeasureTest"/>
+          <Item Value="DcIdFk1"/>
+          <Item Value="NozalIdFk1"/>
+          <Item Value="TankDrydIdFk"/>
+          <Item Value="TankInfoIdFk"/>
+          <Item Value="TdndTankInfoIdNew"/>
+          <Item Value="ProductIdFk1"/>
+          <Item Value="TddIdFk1"/>
+          <Item Value="TddmiIdFk"/>
+          <Item Value="TddCountId1"/>
+          <Item Value="TddInputCounterM"/>
+          <Item Value="PipeLineGroupCaption"/>
+          <Item Value="PipeLineGroupId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="TankDryDataMInputView1Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

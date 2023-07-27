@@ -1,0 +1,26 @@
+//Groovy Scripts for model.SaleRateLogForCustomer
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="SaleRateLogDate")
+def SaleRateLogDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="SaleRateLogStartdate")
+def SaleRateLogStartdate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="SaleRateLogEnddate")
+def SaleRateLogEnddate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

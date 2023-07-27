@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="193" id="ps1" partialTriggers="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1">
+                <af:outputText value="Oil Tanker" id="ot4"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:inputText value="#{bindings.OiltId.inputValue}" label="#{bindings.OiltId.hints.label}"
+                              required="#{bindings.OiltId.hints.mandatory}"
+                              columns="#{bindings.OiltId.hints.displayWidth}"
+                              maximumLength="#{bindings.OiltId.hints.precision}"
+                              shortDesc="#{bindings.OiltId.hints.tooltip}" id="it1">
+                    <f:validator binding="#{bindings.OiltId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.OiltId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.OiltRegistration.inputValue}"
+                              label="#{bindings.OiltRegistration.hints.label}"
+                              required="#{bindings.OiltRegistration.hints.mandatory}"
+                              columns="#{bindings.OiltRegistration.hints.displayWidth}"
+                              maximumLength="#{bindings.OiltRegistration.hints.precision}"
+                              shortDesc="#{bindings.OiltRegistration.hints.tooltip}" id="it2">
+                    <f:validator binding="#{bindings.OiltRegistration.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.OiltCapacity.inputValue}" label="#{bindings.OiltCapacity.hints.label}"
+                              required="#{bindings.OiltCapacity.hints.mandatory}"
+                              columns="#{bindings.OiltCapacity.hints.displayWidth}"
+                              maximumLength="#{bindings.OiltCapacity.hints.precision}"
+                              shortDesc="#{bindings.OiltCapacity.hints.tooltip}" id="it3">
+                    <f:validator binding="#{bindings.OiltCapacity.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.OiltCapacity.format}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl1">
+                        <af:panelGroupLayout layout="horizontal" id="pgl2">
+                            <af:button actionListener="#{bindings.First.execute}"
+                            icon="#{resource['images:first_hor_ena.png']}"
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                            <af:button actionListener="#{bindings.Previous.execute}"
+                            icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                            <af:button actionListener="#{bindings.Next.execute}"
+                            icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                            <af:button actionListener="#{bindings.Last.execute}"
+                            icon="#{resource['images:last_hor_ena.png']}"
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                                       <af:outputText value="--------------" id="ot61"/>
+                        </af:panelGroupLayout>
+                        <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                        icon="#{resource['images:commit.png']}"
+                                   disabled="#{!bindings.Commit.enabled}"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                        icon="#{resource['images:add.png']}"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b6"/>
+                                   <af:outputText value="---------------------------" id="ot62"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                        icon="#{resource['images:rollback.png']}"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                            <af:resetActionListener/>
+                        </af:button>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar">
+                <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot14" inlineStyle="color:Maroon; font-size:large;"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.OilTankerAllView1.collectionModel}" var="row"
+                          rows="#{bindings.OilTankerAllView1.rangeSize}"
+                          emptyText="#{bindings.OilTankerAllView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.OilTankerAllView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.OilTankerAllView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.OilTankerAllView1.rangeSize}"
+                          filterModel="#{bindings.OilTankerAllView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.OilTankerAllView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 :::b1 :::b2 :::b3 :::b4 :::b6" scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.OilTankerAllView1.hints.OiltId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.OilTankerAllView1.hints.OiltId.label}" id="c1"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="100" align="center" rendered="false">
+                        <af:outputText value="#{row.OiltId}"
+                                       shortDesc="#{bindings.OilTankerAllView1.hints.OiltId.tooltip}" id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.OilTankerAllView1.hints.OiltId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.OilTankerAllView1.hints.OiltRegistration.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.OilTankerAllView1.hints.OiltRegistration.label}" id="c2"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               width="110" align="center">
+                        <af:outputText value="#{row.OiltRegistration}"
+                                       shortDesc="#{bindings.OilTankerAllView1.hints.OiltRegistration.tooltip}"
+                                       id="ot2"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.OilTankerAllView1.hints.OiltCapacity.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.OilTankerAllView1.hints.OiltCapacity.label}"
+                               id="c3"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               width="90" align="center">
+                        <af:outputText value="#{row.OiltCapacity}"
+                                       shortDesc="#{bindings.OilTankerAllView1.hints.OiltCapacity.tooltip}" id="ot3">
+                            <af:convertNumber groupingUsed="true"
+                                              pattern="#{bindings.OilTankerAllView1.hints.OiltCapacity.format}"
+                                              messageDetailConvertNumber="#,###,##"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_oiltankerVIEW-->
+</ui:composition>

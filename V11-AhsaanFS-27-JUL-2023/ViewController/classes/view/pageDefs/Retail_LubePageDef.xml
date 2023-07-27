@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="Retail_LubePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="LubeShop_Lube_Customer_TF1"
+              taskFlowId="/WEB-INF/LubeShop_Lube_Customer_TF.xml#LubeShop_Lube_Customer_TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="LubeShop_Lube_Vehicle_TF1" taskFlowId="/WEB-INF/LubeShop_Lube_Vehicle_TF.xml#LubeShop_Lube_Vehicle_TF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Z_printBehaviour1" taskFlowId="/WEB-INF/Z_printBehaviour.xml#Z_printBehaviour" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="DefaultLubeShopTF1" taskFlowId="/WEB-INF/DefaultLubeShopTF.xml#DefaultLubeShopTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

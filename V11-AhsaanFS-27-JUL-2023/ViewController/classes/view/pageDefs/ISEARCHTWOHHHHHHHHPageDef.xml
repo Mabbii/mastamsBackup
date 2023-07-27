@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="ISEARCHTWOHHHHHHHHPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <iterator Binds="ISSEARCHVIEW1" RangeSize="25" DataControl="VOAPPDataControl" id="ISSEARCHVIEW1Iterator"/>
+    <variableIterator id="variables">
+      <variableUsage DataControl="VOAPPDataControl" Binds="ISSEARCHVIEW1.variablesMap.BindMonthYear"
+                     Name="ExecuteWithParams_BindMonthYear" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="IncomeStatementHeadView1" RangeSize="10" DataControl="VOAPPDataControl"
+              id="IncomeStatementHeadView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ISSEARCHVIEW1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindMonthYear" NDType="java.lang.String"
+                 NDValue="#{bindings.BindMonthYear.inputValue}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="BindMonthYear">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindMonthYear"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues Uses="LOV_IsHdMonthYear" StaticList="false" IterBinding="IncomeStatementHeadView1Iterator"
+                  id="IsHdMonthYear"/>
+  </bindings>
+</pageDefinition>

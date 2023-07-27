@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="Z_printBehaviourPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="InvoicHeadView1" RangeSize="25" DataControl="VOAPPDataControl" id="InvoicHeadView1Iterator"/>
+    <iterator Binds="InvoicDetailView2" RangeSize="25" DataControl="VOAPPDataControl" id="InvoicDetailView2Iterator"/>
+    <searchRegion Binds="InvoicDetailView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="InvoicDetailView2Query"/>
+  </executables>
+  <bindings>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <action IterBinding="InvoicHeadView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="InvoicHeadView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="InvoicHeadView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="InvoicHeadView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <listOfValues IterBinding="InvoicDetailView2Iterator" StaticList="false" Uses="LOV_ProductShortname"
+                  id="ProductShortname"/>
+    <attributeValues IterBinding="InvoicDetailView2Iterator" id="InvoicDetailId">
+      <AttrNames>
+        <Item Value="InvoicDetailId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicDetailView2Iterator" id="InvoiceHeadFk">
+      <AttrNames>
+        <Item Value="InvoiceHeadFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicDetailView2Iterator" id="ProductIdFk">
+      <AttrNames>
+        <Item Value="ProductIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicDetailView2Iterator" id="Rate">
+      <AttrNames>
+        <Item Value="Rate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicDetailView2Iterator" id="Qty">
+      <AttrNames>
+        <Item Value="Qty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicDetailView2Iterator" id="Amount">
+      <AttrNames>
+        <Item Value="Amount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicDetailView2Iterator" id="ProductId">
+      <AttrNames>
+        <Item Value="ProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="InvoicDetailView2Iterator" id="First1" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="InvoicDetailView2Iterator" id="Previous1" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="InvoicDetailView2Iterator" id="Next1" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="InvoicDetailView2Iterator" id="Last1" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="InvoicDetailView2Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="InvoicHeadView1Iterator" id="InvoicHeadTotal">
+      <AttrNames>
+        <Item Value="InvoicHeadTotal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicHeadView1Iterator" id="InvoicHeadDiscount">
+      <AttrNames>
+        <Item Value="InvoicHeadDiscount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicHeadView1Iterator" id="InvoicHeadNetTotal">
+      <AttrNames>
+        <Item Value="InvoicHeadNetTotal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicHeadView1Iterator" id="InvoicHeadReciept">
+      <AttrNames>
+        <Item Value="InvoicHeadReciept"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicHeadView1Iterator" id="InvoicHeadBalance">
+      <AttrNames>
+        <Item Value="InvoicHeadBalance"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="InvoicHeadView1Iterator" StaticList="false" Uses="LOV_LcName" id="LcName"/>
+    <listOfValues IterBinding="InvoicHeadView1Iterator" StaticList="false" Uses="LOV_LvRegNo" id="LvRegNo"/>
+    <attributeValues IterBinding="InvoicHeadView1Iterator" id="InvoicHeadId">
+      <AttrNames>
+        <Item Value="InvoicHeadId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicHeadView1Iterator" id="InvoicHeadDate">
+      <AttrNames>
+        <Item Value="InvoicHeadDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicHeadView1Iterator" id="LcustomerIdFk">
+      <AttrNames>
+        <Item Value="LcustomerIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicHeadView1Iterator" id="LvehicleIdFk">
+      <AttrNames>
+        <Item Value="LvehicleIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicHeadView1Iterator" id="LcId">
+      <AttrNames>
+        <Item Value="LcId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicHeadView1Iterator" id="LvId">
+      <AttrNames>
+        <Item Value="LvId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicHeadView1Iterator" id="LcCity">
+      <AttrNames>
+        <Item Value="LcCity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicHeadView1Iterator" id="LcPhone">
+      <AttrNames>
+        <Item Value="LcPhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicHeadView1Iterator" id="InvoicHeadMr">
+      <AttrNames>
+        <Item Value="InvoicHeadMr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicHeadView1Iterator" id="InvoicHeadDueDate">
+      <AttrNames>
+        <Item Value="InvoicHeadDueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="InvoicHeadView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="InvoicDetailView2Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="InvoicDetailView2Iterator" id="InvoicDetailView2">
+      <nodeDefinition DefName="model.InvoicDetailView" Name="InvoicDetailView20">
+        <AttrNames>
+          <Item Value="InvoicDetailId"/>
+          <Item Value="InvoiceHeadFk"/>
+          <Item Value="ProductIdFk"/>
+          <Item Value="Rate"/>
+          <Item Value="Qty"/>
+          <Item Value="Amount"/>
+          <Item Value="ProductShortname"/>
+          <Item Value="ProductId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

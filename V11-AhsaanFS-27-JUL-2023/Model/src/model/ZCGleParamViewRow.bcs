@@ -1,0 +1,19 @@
+//Groovy Scripts for model.ZCGleParamView
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="ZCGleParamStartDate")
+def ZCGleParamStartDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="ZCGleParamEndDate")
+def ZCGleParamEndDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

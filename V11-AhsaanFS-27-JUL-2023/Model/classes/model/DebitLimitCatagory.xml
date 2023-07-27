@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DebitLimitCatagory"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="DEBIT_LIMIT_CATAGORY"
+  AliasName="DebitLimitCatagory"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="DLimitCatagoryId"
+    ColumnName="D_LIMIT_CATAGORY_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="DEBIT_LIMIT_CATAGORY"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="DLimitCatagoryName"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="D_LIMIT_CATAGORY_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DEBIT_LIMIT_CATAGORY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="DebitLimit"
+    Association="model.DebitLimitCategory_DebitLimit_FK_Assoc"
+    AssociationEnd="model.DebitLimitCategory_DebitLimit_FK_Assoc.DebitLimit"
+    AssociationOtherEnd="model.DebitLimitCategory_DebitLimit_FK_Assoc.DebitLimitCatagory"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="DebitLimitCatagoryPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="DEBIT_LIMIT_CATAGORY_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.DebitLimitCatagory.DLimitCatagoryId"/>
+    </AttrArray>
+  </Key>
+</Entity>

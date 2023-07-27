@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">Supplier_Credit_limit_DetailedReportview</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">413.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Supplier_Credit_limit_DetailedReportview&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">341.5459</property>
+      <property
+         name="page">/Supplier_Credit_limit_DetailedReportview.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+</SDM>

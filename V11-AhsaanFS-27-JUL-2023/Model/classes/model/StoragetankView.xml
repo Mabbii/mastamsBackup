@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="StoragetankView"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="Storagetank"
+    Entity="model.Storagetank"/>
+  <ViewAttribute
+    Name="StId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="StId"
+    EntityUsage="Storagetank"
+    AliasName="ST_ID"/>
+  <ViewAttribute
+    Name="StTotalCapacity"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="StTotalCapacity"
+    EntityUsage="Storagetank"
+    AliasName="ST_TOTAL_CAPACITY"/>
+  <ViewAttribute
+    Name="StProductId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="StProductId"
+    EntityUsage="Storagetank"
+    AliasName="ST_PRODUCT_ID"/>
+  <ViewAttribute
+    Name="StName"
+    PrecisionRule="true"
+    EntityAttrName="StName"
+    EntityUsage="Storagetank"
+    AliasName="ST_NAME"/>
+  <ViewAttribute
+    Name="StExistence"
+    PrecisionRule="true"
+    EntityAttrName="StExistence"
+    EntityUsage="Storagetank"
+    AliasName="ST_EXISTENCE"/>
+  <ViewLinkAccessor
+    Name="TransactionView"
+    ViewLink="model.TnsStorageTankFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="StockGlEntryView"
+    ViewLink="model.StoragetankStkglentryFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

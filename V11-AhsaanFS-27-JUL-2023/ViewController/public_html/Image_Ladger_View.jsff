@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelBox text="Uplaoded Image Ledger" id="pb1">
+    <f:facet name="toolbar"/>
+    <af:panelGroupLayout id="pgl1">
+      <af:panelFormLayout id="pfl1">
+        <af:inputListOfValues label="Customer Name" popupTitle="Search and Result Dialog" id="ilov1"
+                              value="#{bindings.coaBind.inputValue}" model="#{bindings.CoaName1.listOfValuesModel}"
+                              autoSubmit="true">
+          <?audit suppress oracle.jdeveloper.jsp.validate-children?>
+          <af:inputText value="#{bindings.coaBind.inputValue}" label="#{bindings.coaBind.hints.label}"
+                        required="#{bindings.coaBind.hints.mandatory}" columns="#{bindings.coaBind.hints.displayWidth}"
+                        maximumLength="#{bindings.coaBind.hints.precision}"
+                        shortDesc="#{bindings.coaBind.hints.tooltip}" id="it1">
+            <f:validator binding="#{bindings.coaBind.validator}"/>
+          </af:inputText>
+          <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName1.suggestedItems}"/>
+        </af:inputListOfValues>
+        <af:button actionListener="#{bindings.ExecuteWithParams.execute}" text="Show Image"
+                   disabled="#{!bindings.ExecuteWithParams.enabled}" id="b1"/>
+      </af:panelFormLayout>
+    </af:panelGroupLayout>
+    <af:panelBox text="Image Table" id="pb2">
+      <f:facet name="toolbar"/>
+      <af:panelCollection id="pc1" inlineStyle="width:587px; height:207px;">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar"/>
+        <af:table value="#{bindings.ImagesTableVO1.collectionModel}" var="row"
+                  rows="#{bindings.ImagesTableVO1.rangeSize}"
+                  emptyText="#{bindings.ImagesTableVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" selectedRowKeys="#{bindings.ImagesTableVO1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.ImagesTableVO1.collectionModel.makeCurrent}" rowSelection="single"
+                  fetchSize="#{bindings.ImagesTableVO1.rangeSize}"
+                  filterModel="#{bindings.ImagesTableVO1Query.queryDescriptor}" filterVisible="true"
+                  queryListener="#{bindings.ImagesTableVO1Query.processQuery}" varStatus="vs" id="t1"
+                  partialTriggers=":::b1">
+          <af:column sortProperty="#{bindings.ImagesTableVO1.hints.ImageDescription.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.ImagesTableVO1.hints.ImageDescription.label}" id="c1"
+                     width="200">
+            <af:inputText value="#{row.bindings.ImageDescription.inputValue}"
+                          label="#{bindings.ImagesTableVO1.hints.ImageDescription.label}"
+                          required="#{bindings.ImagesTableVO1.hints.ImageDescription.mandatory}"
+                          columns="#{bindings.ImagesTableVO1.hints.ImageDescription.displayWidth}"
+                          maximumLength="#{bindings.ImagesTableVO1.hints.ImageDescription.precision}"
+                          shortDesc="#{bindings.ImagesTableVO1.hints.ImageDescription.tooltip}" id="it2">
+              <f:validator binding="#{row.bindings.ImageDescription.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.ImagesTableVO1.hints.CoaName.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.ImagesTableVO1.hints.CoaName.label}" id="c2" width="200">
+            <af:inputListOfValues id="coaNameId"
+                                  popupTitle="Search and Select: #{bindings.ImagesTableVO1.hints.CoaName.label}"
+                                  value="#{row.bindings.CoaName.inputValue}"
+                                  model="#{row.bindings.CoaName.listOfValuesModel}"
+                                  required="#{bindings.ImagesTableVO1.hints.CoaName.mandatory}"
+                                  columns="#{bindings.ImagesTableVO1.hints.CoaName.displayWidth}"
+                                  shortDesc="#{bindings.ImagesTableVO1.hints.CoaName.tooltip}">
+              <f:validator binding="#{row.bindings.CoaName.validator}"/>
+            </af:inputListOfValues>
+          </af:column>
+          <af:column id="c3" headerText="Show Image" align="center" width="150">
+                                    <af:link text="Show Me" id="l1">
+                                        <af:showPopupBehavior popupId="pp11"/>
+                                    </af:link>
+                                    <af:popup childCreation="deferred" autoCancel="disabled" id="pp11">
+                                        <af:image source="/imageservlet?id=#{bindings.ImageId.inputValue}"
+                                                  shortDesc="#{bindings.ImageDescription.hints.tooltip}" id="i1"
+                                                  inlineStyle="width:500px:"/>
+                                    </af:popup>
+                                </af:column>
+        </af:table>
+        <f:facet name="statusbar"/>
+      </af:panelCollection>
+    </af:panelBox>
+  </af:panelBox>
+</ui:composition>

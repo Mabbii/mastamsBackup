@@ -1,0 +1,19 @@
+//Groovy Scripts for model.TNSALLTransactions
+
+package model
+
+import oracle.jbo.script.annotation.VariableExpression;
+
+@VariableExpression(path="BindDateFrom")
+def BindDateFrom_VariableScript_Variable()
+{
+adf.currentDate
+}
+
+
+@VariableExpression(path="BindDateTo")
+def BindDateTo_VariableScript_Variable()
+{
+adf.currentDate
+}
+

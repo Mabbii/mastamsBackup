@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE OperationDefinitions SYSTEM "jbo_03_01.dtd">
+<OperationDefinitions xmlns="http://xmlns.oracle.com/bc4j" Name="GLE_TB2Operations">
+  <ExpressionCodeSource
+    Name="GLE_TB2"
+    Type="Static"
+    URI="model/GLE_TB2.bcs"/>
+</OperationDefinitions>

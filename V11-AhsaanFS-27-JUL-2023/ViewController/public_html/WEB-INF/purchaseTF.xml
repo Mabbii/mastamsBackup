@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="purchaseTF">
+    <default-activity>purchaserateview</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__1">
+      <managed-bean-name>backing_purchaserateview</managed-bean-name>
+      <managed-bean-class>view.backing.Purchaserateview</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1SupplyMy_purchaserateview.jsff-->
+    </managed-bean>
+    <view id="purchaserateview">
+      <page>/SupplyMy_purchaserateview.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

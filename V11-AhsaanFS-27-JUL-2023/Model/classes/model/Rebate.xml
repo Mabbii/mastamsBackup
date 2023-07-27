@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Rebate"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="REBATE"
+  AliasName="Rebate"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="RebId"
+    ColumnName="REB_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="REBATE"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="RomcId"
+    IsNotNull="true"
+    ColumnName="ROMC_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="REBATE"/>
+  <Attribute
+    Name="RproductId"
+    IsNotNull="true"
+    ColumnName="RPRODUCT_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="REBATE"/>
+  <AccessorAttribute
+    Name="RebateRate"
+    Association="model.Rebate_RebateRate_FK_Assoc"
+    AssociationEnd="model.Rebate_RebateRate_FK_Assoc.RebateRate"
+    AssociationOtherEnd="model.Rebate_RebateRate_FK_Assoc.Rebate"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="RebatePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="REBATE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Rebate.RebId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OmcRebateFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="OMC_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="OMC_REBATE_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Rebate.RomcId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ProductReabateFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRODUCT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PRODUCT_REABATE_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Rebate.RproductId"/>
+    </AttrArray>
+  </Key>
+</Entity>

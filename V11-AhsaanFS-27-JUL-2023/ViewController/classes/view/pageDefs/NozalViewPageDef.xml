@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="NozalViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="NozalView1" RangeSize="25" DataControl="VOAPPDataControl" id="NozalView1Iterator"/>
+    <searchRegion Binds="NozalView1Iterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="NozalView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="NozalView1Iterator" id="NozalId">
+      <AttrNames>
+        <Item Value="NozalId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NozalView1Iterator" id="NozalName">
+      <AttrNames>
+        <Item Value="NozalName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NozalView1Iterator" id="ProductIdFk">
+      <AttrNames>
+        <Item Value="ProductIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NozalView1Iterator" id="NozalInitValue">
+      <AttrNames>
+        <Item Value="NozalInitValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NozalView1Iterator" id="NozalActiveFlag">
+      <AttrNames>
+        <Item Value="NozalActiveFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="NozalView1Iterator" StaticList="false" Uses="LOV_ProductShortname" id="ProductShortname"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="NozalView1Iterator" id="ProductId">
+      <AttrNames>
+        <Item Value="ProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="NozalView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="NozalView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="NozalView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="NozalView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="NozalView1Iterator" id="NozalView1">
+      <nodeDefinition DefName="model.NozalView" Name="NozalView10">
+        <AttrNames>
+          <Item Value="NozalId"/>
+          <Item Value="NozalName"/>
+          <Item Value="ProductIdFk"/>
+          <Item Value="NozalInitValue"/>
+          <Item Value="NozalActiveFlag"/>
+          <Item Value="ProductShortname"/>
+          <Item Value="ProductId"/>
+          <Item Value="PipeLineGroupCaption"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="NozalView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <list IterBinding="NozalView1Iterator" StaticList="false" Uses="LOV_PipeLineGroupCaption"
+          id="PipeLineGroupCaption" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="NozalView1Iterator" id="PipeLineGroupId">
+      <AttrNames>
+        <Item Value="PipeLineGroupId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NozalView1Iterator" id="PipeLineGroupIdFk">
+      <AttrNames>
+        <Item Value="PipeLineGroupIdFk"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

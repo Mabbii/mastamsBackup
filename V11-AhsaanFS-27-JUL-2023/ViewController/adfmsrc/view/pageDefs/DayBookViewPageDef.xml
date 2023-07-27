@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="DayBookViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="PUchasefromGsupplierTF1" taskFlowId="/WEB-INF/PUchasefromGsupplierTF.xml#PUchasefromGsupplierTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PurchaseFromSupplierBackDTF1"
+              taskFlowId="/WEB-INF/PurchaseFromSupplierBackDTF.xml#PurchaseFromSupplierBackDTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PurchaseSupplierFuel_TF1" taskFlowId="/WEB-INF/PurchaseSupplierFuel_TF.xml#PurchaseSupplierFuel_TF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PurchaseSupplierLubeTF1" taskFlowId="/WEB-INF/PurchaseSupplierLubeTF.xml#PurchaseSupplierLubeTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="GournalVoucherTF1" taskFlowId="/WEB-INF/GournalVoucherTF.xml#GournalVoucherTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="BackJvouchertf1" taskFlowId="/WEB-INF/BackJvouchertf.xml#BackJvouchertf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="saleessssTF1" taskFlowId="/WEB-INF/saleessssTF.xml#saleessssTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="stocklossBACKDTF1" taskFlowId="/WEB-INF/stocklossBACKDTF.xml#stocklossBACKDTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="stockGainTF1" taskFlowId="/WEB-INF/stockGainTF.xml#stockGainTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="StockTransferTF1" taskFlowId="/WEB-INF/StockTransferTF.xml#StockTransferTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="DefaultDayBookTF1" taskFlowId="/WEB-INF/DefaultDayBookTF.xml#DefaultDayBookTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ExpensiveTF1" taskFlowId="/WEB-INF/ExpensiveTF.xml#ExpensiveTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="PaymentingTF1" taskFlowId="/WEB-INF/PaymentingTF.xml#PaymentingTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="RecieptingTf1" taskFlowId="/WEB-INF/RecieptingTf.xml#RecieptingTf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Sale_Lube_BulkTF1" taskFlowId="/WEB-INF/Sale_Lube_BulkTF.xml#Sale_Lube_BulkTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <methodAction id="CallAMTaskFlowActivity" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="CallAMTaskFlowActivity" IsViewObjectMethod="false" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.CallAMTaskFlowActivity.dataControl.dataProvider">
+      <NamedData NDName="Task" NDType="int"/>
+      <NamedData NDName="userName" NDType="java.lang.String"/>
+      <NamedData NDName="sessionID" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

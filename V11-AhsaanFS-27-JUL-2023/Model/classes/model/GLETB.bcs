@@ -1,0 +1,12 @@
+//Groovy Scripts for model.GLETB
+
+package model
+
+import oracle.jbo.script.annotation.VariableExpression;
+
+@VariableExpression(path="Bind_GLE_DATE")
+def Bind_GLE_DATE_VariableScript_Variable()
+{
+adf.currentDateTime
+}
+

@@ -1,0 +1,12 @@
+//Groovy Scripts for model.Data_Loader_Retail_view
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="DlrDate")
+def DlrDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="StockLedgerviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <iterator Binds="TankStockLedgerView1" RangeSize="1500" DataControl="VOAPPDataControl"
+              id="TankStockLedgerView1Iterator"/>
+    <searchRegion Binds="TankStockLedgerView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TankStockLedgerView1Query"/>
+    <variableIterator id="variables">
+      <variableUsage DataControl="VOAPPDataControl" Binds="TankStockLedgerView1.variablesMap.BINDTANKINFONAME"
+                     Name="ExecuteWithParams_BINDTANKINFONAME" IsQueriable="false"/>
+      <variableUsage DataControl="VOAPPDataControl" Binds="TankStockLedgerView1.variablesMap.BindStartDate"
+                     Name="ExecuteWithParams_BindStartDate" IsQueriable="false"/>
+      <variableUsage DataControl="VOAPPDataControl" Binds="TankStockLedgerView1.variablesMap.BindEndDate"
+                     Name="ExecuteWithParams_BindEndDate" IsQueriable="false"/>
+    </variableIterator>
+    <iterator id="TankInfoView1Iterator" Binds="TankInfoView1" DataControl="VOAPPDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="TankStockLedgerView1Iterator" id="TankStockLedgerView1">
+      <nodeDefinition DefName="model.TankStockLedgerView" Name="TankStockLedgerView10">
+        <AttrNames>
+          <Item Value="TslId"/>
+          <Item Value="TslDate"/>
+          <Item Value="TslDetail"/>
+          <Item Value="TslDebit"/>
+          <Item Value="TslCredit"/>
+          <Item Value="TslBalance"/>
+          <Item Value="TankInfoIdFk"/>
+          <Item Value="OilTIdFk"/>
+          <Item Value="TslSubDr"/>
+          <Item Value="TslSubCr"/>
+          <Item Value="TslSubBal"/>
+          <Item Value="TslSubDetails"/>
+          <Item Value="TslCrSourcs"/>
+          <Item Value="TslDrDest"/>
+          <Item Value="TslEvent"/>
+          <Item Value="TnsIdFk"/>
+          <Item Value="DcIdFk"/>
+          <Item Value="ProductIdFk"/>
+          <Item Value="TStckTnsIdFk"/>
+          <Item Value="TankInfoName"/>
+          <Item Value="TankInfoId"/>
+          <Item Value="NozalName"/>
+          <Item Value="OiltRegistration"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="TankStockLedgerView1Iterator" id="TankInfoId">
+      <AttrNames>
+        <Item Value="TankInfoId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="TankStockLedgerView1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BINDTANKINFONAME" NDType="java.lang.String"
+                 NDValue="#{bindings.BINDTANKINFONAME.inputValue}"/>
+      <NamedData NDName="BindStartDate" NDType="java.sql.Timestamp"
+                 NDValue="${bindings.ExecuteWithParams_BindStartDate}"/>
+      <NamedData NDName="BindEndDate" NDType="java.sql.Timestamp" NDValue="${bindings.ExecuteWithParams_BindEndDate}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="BINDTANKINFONAME">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BINDTANKINFONAME"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindStartDate">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindEndDate">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues Uses="LOV_TankInfoName" StaticList="false" IterBinding="TankInfoView1Iterator" id="TankInfoName"/>
+  </bindings>
+</pageDefinition>

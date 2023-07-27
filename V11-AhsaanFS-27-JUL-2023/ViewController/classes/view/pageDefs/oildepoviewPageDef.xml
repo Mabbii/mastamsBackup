@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="oildepoviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OilDepoView1" RangeSize="25" DataControl="VOAPPDataControl" id="OilDepoView1Iterator"/>
+    <searchRegion Binds="OilDepoView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="OilDepoView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="OilDepoView1Iterator" id="OildId">
+      <AttrNames>
+        <Item Value="OildId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OilDepoView1Iterator" id="OildName">
+      <AttrNames>
+        <Item Value="OildName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OilDepoView1Iterator" id="OildShortname">
+      <AttrNames>
+        <Item Value="OildShortname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OilDepoView1Iterator" id="OildCode">
+      <AttrNames>
+        <Item Value="OildCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OilDepoView1Iterator" id="OildCity">
+      <AttrNames>
+        <Item Value="OildCity"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="OilDepoView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="OilDepoView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="OilDepoView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="OilDepoView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="OilDepoView1Iterator" id="OilDepoView1">
+      <nodeDefinition DefName="model.OilDepoView" Name="OilDepoView10">
+        <AttrNames>
+          <Item Value="OildId"/>
+          <Item Value="OildName"/>
+          <Item Value="OildShortname"/>
+          <Item Value="OildCode"/>
+          <Item Value="OildCity"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="OilDepoView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <list IterBinding="OilDepoView1Iterator" StaticList="false" Uses="LOV_OildStgFlag" id="OildStgFlag"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="210" id="ps1" partialTriggers="ps1">
+        <f:facet name="first">
+            <af:panelBox id="pb1">
+                <f:facet name="toolbar"/>
+                <af:panelFormLayout id="pfl1" partialTriggers="pc1:t1">
+                    <af:outputText value="NEW EXPENSE" id="ot7"
+                                   inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                    <af:inputText value="#{bindings.ExpeId.inputValue}" label="#{bindings.ExpeId.hints.label}"
+                                  required="#{bindings.ExpeId.hints.mandatory}"
+                                  columns="#{bindings.ExpeId.hints.displayWidth}"
+                                  maximumLength="#{bindings.ExpeId.hints.precision}"
+                                  shortDesc="#{bindings.ExpeId.hints.tooltip}" id="it1" rendered="false">
+                        <f:validator binding="#{bindings.ExpeId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.ExpeId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ExpeName.inputValue}" label="#{bindings.ExpeName.hints.label}"
+                                  required="#{bindings.ExpeName.hints.mandatory}"
+                                  columns="#{bindings.ExpeName.hints.displayWidth}"
+                                  maximumLength="#{bindings.ExpeName.hints.precision}"
+                                  shortDesc="#{bindings.ExpeName.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.ExpeName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ExpeShortname.inputValue}"
+                                  label="#{bindings.ExpeShortname.hints.label}"
+                                  required="#{bindings.ExpeShortname.hints.mandatory}"
+                                  columns="#{bindings.ExpeShortname.hints.displayWidth}"
+                                  maximumLength="#{bindings.ExpeShortname.hints.precision}"
+                                  shortDesc="#{bindings.ExpeShortname.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.ExpeShortname.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ExpeExpcatId.inputValue}"
+                                  label="#{bindings.ExpeExpcatId.hints.label}"
+                                  required="#{bindings.ExpeExpcatId.hints.mandatory}"
+                                  columns="#{bindings.ExpeExpcatId.hints.displayWidth}"
+                                  maximumLength="#{bindings.ExpeExpcatId.hints.precision}"
+                                  shortDesc="#{bindings.ExpeExpcatId.hints.tooltip}" id="it4" rendered="false">
+                        <f:validator binding="#{bindings.ExpeExpcatId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.ExpeExpcatId.format}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.ExpeDate.inputValue}" label="#{bindings.ExpeDate.hints.label}"
+                                  required="#{bindings.ExpeDate.hints.mandatory}"
+                                  columns="#{bindings.ExpeDate.hints.displayWidth}"
+                                  shortDesc="#{bindings.ExpeDate.hints.tooltip}" id="id1" rendered="false">
+                        <f:validator binding="#{bindings.ExpeDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.ExpeDate.format}"/>
+                    </af:inputDate>
+                    <af:inputListOfValues id="expcatNameId"
+                                          popupTitle="Search and Select: #{bindings.ExpcatName.hints.label}"
+                                          value="#{bindings.ExpcatName.inputValue}"
+                                          label="#{bindings.ExpcatName.hints.label}"
+                                          model="#{bindings.ExpcatName.listOfValuesModel}"
+                                          required="#{bindings.ExpcatName.hints.mandatory}"
+                                          columns="#{bindings.ExpcatName.hints.displayWidth}"
+                                          shortDesc="#{bindings.ExpcatName.hints.tooltip}">
+                        <f:validator binding="#{bindings.ExpcatName.validator}"/>
+                        <af:autoSuggestBehavior suggestedItems="#{bindings.ExpcatName.suggestedItems}"/>
+                    </af:inputListOfValues>
+                    <af:inputText value="#{bindings.ExpcatId.inputValue}" label="#{bindings.ExpcatId.hints.label}"
+                                  required="#{bindings.ExpcatId.hints.mandatory}"
+                                  columns="#{bindings.ExpcatId.hints.displayWidth}"
+                                  maximumLength="#{bindings.ExpcatId.hints.precision}"
+                                  shortDesc="#{bindings.ExpcatId.hints.tooltip}" id="it5" rendered="false">
+                        <f:validator binding="#{bindings.ExpcatId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.ExpcatId.format}"/>
+                    </af:inputText>
+                    <f:facet name="footer">
+                        <af:panelGroupLayout layout="horizontal" id="pgl1">
+                            <af:panelGroupLayout layout="horizontal" id="pgl3">
+                                <af:button actionListener="#{bindings.First.execute}"
+                                           disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"
+                                           icon="#{resource['images:first_hor_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Previous.execute}"
+                                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"
+                                           icon="#{resource['images:previoustraversalarrow_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Next.execute}"
+                                           disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
+                                           icon="#{resource['images:nexttraversalarrow_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Last.execute}"
+                                           disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"
+                                           icon="#{resource['images:last_hor_ena.png']}"/>
+                                <af:outputText value="---------" id="ot50"/>
+                            </af:panelGroupLayout>
+                            <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                                       icon="#{resource['images:commit.png']}" disabled="#{!bindings.Commit.enabled}">
+                                       
+                                </af:button>
+                            <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                       disabled="#{!bindings.CreateInsert.enabled}" id="b6"
+                                       icon="#{resource['images:add.png']}"/>
+                            <af:outputText value="--------------" id="ot60"/>
+                            <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                       disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7"
+                                       icon="#{resource['images:rollback.png']}">
+                                <af:resetActionListener/>
+                            </af:button>
+                            
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:panelFormLayout>
+            </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar">
+                    <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot8" inlineStyle="color:Maroon; font-size:large;"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.ExpenseView1.collectionModel}" var="row"
+                          rows="#{bindings.ExpenseView1.rangeSize}"
+                          emptyText="#{bindings.ExpenseView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" selectedRowKeys="#{bindings.ExpenseView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.ExpenseView1.collectionModel.makeCurrent}" rowSelection="single"
+                          fetchSize="#{bindings.ExpenseView1.rangeSize}"
+                          filterModel="#{bindings.ExpenseView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.ExpenseView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 ::b5 ::b7 :::b1 :::b2 :::b3 :::b4 :::b6 :::b5 :::b7" scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.ExpenseView1.hints.ExpeDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ExpenseView1.hints.ExpeDate.label}" id="c1"
+                               width="150" align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;" rendered="false">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.ExpenseView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ExpeDate.value}"
+                                          id="id2">
+                                <af:convertDateTime pattern="#{bindings.ExpenseView1.hints.ExpeDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.ExpeDate}"
+                                       shortDesc="#{bindings.ExpenseView1.hints.ExpeDate.tooltip}" id="ot1">
+                            <af:convertDateTime pattern="dd-MMM-yyyy hh:mm:ss a"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ExpenseView1.hints.ExpeName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ExpenseView1.hints.ExpeName.label}" id="c3"
+                               width="200" align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.ExpeName}"
+                                       shortDesc="#{bindings.ExpenseView1.hints.ExpeName.tooltip}" id="ot3"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ExpenseView1.hints.ExpeShortname.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ExpenseView1.hints.ExpeShortname.label}" id="c4"
+                               width="200" align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.ExpeShortname}"
+                                       shortDesc="#{bindings.ExpenseView1.hints.ExpeShortname.tooltip}" id="ot4"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ExpenseView1.hints.ExpcatName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ExpenseView1.hints.ExpcatName.label}" id="c5"
+                               width="200"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               align="center">
+                        <af:outputText value="#{row.ExpcatName}"
+                                       shortDesc="#{bindings.ExpenseView1.hints.ExpcatName.tooltip}" id="ot5"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ExpenseView1.hints.ExpeId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ExpenseView1.hints.ExpeId.label}" id="c2"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               align="center" rendered="false">
+                        <af:outputText value="#{row.ExpeId}" shortDesc="#{bindings.ExpenseView1.hints.ExpeId.tooltip}"
+                                       id="ot2">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ExpenseView1.hints.ExpeId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ExpenseView1.hints.ExpcatId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ExpenseView1.hints.ExpcatId.label}" id="c6"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;" rendered="false">
+                        <af:outputText value="#{row.ExpcatId}"
+                                       shortDesc="#{bindings.ExpenseView1.hints.ExpcatId.tooltip}" id="ot6">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ExpenseView1.hints.ExpcatId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

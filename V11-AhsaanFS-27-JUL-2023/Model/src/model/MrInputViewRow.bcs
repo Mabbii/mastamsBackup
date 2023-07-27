@@ -1,0 +1,12 @@
+//Groovy Scripts for model.MrInputView
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="MriDate")
+def MriDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

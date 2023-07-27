@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PurchaseRateLog"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="PURCHASE_RATE_LOG"
+  AliasName="PurchaseRateLog"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="PurchaseRateLogId"
+    ColumnName="PURCHASE_RATE_LOG_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="PURCHASE_RATE_LOG"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="PurchaseRateLogR"
+    IsNotNull="true"
+    Precision="27"
+    Scale="7"
+    ColumnName="PURCHASE_RATE_LOG_R"
+    SQLType="NUMERIC"
+    Type="java.lang.String"
+    ColumnType="NUMBER"
+    TableName="PURCHASE_RATE_LOG"/>
+  <Attribute
+    Name="PurchaseRateLogDate"
+    IsNotNull="true"
+    ColumnName="PURCHASE_RATE_LOG_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="PURCHASE_RATE_LOG"/>
+  <Attribute
+    Name="PurchaseRateLogStartdate"
+    IsNotNull="true"
+    ColumnName="PURCHASE_RATE_LOG_STARTDATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="PURCHASE_RATE_LOG"/>
+  <Attribute
+    Name="PurchaseRateLogEnddate"
+    IsNotNull="true"
+    ColumnName="PURCHASE_RATE_LOG_ENDDATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="PURCHASE_RATE_LOG"/>
+  <Attribute
+    Name="PpartyIdLog"
+    IsNotNull="true"
+    ColumnName="PPARTY_ID_LOG"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="PURCHASE_RATE_LOG"/>
+  <Attribute
+    Name="PproductIdLog"
+    IsNotNull="true"
+    ColumnName="PPRODUCT_ID_LOG"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="PURCHASE_RATE_LOG"/>
+  <Attribute
+    Name="PurchaseRateLogDetails"
+    Precision="50"
+    ColumnName="PURCHASE_RATE_LOG_DETAILS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PURCHASE_RATE_LOG">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PurchaseRateIdFk"
+    IsNotNull="true"
+    ColumnName="PURCHASE_RATE_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="PURCHASE_RATE_LOG"/>
+  <AccessorAttribute
+    Name="Party"
+    Association="model.PURCHASERATELOG_PARTY_FK_Assoc"
+    AssociationEnd="model.PURCHASERATELOG_PARTY_FK_Assoc.Party"
+    AssociationOtherEnd="model.PURCHASERATELOG_PARTY_FK_Assoc.PurchaseRateLog"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Product"
+    Association="model.PURCHASERATELOG_PRODUCT_FK_Assoc"
+    AssociationEnd="model.PURCHASERATELOG_PRODUCT_FK_Assoc.Product"
+    AssociationOtherEnd="model.PURCHASERATELOG_PRODUCT_FK_Assoc.PurchaseRateLog"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="PurchaseRate"
+    Association="model.PURCHASERATE_PRLOG_FK_Assoc"
+    AssociationEnd="model.PURCHASERATE_PRLOG_FK_Assoc.PurchaseRate"
+    AssociationOtherEnd="model.PURCHASERATE_PRLOG_FK_Assoc.PurchaseRateLog"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Transaction"
+    Association="model.PurchaseRateLog_TNS_FK_Assoc"
+    AssociationEnd="model.PurchaseRateLog_TNS_FK_Assoc.Transaction"
+    AssociationOtherEnd="model.PurchaseRateLog_TNS_FK_Assoc.PurchaseRateLog"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="PurchaseRateLogPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PURCHASE_RATE_LOG_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.PurchaseRateLog.PurchaseRateLogId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="PurchaseratePrlogFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PURCHASE_RATE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PURCHASERATE_PRLOG_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.PurchaseRateLog.PurchaseRateIdFk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="PurchaseratelogPartyFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PARTY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PURCHASERATELOG_PARTY_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.PurchaseRateLog.PpartyIdLog"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="PurchaseratelogProductFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRODUCT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PURCHASERATELOG_PRODUCT_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.PurchaseRateLog.PproductIdLog"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_PurchaseRateLog">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PARTY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_PURCHASE_RATE_LOG"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.PurchaseRateLog.PpartyIdLog"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_PurchaseRateLog1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRODUCT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_PURCHASE_RATE_LOG1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.PurchaseRateLog.PproductIdLog"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_PurchaseRateLog2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PURCHASE_RATE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_PURCHASE_RATE_LOG2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.PurchaseRateLog.PurchaseRateIdFk"/>
+    </AttrArray>
+  </Key>
+</Entity>

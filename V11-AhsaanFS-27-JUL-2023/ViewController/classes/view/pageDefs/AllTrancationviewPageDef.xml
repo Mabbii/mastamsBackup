@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="AllTrancationviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <iterator Binds="TNSALLTransactions1" DataControl="VOAPPDataControl"
+              id="TNSALLTransactions1Iterator" RangeSize="50"/>
+    <variableIterator id="variables">
+      <variableUsage DataControl="VOAPPDataControl" Binds="TNSALLTransactions1.variablesMap.BindDateFrom"
+                     Name="ExecuteWithParams_BindDateFrom" IsQueriable="false"/>
+      <variableUsage DataControl="VOAPPDataControl" Binds="TNSALLTransactions1.variablesMap.BindDateTo"
+                     Name="ExecuteWithParams_BindDateTo" IsQueriable="false"/>
+    </variableIterator>
+    <searchRegion Binds="TNSALLTransactions1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TNSALLTransactions1Query"/>
+  </executables>
+  <bindings>
+    <action IterBinding="TNSALLTransactions1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindDateFrom" NDType="oracle.jbo.domain.Date"
+                 NDValue="${bindings.ExecuteWithParams_BindDateFrom}"/>
+      <NamedData NDName="BindDateTo" NDType="oracle.jbo.domain.Date"
+                 NDValue="${bindings.ExecuteWithParams_BindDateTo}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="BindDateFrom">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindDateFrom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindDateTo">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindDateTo"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="TNSALLTransactions1Iterator" id="TNSALLTransactions1">
+      <nodeDefinition DefName="model.TNSALLTransactions" Name="TNSALLTransactions10">
+        <AttrNames>
+          <Item Value="TnsDate"/>
+          <Item Value="TnsTypeName"/>
+          <Item Value="TnsCoaDactNumber"/>
+          <Item Value="CoaName"/>
+          <Item Value="TnsCoaCactNumber"/>
+          <Item Value="CoaName1"/>
+          <Item Value="TnsAmount"/>
+          <Item Value="TnsQty"/>
+          <Item Value="TnsRate"/>
+          <Item Value="TnsNewrate"/>
+          <Item Value="OiltRegistration"/>
+          <Item Value="OildShortname"/>
+          <Item Value="OildShortname1"/>
+          <Item Value="BankName1"/>
+          <Item Value="BankTnsTypeName"/>
+          <Item Value="TnsBrCode"/>
+          <Item Value="TnsId"/>
+          <Item Value="TnsInfo"/>
+          <Item Value="TnsOildLoadDate"/>
+          <Item Value="TnsSlipDate"/>
+          <Item Value="TnsSlipNo"/>
+          <Item Value="TnsAdjDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

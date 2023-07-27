@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="DateSelectedViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DateSelectedView1" RangeSize="25" DataControl="VOAPPDataControl" id="DateSelectedView1Iterator"/>
+    <searchRegion Binds="DateSelectedView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DateSelectedView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="DateSelectedView1Iterator" id="DsId">
+      <AttrNames>
+        <Item Value="DsId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DateSelectedView1Iterator" id="DsUserName">
+      <AttrNames>
+        <Item Value="DsUserName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DateSelectedView1Iterator" id="DsDateSelected">
+      <AttrNames>
+        <Item Value="DsDateSelected"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="DateSelectedView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="DateSelectedView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="DateSelectedView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="DateSelectedView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="DateSelectedView1Iterator" id="DateSelectedView1">
+      <nodeDefinition DefName="model.DateSelectedView" Name="DateSelectedView10">
+        <AttrNames>
+          <Item Value="DsId"/>
+          <Item Value="DsUserName"/>
+          <Item Value="DsDateSelected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BillVehicleDetailBillFk1Link"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  EntityAssociation="model.BillVehicleDetailBillFk1Assoc">
+  <ViewLinkDefEnd
+    Name="BillVehicleParamView"
+    Cardinality="1"
+    Source="true"
+    Owner="model.BillVehicleParamView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="BillVehicleParamView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BillVehicleParamView.BillVehParmId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="BillVehicleDetailView"
+    Cardinality="-1"
+    Owner="model.BillVehicleDetailView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="BillVehicleDetailView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BillVehicleDetailView.BillVehParamIdFk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

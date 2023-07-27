@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow height="100%" id="gr1">
+            <af:gridCell width="70%" halign="stretch" valign="stretch" id="gc1">
+                <!-- Content -->
+                <af:panelGroupLayout id="pgl2">
+                    <af:panelFormLayout id="pfl1" inlineStyle="width:518px; height:222px;">
+                        <af:outputText value="Change Password" id="ot1"
+                                       inlineStyle="font-size:xx-large; font-style:italic; font-weight:bold;"/>
+                        <af:inputText value="#{bindings.username.inputValue}" label="#{bindings.username.hints.label}"
+                                      required="#{bindings.username.hints.mandatory}"
+                                      columns="#{bindings.username.hints.displayWidth}"
+                                      maximumLength="#{bindings.username.hints.precision}"
+                                      shortDesc="#{bindings.username.hints.tooltip}" id="it1">
+                            <f:validator binding="#{bindings.username.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.oldPassword.inputValue}"
+                                      label="#{bindings.oldPassword.hints.label}"
+                                      required="#{bindings.oldPassword.hints.mandatory}"
+                                      columns="#{bindings.oldPassword.hints.displayWidth}"
+                                      maximumLength="#{bindings.oldPassword.hints.precision}"
+                                      shortDesc="#{bindings.oldPassword.hints.tooltip}" id="it2" secret="true">
+                            <f:validator binding="#{bindings.oldPassword.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.newPassword.inputValue}"
+                                      label="#{bindings.newPassword.hints.label}"
+                                      required="#{bindings.newPassword.hints.mandatory}"
+                                      columns="#{bindings.newPassword.hints.displayWidth}"
+                                      maximumLength="#{bindings.newPassword.hints.precision}"
+                                      shortDesc="#{bindings.newPassword.hints.tooltip}" id="it3" secret="true">
+                            <f:validator binding="#{bindings.newPassword.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.confirmNewPassword.inputValue}"
+                                      label="#{bindings.confirmNewPassword.hints.label}"
+                                      required="#{bindings.confirmNewPassword.hints.mandatory}"
+                                      columns="#{bindings.confirmNewPassword.hints.displayWidth}"
+                                      maximumLength="#{bindings.confirmNewPassword.hints.precision}"
+                                      shortDesc="#{bindings.confirmNewPassword.hints.tooltip}" id="it4" secret="true">
+                            <f:validator binding="#{bindings.confirmNewPassword.validator}"/>
+                        </af:inputText>
+                        <af:button actionListener="#{bindings.changePassword.execute}" text="changePassword"
+                                   disabled="#{!bindings.changePassword.enabled}" id="b1"/>
+                        
+                        
+                    </af:panelFormLayout>
+                </af:panelGroupLayout>
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                    <af:dialog id="d1" inlineStyle="height:200px; max-width:500px; margin:50px 0px 0px;">
+                        <af:button text="button 2" id="b4"/>
+                        <f:facet name="buttonBar"/>
+                    </af:dialog>
+                </af:popup>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

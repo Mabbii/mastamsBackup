@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="zr_ptb_OIL_DLOAD_acc_in_jl_data_assoc"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="OilDepo1"
+    Cardinality="1"
+    Source="true"
+    Owner="model.OilDepo"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="OilDepo1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.OilDepo.OildId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="ZRptJlData1"
+    Cardinality="-1"
+    Owner="model.ZRptJlData">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="ZRptJlData1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptJlData.GleOildLoadId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

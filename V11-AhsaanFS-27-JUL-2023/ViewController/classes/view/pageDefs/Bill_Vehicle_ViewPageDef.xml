@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="Bill_Vehicle_ViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="BillVehicleParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="BillVehicleParamView1Iterator"/>
+    <iterator Binds="BillVehicleDetailView2" RangeSize="1500" DataControl="VOAPPDataControl"
+              id="BillVehicleDetailView2Iterator"/>
+    <searchRegion Binds="BillVehicleDetailView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="BillVehicleDetailView2Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="BillVehicleParamView1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <listOfValues IterBinding="BillVehicleParamView1Iterator" StaticList="false" Uses="LOV_VehicleRegNo"
+                  id="VehicleRegNo"/>
+    <attributeValues IterBinding="BillVehicleParamView1Iterator" id="BillVehParmId">
+      <AttrNames>
+        <Item Value="BillVehParmId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillVehicleParamView1Iterator" id="BillVehPrmStartDate">
+      <AttrNames>
+        <Item Value="BillVehPrmStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillVehicleParamView1Iterator" id="BillVehPrmEndDate">
+      <AttrNames>
+        <Item Value="BillVehPrmEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillVehicleParamView1Iterator" id="CoaIdFk">
+      <AttrNames>
+        <Item Value="CoaIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillVehicleParamView1Iterator" id="VehicleIdFk">
+      <AttrNames>
+        <Item Value="VehicleIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillVehicleParamView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillVehicleParamView1Iterator" id="VehicleId">
+      <AttrNames>
+        <Item Value="VehicleId"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="BillVehicleDetailView2Iterator" id="BillVehicleDetailView2">
+      <nodeDefinition DefName="model.BillVehicleDetailView" Name="BillVehicleDetailView20">
+        <AttrNames>
+          <Item Value="BillVehDdId"/>
+          <Item Value="BillVehDdDate"/>
+          <Item Value="BillVehDdSlipNo"/>
+          <Item Value="BillVehDdDetails"/>
+          <Item Value="BillVehDdQty"/>
+          <Item Value="BillVehDdRate"/>
+          <Item Value="BillVehDdAmount"/>
+          <Item Value="BillVehDdBalance"/>
+          <Item Value="BillVehParamIdFk"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

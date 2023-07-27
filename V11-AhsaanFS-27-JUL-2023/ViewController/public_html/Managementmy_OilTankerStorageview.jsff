@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="131" id="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1" maxColumns="2" rows="2">
+                <af:outputText value="Oil Tanker (S)" id="ot7"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:inputText value="#{bindings.OiltId.inputValue}" label="ID"
+                              required="#{bindings.OiltId.hints.mandatory}"
+                              columns="#{bindings.OiltId.hints.displayWidth}"
+                              maximumLength="#{bindings.OiltId.hints.precision}"
+                              shortDesc="#{bindings.OiltId.hints.tooltip}" id="it2" readOnly="true">
+                    <f:validator binding="#{bindings.OiltId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.OiltId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.OiltRegistration.inputValue}"
+                              label="Oil Tanker Registration"
+                              required="#{bindings.OiltRegistration.hints.mandatory}"
+                              columns="#{bindings.OiltRegistration.hints.displayWidth}"
+                              maximumLength="#{bindings.OiltRegistration.hints.precision}"
+                              shortDesc="#{bindings.OiltRegistration.hints.tooltip}" id="it3">
+                    <f:validator binding="#{bindings.OiltRegistration.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.OiltCapacity.inputValue}" label="Oil Tanker Capacity"
+                              required="#{bindings.OiltCapacity.hints.mandatory}"
+                              columns="#{bindings.OiltCapacity.hints.displayWidth}"
+                              maximumLength="#{bindings.OiltCapacity.hints.precision}"
+                              shortDesc="#{bindings.OiltCapacity.hints.tooltip}" id="it1">
+                    <f:validator binding="#{bindings.OiltCapacity.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.OiltCapacity.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.OiltStorageFlag.inputValue}"
+                              label="#{bindings.OiltStorageFlag.hints.label}"
+                              required="#{bindings.OiltStorageFlag.hints.mandatory}"
+                              columns="#{bindings.OiltStorageFlag.hints.displayWidth}"
+                              maximumLength="#{bindings.OiltStorageFlag.hints.precision}"
+                              shortDesc="#{bindings.OiltStorageFlag.hints.tooltip}" id="it4" rendered="false">
+                    <f:validator binding="#{bindings.OiltStorageFlag.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.OiltStorageFlag.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.OiltTankFlag.inputValue}" label="#{bindings.OiltTankFlag.hints.label}"
+                              required="#{bindings.OiltTankFlag.hints.mandatory}"
+                              columns="#{bindings.OiltTankFlag.hints.displayWidth}"
+                              maximumLength="#{bindings.OiltTankFlag.hints.precision}"
+                              shortDesc="#{bindings.OiltTankFlag.hints.tooltip}" id="it5" rendered="false">
+                    <f:validator binding="#{bindings.OiltTankFlag.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.OiltTankFlag.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TankInfoIdFk.inputValue}" label="#{bindings.TankInfoIdFk.hints.label}"
+                              required="#{bindings.TankInfoIdFk.hints.mandatory}"
+                              columns="#{bindings.TankInfoIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.TankInfoIdFk.hints.precision}"
+                              shortDesc="#{bindings.TankInfoIdFk.hints.tooltip}" id="it6" rendered="false">
+                    <f:validator binding="#{bindings.TankInfoIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TankInfoIdFk.format}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl1">
+                        <af:panelGroupLayout layout="horizontal" id="pgl2">
+                            <af:button actionListener="#{bindings.First.execute}"
+                            icon="#{resource['images:first_hor_ena.png']}"
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                            <af:button actionListener="#{bindings.Previous.execute}"
+                            icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                            <af:button actionListener="#{bindings.Next.execute}"
+                            icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                            <af:button actionListener="#{bindings.Last.execute}"
+                            icon="#{resource['images:last_hor_ena.png']}"
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                        <af:outputText value="--------------" id="ot61"/>
+                        </af:panelGroupLayout>
+                        <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                        icon="#{resource['images:commit.png']}"
+                                   disabled="#{!bindings.Commit.enabled}"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                        icon="#{resource['images:add.png']}"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b6"/>
+                         <af:outputText value="-----------------------" id="ot62"/>          
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                        icon="#{resource['images:rollback.png']}"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                            <af:resetActionListener/>
+                        </af:button>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar">
+                <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot14" inlineStyle="color:Maroon; font-size:large;"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.OilTanker_With_Storage_only1.collectionModel}" var="row"
+                          rows="#{bindings.OilTanker_With_Storage_only1.rangeSize}"
+                          emptyText="#{bindings.OilTanker_With_Storage_only1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.OilTanker_With_Storage_only1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.OilTanker_With_Storage_only1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.OilTanker_With_Storage_only1.rangeSize}"
+                          filterModel="#{bindings.OilTanker_With_Storage_only1Query.queryDescriptor}"
+                          filterVisible="true"
+                          queryListener="#{bindings.OilTanker_With_Storage_only1Query.processQuery}" varStatus="vs"
+                          id="t1" partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 :::b1 :::b2 :::b3 :::b4 :::b6"
+                          scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.OilTanker_With_Storage_only1.hints.OiltId.name}"
+                               filterable="true" sortable="true" headerText="ID" id="c2"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               rendered="false" align="center">
+                        <af:outputText value="#{row.OiltId}"
+                                       shortDesc="#{bindings.OilTanker_With_Storage_only1.hints.OiltId.tooltip}"
+                                       id="ot2">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.OilTanker_With_Storage_only1.hints.OiltId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.OilTanker_With_Storage_only1.hints.OiltRegistration.name}"
+                               filterable="true" sortable="true"
+                               headerText="Oil Tanker Registration"
+                               id="c3"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               width="130" align="center">
+                        <af:outputText value="#{row.OiltRegistration}"
+                                       shortDesc="#{bindings.OilTanker_With_Storage_only1.hints.OiltRegistration.tooltip}"
+                                       id="ot3"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.OilTanker_With_Storage_only1.hints.OiltCapacity.name}"
+                               filterable="true" sortable="true" headerText="Oil Tanker Capacity" id="c1"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               width="110" align="center">
+                        <af:outputText value="#{row.OiltCapacity}"
+                                       shortDesc="#{bindings.OilTanker_With_Storage_only1.hints.OiltCapacity.tooltip}"
+                                       id="ot1">
+                            <af:convertNumber groupingUsed="true"
+                                              pattern="#{bindings.OilTanker_With_Storage_only1.hints.OiltCapacity.format}"
+                                              messageDetailConvertNumber="#,###,##"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.OilTanker_With_Storage_only1.hints.OiltStorageFlag.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.OilTanker_With_Storage_only1.hints.OiltStorageFlag.label}" id="c4"
+                               rendered="false">
+                        <af:outputText value="#{row.OiltStorageFlag}"
+                                       shortDesc="#{bindings.OilTanker_With_Storage_only1.hints.OiltStorageFlag.tooltip}"
+                                       id="ot4">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.OilTanker_With_Storage_only1.hints.OiltStorageFlag.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.OilTanker_With_Storage_only1.hints.OiltTankFlag.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.OilTanker_With_Storage_only1.hints.OiltTankFlag.label}" id="c5"
+                               rendered="false">
+                        <af:outputText value="#{row.OiltTankFlag}"
+                                       shortDesc="#{bindings.OilTanker_With_Storage_only1.hints.OiltTankFlag.tooltip}"
+                                       id="ot5">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.OilTanker_With_Storage_only1.hints.OiltTankFlag.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.OilTanker_With_Storage_only1.hints.TankInfoIdFk.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.OilTanker_With_Storage_only1.hints.TankInfoIdFk.label}" id="c6"
+                               rendered="false">
+                        <af:outputText value="#{row.TankInfoIdFk}"
+                                       shortDesc="#{bindings.OilTanker_With_Storage_only1.hints.TankInfoIdFk.tooltip}"
+                                       id="ot6">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.OilTanker_With_Storage_only1.hints.TankInfoIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Z_Rpt_JournalLedger_Param_COA_ASSOC"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="ChartOfAccounts"
+    Cardinality="1"
+    Source="true"
+    Owner="model.ChartOfAccounts"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="ChartOfAccounts"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ChartOfAccounts.CoaActNumber"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Z_Rpt_JournalLedger_Param"
+    Cardinality="-1"
+    Owner="model.Z_Rpt_JournalLedger_Param">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Z_Rpt_JournalLedger_Param"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Z_Rpt_JournalLedger_Param.ZRptJlParamCoaId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

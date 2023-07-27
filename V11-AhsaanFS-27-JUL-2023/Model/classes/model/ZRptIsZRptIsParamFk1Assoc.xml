@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ZRptIsZRptIsParamFk1Assoc"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="ZRptIsParam"
+    Cardinality="1"
+    Source="true"
+    Owner="model.ZRptIsParam">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="ZRptIsParam"/>
+      <Attr Name="_foreignKey" Value="model.ZRptIsParam.ZRptIsParamPk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptIsParam.ZRptIsParamId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="ZRptIs"
+    Cardinality="-1"
+    Owner="model.ZRptIs">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="ZRptIs"/>
+      <Attr Name="_foreignKey" Value="model.ZRptIs.ZRptIsZRptIsParamFk1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptIs.ZRptIsParamIdFk"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

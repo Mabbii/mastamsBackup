@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InvoicDetailInvoicHeadFk1Link"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  EntityAssociation="model.InvoicDetailInvoicHeadFk1Assoc">
+  <ViewLinkDefEnd
+    Name="InvoicHeadView"
+    Cardinality="1"
+    Source="true"
+    Owner="model.InvoicHeadView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="InvoicHeadView"/>
+      <Attr Name="_accessor" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.InvoicHeadView.InvoicHeadId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="InvoicDetailView"
+    Cardinality="-1"
+    Owner="model.InvoicDetailView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="InvoicDetailView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.InvoicDetailView.InvoiceHeadFk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

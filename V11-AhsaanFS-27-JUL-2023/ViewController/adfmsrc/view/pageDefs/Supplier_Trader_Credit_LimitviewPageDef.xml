@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="Supplier_Trader_Credit_LimitviewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OmcGournalCreditLimitView1" RangeSize="50" DataControl="VOAPPDataControl"
+              id="OmcGournalCreditLimitView1Iterator"/>
+    <searchRegion Binds="OmcGournalCreditLimitView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="OmcGournalCreditLimitView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="OmcGournalCreditLimitView1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <attributeValues IterBinding="OmcGournalCreditLimitView1Iterator" id="OmcgClId">
+      <AttrNames>
+        <Item Value="OmcgClId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalCreditLimitView1Iterator" id="OmcgClStartDate">
+      <AttrNames>
+        <Item Value="OmcgClStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalCreditLimitView1Iterator" id="OmcgClEndDate">
+      <AttrNames>
+        <Item Value="OmcgClEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalCreditLimitView1Iterator" id="OmcgClLimitDate">
+      <AttrNames>
+        <Item Value="OmcgClLimitDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalCreditLimitView1Iterator" id="OmcgClSysDate">
+      <AttrNames>
+        <Item Value="OmcgClSysDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalCreditLimitView1Iterator" id="OmcgClApprovedFrom">
+      <AttrNames>
+        <Item Value="OmcgClApprovedFrom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalCreditLimitView1Iterator" id="OmcgClRate">
+      <AttrNames>
+        <Item Value="OmcgClRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalCreditLimitView1Iterator" id="OmcgClVolume">
+      <AttrNames>
+        <Item Value="OmcgClVolume"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalCreditLimitView1Iterator" id="OmcgClAmount">
+      <AttrNames>
+        <Item Value="OmcgClAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalCreditLimitView1Iterator" id="OmcgClDetail">
+      <AttrNames>
+        <Item Value="OmcgClDetail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalCreditLimitView1Iterator" id="OmcgClDevDetail">
+      <AttrNames>
+        <Item Value="OmcgClDevDetail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalCreditLimitView1Iterator" id="OmcgClPartyIdFk">
+      <AttrNames>
+        <Item Value="OmcgClPartyIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OmcGournalCreditLimitView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="OmcGournalCreditLimitView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="OmcGournalCreditLimitView1Iterator" id="Previous" RequiresUpdateModel="true"
+            Action="previous"/>
+    <action IterBinding="OmcGournalCreditLimitView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="OmcGournalCreditLimitView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="OmcGournalCreditLimitView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="OmcGournalCreditLimitView1Iterator" id="OmcGournalCreditLimitView1">
+      <nodeDefinition DefName="model.OmcGournalCreditLimitView" Name="OmcGournalCreditLimitView10">
+        <AttrNames>
+          <Item Value="CoaName"/>
+          <Item Value="OmcgClStartDate"/>
+          <Item Value="OmcgClLimitDate"/>
+          <Item Value="OmcgClVolume"/>
+          <Item Value="OmcgClAmount"/>
+          <Item Value="OmcgClDetail"/>
+          <Item Value="CoaActNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

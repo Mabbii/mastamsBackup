@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.20.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/SupplyMy_PurchasefromOMCPUMPview.jsff" usageId="view_PurchasefromOMCPUMPviewPageDef"/>
+    <page path="/MAIN PAGE.jsf" usageId="view_MAIN_PAGEPageDef"/>
+    <page path="/untitled12.jsf" usageId="view_untitled12PageDef"/>
+    <page path="/SupplyMy_OMCNONJOURNALVIEW.jsff" usageId="view_OMCNONJOURNALVIEWPageDef"/>
+    <page path="/Managementmy_oiltankerVIEW.jsff" usageId="view_oiltankerVIEWPageDef"/>
+    <page path="/SupplyMy_prchserateomcpmpview.jsff" usageId="view_prchserateomcpmpviewPageDef"/>
+    <page path="/AccountsMyy_partygenralview.jsff" usageId="view_partygenralviewPageDef"/>
+    <page path="/AccountsMyy_productforallllview.jsff" usageId="view_productforallllviewPageDef"/>
+    <page path="/Managementmy_oildepoview.jsff" usageId="view_oildepoviewPageDef"/>
+    <page path="/SupplyMy_omcpumpview.jsff" usageId="view_omcpumpviewPageDef"/>
+    <page path="/SupplyMy_paymentview.jsff" usageId="view_paymentviewPageDef"/>
+    <page path="/SupplyMy_paymentsupplier.jsff" usageId="view_paymentomcpumpviewPageDef"/>
+    <page path="/SupplyMy_receieptview.jsff" usageId="view_receieptviewPageDef"/>
+    <page path="/DayBook_salesssview.jsff" usageId="view_salesssviewPageDef"/>
+    <page path="/SupplyMy_Expenseview.jsff" usageId="view_ExpenseviewPageDef"/>
+    <page path="/OpeningBalanceForAssetview.jsff" usageId="view_OpeningBalanceForAssetviewPageDef"/>
+    <page path="/OpeningBalanceForLiabilitiesview.jsff" usageId="view_OpeningBalanceForLiabilitiesviewPageDef"/>
+    <page path="/untitled13.jsf" usageId="view_untitled13PageDef"/>
+    <page path="/GLESearch.jsf" usageId="view_GLESearchPageDef"/>
+    <page path="/SupplyMy_Payment_Receiept_omcpumpview.jsff" usageId="view_Payment_Receiept_omcpumpviewPageDef"/>
+    <page path="/SupplyMy_stocklossVIEW.jsff" usageId="view_stocklossVIEWPageDef"/>
+    <page path="/StockView_stockGainview.jsff" usageId="view_stockGainviewPageDef"/>
+    <page path="/SupplyMy_stockGainBACKDVIEW.jsff" usageId="view_stockGainBACKDVIEWPageDef"/>
+    <page path="/StockView_stocklossBACKDview.jsff" usageId="view_stocklossBACKDviewPageDef"/>
+    <page path="/BILL.jsf" usageId="view_untitled1PageDef"/>
+    <page path="/OpeningBalanceForExpenseRevenueview.jsff" usageId="view_OpeningBalanceForExpenseRevenueviewPageDef"/>
+    <page path="/OpeningBalanceForProductview.jsff" usageId="view_OpeningBalanceForProductviewPageDef"/>
+    <page path="/OpeningBalanceForRevenueCGSview.jsff" usageId="view_OpeningBalanceForRevenueCGSviewPageDef"/>
+    <page path="/DayBook_Gourbalvoucherview.jsff" usageId="view_GourbalvoucherviewPageDef"/>
+    <page path="/SupplyMy_BackJvoucherview.jsff" usageId="view_BackJvoucherviewPageDef"/>
+    <page path="/SupplyMy_PurchaseOmcPumpBackDatefview.jsff" usageId="view_PurchaseOmcPumpBackDatefviewPageDef"/>
+    <page path="/SupplyMy_PAYMENT_RECIEPT_OMCPUMPBACKview.jsff" usageId="view_PAYMENT_RECIEPT_OMCPUMPBACKviewPageDef"/>
+    <page path="/SupplyMy_receipt_cumtomer_backview.jsff" usageId="view_receipt_cumtomer_backviewPageDef"/>
+    <page path="/DefaultView.jsff" usageId="view_DefaultViewPageDef"/>
+    <page path="/SupplyMy_purchaseOMCPUMPview.jsff" usageId="view_purchaseOMCPUMPviewPageDef"/>
+    <page path="/untitled2.jsf" usageId="view_untitled2PageDef"/>
+    <page path="/SupplyMy_salerateview.jsff" usageId="view_salerateviewPageDef"/>
+    <page path="/SupplyMy_purchaserateview.jsff" usageId="view_purchaserateviewPageDef"/>
+    <page path="/untitled3.jsf" usageId="view_untitled3PageDef"/>
+    <page path="/untitled4.jsf" usageId="view_untitled4PageDef"/>
+    <page path="/untitled5.jsf" usageId="view_untitled5PageDef"/>
+    <page path="/untitled6.jsf" usageId="view_untitled6PageDef"/>
+    <page path="/untitled7.jsf" usageId="view_untitled7PageDef"/>
+    <page path="/untitled8.jsf" usageId="view_untitled8PageDef"/>
+    <page path="/untitled9.jsf" usageId="view_untitled9PageDef"/>
+    <page path="/SupplyMy_receiptomcview.jsff" usageId="view_receiptomcviewPageDef"/>
+    <page path="/SupplyMy_receiptsupplierview.jsff" usageId="view_receiptsupplierviewPageDef"/>
+    <page path="/TrialBalanceview.jsff" usageId="view_TrialBalanceviewPageDef"/>
+    <page path="/SupplyMy_purchasefromGsupplierview.jsff" usageId="view_purchasefromGsupplierviewPageDef"/>
+    <page path="/AccountsMyy_BankAccountView.jsff" usageId="view_BankAccountViewPageDef"/>
+    <page path="/AccountsMyy_AccountPayAbleview.jsff" usageId="view_AccountPayAbleviewPageDef"/>
+    <page path="/AccountsMyy_AccountRecieveAbleview.jsff" usageId="view_AccountRecieveAbleviewPageDef"/>
+    <page path="/journalLedgerview.jsff" usageId="view_journalLedgerviewPageDef"/>
+    <page path="/untitled55.jsf" usageId="view_untitled55PageDef"/>
+    <page path="/ReportsMy_AllTrancationview.jsff" usageId="view_AllTrancationviewPageDef"/>
+    <page path="/AccountsMyy_AccountCapitalVIEW.jsff" usageId="view_AccountCapitalVIEWPageDef"/>
+    <page path="/AccountsMyy_AccountRevenuevIEW.jsff" usageId="view_AccountRevenuevIEWPageDef"/>
+    <page path="/AccountsMyy_AccountCGSview.jsff" usageId="view_AccountCGSviewPageDef"/>
+    <page path="/AccountsMyy_Expenseview2.jsff" usageId="view_Expenseview2PageDef"/>
+    <page path="/RecieptOMCBackDView.jsff" usageId="view_RecieptOMCBackDViewPageDef"/>
+    <page path="/SupplyMy_PaymentOMCPumpBackDView.jsff" usageId="view_PaymentOMCPumpBackDViewPageDef"/>
+    <page path="/SupplyMy_SallesAllBackDView.jsff" usageId="view_SallesAllBackDViewPageDef"/>
+    <page path="/SupplyMy_PaymentSupplierBackDView.jsff" usageId="view_PaymentSupplierBackDViewPageDef"/>
+    <page path="/SupplyMy_PurchaseFromSupplierBackDView.jsff" usageId="view_PurchaseFromSupplierBackDViewPageDef"/>
+    <page path="/AccountsMyy_ReferenceBank.jsff" usageId="view_BankNameviewPageDef"/>
+    <page path="/SupplyMy_ExpenseBACKDview.jsff" usageId="view_ExpenseBACKDviewPageDef"/>
+    <page path="/untitled555555.jsf" usageId="view_untitled555555PageDef"/>
+    <page path="/Managementmy_ManageChartofAccountVIEW.jsff" usageId="view_ManageChartofAccountVIEWPageDef"/>
+    <page path="/ReceiptUnclaimedview.jsff" usageId="view_ReceiptUnclaimedviewPageDef"/>
+    <page path="/SupplyMy_ReceiptClaimedview.jsff" usageId="view_ReceiptClaimedviewPageDef"/>
+    <page path="/JLTest.jsf" usageId="view_JLTestPageDef"/>
+    <page path="/JLTSTNEW.jsf" usageId="view_JLTSTNEWPageDef"/>
+    <page path="/ISTESTVIEW.jsf" usageId="view_ISTESTVIEWPageDef"/>
+    <page path="/ISEARCHLOV.jsf" usageId="view_ISEARCHLOVPageDef"/>
+    <page path="/ISEARCHTWOHHHHHHHH.jsf" usageId="view_ISEARCHTWOHHHHHHHHPageDef"/>
+    <page path="/GleRporttview.jsff" usageId="view_GleRporttviewPageDef"/>
+    <page path="/ReportsView_GleRportttview.jsff" usageId="view_GleRportttviewPageDef"/>
+    <page path="/ReportsMy_GournalLedgerdetaildview.jsff" usageId="view_GournalLedgerdetaildviewPageDef"/>
+    <page path="/ReportsMy_TrialBalanceShortView.jsff" usageId="view_TrialBalanceShortViewPageDef"/>
+    <page path="/Incomecalculateview.jsff" usageId="view_IncomecalculateviewPageDef"/>
+    <page path="/IncomeADJUSTMNTview.jsff" usageId="view_IncomeADJUSTMNTviewPageDef"/>
+    <page path="/IncomeDetailedview.jsff" usageId="view_IncomeDetailedviewPageDef"/>
+    <page path="/SupplyMy_ReceiptClaimedBackDateVIEW.jsff" usageId="view_ReceiptClaimedBackDateVIEWPageDef"/>
+    <page path="/SupplyMy_ReceiptUnClaimedBackDATEview.jsff" usageId="view_ReceiptUnClaimedBackDATEviewPageDef"/>
+    <page path="/TESTALLRECORDIS.jsf" usageId="view_TESTALLRECORDISPageDef"/>
+    <page path="/testallisdetails.jsf" usageId="view_testallisdetailsPageDef"/>
+    <page path="/SupplyMy_purchaseRateLogomcpumpVIEW.jsff" usageId="view_purchaseRateLogomcpumpVIEWPageDef"/>
+    <page path="/RatesMy_PurchaseRtaeLogSupplierview.jsff" usageId="view_PurchaseRtaeLogSupplierviewPageDef"/>
+    <page path="/RatesMy_SaleRateLogview.jsff" usageId="view_SaleRateLogviewPageDef"/>
+    <page path="/SupplyMy_salesReportALLview.jsff" usageId="view_salesReportALLviewPageDef"/>
+    <page path="/SupplyMy_salesReportcustomerview.jsff" usageId="view_salesReportcustomerviewPageDef"/>
+    <page path="/SupplyMy_PurchaseAllDataReportTFview.jsff" usageId="view_PurchaseAllDataReportTFviewPageDef"/>
+    <page path="/SupplyMy_PurchaseDetailedReportview.jsff" usageId="view_PurchaseSupplierReportviewPageDef"/>
+    <page path="/SupplyMy_PurchaseOMCReportview.jsff" usageId="view_PurchaseOMCReportviewPageDef"/>
+    <page path="/SupplyMy_OmcCreditLimitview.jsff" usageId="view_OmcCreditLimitviewPageDef"/>
+    <page path="/SupplyMy_OmcPumpCreditLimitView.jsff" usageId="view_OmcPumpCreditLimitViewPageDef"/>
+    <page path="/SupplyMy_OmcOnlycreditLimitReportView.jsff" usageId="view_OmcOnlycreditLimitReportViewPageDef"/>
+    <page path="/SupplyMy_OmcPumpCreditLimitReportVIEW.jsff" usageId="view_OmcPumpCreditLimitReportVIEWPageDef"/>
+    <page path="/SupplyMy_Customer_Trader_debit_limitview.jsff" usageId="view_Customer_Trader_debit_limitviewPageDef"/>
+    <page path="/SupplyMy_Supplier_Trader_Credit_Limitview.jsff" usageId="view_Supplier_Trader_Credit_LimitviewPageDef"/>
+    <page path="/SupplyMy_Customer_Dedit_limit_Reportview.jsff" usageId="view_Customer_Dedit_limit_ReportviewPageDef"/>
+    <page path="/SupplyMy_Supplier_Credit_limitReportview.jsff" usageId="view_Supplier_Credit_limitReportviewPageDef"/>
+    <page path="/SupplyMy_OmcPump_OnlyCredit_limitReportview.jsff" usageId="view_OmcPump_OnlyCredit_limitReportviewPageDef"/>
+    <page path="/SupplyMy_Supplier_Credit_limit_DetailedReportview.jsff"
+          usageId="view_Supplier_Credit_limit_DetailedReportviewPageDef"/>
+    <page path="/SupplyMy_Customer_Dedit_limit_DetailedReportview.jsff"
+          usageId="view_Customer_Dedit_limit_DetailedReportviewPageDef"/>
+    <page path="/newledger.jsff" usageId="view_newledgerPageDef"/>
+    <page path="/view1.jsff" usageId="view_view1PageDef"/>
+    <page path="/ledg.jsff" usageId="view_ledgPageDef"/>
+    <page path="/viewttt1.jsff" usageId="view_viewttt1PageDef"/>
+    <page path="/LEDGERShortFromTB.jsff" usageId="view_LEDGERPageDef"/>
+    <page path="/LedgerDetailedFromTb.jsff" usageId="view_LedgerDetailedFromTbPageDef"/>
+    <page path="/SupplyMy_OmcReceiptReportview.jsff" usageId="view_OmcReceiptReportviewPageDef"/>
+    <page path="/SupplyMy_ReceiptOmcReportview.jsff" usageId="view_ReceiptOmcReportviewPageDef"/>
+    <page path="/IncomeCalculateCustomDateToDateVIEW.jsff" usageId="view_IncomeCalculateCustomDateToDateVIEWPageDef"/>
+    <page path="/TreeReport.jsf" usageId="view_TreeReportPageDef"/>
+    <page path="/Auth.jsf" usageId="view_AuthPageDef"/>
+    <page path="/Treevieww.jsff" usageId="view_TreeviewwPageDef"/>
+    <page path="/AccountsMyy_AccountCapitalVIEWW.jsff" usageId="view_AccountCapitalVIEWWPageDef"/>
+    <page path="/ChangePass.jsff" usageId="view_ChangePassPageDef"/>
+    <page path="/Images_Table_View.jsff" usageId="view_Images_Table_ViewPageDef"/>
+    <page path="/ShowUpload.jspx" usageId="view_ShowUploadPageDef"/>
+    <page path="/ShowImage.jspx" usageId="view_ShowImagePageDef"/>
+    <page path="/Image_Table_TF.jsff" usageId="view_Image_Table_TFPageDef"/>
+    <page path="/Add_XDR_View.jsff" usageId="view_Add_XDR_ViewPageDef"/>
+    <page path="/Image_Ladger_View.jsff" usageId="view_Image_Ladger_ViewPageDef"/>
+    <page path="/TnsLogDateView.jsff" usageId="view_TnsLogDateViewPageDef"/>
+    <page path="/SupplyMy_StockLB.jsff" usageId="view_StockLBPageDef"/>
+    <page path="/SupplyMy_Stock_BackView.jsff" usageId="view_Stock_BackViewPageDef"/>
+    <page path="/SupplyMy_NewOmcCreditLimit.jsff" usageId="view_NewOmcCreditLimitPageDef"/>
+    <page path="/DateSelectedView.jsff" usageId="view_DateSelectedViewPageDef"/>
+    <page path="/DateCounterSlectedView.jsff" usageId="view_DateCounterSlectedViewPageDef"/>
+    <page path="/dcselecttester.jsf" usageId="view_dcselecttesterPageDef"/>
+    <page path="/WEB-INF/DateCounterSelectedTF.xml#DateCounterSelectedTF@setBindDC_ID"
+          usageId="view_DateCounterSelectedTF_DateCounterSelectedTF_setBindDC_IDPageDef"/>
+    <page path="/DateCounterSelectedView.jsff" usageId="view_DateCounterSelectedViewPageDef"/>
+    <page path="/DateCounter.jspx" usageId="view_DateCounterPageDef"/>
+    <page path="/MeterReadings.jspx.jsff" usageId="view_jspxPageDef"/>
+    <page path="/WEB-INF/MeterReadings.xml#MeterReadings@setBindDC_ID"
+          usageId="view_MeterReadings_MeterReadings_setBindDC_IDPageDef"/>
+    <page path="/WEB-INF/DateCounterFlow.xml#DateCounterFlow@setBindDC_ID"
+          usageId="view_DateCounterFlow_DateCounterFlow_setBindDC_IDPageDef"/>
+    <page path="/DateCounter.jspx.jsff" usageId="view_jspxPageDef1"/>
+    <page path="/WEB-INF/MeterCall.xml#taskFlowCall1@setBindDC_ID"
+          usageId="view_MeterCall_taskFlowCall1_setBindDC_IDPageDef"/>
+    <page path="/MyDateCounter.jspx" usageId="view_MyDateCounterPageDef"/>
+    <page path="/MyMeter.jspx" usageId="view_MyMeterPageDef"/>
+    <page path="/DCMRLINK.jspx" usageId="view_DCMRLINKPageDef"/>
+    <page path="/Accountsview.jsf" usageId="view_SupplyViewPageDef"/>
+    <page path="/RatesView.jsf" usageId="view_RatesViewPageDef"/>
+    <page path="/Management.jsf" usageId="view_ManagementPageDef"/>
+    <page path="/Supply.jsf" usageId="view_SupplyPageDef"/>
+    <page path="/HomeView.jsf" usageId="view_HomeViewPageDef"/>
+    <page path="/Ratesmy.jsff" usageId="view_RatesmyPageDef"/>
+    <page path="/Accountsmy.jsff" usageId="view_AccountsmyPageDef"/>
+    <page path="/AccountsMyy.jsf" usageId="view_shahidviewPageDef"/>
+    <page path="/RatesMy.jsf" usageId="view_RatesmyPageDef"/>
+    <page path="/Managementmy.jsf" usageId="view_ManagementmyPageDef"/>
+    <page path="/SupplyMy.jsf" usageId="view_SupplyMyPageDef"/>
+    <page path="/NewLoginPage.jsf" usageId="view_NewLoginPagePageDef"/>
+    <page path="/RetailMy.jsf" usageId="view_RetailMyPageDef"/>
+    <page path="/RatesMy_NozalRetailRateView.jsff" usageId="view_NozalRetailRateViewPageDef"/>
+    <page path="/Managementmy_NozalView.jsff" usageId="view_NozalViewPageDef"/>
+    <page path="/Managementmy_TanksView.jsff" usageId="view_TanksViewPageDef"/>
+    <page path="/Managementmy_NozalTankMapView.jsff" usageId="view_NozalTankMapViewPageDef"/>
+    <page path="/RetailMy_MeterReadingsView.jsff" usageId="view_MeterReadingsViewPageDef"/>
+    <page path="/RetailMy_LubeSaleView.jsff" usageId="view_LubeSaleViewPageDef"/>
+    <page path="/RetailMy_RetailReceiptView.jsff" usageId="view_RetailReceiptViewPageDef"/>
+    <page path="/RetailMy_RetailExpenseView.jsff" usageId="view_RetailExpenseViewPageDef"/>
+    <page path="/RetailMy_RetailSaleRetailSaleView.jsff" usageId="view_RetailSaleRetailSaleViewPageDef"/>
+    <page path="/TanksDipsview.jsff" usageId="view_TanksDipsviewPageDef"/>
+    <page path="/AccountOpeningView.jsf" usageId="view_AccountOpeningViewPageDef"/>
+    <page path="/ReportsView.jsf" usageId="view_ReportsViewPageDef"/>
+    <page path="/InitializeDateview_SelectDateView.jsff" usageId="view_SelectDateViewPageDef"/>
+    <page path="/DayBookView.jsf" usageId="view_DayBookViewPageDef"/>
+    <page path="/RetailMy_RetailPaymentView.jsff" usageId="view_RetailPaymentViewPageDef"/>
+    <page path="/Managementmy_Opening_and_Finanical_View.jsff" usageId="view_Opening_and_Finanical_ViewPageDef"/>
+    <page path="/OpeningandFinance.jsf" usageId="view_OpeningandFinancePageDef"/>
+    <page path="/RetailMy_DayBookSummaryView.jsff" usageId="view_DayBookSummaryViewPageDef"/>
+    <page path="/RetailMy_SaleSummaryView.jsff" usageId="view_SaleSummaryViewPageDef"/>
+    <page path="/Managementmy_OilTankerStorageview.jsff" usageId="view_OilTankerStorageviewPageDef"/>
+    <page path="/StockView_StockTransferView.jsff" usageId="view_StockTransferViewPageDef"/>
+    <page path="/StockView.jsf" usageId="view_StockViewPageDef"/>
+    <page path="/OpeningBalanceForOilTankerView.jsff" usageId="view_OpeningBalanceForOilTankerViewPageDef"/>
+    <page path="/Managementmy_Vehicleview.jsff" usageId="view_VehicleviewPageDef"/>
+    <page path="/UserPrfileView.jsff" usageId="view_UserPrfileViewPageDef"/>
+    <page path="/DayBook_PurchaseSupplierFuel_View.jsff" usageId="view_PurchaseSupplierFuel_ViewPageDef"/>
+    <page path="/ReportsMy_TankStockLedgerview.jsff" usageId="view_StockLedgerviewPageDef"/>
+    <page path="/shahidview.jsff" usageId="view_shahidviewPageDef1"/>
+    <page path="/InitializeDateview.jsf" usageId="view_InitializeDateviewPageDef"/>
+    <page path="/DayBook_PurchaseSupplierLube_View.jsff" usageId="view_PurchaseSupplierLube_ViewPageDef"/>
+    <page path="/DataLoader_SalePayRecptView.jsff" usageId="view_DataLoaderViewPageDef"/>
+    <page path="/ReportsMy_StorageOilTankerview.jsff" usageId="view_StorageOilTankerviewPageDef"/>
+    <page path="/FinancialStatementsview.jsf" usageId="view_FinancialStatementsviewPageDef"/>
+    <page path="/web/Login.jsf" usageId="view_zPageDef"/>
+    <page path="/DefaultFinancialView.jsff" usageId="view_DefaultFinancialViewPageDef"/>
+    <page path="/DefaultStockView.jsff" usageId="view_DefaultStockViewPageDef"/>
+    <page path="/LogingTreeView.jsff" usageId="view_LogingTreeViewPageDef"/>
+    <page path="/LogingTree.jsf" usageId="view_LogingTreePageDef"/>
+    <page path="/BILLMy_Bill_DetailData_View.jsff" usageId="view_Bill_DetailData_ViewPageDef"/>
+    <page path="/BILLMy_Bill_Vehicle_View.jsff" usageId="view_Bill_Vehicle_ViewPageDef"/>
+    <page path="/BILLMy_Bill_CoaGroup_View.jsff" usageId="view_Bill_CoaGroup_ViewPageDef"/>
+    <page path="/BILLMy_Bill_Group_View.jsff" usageId="view_Bill_Group_ViewPageDef"/>
+    <page path="/DayBook_Paymenting_View.jsff" usageId="view_DayBook_Paymenting_ViewPageDef"/>
+    <page path="/DayBook_Reciepting_View.jsff" usageId="view_DayBook_Reciepting_ViewPageDef"/>
+    <page path="/DayBook_Expensive_View.jsff" usageId="view_DayBook_Expensive_ViewPageDef"/>
+    <page path="/StockView_Tank_Dry_Data_Input_View.jsff" usageId="view_Tank_Dry_Data_Input_ViewPageDef"/>
+    <page path="/StockView_Tank_Dry_Meter_Input_View.jsff" usageId="view_Tank_Dry_Meter_Input_ViewPageDef"/>
+    <page path="/Managementmy_PipelineGroupView.jsff" usageId="view_PipelineGroupViewPageDef"/>
+    <page path="/DataLoader_PayRecIeptview.jsff" usageId="view_DataLoaderPayRecIeptviewPageDef"/>
+    <page path="/DataLoader_SaleWithDiscountview.jsff" usageId="view_DataLoaderSaleWithDiscountviewPageDef"/>
+    <page path="/DataLoaderr.jsf" usageId="view_DataLoaderrPageDef"/>
+    <page path="/RetailMy_AutoCashSaleview.jsff" usageId="view_AutoCashSaleviewPageDef"/>
+    <page path="/ReportsMy_Stock_Stockreport_View.jsff" usageId="view_Stock_Stockreport_ViewPageDef"/>
+    <page path="/ReportsMy_CustomerReport_View.jsff" usageId="view_ReportsMy_CustomerReport_ViewPageDef"/>
+    <page path="/DayBook_Sale_Lube_BulkView.jsff" usageId="view_DayBook_Sale_Lube_BulkViewPageDef"/>
+    <page path="/ReportsView_C_Gleview.jsff" usageId="view_ReportsView_C_GleviewPageDef"/>
+    <page path="/ReportsMy_ProductDetailView.jsff" usageId="view_ReportsMy_ProductDetailViewPageDef"/>
+    <page path="/ReportsMy_ProductSummaryView.jsff" usageId="view_ReportsMy_ProductSummaryViewPageDef"/>
+    <page path="/RetailMy_Tank_Dip_Data_View.jsff" usageId="view_RetailMy_Tank_Dip_Data_ViewPageDef"/>
+    <page path="/ReportsMy_StockAnalysis_View.jsff" usageId="view_ReportsMy_StockAnalysis_ViewPageDef"/>
+    <page path="/Z_printBehaviour.jsff" usageId="view_Z_printBehaviourPageDef"/>
+    <page path="/Retail_Lube.jsf" usageId="view_Retail_LubePageDef"/>
+    <page path="/LubeShop_Lube_Customer_View.jsff" usageId="view_LubeShop_Lube_Customer_ViewPageDef"/>
+    <page path="/LubeShop_Lube_Vehicle_View.jsff" usageId="view_LubeShop_Lube_Vehicle_ViewPageDef"/>
+    <page path="/ReportsMy_AllWorking_View.jsff" usageId="view_ReportsMy_AllWorking_ViewPageDef"/>
+    <page path="/Managementmy_HRManage_View.jsff" usageId="view_Managementmy_HRManage_ViewPageDef"/>
+    <page path="/Managementmy_PostSalary_View.jsff" usageId="view_Managementmy_PostSalary_ViewPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_PurchasefromOMCPUMPviewPageDef" path="view.pageDefs.PurchasefromOMCPUMPviewPageDef"/>
+    <page id="view_MAIN_PAGEPageDef" path="view.pageDefs.MAIN_PAGEPageDef"/>
+    <page id="view_untitled12PageDef" path="view.pageDefs.untitled12PageDef"/>
+    <page id="view_OMCNONJOURNALVIEWPageDef" path="view.pageDefs.OMCNONJOURNALVIEWPageDef"/>
+    <page id="view_oiltankerVIEWPageDef" path="view.pageDefs.oiltankerVIEWPageDef"/>
+    <page id="view_prchserateomcpmpviewPageDef" path="view.pageDefs.prchserateomcpmpviewPageDef"/>
+    <page id="view_partygenralviewPageDef" path="view.pageDefs.partygenralviewPageDef"/>
+    <page id="view_productforallllviewPageDef" path="view.pageDefs.productforallllviewPageDef"/>
+    <page id="view_oildepoviewPageDef" path="view.pageDefs.oildepoviewPageDef"/>
+    <page id="view_omcpumpviewPageDef" path="view.pageDefs.omcpumpviewPageDef"/>
+    <page id="view_paymentviewPageDef" path="view.pageDefs.paymentviewPageDef"/>
+    <page id="view_paymentomcpumpviewPageDef" path="view.pageDefs.paymentomcpumpviewPageDef"/>
+    <page id="view_receieptviewPageDef" path="view.pageDefs.receieptviewPageDef"/>
+    <page id="view_salesssviewPageDef" path="view.pageDefs.salesssviewPageDef"/>
+    <page id="view_ExpenseviewPageDef" path="view.pageDefs.ExpenseviewPageDef"/>
+    <page id="view_OpeningBalanceForAssetviewPageDef" path="view.pageDefs.OpeningBalanceForAssetviewPageDef"/>
+    <page id="view_OpeningBalanceForLiabilitiesviewPageDef"
+          path="view.pageDefs.OpeningBalanceForLiabilitiesviewPageDef"/>
+    <page id="view_untitled13PageDef" path="view.pageDefs.untitled13PageDef"/>
+    <page id="view_GLESearchPageDef" path="view.pageDefs.GLESearchPageDef"/>
+    <page id="view_Payment_Receiept_omcpumpviewPageDef" path="view.pageDefs.Payment_Receiept_omcpumpviewPageDef"/>
+    <page id="view_stocklossVIEWPageDef" path="view.pageDefs.stocklossVIEWPageDef"/>
+    <page id="view_stockGainviewPageDef" path="view.pageDefs.stockGainviewPageDef"/>
+    <page id="view_stockGainBACKDVIEWPageDef" path="view.pageDefs.stockGainBACKDVIEWPageDef"/>
+    <page id="view_stocklossBACKDviewPageDef" path="view.pageDefs.stocklossBACKDviewPageDef"/>
+    <page id="view_untitled1PageDef" path="view.pageDefs.untitled1PageDef"/>
+    <page id="view_OpeningBalanceForExpenseRevenueviewPageDef"
+          path="view.pageDefs.OpeningBalanceForExpenseRevenueviewPageDef"/>
+    <page id="view_OpeningBalanceForProductviewPageDef" path="view.pageDefs.OpeningBalanceForProductviewPageDef"/>
+    <page id="view_OpeningBalanceForRevenueCGSviewPageDef" path="view.pageDefs.OpeningBalanceForRevenueCGSviewPageDef"/>
+    <page id="view_GourbalvoucherviewPageDef" path="view.pageDefs.GourbalvoucherviewPageDef"/>
+    <page id="view_BackJvoucherviewPageDef" path="view.pageDefs.BackJvoucherviewPageDef"/>
+    <page id="view_PurchaseOmcPumpBackDatefviewPageDef" path="view.pageDefs.PurchaseOmcPumpBackDatefviewPageDef"/>
+    <page id="view_PAYMENT_RECIEPT_OMCPUMPBACKviewPageDef" path="view.pageDefs.PAYMENT_RECIEPT_OMCPUMPBACKviewPageDef"/>
+    <page id="view_receipt_cumtomer_backviewPageDef" path="view.pageDefs.receipt_cumtomer_backviewPageDef"/>
+    <page id="view_DefaultViewPageDef" path="view.pageDefs.DefaultViewPageDef"/>
+    <page id="view_purchaseOMCPUMPviewPageDef" path="view.pageDefs.purchaseOMCPUMPviewPageDef"/>
+    <page id="view_untitled2PageDef" path="view.pageDefs.untitled2PageDef"/>
+    <page id="view_salerateviewPageDef" path="view.pageDefs.salerateviewPageDef"/>
+    <page id="view_purchaserateviewPageDef" path="view.pageDefs.purchaserateviewPageDef"/>
+    <page id="view_untitled3PageDef" path="view.pageDefs.untitled3PageDef"/>
+    <page id="view_untitled4PageDef" path="view.pageDefs.untitled4PageDef"/>
+    <page id="view_untitled5PageDef" path="view.pageDefs.untitled5PageDef"/>
+    <page id="view_untitled6PageDef" path="view.pageDefs.untitled6PageDef"/>
+    <page id="view_untitled7PageDef" path="view.pageDefs.untitled7PageDef"/>
+    <page id="view_untitled8PageDef" path="view.pageDefs.untitled8PageDef"/>
+    <page id="view_untitled9PageDef" path="view.pageDefs.untitled9PageDef"/>
+    <page id="view_receiptomcviewPageDef" path="view.pageDefs.receiptomcviewPageDef"/>
+    <page id="view_receiptsupplierviewPageDef" path="view.pageDefs.receiptsupplierviewPageDef"/>
+    <page id="view_TrialBalanceviewPageDef" path="view.pageDefs.TrialBalanceviewPageDef"/>
+    <page id="view_purchasefromGsupplierviewPageDef" path="view.pageDefs.purchasefromGsupplierviewPageDef"/>
+    <page id="view_BankAccountViewPageDef" path="view.pageDefs.BankAccountViewPageDef"/>
+    <page id="view_AccountPayAbleviewPageDef" path="view.pageDefs.AccountPayAbleviewPageDef"/>
+    <page id="view_AccountRecieveAbleviewPageDef" path="view.pageDefs.AccountRecieveAbleviewPageDef"/>
+    <page id="view_journalLedgerviewPageDef" path="view.pageDefs.journalLedgerviewPageDef"/>
+    <page id="view_untitled55PageDef" path="view.pageDefs.untitled55PageDef"/>
+    <page id="view_AllTrancationviewPageDef" path="view.pageDefs.AllTrancationviewPageDef"/>
+    <page id="view_AccountCapitalVIEWPageDef" path="view.pageDefs.AccountCapitalVIEWPageDef"/>
+    <page id="view_AccountRevenuevIEWPageDef" path="view.pageDefs.AccountRevenuevIEWPageDef"/>
+    <page id="view_AccountCGSviewPageDef" path="view.pageDefs.AccountCGSviewPageDef"/>
+    <page id="view_Expenseview2PageDef" path="view.pageDefs.Expenseview2PageDef"/>
+    <page id="view_RecieptOMCBackDViewPageDef" path="view.pageDefs.RecieptOMCBackDViewPageDef"/>
+    <page id="view_PaymentOMCPumpBackDViewPageDef" path="view.pageDefs.PaymentOMCPumpBackDViewPageDef"/>
+    <page id="view_SallesAllBackDViewPageDef" path="view.pageDefs.SallesAllBackDViewPageDef"/>
+    <page id="view_PaymentSupplierBackDViewPageDef" path="view.pageDefs.PaymentSupplierBackDViewPageDef"/>
+    <page id="view_PurchaseFromSupplierBackDViewPageDef" path="view.pageDefs.PurchaseFromSupplierBackDViewPageDef"/>
+    <page id="view_BankNameviewPageDef" path="view.pageDefs.BankNameviewPageDef"/>
+    <page id="view_ExpenseBACKDviewPageDef" path="view.pageDefs.ExpenseBACKDviewPageDef"/>
+    <page id="view_untitled555555PageDef" path="view.pageDefs.untitled555555PageDef"/>
+    <page id="view_ManageChartofAccountVIEWPageDef" path="view.pageDefs.ManageChartofAccountVIEWPageDef"/>
+    <page id="view_ReceiptUnclaimedviewPageDef" path="view.pageDefs.ReceiptUnclaimedviewPageDef"/>
+    <page id="view_ReceiptClaimedviewPageDef" path="view.pageDefs.ReceiptClaimedviewPageDef"/>
+    <page id="view_JLTestPageDef" path="view.pageDefs.JLTestPageDef"/>
+    <page id="view_JLTSTNEWPageDef" path="view.pageDefs.JLTSTNEWPageDef"/>
+    <page id="view_ISTESTVIEWPageDef" path="view.pageDefs.ISTESTVIEWPageDef"/>
+    <page id="view_ISEARCHLOVPageDef" path="view.pageDefs.ISEARCHLOVPageDef"/>
+    <page id="view_ISEARCHTWOHHHHHHHHPageDef" path="view.pageDefs.ISEARCHTWOHHHHHHHHPageDef"/>
+    <page id="view_GleRporttviewPageDef" path="view.pageDefs.GleRporttviewPageDef"/>
+    <page id="view_GleRportttviewPageDef" path="view.pageDefs.GleRportttviewPageDef"/>
+    <page id="view_GournalLedgerdetaildviewPageDef" path="view.pageDefs.GournalLedgerdetaildviewPageDef"/>
+    <page id="view_TrialBalanceShortViewPageDef" path="view.pageDefs.TrialBalanceShortViewPageDef"/>
+    <page id="view_IncomecalculateviewPageDef" path="view.pageDefs.IncomecalculateviewPageDef"/>
+    <page id="view_IncomeADJUSTMNTviewPageDef" path="view.pageDefs.IncomeADJUSTMNTviewPageDef"/>
+    <page id="view_IncomeDetailedviewPageDef" path="view.pageDefs.IncomeDetailedviewPageDef"/>
+    <page id="view_ReceiptClaimedBackDateVIEWPageDef" path="view.pageDefs.ReceiptClaimedBackDateVIEWPageDef"/>
+    <page id="view_ReceiptUnClaimedBackDATEviewPageDef" path="view.pageDefs.ReceiptUnClaimedBackDATEviewPageDef"/>
+    <page id="view_TESTALLRECORDISPageDef" path="view.pageDefs.TESTALLRECORDISPageDef"/>
+    <page id="view_testallisdetailsPageDef" path="view.pageDefs.testallisdetailsPageDef"/>
+    <page id="view_purchaseRateLogomcpumpVIEWPageDef" path="view.pageDefs.purchaseRateLogomcpumpVIEWPageDef"/>
+    <page id="view_PurchaseRtaeLogSupplierviewPageDef" path="view.pageDefs.PurchaseRtaeLogSupplierviewPageDef"/>
+    <page id="view_SaleRateLogviewPageDef" path="view.pageDefs.SaleRateLogviewPageDef"/>
+    <page id="view_salesReportALLviewPageDef" path="view.pageDefs.salesReportALLviewPageDef"/>
+    <page id="view_salesReportcustomerviewPageDef" path="view.pageDefs.salesReportcustomerviewPageDef"/>
+    <page id="view_PurchaseAllDataReportTFviewPageDef" path="view.pageDefs.PurchaseAllDataReportTFviewPageDef"/>
+    <page id="view_PurchaseSupplierReportviewPageDef" path="view.pageDefs.PurchaseSupplierReportviewPageDef"/>
+    <page id="view_PurchaseOMCReportviewPageDef" path="view.pageDefs.PurchaseOMCReportviewPageDef"/>
+    <page id="view_OmcCreditLimitviewPageDef" path="view.pageDefs.OmcCreditLimitviewPageDef"/>
+    <page id="view_OmcPumpCreditLimitViewPageDef" path="view.pageDefs.OmcPumpCreditLimitViewPageDef"/>
+    <page id="view_OmcOnlycreditLimitReportViewPageDef" path="view.pageDefs.OmcOnlycreditLimitReportViewPageDef"/>
+    <page id="view_OmcPumpCreditLimitReportVIEWPageDef" path="view.pageDefs.OmcPumpCreditLimitReportVIEWPageDef"/>
+    <page id="view_Customer_Trader_debit_limitviewPageDef" path="view.pageDefs.Customer_Trader_debit_limitviewPageDef"/>
+    <page id="view_Supplier_Trader_Credit_LimitviewPageDef"
+          path="view.pageDefs.Supplier_Trader_Credit_LimitviewPageDef"/>
+    <page id="view_Customer_Dedit_limit_ReportviewPageDef" path="view.pageDefs.Customer_Dedit_limit_ReportviewPageDef"/>
+    <page id="view_Supplier_Credit_limitReportviewPageDef" path="view.pageDefs.Supplier_Credit_limitReportviewPageDef"/>
+    <page id="view_OmcPump_OnlyCredit_limitReportviewPageDef"
+          path="view.pageDefs.OmcPump_OnlyCredit_limitReportviewPageDef"/>
+    <page id="view_Supplier_Credit_limit_DetailedReportviewPageDef"
+          path="view.pageDefs.Supplier_Credit_limit_DetailedReportviewPageDef"/>
+    <page id="view_Customer_Dedit_limit_DetailedReportviewPageDef"
+          path="view.pageDefs.Customer_Dedit_limit_DetailedReportviewPageDef"/>
+    <page id="view_newledgerPageDef" path="view.pageDefs.newledgerPageDef"/>
+    <page id="view_view1PageDef" path="view.pageDefs.view1PageDef"/>
+    <page id="view_ledgPageDef" path="view.pageDefs.ledgPageDef"/>
+    <page id="view_viewttt1PageDef" path="view.pageDefs.viewttt1PageDef"/>
+    <page id="view_LEDGERPageDef" path="view.pageDefs.LEDGERPageDef"/>
+    <page id="view_LedgerDetailedFromTbPageDef" path="view.pageDefs.LedgerDetailedFromTbPageDef"/>
+    <page id="view_OmcReceiptReportviewPageDef" path="view.pageDefs.OmcReceiptReportviewPageDef"/>
+    <page id="view_ReceiptOmcReportviewPageDef" path="view.pageDefs.ReceiptOmcReportviewPageDef"/>
+    <page id="view_IncomeCalculateCustomDateToDateVIEWPageDef"
+          path="view.pageDefs.IncomeCalculateCustomDateToDateVIEWPageDef"/>
+    <page id="view_TreeReportPageDef" path="view.pageDefs.TreeReportPageDef"/>
+    <page id="view_AuthPageDef" path="view.pageDefs.AuthPageDef"/>
+    <page id="view_TreeviewwPageDef" path="view.pageDefs.TreeviewwPageDef"/>
+    <page id="view_AccountCapitalVIEWWPageDef" path="view.pageDefs.AccountCapitalVIEWWPageDef"/>
+    <page id="view_ChangePassPageDef" path="view.pageDefs.ChangePassPageDef"/>
+    <page id="view_Images_Table_ViewPageDef" path="view.pageDefs.Images_Table_ViewPageDef"/>
+    <page id="view_ShowUploadPageDef" path="view.pageDefs.ShowUploadPageDef"/>
+    <page id="view_ShowImagePageDef" path="view.pageDefs.ShowImagePageDef"/>
+    <page id="view_Image_Table_TFPageDef" path="view.pageDefs.Image_Table_TFPageDef"/>
+    <page id="view_Add_XDR_ViewPageDef" path="view.pageDefs.Add_XDR_ViewPageDef"/>
+    <page id="view_Image_Ladger_ViewPageDef" path="view.pageDefs.Image_Ladger_ViewPageDef"/>
+    <page id="view_TnsLogDateViewPageDef" path="view.pageDefs.TnsLogDateViewPageDef"/>
+    <page id="view_StockLBPageDef" path="view.pageDefs.StockLBPageDef"/>
+    <page id="view_Stock_BackViewPageDef" path="view.pageDefs.Stock_BackViewPageDef"/>
+    <page id="view_NewOmcCreditLimitPageDef" path="view.pageDefs.NewOmcCreditLimitPageDef"/>
+    <page id="view_DateSelectedViewPageDef" path="view.pageDefs.DateSelectedViewPageDef"/>
+    <page id="view_DateCounterSlectedViewPageDef" path="view.pageDefs.DateCounterSlectedViewPageDef"/>
+    <page id="view_dcselecttesterPageDef" path="view.pageDefs.dcselecttesterPageDef"/>
+    <page id="view_DateCounterSelectedTF_DateCounterSelectedTF_setBindDC_IDPageDef"
+          path="view.pageDefs.DateCounterSelectedTF_DateCounterSelectedTF_setBindDC_IDPageDef"/>
+    <page id="view_DateCounterSelectedViewPageDef" path="view.pageDefs.DateCounterSelectedViewPageDef"/>
+    <page id="view_DateCounterPageDef" path="view.pageDefs.DateCounterPageDef"/>
+    <page id="view_jspxPageDef" path="MeterReadings.jspxPageDef"/>
+    <page id="view_MeterReadings_MeterReadings_setBindDC_IDPageDef"
+          path="view.pageDefs.MeterReadings_MeterReadings_setBindDC_IDPageDef"/>
+    <page id="view_DateCounterFlow_DateCounterFlow_setBindDC_IDPageDef"
+          path="view.pageDefs.DateCounterFlow_DateCounterFlow_setBindDC_IDPageDef"/>
+    <page id="view_jspxPageDef1" path="DateCounter.jspxPageDef"/>
+    <page id="view_MeterCall_taskFlowCall1_setBindDC_IDPageDef"
+          path="view.pageDefs.MeterCall_taskFlowCall1_setBindDC_IDPageDef"/>
+    <page id="view_MyDateCounterPageDef" path="view.pageDefs.MyDateCounterPageDef"/>
+    <page id="view_MyMeterPageDef" path="view.pageDefs.MyMeterPageDef"/>
+    <page id="view_DCMRLINKPageDef" path="view.pageDefs.DCMRLINKPageDef"/>
+    <page id="view_SupplyViewPageDef" path="view.pageDefs.SupplyViewPageDef"/>
+    <page id="view_RatesViewPageDef" path="view.pageDefs.RatesViewPageDef"/>
+    <page id="view_ManagementPageDef" path="view.pageDefs.ManagementPageDef"/>
+    <page id="view_SupplyPageDef" path="view.pageDefs.SupplyPageDef"/>
+    <page id="view_HomeViewPageDef" path="view.pageDefs.HomeViewPageDef"/>
+    <page id="view_RatesmyPageDef" path="view.pageDefs.RatesmyPageDef"/>
+    <page id="view_AccountsmyPageDef" path="view.pageDefs.AccountsmyPageDef"/>
+    <page id="view_shahidviewPageDef" path="view.pageDefs.shahidviewPageDef"/>
+    <page id="view_ManagementmyPageDef" path="view.pageDefs.ManagementmyPageDef"/>
+    <page id="view_SupplyMyPageDef" path="view.pageDefs.SupplyMyPageDef"/>
+    <page id="view_NewLoginPagePageDef" path="view.pageDefs.NewLoginPagePageDef"/>
+    <page id="view_RetailMyPageDef" path="view.pageDefs.RetailMyPageDef"/>
+    <page id="view_NozalRetailRateViewPageDef" path="view.pageDefs.NozalRetailRateViewPageDef"/>
+    <page id="view_NozalViewPageDef" path="view.pageDefs.NozalViewPageDef"/>
+    <page id="view_TanksViewPageDef" path="view.pageDefs.TanksViewPageDef"/>
+    <page id="view_NozalTankMapViewPageDef" path="view.pageDefs.NozalTankMapViewPageDef"/>
+    <page id="view_MeterReadingsViewPageDef" path="view.pageDefs.MeterReadingsViewPageDef"/>
+    <page id="view_LubeSaleViewPageDef" path="view.pageDefs.LubeSaleViewPageDef"/>
+    <page id="view_RetailReceiptViewPageDef" path="view.pageDefs.RetailReceiptViewPageDef"/>
+    <page id="view_RetailExpenseViewPageDef" path="view.pageDefs.RetailExpenseViewPageDef"/>
+    <page id="view_RetailSaleRetailSaleViewPageDef" path="view.pageDefs.RetailSaleRetailSaleViewPageDef"/>
+    <page id="view_TanksDipsviewPageDef" path="view.pageDefs.TanksDipsviewPageDef"/>
+    <page id="view_AccountOpeningViewPageDef" path="view.pageDefs.AccountOpeningViewPageDef"/>
+    <page id="view_ReportsViewPageDef" path="view.pageDefs.ReportsViewPageDef"/>
+    <page id="view_SelectDateViewPageDef" path="view.pageDefs.SelectDateViewPageDef"/>
+    <page id="view_DayBookViewPageDef" path="view.pageDefs.DayBookViewPageDef"/>
+    <page id="view_RetailPaymentViewPageDef" path="view.pageDefs.RetailPaymentViewPageDef"/>
+    <page id="view_Opening_and_Finanical_ViewPageDef" path="view.pageDefs.Opening_and_Finanical_ViewPageDef"/>
+    <page id="view_OpeningandFinancePageDef" path="view.pageDefs.OpeningandFinancePageDef"/>
+    <page id="view_DayBookSummaryViewPageDef" path="view.pageDefs.DayBookSummaryViewPageDef"/>
+    <page id="view_SaleSummaryViewPageDef" path="view.pageDefs.SaleSummaryViewPageDef"/>
+    <page id="view_OilTankerStorageviewPageDef" path="view.pageDefs.OilTankerStorageviewPageDef"/>
+    <page id="view_StockTransferViewPageDef" path="view.pageDefs.StockTransferViewPageDef"/>
+    <page id="view_StockViewPageDef" path="view.pageDefs.StockViewPageDef"/>
+    <page id="view_OpeningBalanceForOilTankerViewPageDef" path="view.pageDefs.OpeningBalanceForOilTankerViewPageDef"/>
+    <page id="view_VehicleviewPageDef" path="view.pageDefs.VehicleviewPageDef"/>
+    <page id="view_UserPrfileViewPageDef" path="view.pageDefs.UserPrfileViewPageDef"/>
+    <page id="view_PurchaseSupplierFuel_ViewPageDef" path="view.pageDefs.PurchaseSupplierFuel_ViewPageDef"/>
+    <page id="view_StockLedgerviewPageDef" path="view.pageDefs.StockLedgerviewPageDef"/>
+    <page id="view_shahidviewPageDef1" path="view.pageDefs.shahidviewPageDef1"/>
+    <page id="view_InitializeDateviewPageDef" path="view.pageDefs.InitializeDateviewPageDef"/>
+    <page id="view_PurchaseSupplierLube_ViewPageDef" path="view.pageDefs.PurchaseSupplierLube_ViewPageDef"/>
+    <page id="view_DataLoaderViewPageDef" path="view.pageDefs.DataLoaderViewPageDef"/>
+    <page id="view_StorageOilTankerviewPageDef" path="view.pageDefs.StorageOilTankerviewPageDef"/>
+    <page id="view_FinancialStatementsviewPageDef" path="view.pageDefs.FinancialStatementsviewPageDef"/>
+    <page id="view_zPageDef" path="web.zPageDef"/>
+    <page id="view_DefaultFinancialViewPageDef" path="view.pageDefs.DefaultFinancialViewPageDef"/>
+    <page id="view_DefaultStockViewPageDef" path="view.pageDefs.DefaultStockViewPageDef"/>
+    <page id="view_LogingTreeViewPageDef" path="view.pageDefs.LogingTreeViewPageDef"/>
+    <page id="view_LogingTreePageDef" path="view.pageDefs.LogingTreePageDef"/>
+    <page id="view_Bill_DetailData_ViewPageDef" path="view.pageDefs.Bill_DetailData_ViewPageDef"/>
+    <page id="view_Bill_Vehicle_ViewPageDef" path="view.pageDefs.Bill_Vehicle_ViewPageDef"/>
+    <page id="view_Bill_CoaGroup_ViewPageDef" path="view.pageDefs.Bill_CoaGroup_ViewPageDef"/>
+    <page id="view_Bill_Group_ViewPageDef" path="view.pageDefs.Bill_Group_ViewPageDef"/>
+    <page id="view_DayBook_Paymenting_ViewPageDef" path="view.pageDefs.DayBook_Paymenting_ViewPageDef"/>
+    <page id="view_DayBook_Reciepting_ViewPageDef" path="view.pageDefs.DayBook_Reciepting_ViewPageDef"/>
+    <page id="view_DayBook_Expensive_ViewPageDef" path="view.pageDefs.DayBook_Expensive_ViewPageDef"/>
+    <page id="view_Tank_Dry_Data_Input_ViewPageDef" path="view.pageDefs.Tank_Dry_Data_Input_ViewPageDef"/>
+    <page id="view_Tank_Dry_Meter_Input_ViewPageDef" path="view.pageDefs.Tank_Dry_Meter_Input_ViewPageDef"/>
+    <page id="view_PipelineGroupViewPageDef" path="view.pageDefs.PipelineGroupViewPageDef"/>
+    <page id="view_DataLoaderPayRecIeptviewPageDef" path="view.pageDefs.DataLoaderPayRecIeptviewPageDef"/>
+    <page id="view_DataLoaderSaleWithDiscountviewPageDef" path="view.pageDefs.DataLoaderSaleWithDiscountviewPageDef"/>
+    <page id="view_DataLoaderrPageDef" path="view.pageDefs.DataLoaderrPageDef"/>
+    <page id="view_AutoCashSaleviewPageDef" path="view.pageDefs.AutoCashSaleviewPageDef"/>
+    <page id="view_Stock_Stockreport_ViewPageDef" path="view.pageDefs.Stock_Stockreport_ViewPageDef"/>
+    <page id="view_ReportsMy_CustomerReport_ViewPageDef" path="view.pageDefs.ReportsMy_CustomerReport_ViewPageDef"/>
+    <page id="view_DayBook_Sale_Lube_BulkViewPageDef" path="view.pageDefs.DayBook_Sale_Lube_BulkViewPageDef"/>
+    <page id="view_ReportsView_C_GleviewPageDef" path="view.pageDefs.ReportsView_C_GleviewPageDef"/>
+    <page id="view_ReportsMy_ProductDetailViewPageDef" path="view.pageDefs.ReportsMy_ProductDetailViewPageDef"/>
+    <page id="view_ReportsMy_ProductSummaryViewPageDef" path="view.pageDefs.ReportsMy_ProductSummaryViewPageDef"/>
+    <page id="view_RetailMy_Tank_Dip_Data_ViewPageDef" path="view.pageDefs.RetailMy_Tank_Dip_Data_ViewPageDef"/>
+    <page id="view_ReportsMy_StockAnalysis_ViewPageDef" path="view.pageDefs.ReportsMy_StockAnalysis_ViewPageDef"/>
+    <page id="view_Z_printBehaviourPageDef" path="view.pageDefs.Z_printBehaviourPageDef"/>
+    <page id="view_Retail_LubePageDef" path="view.pageDefs.Retail_LubePageDef"/>
+    <page id="view_LubeShop_Lube_Customer_ViewPageDef" path="view.pageDefs.LubeShop_Lube_Customer_ViewPageDef"/>
+    <page id="view_LubeShop_Lube_Vehicle_ViewPageDef" path="view.pageDefs.LubeShop_Lube_Vehicle_ViewPageDef"/>
+    <page id="view_ReportsMy_AllWorking_ViewPageDef" path="view.pageDefs.ReportsMy_AllWorking_ViewPageDef"/>
+    <page id="view_Managementmy_HRManage_ViewPageDef" path="view.pageDefs.Managementmy_HRManage_ViewPageDef"/>
+    <page id="view_Managementmy_PostSalary_ViewPageDef" path="view.pageDefs.Managementmy_PostSalary_ViewPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="ChangeMe" path="view.ChangeMe"/>
+    <BC4JDataControl id="VOAPPDataControl" Package="model" FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true" SupportsRangesize="true"
+                     SupportsResetState="true" SupportsSortCollection="true" Configuration="AppModuleLocal"
+                     syncMode="Immediate" xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

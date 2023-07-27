@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TNSReverseSales"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.TNSReverseSales_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="TNSSalesEntries1"
+    ViewObjectName="model.TNSSalesEntries"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="COAPRoductRevenue1"
+    ViewObjectName="model.COAPRoductRevenue"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="COAPartyCustomerOnly1"
+    ViewObjectName="model.COAPartyCustomerOnly"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OilTankerAllView1"
+    ViewObjectName="model.OilTankerAllView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OilDepoView1"
+    ViewObjectName="model.OilDepoView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_TnsReverseEntry"
+    ListVOName="TNSSalesEntries1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TnsReverseEntry"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+       <Item Value="TnsAmount"/>
+      <Item Value="TnsAdjDate"/>
+      <Item Value="TnsCoaDactNumber"/>
+      <Item Value="TnsCoaCactNumber"/>
+      <Item Value="TnsNewrate"/>
+      <Item Value="TnsOildId"/>
+      <Item Value="TnsOiltId"/>
+      <Item Value="TnsQty"/>
+      <Item Value="TnsRate"/>
+      <Item Value="TnsAdjId"/>
+      <Item Value="TnsFreightfactor"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+       <Item Value="TnsId"/>
+      <Item Value="TnsAmount"/>
+      <Item Value="TnsDate"/>
+      <Item Value="TnsCoaCactNumber"/>
+      <Item Value="TnsCoaDactNumber"/>
+      <Item Value="TnsNewrate"/>
+      <Item Value="TnsOildId"/>
+      <Item Value="TnsOiltId"/>
+      <Item Value="TnsQty"/>
+      <Item Value="TnsRate"/>
+      <Item Value="TnsId"/>
+      <Item Value="TnsFreightfactor"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="TnsId"/>
+      <Item Value="TnsDate"/>
+      <Item Value="TnsQty"/>
+      <Item Value="TnsRate"/>
+      <Item Value="TnsAmount"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TnsCoaDactNumber"
+    ListVOName="COAPRoductRevenue1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TnsCoaDactNumber"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CoaActNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TnsCoaCactNumber"
+    ListVOName="COAPartyCustomerOnly1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TnsCoaCactNumber"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CoaActNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CoaName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TnsOiltId"
+    ListVOName="OilTankerAllView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TnsOiltId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OiltId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OiltRegistration"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TnsOildId"
+    ListVOName="OilDepoView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TnsOildId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OildId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OildShortname"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Transaction"
+    Entity="model.Transaction"/>
+  <ViewAttribute
+    Name="TnsId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="TnsId"
+    EntityUsage="Transaction"
+    AliasName="TNS_ID"/>
+  <ViewAttribute
+    Name="TnsDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TnsDate"
+    EntityUsage="Transaction"
+    AliasName="TNS_DATE">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="TNSReverseSalesRow"/>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsAmount"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TnsAmount"
+    EntityUsage="Transaction"
+    AliasName="TNS_AMOUNT"/>
+  <ViewAttribute
+    Name="TnsDetail"
+    PrecisionRule="true"
+    EntityAttrName="TnsDetail"
+    EntityUsage="Transaction"
+    AliasName="TNS_DETAIL"
+    IsUpdateable="false"
+    DefaultValue="Reverse Entry (Sales)"/>
+  <ViewAttribute
+    Name="TnsInfo"
+    PrecisionRule="true"
+    EntityAttrName="TnsInfo"
+    EntityUsage="Transaction"
+    AliasName="TNS_INFO"/>
+  <ViewAttribute
+    Name="TnsTnsTypeIdFk"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TnsTnsTypeIdFk"
+    EntityUsage="Transaction"
+    AliasName="TNS_TNS_TYPE_ID_FK"
+    IsUpdateable="false"
+    DefaultValue="12"/>
+  <ViewAttribute
+    Name="TnsRate"
+    PrecisionRule="true"
+    EntityAttrName="TnsRate"
+    EntityUsage="Transaction"
+    AliasName="TNS_RATE"/>
+  <ViewAttribute
+    Name="TnsQty"
+    PrecisionRule="true"
+    EntityAttrName="TnsQty"
+    EntityUsage="Transaction"
+    AliasName="TNS_QTY"/>
+  <ViewAttribute
+    Name="TnsOiltId"
+    PrecisionRule="true"
+    EntityAttrName="TnsOiltId"
+    EntityUsage="Transaction"
+    AliasName="TNS_OILT_ID"
+    LOVName="LOV_TnsOiltId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsOildId"
+    PrecisionRule="true"
+    EntityAttrName="TnsOildId"
+    EntityUsage="Transaction"
+    AliasName="TNS_OILD_ID"
+    LOVName="LOV_TnsOildId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsCoaDactNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TnsCoaDactNumber"
+    EntityUsage="Transaction"
+    AliasName="TNS_COA_DACT_NUMBER"
+    LOVName="LOV_TnsCoaDactNumber">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsCoaCactNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TnsCoaCactNumber"
+    EntityUsage="Transaction"
+    AliasName="TNS_COA_CACT_NUMBER"
+    LOVName="LOV_TnsCoaCactNumber">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsAdjDate"
+    PrecisionRule="true"
+    EntityAttrName="TnsAdjDate"
+    EntityUsage="Transaction"
+    AliasName="TNS_ADJ_DATE"/>
+  <ViewAttribute
+    Name="TnsSlipNo"
+    PrecisionRule="true"
+    EntityAttrName="TnsSlipNo"
+    EntityUsage="Transaction"
+    AliasName="TNS_SLIP_NO"/>
+  <ViewAttribute
+    Name="TnsSlipDate"
+    PrecisionRule="true"
+    EntityAttrName="TnsSlipDate"
+    EntityUsage="Transaction"
+    AliasName="TNS_SLIP_DATE">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="TNSReverseSalesRow"/>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsTnsviewId"
+    PrecisionRule="true"
+    EntityAttrName="TnsTnsviewId"
+    EntityUsage="Transaction"
+    AliasName="TNS_TNSVIEW_ID"
+    IsUpdateable="false"
+    DefaultValue="63"/>
+  <ViewAttribute
+    Name="TnsNewrate"
+    PrecisionRule="true"
+    EntityAttrName="TnsNewrate"
+    EntityUsage="Transaction"
+    AliasName="TNS_NEWRATE"/>
+  <ViewAttribute
+    Name="TnsAdjId"
+    PrecisionRule="true"
+    EntityAttrName="TnsAdjId"
+    EntityUsage="Transaction"
+    AliasName="TNS_ADJ_ID"/>
+  <ViewAttribute
+    Name="TnsReverseEntry"
+    PrecisionRule="true"
+    EntityAttrName="TnsReverseEntry"
+    EntityUsage="Transaction"
+    AliasName="TNS_REVERSE_ENTRY"
+    LOVName="LOV_TnsReverseEntry">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TnsFreightfactor"
+    PrecisionRule="true"
+    EntityAttrName="TnsFreightfactor"
+    EntityUsage="Transaction"
+    AliasName="TNS_FREIGHTFACTOR"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+  <DeclarativeWhereClause
+    Name="DeclarativeWhereClause">
+    <ViewCriteria
+      Name="TNSReverseSalesWhereCriteria"
+      ViewObjectName="model.TNSReverseSales"
+      Conjunction="AND"
+      Mode="3">
+      <ViewCriteriaRow
+        Name="TNSReverseSalesWhereCriteria_row_0"
+        UpperColumns="1">
+        <ViewCriteriaItem
+          Name="TnsTnsviewId"
+          ViewAttribute="TnsTnsviewId"
+          Operator="="
+          Conjunction="AND"
+          Value="63"
+          Required="Required"/>
+      </ViewCriteriaRow>
+    </ViewCriteria>
+  </DeclarativeWhereClause>
+</ViewObject>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TankDrySearch"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="TANK_DRY_SEARCH"
+  AliasName="TankDrySearch"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="SearchDate"
+    ColumnName="SEARCH_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="TANK_DRY_SEARCH"
+    PrimaryKey="true"/>
+  <Key
+    Name="TankdrysearchPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="TANKDRYSEARCH_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.TankDrySearch.SearchDate"/>
+    </AttrArray>
+  </Key>
+</Entity>

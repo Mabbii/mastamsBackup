@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="bank_dataloaderrpaydrecAssoc"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="BankTnsType"
+    Cardinality="1"
+    Source="true"
+    Owner="model.BankTnsType"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="BankTnsType"/>
+      <Attr Name="_foreignKey" Value="model.BankTnsType.BankTnsTypePk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BankTnsType.BankTnsTypeId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="DataLoaderRpayDrec"
+    Cardinality="-1"
+    Owner="model.DataLoaderRpayDrec">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="DataLoaderRpayDrec"/>
+      <Attr Name="_foreignKey" Value="model.DataLoaderRpayDrec.fk_DataLoaderRpayDrec1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.DataLoaderRpayDrec.TnsBankTnsTypeIdFk"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

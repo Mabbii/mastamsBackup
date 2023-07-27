@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="MyDateCounterPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DateCounterView1" RangeSize="25" DataControl="VOAPPDataControl" id="DateCounterView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="DateCounterView1Iterator" id="DcId">
+      <AttrNames>
+        <Item Value="DcId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DateCounterView1Iterator" id="DcDate">
+      <AttrNames>
+        <Item Value="DcDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DateCounterView1Iterator" id="DcDateCounter">
+      <AttrNames>
+        <Item Value="DcDateCounter"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DateCounterView1Iterator" id="DcStartDate">
+      <AttrNames>
+        <Item Value="DcStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DateCounterView1Iterator" id="DcEndDate">
+      <AttrNames>
+        <Item Value="DcEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="DateCounterView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="DateCounterView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="DateCounterView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="DateCounterView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+  </bindings>
+</pageDefinition>

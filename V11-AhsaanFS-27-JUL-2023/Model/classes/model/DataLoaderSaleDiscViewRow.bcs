@@ -1,0 +1,19 @@
+//Groovy Scripts for model.DataLoaderSaleDiscView
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="DlsdDate")
+def DlsdDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="DlsdSlipDate")
+def DlsdSlipDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

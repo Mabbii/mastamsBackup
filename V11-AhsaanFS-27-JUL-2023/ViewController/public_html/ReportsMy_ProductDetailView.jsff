@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <f:view beforePhase="#{backingBeanScope.PrintPageBean.beforePhaseMethod}">
+  <af:panelBox id="pb1">
+    <f:facet name="toolbar">
+                <af:button id="b3" inlineStyle="padding-top:0px;" icon="#{resource['images:print.png']}">
+                    <af:showPrintablePageBehavior/>
+                </af:button>
+            </f:facet>
+            <af:image source="#{resource['images:Ahsaan FS Logo.png']}" shortDesc="Ahsaan Fs Logo" id="i1"/>
+    <af:panelSplitter id="ps1" orientation="vertical" inlineStyle="width:1021px; height:500px;" splitterPosition="200">
+      <f:facet name="first">
+        <af:panelFormLayout id="pfl1">
+          <af:inputText value="#{bindings.ZPdctDParamId.inputValue}" label="#{bindings.ZPdctDParamId.hints.label}"
+                        required="#{bindings.ZPdctDParamId.hints.mandatory}"
+                        columns="#{bindings.ZPdctDParamId.hints.displayWidth}"
+                        maximumLength="#{bindings.ZPdctDParamId.hints.precision}"
+                        shortDesc="#{bindings.ZPdctDParamId.hints.tooltip}" id="it1" rendered="false">
+            <f:validator binding="#{bindings.ZPdctDParamId.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.ZPdctDParamId.format}"/>
+          </af:inputText>
+          <af:outputText value="Product Detail" id="ot11"
+                         inlineStyle="font-weight:bold; font-style:italic; font-size:large;"/>
+            <af:inputListOfValues id="coaNameId" popupTitle="Search and Select: #{bindings.CoaName.hints.label}"
+                                  value="#{bindings.CoaName.inputValue}" label="#{bindings.CoaName.hints.label}"
+                                  model="#{bindings.CoaName.listOfValuesModel}"
+                                  columns="#{bindings.CoaName.hints.displayWidth}"
+                                  shortDesc="#{bindings.CoaName.hints.tooltip}" autoSubmit="true">
+              <f:validator binding="#{bindings.CoaName.validator}"/>
+              <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName.suggestedItems}"/>
+            </af:inputListOfValues>
+            <af:inputDate value="#{bindings.ZPdctDParamStartDate.inputValue}"
+                        label="#{bindings.ZPdctDParamStartDate.hints.label}"
+                        required="#{bindings.ZPdctDParamStartDate.hints.mandatory}"
+                        columns="#{bindings.ZPdctDParamStartDate.hints.displayWidth}"
+                        shortDesc="#{bindings.ZPdctDParamStartDate.hints.tooltip}" id="id1">
+            <f:validator binding="#{bindings.ZPdctDParamStartDate.validator}"/>
+            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+          </af:inputDate>
+          <af:inputDate value="#{bindings.ZPdctDParamEndDate.inputValue}"
+                        label="#{bindings.ZPdctDParamEndDate.hints.label}"
+                        required="#{bindings.ZPdctDParamEndDate.hints.mandatory}"
+                        columns="#{bindings.ZPdctDParamEndDate.hints.displayWidth}"
+                        shortDesc="#{bindings.ZPdctDParamEndDate.hints.tooltip}" id="id2">
+            <f:validator binding="#{bindings.ZPdctDParamEndDate.validator}"/>
+            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+          </af:inputDate>
+          <af:inputText value="#{bindings.ZPdctDActNumber.inputValue}" label="#{bindings.ZPdctDActNumber.hints.label}"
+                        required="#{bindings.ZPdctDActNumber.hints.mandatory}"
+                        columns="#{bindings.ZPdctDActNumber.hints.displayWidth}"
+                        maximumLength="#{bindings.ZPdctDActNumber.hints.precision}"
+                        shortDesc="#{bindings.ZPdctDActNumber.hints.tooltip}" id="it2" rendered="false">
+            <f:validator binding="#{bindings.ZPdctDActNumber.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.ZPdctDActNumber.format}"/>
+          </af:inputText>
+            <af:inputText value="#{bindings.CoaActNumber.inputValue}" label="#{bindings.CoaActNumber.hints.label}"
+                        required="#{bindings.CoaActNumber.hints.mandatory}"
+                        columns="#{bindings.CoaActNumber.hints.displayWidth}"
+                        maximumLength="#{bindings.CoaActNumber.hints.precision}"
+                        shortDesc="#{bindings.CoaActNumber.hints.tooltip}" id="it3" rendered="false">
+            <f:validator binding="#{bindings.CoaActNumber.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber.format}"/>
+          </af:inputText>
+          <f:facet name="footer">
+            <af:panelGroupLayout id="pgl1">
+              <af:spacer width="95" height="10" id="s2"/>
+              <af:button actionListener="#{bindings.Rollback.execute}" text="Show" immediate="true" id="b2"
+                         icon="#{resource['images:find.png']}">
+                <af:resetActionListener/>
+              </af:button>
+              <af:spacer width="40" height="10" id="s1"/>
+              <af:button text="Submit" id="b1" actionListener="#{bindings.Commit.execute}"
+                         icon="#{resource['images:commit.png']}"/>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelFormLayout>
+      </f:facet>
+      <f:facet name="second">
+        <af:panelCollection id="pc1">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.ZProductDetailView1.collectionModel}" var="row"
+                    rows="#{bindings.ZProductDetailView1.rangeSize}"
+                    emptyText="#{bindings.ZProductDetailView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" fetchSize="#{bindings.ZProductDetailView1.rangeSize}"
+                    filterModel="#{bindings.ZProductDetailView1Query.queryDescriptor}" filterVisible="true"
+                    queryListener="#{bindings.ZProductDetailView1Query.processQuery}" varStatus="vs" id="t1"
+                    width="980"
+                    inlineStyle="background-color:Window; border-right-color:Window; border-top-color:Window;">
+            <af:column sortProperty="#{bindings.ZProductDetailView1.hints.ZPdctDDate.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.ZProductDetailView1.hints.ZPdctDDate.label}" id="c1"
+                       align="center"
+                       inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold; font-size:4mm;"
+                       width="95">
+              <f:facet name="filter">
+                <af:inputDate value="#{bindings.ZProductDetailView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ZPdctDDate.value}"
+                              id="id3">
+                  <af:convertDateTime pattern="#{bindings.ZProductDetailView1.hints.ZPdctDDate.format}"/>
+                </af:inputDate>
+              </f:facet>
+              <af:outputText value="#{row.ZPdctDDate}"
+                             shortDesc="#{bindings.ZProductDetailView1.hints.ZPdctDDate.tooltip}" id="ot1"
+                             inlineStyle="font-weight:bold;">
+                <af:convertDateTime pattern="dd-MMM-yyyy"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZProductDetailView1.hints.ZCGleEtc.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.ZProductDetailView1.hints.ZCGleEtc.label}" id="c2"
+                       align="center"
+                       inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold; #{row.ZPdctDDate == null?'font-weight:bold;':''} #{row.ZPdctDDate == null?'font-size:large;':''};">
+              <af:outputText value="#{row.ZCGleEtc}" shortDesc="#{bindings.ZProductDetailView1.hints.ZCGleEtc.tooltip}"
+                             id="ot2" inlineStyle="font-weight:bold;"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZProductDetailView1.hints.ZPdctDOpQty.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.ZProductDetailView1.hints.ZPdctDOpQty.label}" id="c3"
+                       align="center"
+                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold; font-size:4mm;"
+                       width="80">
+              <af:outputText value="#{row.ZPdctDOpQty}"
+                             shortDesc="#{bindings.ZProductDetailView1.hints.ZPdctDOpQty.tooltip}" id="ot3"
+                             inlineStyle="font-weight:bold;">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.ZProductDetailView1.hints.ZPdctDOpQty.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZProductDetailView1.hints.ZPdctDInQty.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.ZProductDetailView1.hints.ZPdctDInQty.label}" id="c4"
+                       align="center"
+                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold; font-size:4mm;"
+                       width="120">
+              <af:outputText value="#{row.ZPdctDInQty}"
+                             shortDesc="#{bindings.ZProductDetailView1.hints.ZPdctDInQty.tooltip}" id="ot4"
+                             inlineStyle="font-weight:bold;">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.ZProductDetailView1.hints.ZPdctDInQty.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZProductDetailView1.hints.ZPdctDOutQty.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.ZProductDetailView1.hints.ZPdctDOutQty.label}" id="c5"
+                       align="center"
+                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold; font-size:4mm;"
+                       width="120">
+              <af:outputText value="#{row.ZPdctDOutQty}"
+                             shortDesc="#{bindings.ZProductDetailView1.hints.ZPdctDOutQty.tooltip}" id="ot5"
+                             inlineStyle="font-weight:bold;">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.ZProductDetailView1.hints.ZPdctDOutQty.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZProductDetailView1.hints.ZPdctDCloseQty.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.ZProductDetailView1.hints.ZPdctDCloseQty.label}" id="c6"
+                       align="center"
+                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold; font-size:4mm;"
+                       width="80">
+              <af:outputText value="#{row.ZPdctDCloseQty}"
+                             shortDesc="#{bindings.ZProductDetailView1.hints.ZPdctDCloseQty.tooltip}" id="ot6"
+                             inlineStyle="font-weight:bold;">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.ZProductDetailView1.hints.ZPdctDCloseQty.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZProductDetailView1.hints.ZPdctDCgsRate.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.ZProductDetailView1.hints.ZPdctDCgsRate.label}" id="c7"
+                       align="center"
+                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold; font-size:4mm;"
+                       width="60">
+              <af:outputText value="#{row.ZPdctDCgsRate}"
+                             shortDesc="#{bindings.ZProductDetailView1.hints.ZPdctDCgsRate.tooltip}" id="ot7"
+                             inlineStyle="font-weight:bold;">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.ZProductDetailView1.hints.ZPdctDCgsRate.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZProductDetailView1.hints.ZPdctDGleBalance.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.ZProductDetailView1.hints.ZPdctDGleBalance.label}"
+                       id="c8" align="center"
+                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold; font-size:4mm;"
+                       width="95">
+              <af:outputText value="#{row.ZPdctDGleBalance}"
+                             shortDesc="#{bindings.ZProductDetailView1.hints.ZPdctDGleBalance.tooltip}" id="ot8"
+                             inlineStyle="font-weight:bold;">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.ZProductDetailView1.hints.ZPdctDGleBalance.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZProductDetailView1.hints.ZPdctDParamIdFk.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.ZProductDetailView1.hints.ZPdctDParamIdFk.label}" id="c9"
+                       rendered="false" inlineStyle="font-size:4mm;">
+              <af:outputText value="#{row.ZPdctDParamIdFk}"
+                             shortDesc="#{bindings.ZProductDetailView1.hints.ZPdctDParamIdFk.tooltip}" id="ot9"
+                             inlineStyle="font-weight:bold;">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.ZProductDetailView1.hints.ZPdctDParamIdFk.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ZProductDetailView1.hints.ZPdctDId.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.ZProductDetailView1.hints.ZPdctDId.label}" id="c10"
+                       rendered="false" inlineStyle="font-size:4mm;">
+              <af:outputText value="#{row.ZPdctDId}" shortDesc="#{bindings.ZProductDetailView1.hints.ZPdctDId.tooltip}"
+                             id="ot10" inlineStyle="font-weight:bold;">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ZProductDetailView1.hints.ZPdctDId.format}"/>
+              </af:outputText>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </f:facet>
+    </af:panelSplitter>
+  </af:panelBox>
+  </f:view>
+</ui:composition>

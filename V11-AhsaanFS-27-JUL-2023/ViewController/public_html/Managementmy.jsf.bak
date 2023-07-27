@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+   
+        <af:document title="Management View" id="d1" binding="#{backingBeanScope.backing_MyHomeView.d1}"
+        smallIconSource="#{resource['images:adfdi_logo_16.png']}">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                <f:facet name="center">
+                    <af:panelStretchLayout id="psl1">
+                        <f:facet name="top">
+                            <af:toolbar id="t1">
+                                <af:button text="Manage Coa" id="b1"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                           icon="#{resource['images:process.png']}"/>
+                                <af:spacer width="10" height="10" id="s2"/>
+                                <af:button text="Nozzle" id="b2"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallNozal}"
+                                           icon="#{resource['images:fuel (1).png']}">
+                                    <af:setPropertyListener from="NozalFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s3"/>
+                                <af:button text="Tanks" id="b3"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallTanks}"
+                                           icon="#{resource['images:gas-storage.png']}">
+                                    <af:setPropertyListener from="TanksFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s4"/>
+                                <af:button text="Nozzle Tank Map" id="b4"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallNozalTankMap}"
+                                           icon="#{resource['images:gas-station.png']}">
+                                    <af:setPropertyListener from="NozalTankMapFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s5"/>
+                                <af:button text="Tank Nozzle PipeLineGroup" id="b5"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallNozalManage}"
+                                           icon="#{resource['images:fuel.png']}">
+                                    <af:setPropertyListener from="NozalManageFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s6"/>
+                                <af:button text="Oil Tanker" id="b6"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallOilTanker}"
+                                           icon="#{resource['images:oil-tanker.png']}">
+                                    <af:setPropertyListener from="OilTankerFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s12"/>
+                                <af:button text="Oil Tanler (S)" id="b8" icon="#{resource['images:oil-tanker.png']}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallOilTanlerS}">
+                                    <af:setPropertyListener from="OilTankerStorageFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s7"/>
+                                <af:button text="Oil Depo" id="b7"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallOilDepo}"
+                                           icon="#{resource['images:transportation.png']}">
+                                    <af:setPropertyListener from="OilDepoFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s8"/>
+                                <af:button text="Vehicle" id="b9"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallVehicle}"
+                                           icon="#{resource['images:truck (1).png']}">
+                                    <af:setPropertyListener from="VehicleFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s13"/>
+                                <af:button text="Add Salary" id="b11"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;">
+                                    <af:setPropertyListener from="AddSalaryFC"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"
+                                                            type="action"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s9"/>
+                                <af:button text="Post Salary" id="b12"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;">
+                                    <af:setPropertyListener from="PostSalaryFC"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"
+                                                            type="action"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s10"/>
+                                <af:button text="Start System" id="b10"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallStartSystem}"
+                                           icon="#{resource['images:data-complexity.png']}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;">
+                                    <af:setPropertyListener from="OpeningandFinanceFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="center">
+                            <af:switcher id="s1" binding="#{backingBeanScope.backing_MyHomeView.switcher}"
+                                         facetName="DefaultManagmentFC" defaultFacet="DefaultManagmentFC">
+                                <f:facet name="ManageCoaFc">
+                                    <af:region value="#{bindings.ManageChartofAccountTF1.regionModel}" id="r3"/>
+                                </f:facet>
+                                <f:facet name="NozalFc">
+                                    <af:region value="#{bindings.NozalTF1.regionModel}" id="r5"/>
+                                </f:facet>
+                                <f:facet name="TanksFc">
+                                    <af:region value="#{bindings.TanksTf1.regionModel}" id="r6"/>
+                                </f:facet>
+                                <f:facet name="NozalTankMapFc">
+                                    <af:region value="#{bindings.NozalTankMapTF1.regionModel}" id="r7"/>
+                                </f:facet>
+                                <f:facet name="NozalManageFc">
+                                    <af:region value="#{bindings.PipelineGroupTF1.regionModel}" id="r11"/>
+                                </f:facet>
+                                <f:facet name="OilTankerFc">
+                                    <af:region value="#{bindings.OILTANKERtf1.regionModel}" id="r1"/>
+                                </f:facet>
+                                <f:facet name="OilTankerStorageFc">
+                                    <af:region value="#{bindings.OilTankerStorageTf1.regionModel}" id="r8"/>
+                                </f:facet>
+                                <f:facet name="OilDepoFc">
+                                    <af:region value="#{bindings.oildepoTF1.regionModel}" id="r2"/>
+                                </f:facet>
+                                <f:facet name="VehicleFC">
+                                    <af:region value="#{bindings.VehicleTf1.regionModel}" id="r9"/>
+                                </f:facet>
+                                <f:facet name="AddSalaryFC">
+                                    <af:region value="#{bindings.Managementmy_HRManageTF1.regionModel}" id="r12"/>
+                                </f:facet>
+                                <f:facet name="PostSalaryFC">
+                                    <af:region value="#{bindings.Managementmy_PostSalaryTF1.regionModel}" id="r13"/>
+                                </f:facet>
+                                <f:facet name="OpeningandFinanceFC">
+                                    <af:region value="#{bindings.Opening_and_FinanicalTF1.regionModel}" id="r10"/>
+                                </f:facet>
+                                <f:facet name="DefaultManagmentFC">
+                                    <af:region value="#{bindings.DefaultManagmentTF1.regionModel}" id="r4"/>
+                                </f:facet>
+                            </af:switcher>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="header">
+                <af:link text="HighPower Filling Station" id="ll4" action="#{PageLoadBean.RedirecttoHome}"
+                             inlineStyle="color:Maroon; font-size:x-large; font-style:italic; font-weight:bold;"/>
+                </f:facet>
+                <f:facet name="status"/>
+                <f:attribute name="headerGlobalSize" value="35"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

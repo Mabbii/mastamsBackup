@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelSplitter orientation="vertical" splitterPosition="600" id="ps1">
+    <f:facet name="first">
+      <af:panelBox id="pb1">
+        <f:facet name="toolbar">
+          <af:outputText value="Mastams" id="ot12" inlineStyle="color:Maroon; font-size:x-large; font-style:italic;"/>
+        </f:facet>
+        <af:panelFormLayout id="pfl1">
+          <af:outputText value="Income Statement Adjustment " id="ot1"
+                         inlineStyle="font-size:x-large; font-weight:bold; font-style:italic;"/>
+          <af:inputText value="#{bindings.ZRptIsPostPId.inputValue}" label="ID"
+                        required="#{bindings.ZRptIsPostPId.hints.mandatory}"
+                        columns="#{bindings.ZRptIsPostPId.hints.displayWidth}"
+                        maximumLength="#{bindings.ZRptIsPostPId.hints.precision}"
+                        shortDesc="#{bindings.ZRptIsPostPId.hints.tooltip}" id="it1" readOnly="true">
+            <f:validator binding="#{bindings.ZRptIsPostPId.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.ZRptIsPostPId.format}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.ZRptIsPostPDetails.inputValue}"
+                        label="#{bindings.ZRptIsPostPDetails.hints.label}"
+                        required="#{bindings.ZRptIsPostPDetails.hints.mandatory}"
+                        columns="#{bindings.ZRptIsPostPDetails.hints.displayWidth}"
+                        maximumLength="#{bindings.ZRptIsPostPDetails.hints.precision}"
+                        shortDesc="#{bindings.ZRptIsPostPDetails.hints.tooltip}" id="it2">
+            <f:validator binding="#{bindings.ZRptIsPostPDetails.validator}"/>
+          </af:inputText>
+          <af:inputDate value="#{bindings.ZRptIsPostPDate.inputValue}" label="#{bindings.ZRptIsPostPDate.hints.label}"
+                        required="#{bindings.ZRptIsPostPDate.hints.mandatory}"
+                        columns="#{bindings.ZRptIsPostPDate.hints.displayWidth}"
+                        shortDesc="#{bindings.ZRptIsPostPDate.hints.tooltip}" id="id1">
+            <f:validator binding="#{bindings.ZRptIsPostPDate.validator}"/>
+            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+          </af:inputDate>
+          <af:inputText value="#{bindings.ZRptIsPostPPasskey.inputValue}"
+                        label="#{bindings.ZRptIsPostPPasskey.hints.label}"
+                        required="#{bindings.ZRptIsPostPPasskey.hints.mandatory}" secret="true"
+                        columns="#{bindings.ZRptIsPostPPasskey.hints.displayWidth}"
+                        maximumLength="#{bindings.ZRptIsPostPPasskey.hints.precision}"
+                        shortDesc="#{bindings.ZRptIsPostPPasskey.hints.tooltip}" id="it3">
+            <f:validator binding="#{bindings.ZRptIsPostPPasskey.validator}"/>
+          </af:inputText>
+          <f:facet name="footer">
+            <af:panelGroupLayout id="pgl1">
+              <af:button text="Submit" id="b1" actionListener="#{bindings.Commit.execute}"
+                         disabled="#{!bindings.Commit.enabled}"/>
+              <af:spacer width="50" height="10" id="s1"/>
+              <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                         disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3">
+                <af:resetActionListener/>
+              </af:button>
+              <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                         disabled="#{!bindings.CreateInsert.enabled}" id="b2"/>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelFormLayout>
+      </af:panelBox>
+    </f:facet>
+  </af:panelSplitter>
+</ui:composition>

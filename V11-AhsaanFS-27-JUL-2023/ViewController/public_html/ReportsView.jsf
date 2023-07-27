@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Reports View" id="d1" binding="#{backingBeanScope.backing_MyHomeView.d1}"
+    smallIconSource="#{resource['images:adfdi_logo_16.png']}">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                <f:facet name="center">
+                    <af:panelStretchLayout id="psl1">
+                        <f:facet name="top">
+                            <af:toolbar id="t1">
+                                <af:button text="General Ledger" id="b1"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallJournalLedger}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                           icon="#{resource['images:ledger.png']}">
+                                    <af:setPropertyListener from="JournalledgerShortFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s2"/>
+                                <af:button text="Tank Ledger" id="b3"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallStockLedger}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                           icon="#{resource['images:stockT.png']}">
+                                    <af:setPropertyListener from="StockLedgerFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s3"/>
+                                <af:button text="Stock Ledger" id="b10"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                           icon="#{resource['images:gas-storage.png']}"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}">
+                                    <af:setPropertyListener from="StockReportFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s10"/>
+                                <af:button text="Trial Balance" id="b2"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallTrialBalance}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                           icon="#{resource['images:balance.png']}">
+                                    <af:setPropertyListener from="TrialBalanceShortFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s4"/>
+                                <af:button text="Ledger Detailed" id="b4"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallLedgerDetailed}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                           icon="#{resource['images:ledger.png']}">
+                                    <af:setPropertyListener from="lEDGERdETAILEDfC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s11"/>
+                                <af:button text="Customer Report" id="b11"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                           icon="#{resource['images:internet (1).png']}">
+                                    <af:setPropertyListener from="CustomerReportFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s5"/>
+                                <af:button text="Storage Oil Tanker" id="b5"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallStorageOilTanker}"
+                                           icon="#{resource['images:tanker.png']}">
+                                    <af:setPropertyListener from="StorageOilTankerFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s6"/>
+                                <af:button text="Custom Ledger" id="b12"
+                                            inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                            action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                            icon="#{resource['images:ledger.png']}">
+                                            <af:setPropertyListener from="CustomLedgerFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s12"/>
+                                <af:button text="Product Detail" id="b13"
+                                            inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                            action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           icon="#{resource['images:oil_2.png']}">
+                                            <af:setPropertyListener from="ProductDetailFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s13"/>
+                                <af:button text="Product Summary" id="b14"
+                                            inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                            action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                            icon="#{resource['images:oillll.png']}">
+                                            <af:setPropertyListener from="ProductSummaryFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s7"/>
+                                <af:button text="Stock Analysis" id="b6"
+                                inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple;"
+                                            action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                            icon="#{resource['images:oillll.png']}">
+                                            <af:setPropertyListener from="StockAnalysisFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="center">
+                            <af:switcher id="s1" binding="#{backingBeanScope.backing_MyHomeView.switcher}"
+                                         defaultFacet="DefaultReportingFC" facetName="DefaultReportingFC">
+                                <f:facet name="JournalledgerShortFC">
+                                    <af:region value="#{bindings.GlerportTF1.regionModel}" id="r1"/>
+                                </f:facet>
+                                <f:facet name="StockLedgerFC">
+                                    <af:region value="#{bindings.StockLedgerTF1.regionModel}" id="r4"/>
+                                </f:facet>
+                                <f:facet name="TrialBalanceShortFC">
+                                    <af:region value="#{bindings.TrialBalanceShortTF1.regionModel}" id="r2"/>
+                                </f:facet>
+                                <f:facet name="lEDGERdETAILEDfC">
+                                    <af:region value="#{bindings.GournalLedgerdetaildTF1.regionModel}" id="r5"/>
+                                </f:facet>
+                                <f:facet name="StorageOilTankerFC">
+                                    <af:region value="#{bindings.StorageOilTankerTF1.regionModel}" id="r6"/>
+                                </f:facet>
+                                <f:facet name="DefaultReportingFC">
+                                    <af:region value="#{bindings.DefaultReportingTF1.regionModel}" id="r3"/>
+                                </f:facet>
+                                <f:facet name="StockReportFc">
+                                    <af:region value="#{bindings.Stock_StockReport1.regionModel}" id="r11"/>
+                                </f:facet>
+                                <f:facet name="CustomerReportFc">
+                                    <af:region value="#{bindings.CustomerReport_TF1.regionModel}" id="r12"/>
+                                </f:facet>
+                                <f:facet name="CustomLedgerFc">
+                                    <af:region value="#{bindings.ReportsView_C_GleTF1.regionModel}" id="r13"/>
+                                </f:facet>
+                                <f:facet name="ProductDetailFc">
+                                    <af:region value="#{bindings.ReportsMy_ProductDetailTF1.regionModel}" id="r14"/>
+                                </f:facet>
+                                <f:facet name="ProductSummaryFC">
+                                    <af:region value="#{bindings.ReportsMy_ProductSummaryTF1.regionModel}" id="r15"/>
+                                </f:facet>
+                                <f:facet name="StockAnalysisFC">
+                                    <af:region value="#{bindings.ReportsMy_StockAnalysis_TF1.regionModel}" id="r7"/>
+                                </f:facet>
+                            </af:switcher>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="header">
+                    <af:link text="Ahsaan Filling Station" id="l1"
+                             inlineStyle="color:Maroon; font-size:x-large; font-style:italic; font-weight:bold;"
+                             action="#{PageLoadBean.RedirecttoHome}"/>
+                </f:facet>
+                <f:facet name="branding"/>
+                <f:facet name="status"/>
+                <f:attribute name="headerGlobalSize" value="35"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

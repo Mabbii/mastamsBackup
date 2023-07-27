@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GLE_TB2"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  RowClass="model.GLE_TB2RowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.GLE_TB2_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="BindGleDate"
+    Kind="where"
+    Type="java.sql.Timestamp">
+    <TransientExpression
+      Name="VariableScript"
+      trustMode="untrusted"
+      CodeSourceName="GLE_TB2"/>
+  </Variable>
+  <EntityUsage
+    Name="GeneralLedgerEntry"
+    Entity="model.GeneralLedgerEntry"/>
+  <EntityUsage
+    Name="ChartOfAccounts"
+    Entity="model.ChartOfAccounts"
+    Association="model.COA_GLE_FK_Assoc"
+    AssociationEnd="model.COA_GLE_FK_Assoc.ChartOfAccounts"
+    SourceUsage="model.GLE_TB2.GeneralLedgerEntry"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.ChartOfAccounts.CoaActNumber"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.GeneralLedgerEntry.GleCoaActNumber"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="GleCoaActNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="GleCoaActNumber"
+    EntityUsage="GeneralLedgerEntry"
+    AliasName="GLE_COA_ACT_NUMBER"/>
+  <ViewAttribute
+    Name="GleId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="GleId"
+    EntityUsage="GeneralLedgerEntry"
+    AliasName="GLE_ID"/>
+  <ViewAttribute
+    Name="CoaName"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaName"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_NAME"/>
+  <ViewAttribute
+    Name="CoaActNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaActNumber"
+    EntityUsage="ChartOfAccounts"
+    AliasName="COA_ACT_NUMBER"
+    DefaultValue="1000002"/>
+  <ViewAttribute
+    Name="GleDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="GleDate"
+    EntityUsage="GeneralLedgerEntry"
+    AliasName="GLE_DATE"/>
+  <ViewAttribute
+    Name="GleDebitBal"
+    PrecisionRule="true"
+    EntityAttrName="GleDebitBal"
+    EntityUsage="GeneralLedgerEntry"
+    AliasName="GLE_DEBIT_BAL"/>
+  <ViewAttribute
+    Name="GleCreditBal"
+    PrecisionRule="true"
+    EntityAttrName="GleCreditBal"
+    EntityUsage="GeneralLedgerEntry"
+    AliasName="GLE_CREDIT_BAL"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="GleId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+  <DeclarativeWhereClause
+    Name="DeclarativeWhereClause">
+    <ViewCriteria
+      Name="GLE_TB2WhereCriteria"
+      ViewObjectName="model.GLE_TB2"
+      Conjunction="AND"
+      Mode="3">
+      <ViewCriteria
+        Name="GLE_TB2SubCriteria1"
+        ViewObjectName="model.GLE_TB2"
+        Conjunction="AND">
+        <ViewCriteriaRow
+          Name="GLE_TB2SubCriteria1_row_0"
+          UpperColumns="1">
+          <ViewCriteriaItem
+            Name="GleDate"
+            ViewAttribute="GleDate"
+            Operator="ONORBEFORE"
+            Conjunction="AND"
+            Value=":BindGleDate"
+            GenerateIsNullClauseForBindVars="false"
+            IsBindVarValue="true"
+            Required="Optional"/>
+        </ViewCriteriaRow>
+      </ViewCriteria>
+    </ViewCriteria>
+  </DeclarativeWhereClause>
+</ViewObject>

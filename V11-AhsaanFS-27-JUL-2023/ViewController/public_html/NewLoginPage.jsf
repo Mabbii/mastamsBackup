@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="NewLoginPage.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="100%" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Content -->
+                        <af:panelFormLayout id="pfl1">
+                            <af:inputText value="#{AuthBean.username}"
+                                          label="Username"
+                                          required="#{bindings.UserName.hints.mandatory}"
+                                          columns="#{bindings.UserName.hints.displayWidth}"
+                                          maximumLength="#{bindings.UserName.hints.precision}"
+                                          shortDesc="#{bindings.UserName.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.UserName.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{AuthBean.password}"
+                                          label="Password"
+                                          required="#{bindings.UserPass.hints.mandatory}"
+                                          columns="#{bindings.UserPass.hints.displayWidth}"
+                                          maximumLength="#{bindings.UserPass.hints.precision}"
+                                          shortDesc="#{bindings.UserPass.hints.tooltip}" id="it2">
+                                <f:validator binding="#{bindings.UserPass.validator}"/>
+                            </af:inputText>
+                            <af:button text="Login" id="b1" action="#{AuthBean.doAuth}"/>
+                        </af:panelFormLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

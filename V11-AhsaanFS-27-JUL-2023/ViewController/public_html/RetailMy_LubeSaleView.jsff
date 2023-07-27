@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="244" id="ps1">
+        <f:facet name="first">
+            <af:panelGroupLayout layout="vertical" id="pgl1">
+                <af:outputText value="Lube Sale" id="ot1"
+                               inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                <af:panelHeader text="." id="ph1">
+                    <af:query id="qryId1" headerText="." disclosed="true"
+                              value="#{bindings.SaleLubeViewCriteriaQuery.queryDescriptor}"
+                              model="#{bindings.SaleLubeViewCriteriaQuery.queryModel}"
+                              queryListener="#{bindings.SaleLubeViewCriteriaQuery.processQuery}"
+                              queryOperationListener="#{bindings.SaleLubeViewCriteriaQuery.processQueryOperation}"
+                              resultComponentId="::pc1:resId1" searchButtonText="Search" saveButtonText="."
+                              resetButtonText="." addFieldsButtonText="."/>
+                </af:panelHeader>
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t1">
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Show" immediate="true"
+                                   id="b2" icon="#{resource['images:find.png']}">
+                            <af:resetActionListener/>
+                        </af:button>
+                        <af:button actionListener="#{bindings.Commit.execute}" text="Submit" id="b1"
+                                   icon="#{resource['images:commit.png']}"/>
+                    </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar">
+                <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot14"
+                                       inlineStyle="color:Maroon; font-size:large; font-style:italic;"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.Sale_Lube_View1.collectionModel}" var="row"
+                          rows="#{bindings.Sale_Lube_View1.rangeSize}"
+                          emptyText="#{bindings.Sale_Lube_View1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.Sale_Lube_View1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.Sale_Lube_View1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.Sale_Lube_View1.rangeSize}"
+                          filterModel="#{bindings.SaleLubeViewCriteriaQuery.queryDescriptor}" filterVisible="false"
+                          queryListener="#{bindings.SaleLubeViewCriteriaQuery.processQuery}" varStatus="vs" id="resId1">
+                    <af:column sortProperty="#{bindings.Sale_Lube_View1.hints.ProductShortname.name}" filterable="false"
+                               sortable="true" headerText="Product"
+                               id="c1" width="200" align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:inputText value="#{row.bindings.ProductShortname.inputValue}"
+                                      label="#{bindings.Sale_Lube_View1.hints.ProductShortname.label}"
+                                      required="#{bindings.Sale_Lube_View1.hints.ProductShortname.mandatory}"
+                                      columns="#{bindings.Sale_Lube_View1.hints.ProductShortname.displayWidth}"
+                                      maximumLength="#{bindings.Sale_Lube_View1.hints.ProductShortname.precision}"
+                                      shortDesc="#{bindings.Sale_Lube_View1.hints.ProductShortname.tooltip}" id="it1"
+                                      readOnly="true">
+                            <f:validator binding="#{row.bindings.ProductShortname.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Sale_Lube_View1.hints.SaleLubeQty.name}" filterable="false"
+                               sortable="true" headerText="Lube" id="c2"
+                               width="200" align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:inputText value="#{row.bindings.SaleLubeQty.inputValue}"
+                                      label="#{bindings.Sale_Lube_View1.hints.SaleLubeQty.label}"
+                                      required="#{bindings.Sale_Lube_View1.hints.SaleLubeQty.mandatory}"
+                                      columns="#{bindings.Sale_Lube_View1.hints.SaleLubeQty.displayWidth}"
+                                      maximumLength="#{bindings.Sale_Lube_View1.hints.SaleLubeQty.precision}"
+                                      shortDesc="#{bindings.Sale_Lube_View1.hints.SaleLubeQty.tooltip}" id="it2"
+                                      inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                            <f:validator binding="#{row.bindings.SaleLubeQty.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Sale_Lube_View1.hints.SaleLubeQty.format}"/>
+                        </af:inputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="Image_Ladger_ViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variableUsage DataControl="VOAPPDataControl" Binds="ImagesTableVO1.variablesMap.coaBind"
+                     Name="ExecuteWithParams_coaBind" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="ImagesTableVO1" RangeSize="25" DataControl="VOAPPDataControl" id="ImagesTableVO1Iterator"/>
+    <searchRegion Binds="ImagesTableVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ImagesTableVO1Query"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ImagesTableVO1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="coaBind" NDType="java.lang.String" NDValue="#{bindings.coaBind.inputValue}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="coaBind">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_coaBind"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ImagesTableVO1Iterator" id="CoaName">
+      <AttrNames>
+        <Item Value="CoaName"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues Uses="LOV_CoaName" StaticList="false" IterBinding="ImagesTableVO1Iterator" id="CoaName1"/>
+    <tree IterBinding="ImagesTableVO1Iterator" id="ImagesTableVO1">
+      <nodeDefinition DefName="model.ImagesTableVO" Name="ImagesTableVO10">
+        <AttrNames>
+          <Item Value="ImageDescription"/>
+          <Item Value="CoaName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="ImagesTableVO1Iterator" id="ImageId">
+      <AttrNames>
+        <Item Value="ImageId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ImagesTableVO1Iterator" id="ImageBlob">
+      <AttrNames>
+        <Item Value="ImageBlob"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ImagesTableVO1Iterator" id="CoaAccIdFk">
+      <AttrNames>
+        <Item Value="CoaAccIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ImagesTableVO1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

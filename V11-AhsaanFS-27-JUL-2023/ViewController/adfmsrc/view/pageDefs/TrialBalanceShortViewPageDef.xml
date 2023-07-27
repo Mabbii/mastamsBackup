@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="TrialBalanceShortViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZRptTbParamView1" RangeSize="25" DataControl="VOAPPDataControl" id="ZRptTbParamView1Iterator"/>
+    <iterator Binds="ZRptTbView1" RangeSize="5000" DataControl="VOAPPDataControl" id="ZRptTbView1Iterator"/>
+    <searchRegion Binds="ZRptTbView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ZRptTbView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ZRptTbParamView1Iterator" id="ZRptTbParamId">
+      <AttrNames>
+        <Item Value="ZRptTbParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptTbParamView1Iterator" id="ZRptTbParamDate">
+      <AttrNames>
+        <Item Value="ZRptTbParamDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ZRptTbParamView1Iterator" StaticList="false" Uses="LOV_ZRptTbParamTbio" id="ZRptTbParamTbio"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action IterBinding="ZRptTbView1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <tree IterBinding="ZRptTbView1Iterator" id="ZRptTbView1">
+      <nodeDefinition DefName="model.ZRptTbView" Name="ZRptTbView10">
+        <AttrNames>
+          <Item Value="ZRptTbDate"/>
+          <Item Value="ZRptTbCoaId"/>
+          <Item Value="ZRptTbName"/>
+          <Item Value="ZRptTbDebit"/>
+          <Item Value="ZRptTbCredit"/>
+          <Item Value="ZRptTbQtyBal"/>
+          <Item Value="ZRptTbRate"/>
+          <Item Value="ZRptTbCat"/>
+          <Item Value="ZRptTbDateStart"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

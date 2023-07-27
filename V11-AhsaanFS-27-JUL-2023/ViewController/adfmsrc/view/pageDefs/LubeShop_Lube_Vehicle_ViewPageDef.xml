@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="LubeShop_Lube_Vehicle_ViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="LubeVehicleView1" RangeSize="25" DataControl="VOAPPDataControl" id="LubeVehicleView1Iterator"/>
+    <searchRegion Binds="LubeVehicleView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="LubeVehicleView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="LubeVehicleView1Iterator" StaticList="false" Uses="LOV_LcName" id="LcName"/>
+    <attributeValues IterBinding="LubeVehicleView1Iterator" id="LvId">
+      <AttrNames>
+        <Item Value="LvId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LubeVehicleView1Iterator" id="LvRegNo">
+      <AttrNames>
+        <Item Value="LvRegNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LubeVehicleView1Iterator" id="LvMakeModel">
+      <AttrNames>
+        <Item Value="LvMakeModel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LubeVehicleView1Iterator" id="LcIdFk">
+      <AttrNames>
+        <Item Value="LcIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LubeVehicleView1Iterator" id="LvPerdayKms">
+      <AttrNames>
+        <Item Value="LvPerdayKms"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LubeVehicleView1Iterator" id="LvDetails">
+      <AttrNames>
+        <Item Value="LvDetails"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LubeVehicleView1Iterator" id="LcId">
+      <AttrNames>
+        <Item Value="LcId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="LubeVehicleView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="LubeVehicleView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="LubeVehicleView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="LubeVehicleView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="LubeVehicleView1Iterator" id="LubeVehicleView1">
+      <nodeDefinition DefName="model.LubeVehicleView" Name="LubeVehicleView10">
+        <AttrNames>
+          <Item Value="LvId"/>
+          <Item Value="LvRegNo"/>
+          <Item Value="LvMakeModel"/>
+          <Item Value="LcIdFk"/>
+          <Item Value="LvPerdayKms"/>
+          <Item Value="LvDetails"/>
+          <Item Value="LcName"/>
+          <Item Value="LcId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="LubeVehicleView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <attributeValues IterBinding="LubeVehicleView1Iterator" id="LvMr">
+      <AttrNames>
+        <Item Value="LvMr"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

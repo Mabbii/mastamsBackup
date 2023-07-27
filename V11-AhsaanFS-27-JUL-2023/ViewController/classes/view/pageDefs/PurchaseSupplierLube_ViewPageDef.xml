@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="PurchaseSupplierLube_ViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Purchase_Lube_Only1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="Purchase_Lube_Only1Iterator"/>
+    <searchRegion Binds="Purchase_Lube_Only1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="Purchase_Lube_Only1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="Purchase_Lube_Only1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <listOfValues IterBinding="Purchase_Lube_Only1Iterator" StaticList="false" Uses="LOV_CoaName1" id="CoaName1"/>
+    <listOfValues IterBinding="Purchase_Lube_Only1Iterator" StaticList="false" Uses="LOV_PurchaseRateLogR"
+                  id="PurchaseRateLogR"/>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsAmount">
+      <AttrNames>
+        <Item Value="TnsAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsId">
+      <AttrNames>
+        <Item Value="TnsId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsDate">
+      <AttrNames>
+        <Item Value="TnsDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsCoaCactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaCactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsCoaDactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaDactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsDetail">
+      <AttrNames>
+        <Item Value="TnsDetail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsFormatAmount">
+      <AttrNames>
+        <Item Value="TnsFormatAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsInfo">
+      <AttrNames>
+        <Item Value="TnsInfo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsNewrate">
+      <AttrNames>
+        <Item Value="TnsNewrate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsPurchaseRateLogIdFk">
+      <AttrNames>
+        <Item Value="TnsPurchaseRateLogIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsQty">
+      <AttrNames>
+        <Item Value="TnsQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsRate">
+      <AttrNames>
+        <Item Value="TnsRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsSDate">
+      <AttrNames>
+        <Item Value="TnsSDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsSlipDate">
+      <AttrNames>
+        <Item Value="TnsSlipDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsSlipNo">
+      <AttrNames>
+        <Item Value="TnsSlipNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsSpellAmount">
+      <AttrNames>
+        <Item Value="TnsSpellAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsTnsTypeIdFk">
+      <AttrNames>
+        <Item Value="TnsTnsTypeIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="TnsTnsviewId">
+      <AttrNames>
+        <Item Value="TnsTnsviewId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="CoaBalance">
+      <AttrNames>
+        <Item Value="CoaBalance"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="CoaPartyId">
+      <AttrNames>
+        <Item Value="CoaPartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="CoaActNumber1">
+      <AttrNames>
+        <Item Value="CoaActNumber1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="CoaBalance1">
+      <AttrNames>
+        <Item Value="CoaBalance1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="CoaProductId">
+      <AttrNames>
+        <Item Value="CoaProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="PurchaseRateLogDetails">
+      <AttrNames>
+        <Item Value="PurchaseRateLogDetails"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="PurchaseRateLogId">
+      <AttrNames>
+        <Item Value="PurchaseRateLogId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Purchase_Lube_Only1Iterator" id="PurchaseRateLogDate">
+      <AttrNames>
+        <Item Value="PurchaseRateLogDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Purchase_Lube_Only1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="Purchase_Lube_Only1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="Purchase_Lube_Only1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="Purchase_Lube_Only1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="Purchase_Lube_Only1Iterator" id="Purchase_Lube_Only1">
+      <nodeDefinition DefName="model.Purchase_Lube_Only" Name="Purchase_Lube_Only10">
+        <AttrNames>
+          <Item Value="TnsAmount"/>
+          <Item Value="TnsId"/>
+          <Item Value="TnsDate"/>
+          <Item Value="TnsCoaCactNumber"/>
+          <Item Value="TnsCoaDactNumber"/>
+          <Item Value="TnsDetail"/>
+          <Item Value="TnsFormatAmount"/>
+          <Item Value="TnsInfo"/>
+          <Item Value="TnsNewrate"/>
+          <Item Value="TnsPurchaseRateLogIdFk"/>
+          <Item Value="TnsQty"/>
+          <Item Value="TnsRate"/>
+          <Item Value="TnsSDate"/>
+          <Item Value="TnsSlipDate"/>
+          <Item Value="TnsSlipNo"/>
+          <Item Value="TnsSpellAmount"/>
+          <Item Value="TnsTnsTypeIdFk"/>
+          <Item Value="TnsTnsviewId"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaActNumber"/>
+          <Item Value="CoaBalance"/>
+          <Item Value="CoaPartyId"/>
+          <Item Value="CoaName1"/>
+          <Item Value="CoaActNumber1"/>
+          <Item Value="CoaBalance1"/>
+          <Item Value="CoaProductId"/>
+          <Item Value="PurchaseRateLogDetails"/>
+          <Item Value="PurchaseRateLogId"/>
+          <Item Value="PurchaseRateLogDate"/>
+          <Item Value="PurchaseRateLogR"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Purchase_Lube_Only1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <action IterBinding="Purchase_Lube_Only1Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

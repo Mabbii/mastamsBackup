@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Z_Rpt_JournalLedger_Data"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="Z_RPT_JL_DATA"
+  AliasName="ZRptJlData"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="GleId"
+    ColumnName="GLE_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleDate"
+    ColumnName="GLE_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleDetails"
+    Precision="200"
+    ColumnName="GLE_DETAILS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="Z_RPT_JL_DATA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GleDebit"
+    Precision="19"
+    Scale="2"
+    ColumnName="GLE_DEBIT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleCredit"
+    Precision="19"
+    Scale="2"
+    ColumnName="GLE_CREDIT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleBalance"
+    Precision="19"
+    Scale="2"
+    ColumnName="GLE_BALANCE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleInfo"
+    Precision="100"
+    ColumnName="GLE_INFO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="Z_RPT_JL_DATA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GleCoaActNumber"
+    ColumnName="GLE_COA_ACT_NUMBER"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleQty"
+    Precision="19"
+    Scale="0"
+    ColumnName="GLE_QTY"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleRate"
+    Precision="29"
+    Scale="10"
+    ColumnName="GLE_RATE"
+    SQLType="NUMERIC"
+    Type="java.lang.String"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleAcInTnsAcNo"
+    ColumnName="GLE_AC_IN_TNS_AC_NO"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleOilTId"
+    ColumnName="GLE_OIL_T_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleOilDId"
+    ColumnName="GLE_OIL_D_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleSlipDate"
+    ColumnName="GLE_SLIP_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleSlipNo"
+    Precision="40"
+    ColumnName="GLE_SLIP_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="Z_RPT_JL_DATA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GleBankTnsTypIdFk"
+    ColumnName="GLE_BANK_TNS_TYP_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleBrCode"
+    Precision="20"
+    ColumnName="GLE_BR_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="Z_RPT_JL_DATA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GleBankNameId"
+    ColumnName="GLE_BANK_NAME_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleOildLoadId"
+    ColumnName="GLE_OILD_LOAD_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleDebitBal"
+    Precision="29"
+    Scale="2"
+    ColumnName="GLE_DEBIT_BAL"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleCreditBal"
+    Precision="29"
+    Scale="2"
+    ColumnName="GLE_CREDIT_BAL"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="GleEtc"
+    Precision="300"
+    ColumnName="GLE_ETC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="Z_RPT_JL_DATA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GleOildLoadDate"
+    ColumnName="GLE_OILD_LOAD_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="ZRptJlParamIdFk"
+    ColumnName="Z_RPT_JL_PARAM_ID_FK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"/>
+  <Attribute
+    Name="ZRptJlDataId"
+    IsNotNull="true"
+    ColumnName="Z_RPT_JL_DATA_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="Z_RPT_JL_DATA"
+    PrimaryKey="true"/>
+  <AccessorAttribute
+    Name="ZRptJlParam"
+    Association="model.ZRptJlDataZRptJlPaFk1Assoc"
+    AssociationEnd="model.ZRptJlDataZRptJlPaFk1Assoc.ZRptJlParam"
+    AssociationOtherEnd="model.ZRptJlDataZRptJlPaFk1Assoc.ZRptJlData"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ChartOfAccounts"
+    Association="model.Z_Rpt_JournalLedger_Data_COA_ACTNO_ASSOC"
+    AssociationEnd="model.Z_Rpt_JournalLedger_Data_COA_ACTNO_ASSOC.ChartOfAccounts"
+    AssociationOtherEnd="model.Z_Rpt_JournalLedger_Data_COA_ACTNO_ASSOC.Z_Rpt_JournalLedger_Data"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ChartOfAccounts1"
+    Association="model.Z_Rpt_JournalLedger_Data_GLE_AC_IN_TNS_ASSOC"
+    AssociationEnd="model.Z_Rpt_JournalLedger_Data_GLE_AC_IN_TNS_ASSOC.ChartOfAccounts1"
+    AssociationOtherEnd="model.Z_Rpt_JournalLedger_Data_GLE_AC_IN_TNS_ASSOC.Z_Rpt_JournalLedger_Data1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="OilDepo"
+    Association="model.Z_Rpt_JournalLedger_Data_OIL_D_ASSOC"
+    AssociationEnd="model.Z_Rpt_JournalLedger_Data_OIL_D_ASSOC.OilDepo"
+    AssociationOtherEnd="model.Z_Rpt_JournalLedger_Data_OIL_D_ASSOC.Z_Rpt_JournalLedger_Data"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="OilDepo1"
+    Association="model.Z_Rpt_JournalLedger_Data_OILD_LOAD_ASSOC"
+    AssociationEnd="model.Z_Rpt_JournalLedger_Data_OILD_LOAD_ASSOC.OilDepo1"
+    AssociationOtherEnd="model.Z_Rpt_JournalLedger_Data_OILD_LOAD_ASSOC.Z_Rpt_JournalLedger_Data1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="OilTanker"
+    Association="model.Z_Rpt_JournalLedger_Data_OIL_TANKER_ASSOC"
+    AssociationEnd="model.Z_Rpt_JournalLedger_Data_OIL_TANKER_ASSOC.OilTanker"
+    AssociationOtherEnd="model.Z_Rpt_JournalLedger_Data_OIL_TANKER_ASSOC.Z_Rpt_JournalLedger_Data"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="BankName"
+    Association="model.Z_Rpt_JournalLedger_Data_BANK_NAME_ASSOC"
+    AssociationEnd="model.Z_Rpt_JournalLedger_Data_BANK_NAME_ASSOC.BankName"
+    AssociationOtherEnd="model.Z_Rpt_JournalLedger_Data_BANK_NAME_ASSOC.Z_Rpt_JournalLedger_Data"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="BankTnsType"
+    Association="model.Z_Rpt_JournalLedger_Data_BANK_TNS_TYPE_ASSOC"
+    AssociationEnd="model.Z_Rpt_JournalLedger_Data_BANK_TNS_TYPE_ASSOC.BankTnsType"
+    AssociationOtherEnd="model.Z_Rpt_JournalLedger_Data_BANK_TNS_TYPE_ASSOC.Z_Rpt_JournalLedger_Data"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="ZRptJlDataPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="Z_RPT_JL_DATA_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Z_Rpt_JournalLedger_Data.ZRptJlDataId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ZRptJlDataZRptJlPaFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="Z_RPT_JL_PARAM_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Z_RPT_JL_DATA_Z_RPT_JL_PA_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Z_Rpt_JournalLedger_Data.ZRptJlParamIdFk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Z_Rpt_JournalLedger_Data">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="OIL_DEPO_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_Z_RPT_JOURNAL_LEDGER_DATA"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Z_Rpt_JournalLedger_Data.GleOilDId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Z_Rpt_JournalLedger_Data1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="OIL_DEPO_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_Z_RPT_JOURNAL_LEDGER_DATA1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Z_Rpt_JournalLedger_Data.GleOildLoadId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Z_Rpt_JournalLedger_Data2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="OIL_TANKER_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_Z_RPT_JOURNAL_LEDGER_DATA2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Z_Rpt_JournalLedger_Data.GleOilTId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Z_Rpt_JournalLedger_Data3">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="BANK_NAME_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_Z_RPT_JOURNAL_LEDGER_DATA3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Z_Rpt_JournalLedger_Data.GleBankNameId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Z_Rpt_JournalLedger_Data4">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="BANK_TNS_TYPE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_Z_RPT_JOURNAL_LEDGER_DATA4"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Z_Rpt_JournalLedger_Data.GleBankTnsTypIdFk"/>
+    </AttrArray>
+  </Key>
+</Entity>

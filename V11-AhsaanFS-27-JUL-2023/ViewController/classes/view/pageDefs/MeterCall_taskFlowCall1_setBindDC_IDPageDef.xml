@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="MeterCall_taskFlowCall1_setBindDC_IDPageDef" Package="view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="setBindDC_ID" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setBindDC_ID"
+                  IsViewObjectMethod="true" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.setBindDC_ID.dataControl.MeterReadingsView1">
+      <NamedData NDName="value" NDType="java.lang.Long"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,590 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="242" id="ps1">
+        <f:facet name="first">
+            <af:panelGroupLayout layout="vertical" id="pgl1">
+                <af:panelHeader text="Tank Dry Meter Reading" id="ph1">
+                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                              value="#{bindings.TankDryDataMInputViewCriteriaQuery.queryDescriptor}"
+                              model="#{bindings.TankDryDataMInputViewCriteriaQuery.queryModel}"
+                              queryListener="#{bindings.TankDryDataMInputViewCriteriaQuery.processQuery}"
+                              queryOperationListener="#{bindings.TankDryDataMInputViewCriteriaQuery.processQueryOperation}"
+                              resultComponentId="::pc1:resId1" helpTopicId="." saveButtonAccessKey="."
+                              saveButtonText="." resetButtonText="."/>
+                </af:panelHeader>
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t1">
+                        <af:button actionListener="#{bindings.Commit.execute}" text="Submit" id="b2"/>
+                        <af:button actionListener="#{bindings.Execute.execute}" text="Show"
+                                   disabled="#{!bindings.Execute.enabled}" id="b1"/>
+                    </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.TankDryDataMInputView1.collectionModel}" var="row"
+                          rows="#{bindings.TankDryDataMInputView1.rangeSize}"
+                          emptyText="#{bindings.TankDryDataMInputView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.TankDryDataMInputView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.TankDryDataMInputView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.TankDryDataMInputView1.rangeSize}"
+                          filterModel="#{bindings.TankDryDataMInputViewCriteriaQuery.queryDescriptor}"
+                          filterVisible="true"
+                          queryListener="#{bindings.TankDryDataMInputViewCriteriaQuery.processQuery}" varStatus="vs"
+                          id="resId1" partialTriggers="::b1">
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TddmiId.name}" filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TddmiId.label}" id="c1"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.TddmiId.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TddmiId.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TddmiId.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TddmiId.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TddmiId.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TddmiId.tooltip}" id="it1">
+                            <f:validator binding="#{row.bindings.TddmiId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TddmiId.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.NozalName.name}" filterable="true"
+                               headerText="Nozal Name" id="c16"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               align="center" width="150">
+                        <af:inputText value="#{row.bindings.NozalName.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.NozalName.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.NozalName.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.NozalName.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.NozalName.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.NozalName.tooltip}" id="it15">
+                            <f:validator binding="#{row.bindings.NozalName.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TddmiMiData.name}"
+                               filterable="true" headerText="Meter Reading"
+                               id="c2"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               align="center" width="150">
+                        <af:inputText value="#{row.bindings.TddmiMiData.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TddmiMiData.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TddmiMiData.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TddmiMiData.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TddmiMiData.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TddmiMiData.tooltip}" id="it2">
+                            <f:validator binding="#{row.bindings.TddmiMiData.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TddmiMiData.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TddmiMTest.name}" filterable="true"
+                               headerText="Mesure Test" id="c3"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               align="center" width="150">
+                        <af:inputText value="#{row.bindings.TddmiMTest.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TddmiMTest.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TddmiMTest.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TddmiMTest.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TddmiMTest.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TddmiMTest.tooltip}" id="it3">
+                            <f:validator binding="#{row.bindings.TddmiMTest.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TddmiMTest.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TddIdFk.name}" filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TddIdFk.label}" id="c4"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.TddIdFk.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TddIdFk.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TddIdFk.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TddIdFk.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TddIdFk.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TddIdFk.tooltip}" id="it4">
+                            <f:validator binding="#{row.bindings.TddIdFk.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TddIdFk.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TddmiTankOld.name}"
+                               filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TddmiTankOld.label}" id="c5"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.TddmiTankOld.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TddmiTankOld.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TddmiTankOld.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TddmiTankOld.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TddmiTankOld.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TddmiTankOld.tooltip}"
+                                      id="it5">
+                            <f:validator binding="#{row.bindings.TddmiTankOld.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TddmiTankOld.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TddmiTankNew.name}"
+                               filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TddmiTankNew.label}" id="c6"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.TddmiTankNew.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TddmiTankNew.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TddmiTankNew.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TddmiTankNew.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TddmiTankNew.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TddmiTankNew.tooltip}"
+                                      id="it6">
+                            <f:validator binding="#{row.bindings.TddmiTankNew.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TddmiTankNew.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TddmiDip.name}" filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TddmiDip.label}" id="c7"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.TddmiDip.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TddmiDip.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TddmiDip.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TddmiDip.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TddmiDip.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TddmiDip.tooltip}" id="it7">
+                            <f:validator binding="#{row.bindings.TddmiDip.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TddmiDip.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TddmiDate.name}" filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TddmiDate.label}" id="c8"
+                               rendered="false">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.TankDryDataMInputViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.TddmiDate.value}"
+                                          id="id1">
+                                <af:convertDateTime pattern="#{bindings.TankDryDataMInputView1.hints.TddmiDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.TddmiDate.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TddmiDate.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TddmiDate.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TddmiDate.displayWidth}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TddmiDate.tooltip}" id="id2">
+                            <f:validator binding="#{row.bindings.TddmiDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.TankDryDataMInputView1.hints.TddmiDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TddmiLtrValue.name}"
+                               filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TddmiLtrValue.label}" id="c9"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.TddmiLtrValue.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TddmiLtrValue.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TddmiLtrValue.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TddmiLtrValue.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TddmiLtrValue.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TddmiLtrValue.tooltip}"
+                                      id="it8">
+                            <f:validator binding="#{row.bindings.TddmiLtrValue.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TddmiLtrValue.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.DcIdFk.name}" filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.DcIdFk.label}" id="c10"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.DcIdFk.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.DcIdFk.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.DcIdFk.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.DcIdFk.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.DcIdFk.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.DcIdFk.tooltip}" id="it9">
+                            <f:validator binding="#{row.bindings.DcIdFk.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.DcIdFk.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TddmiDipFlag.name}"
+                               filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TddmiDipFlag.label}" id="c11"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.TddmiDipFlag.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TddmiDipFlag.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TddmiDipFlag.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TddmiDipFlag.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TddmiDipFlag.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TddmiDipFlag.tooltip}"
+                                      id="it10">
+                            <f:validator binding="#{row.bindings.TddmiDipFlag.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TddmiDipFlag.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.ProductIdFk.name}"
+                               filterable="true" headerText="#{bindings.TankDryDataMInputView1.hints.ProductIdFk.label}"
+                               id="c12" rendered="false">
+                        <af:inputText value="#{row.bindings.ProductIdFk.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.ProductIdFk.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.ProductIdFk.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.ProductIdFk.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.ProductIdFk.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.ProductIdFk.tooltip}"
+                                      id="it11">
+                            <f:validator binding="#{row.bindings.ProductIdFk.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.ProductIdFk.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.NozalIdFk.name}" filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.NozalIdFk.label}" id="c13"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.NozalIdFk.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.NozalIdFk.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.NozalIdFk.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.NozalIdFk.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.NozalIdFk.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.NozalIdFk.tooltip}" id="it12">
+                            <f:validator binding="#{row.bindings.NozalIdFk.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.NozalIdFk.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TddCountId.name}" filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TddCountId.label}" id="c14"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.TddCountId.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TddCountId.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TddCountId.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TddCountId.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TddCountId.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TddCountId.tooltip}" id="it13">
+                            <f:validator binding="#{row.bindings.TddCountId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TddCountId.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupIdFk.name}"
+                               filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupIdFk.label}" id="c15"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.PipeLineGroupIdFk.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupIdFk.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupIdFk.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupIdFk.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupIdFk.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupIdFk.tooltip}"
+                                      id="it14">
+                            <f:validator binding="#{row.bindings.PipeLineGroupIdFk.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupIdFk.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.NozalId.name}" filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.NozalId.label}" id="c17"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.NozalId.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.NozalId.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.NozalId.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.NozalId.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.NozalId.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.NozalId.tooltip}" id="it16">
+                            <f:validator binding="#{row.bindings.NozalId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.NozalId.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.DcStartDate.name}"
+                               filterable="true" headerText="#{bindings.TankDryDataMInputView1.hints.DcStartDate.label}"
+                               id="c18" rendered="false">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.TankDryDataMInputViewCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.DcStartDate.value}"
+                                          id="id3">
+                                <af:convertDateTime pattern="#{bindings.TankDryDataMInputView1.hints.DcStartDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.DcStartDate.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.DcStartDate.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.DcStartDate.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.DcStartDate.displayWidth}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.DcStartDate.tooltip}" id="id4">
+                            <f:validator binding="#{row.bindings.DcStartDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.TankDryDataMInputView1.hints.DcStartDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.DcId.name}" filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.DcId.label}" id="c19"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.DcId.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.DcId.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.DcId.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.DcId.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.DcId.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.DcId.tooltip}" id="it17">
+                            <f:validator binding="#{row.bindings.DcId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.DcId.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TdndId.name}" filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TdndId.label}" id="c20"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.TdndId.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TdndId.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TdndId.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TdndId.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TdndId.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TdndId.tooltip}" id="it18">
+                            <f:validator binding="#{row.bindings.TdndId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TdndId.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TdndPreviousReading.name}"
+                               filterable="true"
+                               headerText="Previous Reading" id="c21"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               align="center" width="150">
+                        <af:inputText value="#{row.bindings.TdndPreviousReading.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TdndPreviousReading.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TdndPreviousReading.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TdndPreviousReading.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TdndPreviousReading.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TdndPreviousReading.tooltip}"
+                                      id="it19">
+                            <f:validator binding="#{row.bindings.TdndPreviousReading.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TdndPreviousReading.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TdndCurrentReading.name}"
+                               filterable="true"
+                               headerText="Current Reading" id="c22"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               align="center" width="150">
+                        <af:inputText value="#{row.bindings.TdndCurrentReading.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TdndCurrentReading.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TdndCurrentReading.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TdndCurrentReading.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TdndCurrentReading.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TdndCurrentReading.tooltip}"
+                                      id="it20">
+                            <f:validator binding="#{row.bindings.TdndCurrentReading.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TdndCurrentReading.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TdndSale.name}" filterable="true"
+                               headerText="Sale" id="c23"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               align="center" width="150">
+                        <af:inputText value="#{row.bindings.TdndSale.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TdndSale.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TdndSale.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TdndSale.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TdndSale.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TdndSale.tooltip}" id="it21">
+                            <f:validator binding="#{row.bindings.TdndSale.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TdndSale.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TdndMeasureTest.name}"
+                               filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TdndMeasureTest.label}" id="c24"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.TdndMeasureTest.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TdndMeasureTest.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TdndMeasureTest.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TdndMeasureTest.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TdndMeasureTest.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TdndMeasureTest.tooltip}"
+                                      id="it22">
+                            <f:validator binding="#{row.bindings.TdndMeasureTest.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TdndMeasureTest.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.DcIdFk1.name}" filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.DcIdFk1.label}" id="c25"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.DcIdFk1.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.DcIdFk1.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.DcIdFk1.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.DcIdFk1.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.DcIdFk1.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.DcIdFk1.tooltip}" id="it23">
+                            <f:validator binding="#{row.bindings.DcIdFk1.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.DcIdFk1.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.NozalIdFk1.name}" filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.NozalIdFk1.label}" id="c26"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.NozalIdFk1.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.NozalIdFk1.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.NozalIdFk1.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.NozalIdFk1.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.NozalIdFk1.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.NozalIdFk1.tooltip}" id="it24">
+                            <f:validator binding="#{row.bindings.NozalIdFk1.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.NozalIdFk1.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TankDrydIdFk.name}"
+                               filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TankDrydIdFk.label}" id="c27"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.TankDrydIdFk.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TankDrydIdFk.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TankDrydIdFk.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TankDrydIdFk.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TankDrydIdFk.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TankDrydIdFk.tooltip}"
+                                      id="it25">
+                            <f:validator binding="#{row.bindings.TankDrydIdFk.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TankDrydIdFk.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TankInfoIdFk.name}"
+                               filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TankInfoIdFk.label}" id="c28"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.TankInfoIdFk.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TankInfoIdFk.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TankInfoIdFk.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TankInfoIdFk.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TankInfoIdFk.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TankInfoIdFk.tooltip}"
+                                      id="it26">
+                            <f:validator binding="#{row.bindings.TankInfoIdFk.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TankInfoIdFk.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TdndTankInfoIdNew.name}"
+                               filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TdndTankInfoIdNew.label}" id="c29"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.TdndTankInfoIdNew.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TdndTankInfoIdNew.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TdndTankInfoIdNew.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TdndTankInfoIdNew.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TdndTankInfoIdNew.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TdndTankInfoIdNew.tooltip}"
+                                      id="it27">
+                            <f:validator binding="#{row.bindings.TdndTankInfoIdNew.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TdndTankInfoIdNew.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.ProductIdFk1.name}"
+                               filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.ProductIdFk1.label}" id="c30"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.ProductIdFk1.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.ProductIdFk1.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.ProductIdFk1.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.ProductIdFk1.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.ProductIdFk1.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.ProductIdFk1.tooltip}"
+                                      id="it28">
+                            <f:validator binding="#{row.bindings.ProductIdFk1.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.ProductIdFk1.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TddIdFk1.name}" filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TddIdFk1.label}" id="c31"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.TddIdFk1.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TddIdFk1.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TddIdFk1.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TddIdFk1.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TddIdFk1.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TddIdFk1.tooltip}" id="it29">
+                            <f:validator binding="#{row.bindings.TddIdFk1.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TddIdFk1.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TddmiIdFk.name}" filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TddmiIdFk.label}" id="c32"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.TddmiIdFk.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TddmiIdFk.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TddmiIdFk.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TddmiIdFk.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TddmiIdFk.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TddmiIdFk.tooltip}" id="it30">
+                            <f:validator binding="#{row.bindings.TddmiIdFk.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TddmiIdFk.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TddCountId1.name}"
+                               filterable="true" headerText="#{bindings.TankDryDataMInputView1.hints.TddCountId1.label}"
+                               id="c33" rendered="false">
+                        <af:inputText value="#{row.bindings.TddCountId1.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TddCountId1.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TddCountId1.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TddCountId1.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TddCountId1.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TddCountId1.tooltip}"
+                                      id="it31">
+                            <f:validator binding="#{row.bindings.TddCountId1.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TddCountId1.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.TddInputCounterM.name}"
+                               filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.TddInputCounterM.label}" id="c34"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.TddInputCounterM.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.TddInputCounterM.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.TddInputCounterM.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.TddInputCounterM.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.TddInputCounterM.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.TddInputCounterM.tooltip}"
+                                      id="it32">
+                            <f:validator binding="#{row.bindings.TddInputCounterM.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.TddInputCounterM.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupCaption.name}"
+                               filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupCaption.label}" id="c35"
+                               rendered="false">
+                        <af:selectOneChoice value="#{row.bindings.PipeLineGroupCaption.inputValue}"
+                                            label="#{row.bindings.PipeLineGroupCaption.label}"
+                                            required="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupCaption.mandatory}"
+                                            shortDesc="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupCaption.tooltip}"
+                                            id="soc1">
+                            <f:selectItems value="#{row.bindings.PipeLineGroupCaption.items}" id="si1"/>
+                            <f:validator binding="#{row.bindings.PipeLineGroupCaption.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupId.name}"
+                               filterable="true"
+                               headerText="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupId.label}" id="c36"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.PipeLineGroupId.inputValue}"
+                                      label="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupId.label}"
+                                      required="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupId.mandatory}"
+                                      columns="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupId.displayWidth}"
+                                      maximumLength="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupId.precision}"
+                                      shortDesc="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupId.tooltip}"
+                                      id="it33">
+                            <f:validator binding="#{row.bindings.PipeLineGroupId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.TankDryDataMInputView1.hints.PipeLineGroupId.format}"/>
+                        </af:inputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

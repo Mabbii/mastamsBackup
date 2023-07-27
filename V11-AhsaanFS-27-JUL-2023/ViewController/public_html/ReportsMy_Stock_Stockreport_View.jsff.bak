@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <f:view beforePhase="#{backingBeanScope.PrintPageBean.beforePhaseMethod}">
+        <af:panelBox id="pb1" inlineStyle="width:986px;">
+            <f:facet name="toolbar">
+                <af:button id="b3" inlineStyle="padding-top:0px;" icon="#{resource['images:print.png']}">
+                    <af:showPrintablePageBehavior/>
+                </af:button>
+            </f:facet>
+            <af:image source="#{resource['images:Bandagi FS Logo.png']}" shortDesc="Bandagi Fs Logo"
+                      id="i1"/>
+            <af:panelSplitter orientation="vertical" splitterPosition="206" id="ps1"
+                              inlineStyle="width:878px; height:732px;">
+                <f:facet name="first">
+                    <af:panelFormLayout id="pfl1">
+                        <af:outputText value="Stock Ledger" id="ot14"
+                                       inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                        <af:inputListOfValues label="#{bindings.BindCoaNamee.hints.label}" popupTitle="Search and Result Dialog" id="ilov1"
+                                              value="#{bindings.BindCoaNamee.inputValue}"
+                                              model="#{bindings.CoaName.listOfValuesModel}" autoSubmit="true">
+                            <?audit suppress oracle.jdeveloper.jsp.validate-children?>
+                            <af:inputText value="#{bindings.BindCoaNamee.inputValue}"
+                                          label="#{bindings.BindCoaNamee.hints.label}"
+                                          required="#{bindings.BindCoaNamee.hints.mandatory}"
+                                          columns="#{bindings.BindCoaNamee.hints.displayWidth}"
+                                          maximumLength="#{bindings.BindCoaNamee.hints.precision}"
+                                          shortDesc="#{bindings.BindCoaNamee.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.BindCoaNamee.validator}"/>
+                            </af:inputText>
+                            <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName.suggestedItems}"/>
+                        </af:inputListOfValues>
+                        <af:inputDate value="#{bindings.BindGlesStartDate.inputValue}"
+                                      label="Start Date"
+                                      required="#{bindings.BindGlesStartDate.hints.mandatory}"
+                                      columns="#{bindings.BindGlesStartDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.BindGlesStartDate.hints.tooltip}" id="id1"
+                                      autoSubmit="true">
+                            <f:validator binding="#{bindings.BindGlesStartDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>
+                        <af:inputDate value="#{bindings.BindglesEndDate.inputValue}"
+                                      label="End Date"
+                                      required="#{bindings.BindglesEndDate.hints.mandatory}"
+                                      columns="#{bindings.BindglesEndDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.BindglesEndDate.hints.tooltip}" id="id2" autoSubmit="true">
+                            <f:validator binding="#{bindings.BindglesEndDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>
+                        <af:button actionListener="#{bindings.ExecuteWithParams.execute}" text="Show"
+                                   disabled="#{!bindings.ExecuteWithParams.enabled}" id="b1"
+                                   icon="#{resource['images:find.png']}"/>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.Gle_ForStockLedger1.collectionModel}" var="row"
+                                  rows="#{bindings.Gle_ForStockLedger1.rangeSize}"
+                                  emptyText="#{bindings.Gle_ForStockLedger1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.Gle_ForStockLedger1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.Gle_ForStockLedger1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.Gle_ForStockLedger1.rangeSize}"
+                                  filterModel="#{bindings.Gle_ForStockLedger1Query.queryDescriptor}"
+                                  filterVisible="true" queryListener="#{bindings.Gle_ForStockLedger1Query.processQuery}"
+                                  varStatus="vs" id="t1" partialTriggers="::b1 :::b1"
+                                  inlineStyle="background-color:Window; border-right-color:Window;" width="912">
+                            <af:column headerText="Date" id="c6" align="center"
+                                       inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;">
+                                <af:outputText value="#{row.GleDate}"
+                                               shortDesc="#{bindings.Gle_ForStockLedger1.hints.GleDate.tooltip}"
+                                               id="ot6">
+                                    <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.Gle_ForStockLedger1.hints.GleEtc.name}"
+                                       filterable="true" sortable="true" headerText="Detail" id="c4"
+                                       inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-size:3mm; font-weight:bold;"
+                                       width="250" align="center">
+                                <af:outputText value="#{row.GleEtc}"
+                                               shortDesc="#{bindings.Gle_ForStockLedger1.hints.GleEtc.tooltip}"
+                                               id="ot4"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.Gle_ForStockLedger1.hints.GleDebitQty.name}"
+                                       filterable="true" sortable="true" headerText="IN" id="c2"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                       align="center">
+                                <af:outputText value="#{row.GleDebitQty}"
+                                               shortDesc="#{bindings.Gle_ForStockLedger1.hints.GleDebitQty.tooltip}"
+                                               id="ot2">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Gle_ForStockLedger1.hints.GleDebitQty.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.Gle_ForStockLedger1.hints.GleCreditQty.name}"
+                                       filterable="true" sortable="true" headerText="OUT" id="c1"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                       align="center">
+                                <af:outputText value="#{row.GleCreditQty}"
+                                               shortDesc="#{bindings.Gle_ForStockLedger1.hints.GleCreditQty.tooltip}"
+                                               id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Gle_ForStockLedger1.hints.GleCreditQty.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.Gle_ForStockLedger1.hints.GleDetails.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.Gle_ForStockLedger1.hints.GleDetails.label}" id="c3"
+                                       rendered="false">
+                                <af:outputText value="#{row.GleDetails}"
+                                               shortDesc="#{bindings.Gle_ForStockLedger1.hints.GleDetails.tooltip}"
+                                               id="ot3"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.Gle_ForStockLedger1.hints.GleQtyBal.name}"
+                                       filterable="true" sortable="true" headerText="Stock" id="c5"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; font-weight:bold;"
+                                       align="center">
+                                <af:outputText value="#{row.GleQtyBal}"
+                                               shortDesc="#{bindings.Gle_ForStockLedger1.hints.GleQtyBal.tooltip}"
+                                               id="ot5">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Gle_ForStockLedger1.hints.GleQtyBal.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </f:facet>
+            </af:panelSplitter>
+        </af:panelBox>
+    </f:view>
+</ui:composition>

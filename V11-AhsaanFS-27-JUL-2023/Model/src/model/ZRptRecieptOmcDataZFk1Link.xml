@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ZRptRecieptOmcDataZFk1Link"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  EntityAssociation="model.ZRptRecieptOmcDataZFk1Assoc">
+  <ViewLinkDefEnd
+    Name="ZRptRecieptOmcParamView"
+    Cardinality="1"
+    Source="true"
+    Owner="model.ZRptRecieptOmcParamView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_finderName" Value="ZRptRecieptOmcParamView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptRecieptOmcParamView.RecieptOmcParamId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ZRptRecieptOmcDataView"
+    Cardinality="-1"
+    Owner="model.ZRptRecieptOmcDataView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ZRptRecieptOmcDataView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptRecieptOmcDataView.RecieptOmcDataParamIdFk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

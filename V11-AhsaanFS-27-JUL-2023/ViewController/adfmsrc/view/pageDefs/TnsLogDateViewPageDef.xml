@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="TnsLogDateViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TnsLogDateView1" RangeSize="25" DataControl="VOAPPDataControl" id="TnsLogDateView1Iterator"/>
+    <searchRegion Criteria="TnsLogDateViewCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="TnsLogDateView1Iterator" id="TnsLogDateViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="TnsLogDateView1Iterator" id="TnsLogDateView1">
+      <nodeDefinition DefName="model.TnsLogDateView" Name="TnsLogDateView10">
+        <AttrNames>
+          <Item Value="TnsAdjAcRef"/>
+          <Item Value="TnsAdjDate"/>
+          <Item Value="TnsAdjId"/>
+          <Item Value="TnsAmount"/>
+          <Item Value="TnsBankNameId"/>
+          <Item Value="TnsBankTnsTypeIdFk"/>
+          <Item Value="TnsBrCode"/>
+          <Item Value="TnsCoaCactNumber"/>
+          <Item Value="TnsCoaDactNumber"/>
+          <Item Value="TnsDate"/>
+          <Item Value="TnsDetail"/>
+          <Item Value="TnsEtc"/>
+          <Item Value="TnsFreightfactor"/>
+          <Item Value="TnsGroup"/>
+          <Item Value="TnsId"/>
+          <Item Value="TnsInfo"/>
+          <Item Value="TnsInfoStart"/>
+          <Item Value="TnsIsClaimedId"/>
+          <Item Value="TnsIsDebit"/>
+          <Item Value="TnsLogDate"/>
+          <Item Value="TnsLogId"/>
+          <Item Value="TnsLogOldNew"/>
+          <Item Value="TnsLogOpeF"/>
+          <Item Value="TnsNewrate"/>
+          <Item Value="TnsOildId"/>
+          <Item Value="TnsOildLoadDate"/>
+          <Item Value="TnsOildLoadId"/>
+          <Item Value="TnsOiltId"/>
+          <Item Value="TnsParentTnsId"/>
+          <Item Value="TnsPurchaseRateLogIdFk"/>
+          <Item Value="TnsQty"/>
+          <Item Value="TnsRate"/>
+          <Item Value="TnsReverseEntry"/>
+          <Item Value="TnsSDate"/>
+          <Item Value="TnsSaleRateLogIdFk"/>
+          <Item Value="TnsSlipDate"/>
+          <Item Value="TnsSlipNo"/>
+          <Item Value="TnsStId"/>
+          <Item Value="TnsTnsTypeIdFk"/>
+          <Item Value="TnsTnsviewId"/>
+          <Item Value="AcitvityIdFk"/>
+          <Item Value="UserOpeEntityNameId"/>
+          <Item Value="UserOpeEntityTnsId"/>
+          <Item Value="UserOpeF"/>
+          <Item Value="UserOpeId"/>
+          <Item Value="UserOpeTime"/>
+          <Item Value="UserOpeViewNameId"/>
+          <Item Value="InfoDmlOpeId"/>
+          <Item Value="InfoDmlOpeName"/>
+          <Item Value="AcitvityId"/>
+          <Item Value="AcitvityNameId"/>
+          <Item Value="ActivityTime"/>
+          <Item Value="UserLogIdFk"/>
+          <Item Value="ViewInfoId"/>
+          <Item Value="ViewInfoName"/>
+          <Item Value="LUserIdFk"/>
+          <Item Value="UserLogAuthF"/>
+          <Item Value="UserLogAuthReason"/>
+          <Item Value="UserLogId"/>
+          <Item Value="UserLogInTime"/>
+          <Item Value="UserLogOutReason"/>
+          <Item Value="UserLogOutTime"/>
+          <Item Value="UserLogSessionId"/>
+          <Item Value="LUsersUserId"/>
+          <Item Value="LUsersUserName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

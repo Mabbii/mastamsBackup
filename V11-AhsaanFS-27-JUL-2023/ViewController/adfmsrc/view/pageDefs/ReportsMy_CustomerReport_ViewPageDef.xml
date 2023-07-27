@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="ReportsMy_CustomerReport_ViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZCustomerParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="ZCustomerParamView1Iterator"/>
+    <iterator Binds="ZCustomerDetailView2" RangeSize="25000" DataControl="VOAPPDataControl"
+              id="ZCustomerDetailView2Iterator"/>
+    <searchRegion Binds="ZCustomerDetailView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ZCustomerDetailView2Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ZCustomerParamView1Iterator" id="ZcaId">
+      <AttrNames>
+        <Item Value="ZcaId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZCustomerParamView1Iterator" id="ZcaStartDate">
+      <AttrNames>
+        <Item Value="ZcaStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZCustomerParamView1Iterator" id="ZcaEndDate">
+      <AttrNames>
+        <Item Value="ZcaEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ZCustomerDetailView2Iterator" id="ZCustomerDetailView2">
+      <nodeDefinition DefName="model.ZCustomerDetailView" Name="ZCustomerDetailView20">
+        <AttrNames>
+          <Item Value="ZcdId"/>
+          <Item Value="ZcdCoaId"/>
+          <Item Value="ZcdCoaName"/>
+          <Item Value="ZcdOpBal"/>
+          <Item Value="ZcdHsdSale"/>
+          <Item Value="ZcdPmgSale"/>
+          <Item Value="ZcdCashWithdraw"/>
+          <Item Value="ZcdReciept"/>
+          <Item Value="ZcdCloseBal"/>
+          <Item Value="ZcaIdFk"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action IterBinding="ZCustomerDetailView2Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

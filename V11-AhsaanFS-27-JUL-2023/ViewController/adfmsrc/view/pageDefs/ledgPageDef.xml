@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="ledgPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variableUsage DataControl="VOAPPDataControl" Binds="GleForJournalLedgerReport1.variablesMap.BindCoaName"
+                     Name="ExecuteWithParams_BindCoaName" IsQueriable="false"/>
+      <variableUsage DataControl="VOAPPDataControl" Binds="GleForJournalLedgerReport1.variablesMap.BindGleStartDate"
+                     Name="ExecuteWithParams_BindGleStartDate" IsQueriable="false"/>
+      <variableUsage DataControl="VOAPPDataControl" Binds="GleForJournalLedgerReport1.variablesMap.BindGleEndDate"
+                     Name="ExecuteWithParams_BindGleEndDate" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="GleForJournalLedgerReport1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="GleForJournalLedgerReport1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GleForJournalLedgerReport1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindCoaName" NDType="java.lang.String" NDValue="${bindings.ExecuteWithParams_BindCoaName}"/>
+      <NamedData NDName="BindGleStartDate" NDType="java.sql.Timestamp"
+                 NDValue="${bindings.ExecuteWithParams_BindGleStartDate}"/>
+      <NamedData NDName="BindGleEndDate" NDType="java.sql.Timestamp"
+                 NDValue="${bindings.ExecuteWithParams_BindGleEndDate}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="BindCoaName">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindCoaName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindGleStartDate">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindGleStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindGleEndDate">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindGleEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GleForJournalLedgerReport1Iterator" id="CoaName">
+      <AttrNames>
+        <Item Value="CoaName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

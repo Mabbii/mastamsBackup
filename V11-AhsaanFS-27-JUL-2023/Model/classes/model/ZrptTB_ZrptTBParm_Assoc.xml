@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ZrptTB_ZrptTBParm_Assoc"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="ZRptTbParam"
+    Cardinality="1"
+    Source="true"
+    Owner="model.ZRptTbParam"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="ZRptTbParam"/>
+      <Attr Name="_foreignKey" Value="model.ZRptTbParam.ZRptTbParamPk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptTbParam.ZRptTbParamId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="ZRptTb"
+    Cardinality="-1"
+    Owner="model.ZRptTb">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="ZRptTb"/>
+      <Attr Name="_foreignKey" Value="model.ZRptTb.fk_ZRptTb"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ZRptTb.ZRptTbParamIdFk"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

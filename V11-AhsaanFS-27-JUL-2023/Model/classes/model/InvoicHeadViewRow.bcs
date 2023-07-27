@@ -1,0 +1,19 @@
+//Groovy Scripts for model.InvoicHeadView
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="InvoicHeadDate")
+def InvoicHeadDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="InvoicHeadDueDate")
+def InvoicHeadDueDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

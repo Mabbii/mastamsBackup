@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="FinancialStatements view" id="d1" binding="#{backingBeanScope.backing_MyHomeView.d1}"
+    smallIconSource="#{resource['images:adfdi_logo_16.png']}">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                <f:facet name="center">
+                    <af:panelStretchLayout id="psl1">
+                        <f:facet name="top">
+                            <af:toolbar id="t1">
+                                <af:button text="IS (Calculate)" id="b1"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallISCalculate}"
+                                           icon="#{resource['images:business-and-finance (1).png']}">
+                                    <af:setPropertyListener from="IsCalculateFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s1"/>
+                                <af:button text="IS (Detailed History)" id="b2"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallISDetailedHistory}"
+                                           icon="#{resource['images:calendar.png']}">
+                                    <af:setPropertyListener from="IsDetailedHistoryfc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s2"/>
+                                <af:button text="IS Adjustment" id="b3"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallISAdjustment}"
+                                           icon="#{resource['images:payable.png']}">
+                                    <af:setPropertyListener from="IsAdjustmentFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s3"/>
+                                <af:button text="IS with Date" id="b4"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallISwithDate}"
+                                           icon="#{resource['images:statement.png']}">
+                                    <af:setPropertyListener from="IswITHdATEFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="center">
+                            <af:switcher id="s4" binding="#{backingBeanScope.backing_MyHomeView.switcher}"
+                                         facetName="DefaultFinincialFC" defaultFacet="DefaultFinincialFC">
+                                <f:facet name="IsCalculateFC">
+                                    <af:region value="#{bindings.IncomecalculateTF1.regionModel}" id="r1"/>
+                                </f:facet>
+                                <f:facet name="IsDetailedHistoryfc">
+                                    <af:region value="#{bindings.IncomeDetailedTF1.regionModel}" id="r2"/>
+                                </f:facet>
+                                <f:facet name="IsAdjustmentFc">
+                                    <af:region value="#{bindings.IncomeADJUSTMNTTF1.regionModel}" id="r3"/>
+                                </f:facet>
+                                <f:facet name="IswITHdATEFC">
+                                    <af:region value="#{bindings.IncomeCalculateCustomDateToDateTF1.regionModel}"
+                                               id="r4"/>
+                                </f:facet>
+                                <f:facet name="DefaultFinincialFC">
+                                    <af:region value="#{bindings.DefaultFinincialTF1.regionModel}" id="r5"/>
+                                </f:facet>
+                            </af:switcher>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="header">
+                    <af:link text="Ahsaan Filling Station" id="l1"
+                             inlineStyle="color:Maroon; font-size:x-large; font-style:italic; font-weight:bold;"
+                             action="#{PageLoadBean.RedirecttoHome}"/>
+                </f:facet>
+                <f:facet name="branding"/>
+                <f:facet name="status"/>
+                <f:attribute name="headerGlobalSize" value="35"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:PageLoadBean-->
+</f:view>

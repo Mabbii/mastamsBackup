@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="OmcPump_OnlyCredit_limitReportviewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZRptOnePumpCrdLimitParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="ZRptOnePumpCrdLimitParamView1Iterator"/>
+    <iterator Binds="ZRptOnePumpCrdLimitDataView1" RangeSize="50" DataControl="VOAPPDataControl"
+              id="ZRptOnePumpCrdLimitDataView1Iterator"/>
+    <searchRegion Binds="ZRptOnePumpCrdLimitDataView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ZRptOnePumpCrdLimitDataView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="ZRptOnePumpCrdLimitParamView1Iterator" StaticList="false" Uses="LOV_CoaName"
+                  id="CoaName"/>
+    <attributeValues IterBinding="ZRptOnePumpCrdLimitParamView1Iterator" id="PumpCrdLmtParamId">
+      <AttrNames>
+        <Item Value="PumpCrdLmtParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOnePumpCrdLimitParamView1Iterator" id="PumpCrdLmtParamStartDate">
+      <AttrNames>
+        <Item Value="PumpCrdLmtParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOnePumpCrdLimitParamView1Iterator" id="PumpCrdLmtParamEndDate">
+      <AttrNames>
+        <Item Value="PumpCrdLmtParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOnePumpCrdLimitParamView1Iterator" id="PumpCrdLmtParamPartyId">
+      <AttrNames>
+        <Item Value="PumpCrdLmtParamPartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOnePumpCrdLimitParamView1Iterator" id="ShowOmcPump">
+      <AttrNames>
+        <Item Value="ShowOmcPump"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptOnePumpCrdLimitParamView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ZRptOnePumpCrdLimitDataView1Iterator" id="ZRptOnePumpCrdLimitDataView1">
+      <nodeDefinition DefName="model.ZRptOnePumpCrdLimitDataView" Name="ZRptOnePumpCrdLimitDataView10">
+        <AttrNames>
+          <Item Value="PumpCrdLimitPartyId"/>
+          <Item Value="PumpCrdLimitPartyName"/>
+          <Item Value="PumpCrdLimitDate"/>
+          <Item Value="PumpCrdLimitLedgerBal"/>
+          <Item Value="PumpCrdLimitPurchases"/>
+          <Item Value="PumpCrdLimitPayments"/>
+          <Item Value="PumpCrdLimitCreditLimit"/>
+          <Item Value="PumpCrdBalanceWithLimit"/>
+          <Item Value="PumpCrdLimitComments"/>
+          <Item Value="PumpCrdLimitNetBalance"/>
+          <Item Value="CreditLimitCat"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ZRptOnePumpCrdLimitDataView1Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

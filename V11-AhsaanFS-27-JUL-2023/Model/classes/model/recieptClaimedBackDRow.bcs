@@ -1,0 +1,26 @@
+//Groovy Scripts for model.recieptClaimedBackD
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="TnsDate")
+def TnsDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="TnsSDate")
+def TnsSDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
+
+@TransientValueExpression(attributeName="TnsSlipDate")
+def TnsSlipDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

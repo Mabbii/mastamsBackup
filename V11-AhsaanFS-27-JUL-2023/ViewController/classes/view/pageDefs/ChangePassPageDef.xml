@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="ChangePassPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="changePassword_Return" IsQueriable="false" IsUpdateable="0"
+                DefaultValue="${bindings.changePassword.result}"/>
+      <variable Type="java.lang.String" Name="changePassword_username" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="changePassword_oldPassword" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="changePassword_newPassword" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="changePassword_confirmNewPassword" IsQueriable="false"/>
+    </variableIterator>
+  </executables>
+  <bindings>
+    <methodAction id="changePassword" RequiresUpdateModel="true" Action="invokeMethod" MethodName="changePassword"
+                  IsViewObjectMethod="false" DataControl="ChangeMe"
+                  InstanceName="bindings.changePassword.dataControl.dataProvider"
+                  ReturnName="data.ChangeMe.methodResults.changePassword_changePassword_dataControl_dataProvider_changePassword_result">
+      <NamedData NDName="username" NDType="java.lang.String" NDValue="${bindings.changePassword_username}"/>
+      <NamedData NDName="oldPassword" NDType="java.lang.String" NDValue="${bindings.changePassword_oldPassword}"/>
+      <NamedData NDName="newPassword" NDType="java.lang.String" NDValue="${bindings.changePassword_newPassword}"/>
+      <NamedData NDName="confirmNewPassword" NDType="java.lang.String"
+                 NDValue="${bindings.changePassword_confirmNewPassword}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="username">
+      <AttrNames>
+        <Item Value="changePassword_username"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="oldPassword">
+      <AttrNames>
+        <Item Value="changePassword_oldPassword"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="newPassword">
+      <AttrNames>
+        <Item Value="changePassword_newPassword"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="confirmNewPassword">
+      <AttrNames>
+        <Item Value="changePassword_confirmNewPassword"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

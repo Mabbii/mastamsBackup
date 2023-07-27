@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="salesReportALLviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Z_Rpt_Sales_All_ParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="Z_Rpt_Sales_All_ParamView1Iterator"/>
+    <iterator Binds="Z_Rpt_Sales_All_DataView2" RangeSize="45" DataControl="VOAPPDataControl"
+              id="Z_Rpt_Sales_All_DataView2Iterator"/>
+    <searchRegion Binds="Z_Rpt_Sales_All_DataView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="Z_Rpt_Sales_All_DataView2Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Z_Rpt_Sales_All_ParamView1Iterator" id="SalesAllParamId">
+      <AttrNames>
+        <Item Value="SalesAllParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Z_Rpt_Sales_All_ParamView1Iterator" id="SalesAllParamStartDate">
+      <AttrNames>
+        <Item Value="SalesAllParamStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Z_Rpt_Sales_All_ParamView1Iterator" id="SalesAllParamEndDate">
+      <AttrNames>
+        <Item Value="SalesAllParamEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="Z_Rpt_Sales_All_DataView2Iterator" id="Z_Rpt_Sales_All_DataView2">
+      <nodeDefinition DefName="model.Z_Rpt_Sales_All_DataView" Name="Z_Rpt_Sales_All_DataView20">
+        <AttrNames>
+          <Item Value="SalesAllDataCoa"/>
+          <Item Value="SalesAllDataCoaName"/>
+          <Item Value="SalesAllDataHsd"/>
+          <Item Value="SalesAllDataPmg"/>
+          <Item Value="SalesAllDataSko"/>
+          <Item Value="SalesAllDataHobc"/>
+          <Item Value="SalesAllDataLdo"/>
+          <Item Value="SalesAllDataHsdRate"/>
+          <Item Value="SalesAllDataPmgRate"/>
+          <Item Value="SalesAllDataSkoRate"/>
+          <Item Value="SalesAllDataHobcRate"/>
+          <Item Value="SalesAllDataLdoRate"/>
+          <Item Value="SalesAllDataCat"/>
+          <Item Value="SalesAllParamIdFk"/>
+          <Item Value="SalesAllDataId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Z_Rpt_Sales_All_DataView2Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

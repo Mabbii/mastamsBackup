@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="DayBook_Sale_Lube_BulkViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Sale_Lube_Bulk1" RangeSize="25" DataControl="VOAPPDataControl" id="Sale_Lube_Bulk1Iterator"/>
+    <searchRegion Binds="Sale_Lube_Bulk1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="Sale_Lube_Bulk1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="Sale_Lube_Bulk1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <listOfValues IterBinding="Sale_Lube_Bulk1Iterator" StaticList="false" Uses="LOV_CoaName1" id="CoaName1"/>
+    <listOfValues IterBinding="Sale_Lube_Bulk1Iterator" StaticList="false" Uses="LOV_SaleRateLogR" id="SaleRateLogR"/>
+    <listOfValues IterBinding="Sale_Lube_Bulk1Iterator" StaticList="false" Uses="LOV_VehicleRegNo" id="VehicleRegNo"/>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsAmount">
+      <AttrNames>
+        <Item Value="TnsAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsId">
+      <AttrNames>
+        <Item Value="TnsId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsDate">
+      <AttrNames>
+        <Item Value="TnsDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsDetail">
+      <AttrNames>
+        <Item Value="TnsDetail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsCoaCactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaCactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsCoaDactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaDactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsFormatAmount">
+      <AttrNames>
+        <Item Value="TnsFormatAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsInfo">
+      <AttrNames>
+        <Item Value="TnsInfo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsNewrate">
+      <AttrNames>
+        <Item Value="TnsNewrate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsQty">
+      <AttrNames>
+        <Item Value="TnsQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsRate">
+      <AttrNames>
+        <Item Value="TnsRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsSlipDate">
+      <AttrNames>
+        <Item Value="TnsSlipDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsSaleRateLogIdFk">
+      <AttrNames>
+        <Item Value="TnsSaleRateLogIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsSlipNo">
+      <AttrNames>
+        <Item Value="TnsSlipNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsSpellAmount">
+      <AttrNames>
+        <Item Value="TnsSpellAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsTnsTypeIdFk">
+      <AttrNames>
+        <Item Value="TnsTnsTypeIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="TnsTnsviewId">
+      <AttrNames>
+        <Item Value="TnsTnsviewId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="VehicleIdFk">
+      <AttrNames>
+        <Item Value="VehicleIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="CoaPartyId">
+      <AttrNames>
+        <Item Value="CoaPartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="CoaActNumber1">
+      <AttrNames>
+        <Item Value="CoaActNumber1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="CoaProductId">
+      <AttrNames>
+        <Item Value="CoaProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="SaleRateLogId">
+      <AttrNames>
+        <Item Value="SaleRateLogId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="VehicleId">
+      <AttrNames>
+        <Item Value="VehicleId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="CoaProductId1">
+      <AttrNames>
+        <Item Value="CoaProductId1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sale_Lube_Bulk1Iterator" id="CoaPartyId1">
+      <AttrNames>
+        <Item Value="CoaPartyId1"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Sale_Lube_Bulk1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="Sale_Lube_Bulk1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="Sale_Lube_Bulk1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="Sale_Lube_Bulk1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="Sale_Lube_Bulk1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="Sale_Lube_Bulk1Iterator" id="Sale_Lube_Bulk1">
+      <nodeDefinition DefName="model.Sale_Lube_Bulk" Name="Sale_Lube_Bulk10">
+        <AttrNames>
+          <Item Value="TnsDate"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaName1"/>
+          <Item Value="TnsAmount"/>
+          <Item Value="TnsFormatAmount"/>
+          <Item Value="VehicleRegNo"/>
+          <Item Value="TnsInfo"/>
+          <Item Value="TnsNewrate"/>
+          <Item Value="TnsQty"/>
+          <Item Value="TnsRate"/>
+          <Item Value="TnsSlipDate"/>
+          <Item Value="TnsSlipNo"/>
+          <Item Value="TnsSpellAmount"/>
+          <Item Value="SaleRateLogR"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Sale_Lube_Bulk1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

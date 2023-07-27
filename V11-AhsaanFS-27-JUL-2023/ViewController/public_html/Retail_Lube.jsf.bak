@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Retail_Lube.jsf" id="d1">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                <f:facet name="center">
+                    <af:panelStretchLayout id="psl1">
+                        <f:facet name="top">
+                            <af:toolbar id="t1">
+                                <af:button text="Lube Customer" id="b2"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           icon="#{resource['images:actor.png']}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Teal; border-right-color:Navy; border-top-color:Teal; border-bottom-color:Navy;">
+                                    <af:setPropertyListener from="LubeShop_Lube_CustomerFC"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"
+                                                            type="action"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s3"/>
+                                <af:button text="Lube Vehicle" id="b3"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           icon="#{resource['images:truck (1).png']}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Teal; border-right-color:Navy; border-top-color:Teal; border-bottom-color:Navy;">
+                                    <af:setPropertyListener from="LubeShop_Lube_Vehicle"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"
+                                                            type="action"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s4"/>
+                                <af:button text="Lube Invoice" id="b1"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           icon="#{resource['images:petrol.png']}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Teal; border-right-color:Navy; border-top-color:Teal; border-bottom-color:Navy;">
+                                    <af:setPropertyListener from="LubeShop_PrintpageBehaviourFC"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"
+                                                            type="action"/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="center">
+                            <af:switcher id="s1" facetName="Defualt_LubeShop" defaultFacet="Defualt_LubeShop"
+                                         binding="#{backingBeanScope.backing_MyHomeView.switcher}">
+                                <f:facet name="LubeShop_PrintpageBehaviourFC">
+                                    <af:region value="#{bindings.Z_printBehaviour1.regionModel}" id="r3"/>
+                                </f:facet>
+                                <f:facet name="LubeShop_Lube_CustomerFC">
+                                    <af:region value="#{bindings.LubeShop_Lube_Customer_TF1.regionModel}" id="r1"/>
+                                </f:facet>
+                                <f:facet name="LubeShop_Lube_Vehicle">
+                                    <af:region value="#{bindings.LubeShop_Lube_Vehicle_TF1.regionModel}" id="r2"/>
+                                </f:facet>
+                                <f:facet name="Defualt_LubeShop">
+                                    <af:region value="#{bindings.DefaultLubeShopTF1.regionModel}" id="r4"/>
+                                </f:facet>
+                            </af:switcher>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="header">
+                    <af:link text="HighPower Filling Station" id="l1" action="#{PageLoadBean.RedirecttoHome}"
+                             inlineStyle="color:Maroon; font-size:x-large; font-style:italic; font-weight:bold;"/>
+                </f:facet>
+                <f:facet name="branding"/>
+                <f:facet name="copyright"/>
+                <f:facet name="status"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

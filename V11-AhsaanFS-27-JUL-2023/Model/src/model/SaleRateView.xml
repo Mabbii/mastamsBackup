@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SaleRateView"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Variable
+    Name="BindParty"
+    Kind="viewcriteria"
+    Type="java.lang.Long"/>
+  <Variable
+    Name="BindProduct"
+    Kind="viewcriteria"
+    Type="java.lang.Long"/>
+  <ViewAccessor
+    Name="PartyCustomerOnly1"
+    ViewObjectName="model.PartyCustomerOnly"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProductForALL1"
+    ViewObjectName="model.ProductForALL"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_PartyName"
+    ListVOName="PartyCustomerOnly1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PartyName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="PpartyId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PartyName"/>
+      <Item Value="PartyId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PartyName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ProductShortname"
+    ListVOName="ProductForALL1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProductShortname"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="PproductId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProductShortname"/>
+      <Item Value="ProductId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProductShortname"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="SaleRate"
+    Entity="model.SaleRate"/>
+  <EntityUsage
+    Name="Party"
+    Entity="model.Party"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    Association="model.Party_SaleRate_FK_Assoc"
+    AssociationEnd="model.Party_SaleRate_FK_Assoc.Party"
+    SourceUsage="model.SaleRateView.SaleRate"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Party.PartyId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.SaleRate.PpartyId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="Product"
+    Entity="model.Product"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    Association="model.Product_SaleRate_FK_Assoc"
+    AssociationEnd="model.Product_SaleRate_FK_Assoc.Product"
+    SourceUsage="model.SaleRateView.SaleRate"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Product.ProductId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.SaleRate.PproductId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="SaleRateId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SaleRateId"
+    EntityUsage="SaleRate"
+    AliasName="SALE_RATE_ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="SaleRateR"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SaleRateR"
+    EntityUsage="SaleRate"
+    AliasName="SALE_RATE_R"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SaleRateView.SaleRateR_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SaleRateStartDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SaleRateStartDate"
+    EntityUsage="SaleRate"
+    AliasName="SALE_RATE_START_DATE"
+    IsUpdateable="while_insert">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="SaleRateViewRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SaleRateView.SaleRateStartDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PpartyId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PpartyId"
+    EntityUsage="SaleRate"
+    AliasName="PPARTY_ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="PproductId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PproductId"
+    EntityUsage="SaleRate"
+    AliasName="PPRODUCT_ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="SaleRateEndDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SaleRateEndDate"
+    EntityUsage="SaleRate"
+    AliasName="SALE_RATE_END_DATE"
+    IsUpdateable="while_insert">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="SaleRateViewRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SaleRateView.SaleRateEndDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SaleRateDate"
+    PrecisionRule="true"
+    EntityAttrName="SaleRateDate"
+    EntityUsage="SaleRate"
+    AliasName="SALE_RATE_DATE"
+    IsUpdateable="while_insert">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="SaleRateViewRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SaleRateView.SaleRateDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SaleRateDetails"
+    PrecisionRule="true"
+    EntityAttrName="SaleRateDetails"
+    EntityUsage="SaleRate"
+    AliasName="SALE_RATE_DETAILS"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.SaleRateView.SaleRateDetails_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PartyName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PartyName"
+    EntityUsage="Party"
+    AliasName="PARTY_NAME"
+    LOVName="LOV_PartyName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.SaleRateView.PartyName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PartyId"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="PartyId"
+    EntityUsage="Party"
+    AliasName="PARTY_ID"/>
+  <ViewAttribute
+    Name="ProductShortname"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ProductShortname"
+    EntityUsage="Product"
+    AliasName="PRODUCT_SHORTNAME"
+    LOVName="LOV_ProductShortname">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="model.SaleRateView.ProductShortname_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProductId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="ProductId"
+    EntityUsage="Product"
+    AliasName="PRODUCT_ID"/>
+  <ViewAttribute
+    Name="PtypeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PtypeId"
+    EntityUsage="Party"
+    AliasName="PTYPE_ID"/>
+  <ViewCriteria
+    Name="SaleRateViewCriteria"
+    ViewObjectName="model.SaleRateView"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SaleRateViewCriteria_row_0"
+      UpperColumns="1"
+      Conjunction="AND">
+      <ViewCriteriaItem
+        Name="PpartyId"
+        ViewAttribute="PpartyId"
+        Operator="="
+        Conjunction="AND"
+        Value=":BindParty"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PproductId"
+        ViewAttribute="PproductId"
+        Operator="="
+        Conjunction="AND"
+        Value=":BindProduct"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="SaleRateId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+  <DeclarativeWhereClause
+    Name="DeclarativeWhereClause">
+    <ViewCriteria
+      Name="SaleRateViewWhereCriteria"
+      ViewObjectName="model.SaleRateView"
+      Conjunction="AND"
+      Mode="3">
+      <ViewCriteriaRow
+        Name="SaleRateViewWhereCriteria_row_0"
+        UpperColumns="1">
+        <ViewCriteriaItemCompound
+          Name="PtypeId"
+          ViewAttribute="PtypeId">
+          <ViewCriteria
+            Name="SaleRateViewWhereCriteria_SaleRateViewWhereCriteria_row_0_PtypeId_itemHolder"
+            ViewObjectName="model.SaleRateView"
+            Conjunction="OR">
+            <ViewCriteriaRow
+              Name="SaleRateViewWhereCriteria_SaleRateViewWhereCriteria_row_0_PtypeId_itemHolder_row_0">
+              <ViewCriteriaItem
+                Name="PtypeId"
+                ViewAttribute="PtypeId"
+                Operator="="
+                Conjunction="OR"
+                Value="4"
+                Required="Optional"/>
+            </ViewCriteriaRow>
+            <ViewCriteriaRow
+              Name="SaleRateViewWhereCriteria_SaleRateViewWhereCriteria_row_0_PtypeId_itemHolder_row_1"
+              Conjunction="OR">
+              <ViewCriteriaItem
+                Name="SaleRateViewWhereCriteria_SaleRateViewWhereCriteria_row_0_PtypeId_SaleRateViewWhereCriteria_SaleRateViewWhereCriteria_row_0_PtypeId_itemHolder_SaleRateViewWhereCriteria_SaleRateViewWhereCriteria_row_0_PtypeId_itemHolder_row_1_PtypeId"
+                ViewAttribute="PtypeId"
+                Operator="="
+                Conjunction="OR"
+                Value="2"
+                Required="Optional"/>
+            </ViewCriteriaRow>
+            <ViewCriteriaRow
+              Name="SaleRateViewWhereCriteria_SaleRateViewWhereCriteria_row_0_PtypeId_itemHolder_row_2"
+              Conjunction="OR">
+              <ViewCriteriaItem
+                Name="SaleRateViewWhereCriteria_SaleRateViewWhereCriteria_row_0_PtypeId_SaleRateViewWhereCriteria_SaleRateViewWhereCriteria_row_0_PtypeId_itemHolder_SaleRateViewWhereCriteria_SaleRateViewWhereCriteria_row_0_PtypeId_itemHolder_row_2_PtypeId"
+                ViewAttribute="PtypeId"
+                Operator="="
+                Conjunction="OR"
+                Value="3"
+                Required="Optional"/>
+            </ViewCriteriaRow>
+          </ViewCriteria>
+        </ViewCriteriaItemCompound>
+      </ViewCriteriaRow>
+    </ViewCriteria>
+  </DeclarativeWhereClause>
+</ViewObject>

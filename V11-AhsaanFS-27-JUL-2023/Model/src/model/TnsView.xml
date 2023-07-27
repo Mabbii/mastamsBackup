@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TnsView"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="TNS_VIEW"
+  AliasName="TnsView"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="TnsViewName"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="TNS_VIEW_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TNS_VIEW">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TnsViewId"
+    IsNotNull="true"
+    ColumnName="TNS_VIEW_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="TNS_VIEW"
+    PrimaryKey="true"/>
+  <AccessorAttribute
+    Name="Transaction"
+    Association="model.TNSVIEW_TNS_FK_Assoc"
+    AssociationEnd="model.TNSVIEW_TNS_FK_Assoc.Transaction"
+    AssociationOtherEnd="model.TNSVIEW_TNS_FK_Assoc.TnsView"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="TnsViewPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="TNS_VIEW_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.TnsView.TnsViewId"/>
+    </AttrArray>
+  </Key>
+</Entity>

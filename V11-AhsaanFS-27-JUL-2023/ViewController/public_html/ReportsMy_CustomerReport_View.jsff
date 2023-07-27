@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <f:view beforePhase="#{backingBeanScope.PrintPageBean.beforePhaseMethod}">
+        <af:panelBox id="pb1">
+            <f:facet name="toolbar">
+                <af:button id="b4" inlineStyle="padding-top:0px;" icon="#{resource['images:print.png']}">
+                    <af:showPrintablePageBehavior/>
+                </af:button>
+            </f:facet>
+            <af:image source="#{resource['images:Ahsaan FS Logo.png']}" shortDesc="Ahsaan Fs Logo" id="i1"/>
+            <af:panelSplitter orientation="vertical" splitterPosition="161" id="ps1"
+                              inlineStyle="width:910px; height:877px;">
+                <f:facet name="first">
+                    <af:panelFormLayout id="pfl1">
+                        <af:outputText value="Customer Report" id="ot11"
+                                       inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                        <af:inputText value="#{bindings.ZcaId.inputValue}" label="#{bindings.ZcaId.hints.label}"
+                                      required="#{bindings.ZcaId.hints.mandatory}"
+                                      columns="#{bindings.ZcaId.hints.displayWidth}"
+                                      maximumLength="#{bindings.ZcaId.hints.precision}"
+                                      shortDesc="#{bindings.ZcaId.hints.tooltip}" id="it1" rendered="false">
+                            <f:validator binding="#{bindings.ZcaId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ZcaId.format}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.ZcaStartDate.inputValue}"
+                                      label="#{bindings.ZcaStartDate.hints.label}"
+                                      required="#{bindings.ZcaStartDate.hints.mandatory}"
+                                      columns="#{bindings.ZcaStartDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.ZcaStartDate.hints.tooltip}" id="id1" autoSubmit="true">
+                            <f:validator binding="#{bindings.ZcaStartDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>
+                        <af:inputDate value="#{bindings.ZcaEndDate.inputValue}"
+                                      label="#{bindings.ZcaEndDate.hints.label}"
+                                      required="#{bindings.ZcaEndDate.hints.mandatory}"
+                                      columns="#{bindings.ZcaEndDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.ZcaEndDate.hints.tooltip}" id="id2" autoSubmit="true">
+                            <f:validator binding="#{bindings.ZcaEndDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>
+                        <f:facet name="footer">
+                            <af:panelGroupLayout id="pgl1">
+                                <af:spacer width="65" height="10" id="s2"/>
+                                <af:button actionListener="#{bindings.Execute.execute}" text="Show"
+                                           disabled="#{!bindings.Execute.enabled}" id="b2"
+                                           icon="#{resource['images:find.png']}"/>
+                                <af:spacer width="10" height="10" id="s1"/>
+                                <af:spacer width="30" height="10" id="s3"/>
+                                <af:button text="Submit" id="b1" actionListener="#{bindings.Commit.execute}"
+                                           disabled="#{!bindings.Commit.enabled}"
+                                           icon="#{resource['images:commit.png']}"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <af:table value="#{bindings.ZCustomerDetailView2.collectionModel}" var="row"
+                                  rows="#{bindings.ZCustomerDetailView2.rangeSize}"
+                                  emptyText="#{bindings.ZCustomerDetailView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.ZCustomerDetailView2.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.ZCustomerDetailView2.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.ZCustomerDetailView2.rangeSize}"
+                                  filterModel="#{bindings.ZCustomerDetailView2Query.queryDescriptor}"
+                                  filterVisible="true"
+                                  queryListener="#{bindings.ZCustomerDetailView2Query.processQuery}" varStatus="vs"
+                                  id="t1" partialTriggers=":::b2 :::b1" width="905"
+                                  inlineStyle="background-color:Window; border-right-color:Window;">
+                            <af:column sortProperty="#{bindings.ZCustomerDetailView2.hints.ZcdCoaName.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZCustomerDetailView2.hints.ZcdCoaName.label}" id="c3"
+                                       width="240" align="center"
+                                       inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                                <af:outputText value="#{row.ZcdCoaName}"
+                                               shortDesc="#{bindings.ZCustomerDetailView2.hints.ZcdCoaName.tooltip}"
+                                               id="ot3" inlineStyle="font-weight:bold;"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZCustomerDetailView2.hints.ZcdOpBal.name}"
+                                       filterable="true" sortable="true" headerText="Openin-Balance" id="c4"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                                <af:outputText value="#{row.ZcdOpBal}"
+                                               shortDesc="#{bindings.ZCustomerDetailView2.hints.ZcdOpBal.tooltip}"
+                                               id="ot4" inlineStyle="font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZCustomerDetailView2.hints.ZcdOpBal.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZCustomerDetailView2.hints.ZcdHsdSale.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZCustomerDetailView2.hints.ZcdHsdSale.label}" id="c5"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                       width="90">
+                                <af:outputText value="#{row.ZcdHsdSale}"
+                                               shortDesc="#{bindings.ZCustomerDetailView2.hints.ZcdHsdSale.tooltip}"
+                                               id="ot5" inlineStyle="font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZCustomerDetailView2.hints.ZcdHsdSale.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZCustomerDetailView2.hints.ZcdPmgSale.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZCustomerDetailView2.hints.ZcdPmgSale.label}" id="c6"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                       width="90">
+                                <af:outputText value="#{row.ZcdPmgSale}"
+                                               shortDesc="#{bindings.ZCustomerDetailView2.hints.ZcdPmgSale.tooltip}"
+                                               id="ot6" inlineStyle="font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZCustomerDetailView2.hints.ZcdPmgSale.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZCustomerDetailView2.hints.ZcdReciept.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZCustomerDetailView2.hints.ZcdReciept.label}" id="c8"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                       width="90">
+                                <af:outputText value="#{row.ZcdReciept}"
+                                               shortDesc="#{bindings.ZCustomerDetailView2.hints.ZcdReciept.tooltip}"
+                                               id="ot8" inlineStyle="font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZCustomerDetailView2.hints.ZcdReciept.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZCustomerDetailView2.hints.ZcdCashWithdraw.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZCustomerDetailView2.hints.ZcdCashWithdraw.label}" id="c7"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                                       width="90">
+                                <af:outputText value="#{row.ZcdCashWithdraw}"
+                                               shortDesc="#{bindings.ZCustomerDetailView2.hints.ZcdCashWithdraw.tooltip}"
+                                               id="ot7" inlineStyle="font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZCustomerDetailView2.hints.ZcdCashWithdraw.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZCustomerDetailView2.hints.ZcdCloseBal.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZCustomerDetailView2.hints.ZcdCloseBal.label}" id="c9"
+                                       align="center"
+                                       inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                                <af:outputText value="#{row.ZcdCloseBal}"
+                                               shortDesc="#{bindings.ZCustomerDetailView2.hints.ZcdCloseBal.tooltip}"
+                                               id="ot9" inlineStyle="font-weight:bold;">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZCustomerDetailView2.hints.ZcdCloseBal.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZCustomerDetailView2.hints.ZcaIdFk.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZCustomerDetailView2.hints.ZcaIdFk.label}" id="c10"
+                                       rendered="false">
+                                <af:outputText value="#{row.ZcaIdFk}"
+                                               shortDesc="#{bindings.ZCustomerDetailView2.hints.ZcaIdFk.tooltip}"
+                                               id="ot10">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZCustomerDetailView2.hints.ZcaIdFk.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZCustomerDetailView2.hints.ZcdId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZCustomerDetailView2.hints.ZcdId.label}" id="c1"
+                                       rendered="false">
+                                <af:outputText value="#{row.ZcdId}"
+                                               shortDesc="#{bindings.ZCustomerDetailView2.hints.ZcdId.tooltip}"
+                                               id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZCustomerDetailView2.hints.ZcdId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ZCustomerDetailView2.hints.ZcdCoaId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ZCustomerDetailView2.hints.ZcdCoaId.label}" id="c2"
+                                       rendered="false">
+                                <af:outputText value="#{row.ZcdCoaId}"
+                                               shortDesc="#{bindings.ZCustomerDetailView2.hints.ZcdCoaId.tooltip}"
+                                               id="ot2">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ZCustomerDetailView2.hints.ZcdCoaId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                        <f:facet name="statusbar"/>
+                    </af:panelCollection>
+                </f:facet>
+            </af:panelSplitter>
+        </af:panelBox>
+    </f:view>
+</ui:composition>

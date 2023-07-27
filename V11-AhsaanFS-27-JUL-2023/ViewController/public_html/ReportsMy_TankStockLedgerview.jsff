@@ -1,0 +1,314 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <f:view beforePhase="#{backingBeanScope.PrintPageBean.beforePhaseMethod}">
+        <af:panelBox id="pb1" inlineStyle="width:1221px; height:1000px;">
+            <f:facet name="toolbar">
+                <af:button id="b1" icon="#{resource['images:print.png']}">
+                    <af:showPrintablePageBehavior/>
+                </af:button>
+            </f:facet>
+            <af:image source="#{resource['images:Ahsaan FS Logo.png']}" shortDesc="Ahsaan Fs Logo" id="i1"/>
+            <af:panelSplitter orientation="vertical" splitterPosition="201" id="ps1"
+                              inlineStyle="width:962px; height:961px;">
+                <f:facet name="first">
+                    <af:panelFormLayout id="pfl1">
+                        <af:outputText value="Tank Ledger" id="ot22"
+                                       inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                        <af:inputListOfValues label="#{bindings.BINDTANKINFONAME.hints.label}" popupTitle="Search and Result Dialog" id="ilov1"
+                                              value="#{bindings.BINDTANKINFONAME.inputValue}"
+                                              model="#{bindings.TankInfoName.listOfValuesModel}" autoSubmit="true">
+                            <?audit suppress oracle.jdeveloper.jsp.validate-children?>
+                            <af:inputText value="#{bindings.BINDTANKINFONAME.inputValue}"
+                                          label="#{bindings.BINDTANKINFONAME.hints.label}"
+                                          required="#{bindings.BINDTANKINFONAME.hints.mandatory}"
+                                          columns="#{bindings.BINDTANKINFONAME.hints.displayWidth}"
+                                          maximumLength="#{bindings.BINDTANKINFONAME.hints.precision}"
+                                          shortDesc="#{bindings.BINDTANKINFONAME.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.BINDTANKINFONAME.validator}"/>
+                            </af:inputText>
+                            <af:autoSuggestBehavior suggestedItems="#{bindings.TankInfoName.suggestedItems}"/>
+                        </af:inputListOfValues>
+                        <af:inputDate value="#{bindings.BindStartDate.inputValue}"
+                                      label="Start Date"
+                                      required="#{bindings.BindStartDate.hints.mandatory}"
+                                      columns="#{bindings.BindStartDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.BindStartDate.hints.tooltip}" id="id2" autoSubmit="true">
+                            <f:validator binding="#{bindings.BindStartDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>
+                        <af:inputDate value="#{bindings.BindEndDate.inputValue}"
+                                      label="End Date"
+                                      required="#{bindings.BindEndDate.hints.mandatory}"
+                                      columns="#{bindings.BindEndDate.hints.displayWidth}"
+                                      shortDesc="#{bindings.BindEndDate.hints.tooltip}" id="id3" autoSubmit="true">
+                            <f:validator binding="#{bindings.BindEndDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>
+                        <af:button actionListener="#{bindings.ExecuteWithParams.execute}" text="Show"
+                                   disabled="#{!bindings.ExecuteWithParams.enabled}" id="b2"
+                                   icon="#{resource['images:find.png']}"/>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.TankStockLedgerView1.collectionModel}" var="row"
+                                  rows="#{bindings.TankStockLedgerView1.rangeSize}"
+                                  emptyText="#{bindings.TankStockLedgerView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.TankStockLedgerView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.TankStockLedgerView1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.TankStockLedgerView1.rangeSize}"
+                                  filterModel="#{bindings.TankStockLedgerView1Query.queryDescriptor}"
+                                  filterVisible="true"
+                                  queryListener="#{bindings.TankStockLedgerView1Query.processQuery}" varStatus="vs"
+                                  id="t1" partialTriggers=":::b2"
+                                  inlineStyle="width:950px; background-color:Window; border-right-color:Window;" autoHeightRows="1500"
+                                  maxClientRows="10000"> <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TslId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.TankStockLedgerView1.hints.TslId.label}" id="c1"
+                                       rendered="false">
+                                <af:outputText value="#{row.TslId}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TslId.tooltip}"
+                                               id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.TankStockLedgerView1.hints.TslId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TslDate.name}"
+                                       filterable="true" sortable="true" headerText="Date" id="c2"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                                       align="center">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.TankStockLedgerView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TslDate.value}"
+                                                  id="id1">
+                                        <af:convertDateTime pattern="#{bindings.TankStockLedgerView1.hints.TslDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.TslDate}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TslDate.tooltip}"
+                                               id="ot2">
+                                    <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TankInfoName.name}"
+                                       filterable="true" sortable="true" headerText="Tank Name" id="c20"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                                       align="center">
+                                <af:outputText value="#{row.TankInfoName}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TankInfoName.tooltip}"
+                                               id="ot20"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.TankStockLedgerView1.hints.NozalName.label}" id="c22">
+                                <af:outputText value="#{row.NozalName}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.NozalName.tooltip}"
+                                               id="ot23"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TslDetail.name}"
+                                       filterable="true" sortable="true" headerText="Detail" id="c3"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                                       align="center" width="150">
+                                <af:outputText value="#{row.TslDetail}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TslDetail.tooltip}"
+                                               id="ot3"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TslDebit.name}"
+                                       filterable="true" sortable="true" headerText="IN" id="c4"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                                       align="center">
+                                <af:outputText value="#{row.TslDebit}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TslDebit.tooltip}"
+                                               id="ot4">
+                                    <af:convertNumber groupingUsed="true"
+                                                      pattern="#{bindings.TankStockLedgerView1.hints.TslDebit.format}"
+                                                      messageDetailConvertNumber="#,###,##"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TslCredit.name}"
+                                       filterable="true" sortable="true" headerText="OUT" id="c5"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                                       align="center">
+                                <af:outputText value="#{row.TslCredit}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TslCredit.tooltip}"
+                                               id="ot5">
+                                    <af:convertNumber groupingUsed="true"
+                                                      pattern="#{bindings.TankStockLedgerView1.hints.TslCredit.format}"
+                                                      messageDetailConvertNumber="#,###,##"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TslBalance.name}"
+                                       filterable="true" sortable="true" headerText="Balance" id="c6"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                                       align="center">
+                                <af:outputText value="#{row.TslBalance}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TslBalance.tooltip}"
+                                               id="ot6">
+                                    <af:convertNumber groupingUsed="true"
+                                                      pattern="#{bindings.TankStockLedgerView1.hints.TslBalance.format}"
+                                                      messageDetailConvertNumber="#,###,##"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="Storage Oil Tanker"
+                                       id="c23"
+                                       sortProperty="#{bindings.TankStockLedgerView1.hints.OiltRegistration.name}"
+                                       filterable="true" sortable="true"
+                                       inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;">
+                                <af:outputText value="#{row.OiltRegistration}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.OiltRegistration.tooltip}"
+                                               id="ot24"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TankInfoIdFk.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.TankStockLedgerView1.hints.TankInfoIdFk.label}" id="c7"
+                                       rendered="false">
+                                <af:outputText value="#{row.TankInfoIdFk}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TankInfoIdFk.tooltip}"
+                                               id="ot7">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.TankStockLedgerView1.hints.TankInfoIdFk.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.OilTIdFk.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.TankStockLedgerView1.hints.OilTIdFk.label}" id="c8"
+                                       rendered="false">
+                                <af:outputText value="#{row.OilTIdFk}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.OilTIdFk.tooltip}"
+                                               id="ot8">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.TankStockLedgerView1.hints.OilTIdFk.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TslSubDr.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.TankStockLedgerView1.hints.TslSubDr.label}" id="c9"
+                                       rendered="false">
+                                <af:outputText value="#{row.TslSubDr}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TslSubDr.tooltip}"
+                                               id="ot9">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.TankStockLedgerView1.hints.TslSubDr.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TslSubCr.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.TankStockLedgerView1.hints.TslSubCr.label}" id="c10"
+                                       rendered="false">
+                                <af:outputText value="#{row.TslSubCr}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TslSubCr.tooltip}"
+                                               id="ot10">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.TankStockLedgerView1.hints.TslSubCr.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TslSubBal.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.TankStockLedgerView1.hints.TslSubBal.label}" id="c11"
+                                       rendered="false">
+                                <af:outputText value="#{row.TslSubBal}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TslSubBal.tooltip}"
+                                               id="ot11">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.TankStockLedgerView1.hints.TslSubBal.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TslSubDetails.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.TankStockLedgerView1.hints.TslSubDetails.label}" id="c12"
+                                       rendered="false">
+                                <af:outputText value="#{row.TslSubDetails}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TslSubDetails.tooltip}"
+                                               id="ot12"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TslCrSourcs.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.TankStockLedgerView1.hints.TslCrSourcs.label}" id="c13"
+                                       rendered="false">
+                                <af:outputText value="#{row.TslCrSourcs}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TslCrSourcs.tooltip}"
+                                               id="ot13"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TslDrDest.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.TankStockLedgerView1.hints.TslDrDest.label}" id="c14"
+                                       rendered="false">
+                                <af:outputText value="#{row.TslDrDest}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TslDrDest.tooltip}"
+                                               id="ot14"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TslEvent.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.TankStockLedgerView1.hints.TslEvent.label}" id="c15"
+                                       rendered="false">
+                                <af:outputText value="#{row.TslEvent}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TslEvent.tooltip}"
+                                               id="ot15">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.TankStockLedgerView1.hints.TslEvent.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TnsIdFk.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.TankStockLedgerView1.hints.TnsIdFk.label}" id="c16"
+                                       rendered="false">
+                                <af:outputText value="#{row.TnsIdFk}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TnsIdFk.tooltip}"
+                                               id="ot16">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.TankStockLedgerView1.hints.TnsIdFk.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.DcIdFk.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.TankStockLedgerView1.hints.DcIdFk.label}" id="c17"
+                                       rendered="false">
+                                <af:outputText value="#{row.DcIdFk}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.DcIdFk.tooltip}"
+                                               id="ot17">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.TankStockLedgerView1.hints.DcIdFk.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.ProductIdFk.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.TankStockLedgerView1.hints.ProductIdFk.label}" id="c18"
+                                       rendered="false">
+                                <af:outputText value="#{row.ProductIdFk}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.ProductIdFk.tooltip}"
+                                               id="ot18">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.TankStockLedgerView1.hints.ProductIdFk.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TStckTnsIdFk.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.TankStockLedgerView1.hints.TStckTnsIdFk.label}" id="c19"
+                                       rendered="false">
+                                <af:outputText value="#{row.TStckTnsIdFk}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TStckTnsIdFk.tooltip}"
+                                               id="ot19">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.TankStockLedgerView1.hints.TStckTnsIdFk.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TankStockLedgerView1.hints.TankInfoId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.TankStockLedgerView1.hints.TankInfoId.label}" id="c21"
+                                       rendered="false">
+                                <af:outputText value="#{row.TankInfoId}"
+                                               shortDesc="#{bindings.TankStockLedgerView1.hints.TankInfoId.tooltip}"
+                                               id="ot21">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.TankStockLedgerView1.hints.TankInfoId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </f:facet>
+            </af:panelSplitter>
+        </af:panelBox>
+    </f:view>
+</ui:composition>

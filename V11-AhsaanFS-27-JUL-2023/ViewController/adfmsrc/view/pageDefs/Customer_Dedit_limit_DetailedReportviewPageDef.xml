@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="Customer_Dedit_limit_DetailedReportviewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZRptAllCustumerTrdParamView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="ZRptAllCustumerTrdParamView1Iterator"/>
+    <iterator Binds="ZRptAllCustumerTrdDataView1" RangeSize="50" DataControl="VOAPPDataControl"
+              id="ZRptAllCustumerTrdDataView1Iterator"/>
+    <searchRegion Binds="ZRptAllCustumerTrdDataView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ZRptAllCustumerTrdDataView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ZRptAllCustumerTrdParamView1Iterator" id="CusTrdDlParamId">
+      <AttrNames>
+        <Item Value="CusTrdDlParamId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptAllCustumerTrdParamView1Iterator" id="CusTrdDlStartDateParam">
+      <AttrNames>
+        <Item Value="CusTrdDlStartDateParam"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptAllCustumerTrdParamView1Iterator" id="CusTrdDlEndDateParam">
+      <AttrNames>
+        <Item Value="CusTrdDlEndDateParam"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ZRptAllCustumerTrdParamView1Iterator" id="CusTrdDlPartyId">
+      <AttrNames>
+        <Item Value="CusTrdDlPartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ZRptAllCustumerTrdParamView1Iterator" StaticList="false" Uses="LOV_ShowOmcPump"
+          id="ShowOmcPump" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="ZRptAllCustumerTrdDataView1Iterator" id="ZRptAllCustumerTrdDataView1">
+      <nodeDefinition DefName="model.ZRptAllCustumerTrdDataView" Name="ZRptAllCustumerTrdDataView10">
+        <AttrNames>
+          <Item Value="CusTrdDlOmcName"/>
+          <Item Value="CusTrdDlDate"/>
+          <Item Value="CusTrdDlLedgerBalance"/>
+          <Item Value="CusTrdDlPurchases"/>
+          <Item Value="CusTrdDlPayments"/>
+          <Item Value="CusTrdDlNetBalance"/>
+          <Item Value="CusTrdDlPmpCrdLimit"/>
+          <Item Value="CusTrdBalanceWithLimit"/>
+          <Item Value="CusTrdDlComments"/>
+          <Item Value="DebitLimitCat"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ZRptAllCustumerTrdDataView1Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

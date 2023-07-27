@@ -1,0 +1,19 @@
+//Groovy Scripts for model.SalesALL
+
+package model
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="SaleRateLogForCustomer1", name="BindParty")
+def BindParty_SaleRateLogForCustomer1_BindVariable_BoundParameter()
+{
+CoaPartyId
+}
+
+
+@AccessorParameterExpression(accessorName="SaleRateLogForCustomer1", name="BindProduct")
+def BindProduct_SaleRateLogForCustomer1_BindVariable_BoundParameter()
+{
+CoaProductId
+}
+

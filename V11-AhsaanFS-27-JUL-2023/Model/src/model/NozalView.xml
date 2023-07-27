@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="NozalView"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="Product_Fuel_only1"
+    ViewObjectName="model.Product_Fuel_only"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PipeLineGroupView1"
+    ViewObjectName="model.PipeLineGroupView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ProductShortname"
+    ListVOName="Product_Fuel_only1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProductShortname"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ProductIdFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProductShortname"/>
+      <Item Value="ProductId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProductShortname"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PipeLineGroupCaption"
+    ListVOName="PipeLineGroupView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PipeLineGroupCaption"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="PipeLineGroupIdFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PipeLineGroupCaption"/>
+      <Item Value="PipeLineGroupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PipeLineGroupCaption"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Nozal"
+    Entity="model.Nozal"/>
+  <EntityUsage
+    Name="Product"
+    Entity="model.Product"
+    Association="model.Product_Nozal_Assoc"
+    AssociationEnd="model.Product_Nozal_Assoc.Product"
+    SourceUsage="model.NozalView.Nozal"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Product.ProductId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Nozal.ProductIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="PipeLineGroup"
+    Entity="model.PipeLineGroup"
+    Association="model.PPLGROUP_NOZAL"
+    AssociationEnd="model.PPLGROUP_NOZAL.PipeLineGroup"
+    SourceUsage="model.NozalView.Nozal"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.PipeLineGroup.PipeLineGroupId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Nozal.PipeLineGroupIdFk"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="NozalId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="NozalId"
+    EntityUsage="Nozal"
+    AliasName="NOZAL_ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="NozalName"
+    IsUnique="true"
+    PrecisionRule="true"
+    EntityAttrName="NozalName"
+    EntityUsage="Nozal"
+    AliasName="NOZAL_NAME"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.NozalView.NozalName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProductIdFk"
+    PrecisionRule="true"
+    EntityAttrName="ProductIdFk"
+    EntityUsage="Nozal"
+    AliasName="PRODUCT_ID_FK"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="NozalInitValue"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="NozalInitValue"
+    EntityUsage="Nozal"
+    AliasName="NOZAL_INIT_VALUE"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.NozalView.NozalInitValue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NozalActiveFlag"
+    PrecisionRule="true"
+    EntityAttrName="NozalActiveFlag"
+    EntityUsage="Nozal"
+    AliasName="NOZAL_ACTIVE_FLAG"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="ProductShortname"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ProductShortname"
+    EntityUsage="Product"
+    AliasName="PRODUCT_SHORTNAME"
+    LOVName="LOV_ProductShortname">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="model.NozalView.ProductShortname_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProductId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="ProductId"
+    EntityUsage="Product"
+    AliasName="PRODUCT_ID"/>
+  <ViewAttribute
+    Name="PipeLineGroupIdFk"
+    PrecisionRule="true"
+    EntityAttrName="PipeLineGroupIdFk"
+    EntityUsage="Nozal"
+    AliasName="PIPE_LINE_GROUP_ID_FK"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="PipeLineGroupCaption"
+    PrecisionRule="true"
+    EntityAttrName="PipeLineGroupCaption"
+    EntityUsage="PipeLineGroup"
+    AliasName="PIPE_LINE_GROUP_CAPTION"
+    LOVName="LOV_PipeLineGroupCaption">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PipeLineGroupId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="PipeLineGroupId"
+    EntityUsage="PipeLineGroup"
+    AliasName="PIPE_LINE_GROUP_ID"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="NozalId"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="NozalTankMapView"
+    ViewLink="model.NozalTankMapNozalFk1Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

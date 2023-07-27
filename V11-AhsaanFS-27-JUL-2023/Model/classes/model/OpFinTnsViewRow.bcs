@@ -1,0 +1,12 @@
+//Groovy Scripts for model.OpFinTnsView
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="OftDate")
+def OftDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

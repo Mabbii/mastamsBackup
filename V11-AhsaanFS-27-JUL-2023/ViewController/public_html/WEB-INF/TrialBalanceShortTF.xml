@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="TrialBalanceShortTF">
+    <default-activity>TrialBalanceShortView</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__6">
+      <name>zrptbName</name>
+      <value>#{pageFlowScope.zrptbName}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <view id="TrialBalanceShortView">
+      <page>/ReportsMy_TrialBalanceShortView.jsff</page>
+    </view>
+    <task-flow-call id="callmethodd">
+      <task-flow-reference>
+        <document>/WEB-INF/callmethodd.xml</document>
+        <id>callmethodd</id>
+      </task-flow-reference>
+      <input-parameter id="__5">
+        <name>zrptbName</name>
+        <value></value>
+      </input-parameter>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>TrialBalanceShortView</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>call</from-outcome>
+        <to-activity-id>callmethodd</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>callmethodd</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>taskFlowReturn1</from-outcome>
+        <to-activity-id>TrialBalanceShortView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

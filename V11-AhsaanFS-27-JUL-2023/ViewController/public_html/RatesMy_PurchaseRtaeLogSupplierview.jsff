@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="247" id="ps1">
+        <f:facet name="first">
+            <af:panelBox id="pb1">
+                <f:facet name="toolbar">
+          <af:outputText value="Mastams" id="ot69" inlineStyle="color:Maroon; font-size:x-large; font-style:italic;"/>
+        </f:facet>
+                <af:panelFormLayout id="pfl1" maxColumns="2" rows="2" partialTriggers="pc1:t1">
+                    <af:outputText value="Purchase Rate Supplier ALL" id="ot10"
+                                   inlineStyle="font-size:x-large; font-weight:bold; font-style:italic;"/>
+                    <af:inputText value="#{bindings.PurchaseRateLogId.inputValue}"
+                                  label="#{bindings.PurchaseRateLogId.hints.label}"
+                                  required="#{bindings.PurchaseRateLogId.hints.mandatory}"
+                                  columns="#{bindings.PurchaseRateLogId.hints.displayWidth}"
+                                  maximumLength="#{bindings.PurchaseRateLogId.hints.precision}"
+                                  shortDesc="#{bindings.PurchaseRateLogId.hints.tooltip}" id="it1" rendered="false">
+                        <f:validator binding="#{bindings.PurchaseRateLogId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.PurchaseRateLogId.format}"/>
+                    </af:inputText>
+                    <af:inputListOfValues id="partyNameId"
+                                          popupTitle="Search and Select: #{bindings.PartyName.hints.label}"
+                                          value="#{bindings.PartyName.inputValue}"
+                                          label="#{bindings.PartyName.hints.label}"
+                                          model="#{bindings.PartyName.listOfValuesModel}"
+                                          required="#{bindings.PartyName.hints.mandatory}"
+                                          columns="#{bindings.PartyName.hints.displayWidth}"
+                                          shortDesc="#{bindings.PartyName.hints.tooltip}" autoSubmit="true">
+                        <f:validator binding="#{bindings.PartyName.validator}"/>
+                        <af:autoSuggestBehavior suggestedItems="#{bindings.PartyName.suggestedItems}"/>
+                    </af:inputListOfValues>
+                    <af:inputListOfValues id="productShortnameId"
+                                          popupTitle="Search and Select: #{bindings.ProductShortname.hints.label}"
+                                          value="#{bindings.ProductShortname.inputValue}"
+                                          label="#{bindings.ProductShortname.hints.label}"
+                                          model="#{bindings.ProductShortname.listOfValuesModel}"
+                                          required="#{bindings.ProductShortname.hints.mandatory}"
+                                          columns="#{bindings.ProductShortname.hints.displayWidth}"
+                                          shortDesc="#{bindings.ProductShortname.hints.tooltip}" autoSubmit="true">
+                        <f:validator binding="#{bindings.ProductShortname.validator}"/>
+                        <af:autoSuggestBehavior suggestedItems="#{bindings.ProductShortname.suggestedItems}"/>
+                    </af:inputListOfValues>
+                    <af:inputText value="#{bindings.PurchaseRateLogR.inputValue}"
+                                  label="#{bindings.PurchaseRateLogR.hints.label}"
+                                  required="#{bindings.PurchaseRateLogR.hints.mandatory}"
+                                  columns="#{bindings.PurchaseRateLogR.hints.displayWidth}"
+                                  maximumLength="#{bindings.PurchaseRateLogR.hints.precision}"
+                                  shortDesc="#{bindings.PurchaseRateLogR.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.PurchaseRateLogR.validator}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.PurchaseRateLogDate.inputValue}"
+                                  label="#{bindings.PurchaseRateLogDate.hints.label}"
+                                  required="#{bindings.PurchaseRateLogDate.hints.mandatory}"
+                                  columns="#{bindings.PurchaseRateLogDate.hints.displayWidth}"
+                                  shortDesc="#{bindings.PurchaseRateLogDate.hints.tooltip}" id="id1"
+                                  rendered="true">
+                        <f:validator binding="#{bindings.PurchaseRateLogDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.PurchaseRateLogDate.format}"/>
+                    </af:inputDate>
+                    <af:inputDate value="#{bindings.PurchaseRateLogStartdate.inputValue}"
+                                  label="#{bindings.PurchaseRateLogStartdate.hints.label}"
+                                  required="#{bindings.PurchaseRateLogStartdate.hints.mandatory}"
+                                  columns="#{bindings.PurchaseRateLogStartdate.hints.displayWidth}"
+                                  shortDesc="#{bindings.PurchaseRateLogStartdate.hints.tooltip}" id="id2"
+                                  rendered="false">
+                        <f:validator binding="#{bindings.PurchaseRateLogStartdate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.PurchaseRateLogStartdate.format}"/>
+                    </af:inputDate>
+                    <af:inputDate value="#{bindings.PurchaseRateLogEnddate.inputValue}"
+                                  label="#{bindings.PurchaseRateLogEnddate.hints.label}"
+                                  required="#{bindings.PurchaseRateLogEnddate.hints.mandatory}"
+                                  columns="#{bindings.PurchaseRateLogEnddate.hints.displayWidth}"
+                                  shortDesc="#{bindings.PurchaseRateLogEnddate.hints.tooltip}" id="id3"
+                                  rendered="false">
+                        <f:validator binding="#{bindings.PurchaseRateLogEnddate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.PurchaseRateLogEnddate.format}"/>
+                    </af:inputDate>
+                    <af:inputText value="#{bindings.PpartyIdLog.inputValue}" label="#{bindings.PpartyIdLog.hints.label}"
+                                  required="#{bindings.PpartyIdLog.hints.mandatory}"
+                                  columns="#{bindings.PpartyIdLog.hints.displayWidth}"
+                                  maximumLength="#{bindings.PpartyIdLog.hints.precision}"
+                                  shortDesc="#{bindings.PpartyIdLog.hints.tooltip}" id="it3" rendered="false">
+                        <f:validator binding="#{bindings.PpartyIdLog.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.PpartyIdLog.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.PproductIdLog.inputValue}"
+                                  label="#{bindings.PproductIdLog.hints.label}"
+                                  required="#{bindings.PproductIdLog.hints.mandatory}"
+                                  columns="#{bindings.PproductIdLog.hints.displayWidth}"
+                                  maximumLength="#{bindings.PproductIdLog.hints.precision}"
+                                  shortDesc="#{bindings.PproductIdLog.hints.tooltip}" id="it4" rendered="false">
+                        <f:validator binding="#{bindings.PproductIdLog.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.PproductIdLog.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.PurchaseRateLogDetails.inputValue}"
+                                  label="#{bindings.PurchaseRateLogDetails.hints.label}"
+                                  required="#{bindings.PurchaseRateLogDetails.hints.mandatory}"
+                                  columns="#{bindings.PurchaseRateLogDetails.hints.displayWidth}"
+                                  maximumLength="#{bindings.PurchaseRateLogDetails.hints.precision}"
+                                  shortDesc="#{bindings.PurchaseRateLogDetails.hints.tooltip}" id="it5">
+                        <f:validator binding="#{bindings.PurchaseRateLogDetails.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.PurchaseRateIdFk.inputValue}"
+                                  label="#{bindings.PurchaseRateIdFk.hints.label}"
+                                  required="#{bindings.PurchaseRateIdFk.hints.mandatory}"
+                                  columns="#{bindings.PurchaseRateIdFk.hints.displayWidth}"
+                                  maximumLength="#{bindings.PurchaseRateIdFk.hints.precision}"
+                                  shortDesc="#{bindings.PurchaseRateIdFk.hints.tooltip}" id="it6" rendered="false">
+                        <f:validator binding="#{bindings.PurchaseRateIdFk.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.PurchaseRateIdFk.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.PtypeId.inputValue}" label="#{bindings.PtypeId.hints.label}"
+                                  required="#{bindings.PtypeId.hints.mandatory}"
+                                  columns="#{bindings.PtypeId.hints.displayWidth}"
+                                  maximumLength="#{bindings.PtypeId.hints.precision}"
+                                  shortDesc="#{bindings.PtypeId.hints.tooltip}" id="it7" rendered="false">
+                        <f:validator binding="#{bindings.PtypeId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.PtypeId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.PartyId.inputValue}" label="#{bindings.PartyId.hints.label}"
+                                  required="#{bindings.PartyId.hints.mandatory}"
+                                  columns="#{bindings.PartyId.hints.displayWidth}"
+                                  maximumLength="#{bindings.PartyId.hints.precision}"
+                                  shortDesc="#{bindings.PartyId.hints.tooltip}" id="it8" rendered="false">
+                        <f:validator binding="#{bindings.PartyId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.PartyId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ProductId.inputValue}" label="#{bindings.ProductId.hints.label}"
+                                  required="#{bindings.ProductId.hints.mandatory}"
+                                  columns="#{bindings.ProductId.hints.displayWidth}"
+                                  maximumLength="#{bindings.ProductId.hints.precision}"
+                                  shortDesc="#{bindings.ProductId.hints.tooltip}" id="it9" rendered="false">
+                        <f:validator binding="#{bindings.ProductId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductId.format}"/>
+                    </af:inputText>
+                    <f:facet name="footer">
+                        <af:panelGroupLayout layout="horizontal" id="pgl1">
+                            <af:panelGroupLayout layout="horizontal" id="pgl3">
+                                <af:button actionListener="#{bindings.First.execute}"
+                                           disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"
+                                           icon="#{resource['images:first_hor_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Previous.execute}"
+                                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"
+                                           icon="#{resource['images:previoustraversalarrow_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Next.execute}"
+                                           disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
+                                           icon="#{resource['images:nexttraversalarrow_ena.png']}"/>
+                                <af:button actionListener="#{bindings.Last.execute}"
+                                           disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"
+                                           icon="#{resource['images:last_hor_ena.png']}"/>
+                                <af:outputText value="---------" id="ot50"/>
+                            </af:panelGroupLayout>
+                            <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                                       icon="#{resource['images:commit.png']}" disabled="#{!bindings.Commit.enabled}">
+                                       
+                                </af:button>
+                            <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                       disabled="#{!bindings.CreateInsert.enabled}" id="b6"
+                                       icon="#{resource['images:add.png']}"/>
+                            <af:outputText value="--------------" id="ot60"/>
+                            <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                       disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7"
+                                       icon="#{resource['images:rollback.png']}">
+                                <af:resetActionListener/>
+                            </af:button>
+                            <af:spacer width="250" height="10" id="s2"/>
+                            <af:button text="EXCEL" id="b8" inlineStyle="color:Green;"
+                                       icon="#{resource['images:export.png']}">
+                                <af:exportCollectionActionListener type="excelHTML" exportedId="pc1:t1"
+                                                                   filename="PURCHASE RATE SUPPLIER ALL.XLS"/>
+                            </af:button>
+                          
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:panelFormLayout>
+            </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar">
+                    <af:toolbar id="t2" inlineStyle="color:Purple;">
+                        <af:outputText value="Mastams" id="ot11" inlineStyle="color:Maroon; font-size:large;"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.PurchaseRateLogForSupplier1.collectionModel}" var="row"
+                          rows="#{bindings.PurchaseRateLogForSupplier1.rangeSize}"
+                          emptyText="#{bindings.PurchaseRateLogForSupplier1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.PurchaseRateLogForSupplier1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.PurchaseRateLogForSupplier1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.PurchaseRateLogForSupplier1.rangeSize}"
+                          filterModel="#{bindings.PurchaseRateLogForSupplier1Query.queryDescriptor}"
+                          filterVisible="true" queryListener="#{bindings.PurchaseRateLogForSupplier1Query.processQuery}"
+                          varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 ::b5 :::b1 :::b2 :::b3 :::b4 :::b6 :::b5 :::b7" scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogDate.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogDate.label}"
+                               id="c1" width="150" rendered="false">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.PurchaseRateLogForSupplier1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.PurchaseRateLogDate.value}"
+                                          id="id4">
+                                <af:convertDateTime pattern="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.PurchaseRateLogDate}"
+                                       shortDesc="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogDate.tooltip}"
+                                       id="ot1">
+                            <af:convertDateTime pattern="dd-MMM-yyyy hh:mm:ss "/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseRateLogForSupplier1.hints.PartyName.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseRateLogForSupplier1.hints.PartyName.label}" id="c3"
+                               width="200"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               align="center">
+                        <af:outputText value="#{row.PartyName}"
+                                       shortDesc="#{bindings.PurchaseRateLogForSupplier1.hints.PartyName.tooltip}"
+                                       id="ot3"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseRateLogForSupplier1.hints.ProductShortname.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseRateLogForSupplier1.hints.ProductShortname.label}" id="c4"
+                               width="150"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               align="center">
+                        <af:outputText value="#{row.ProductShortname}"
+                                       shortDesc="#{bindings.PurchaseRateLogForSupplier1.hints.ProductShortname.tooltip}"
+                                       id="ot4"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogR.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogR.label}" id="c5"
+                               width="100"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:right;"
+                               align="center">
+                        <af:outputText value="#{row.PurchaseRateLogR}"
+                                       shortDesc="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogR.tooltip}"
+                                       id="ot5"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogStartdate.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogStartdate.label}"
+                               id="c6" width="150"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               rendered="false">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.PurchaseRateLogForSupplier1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.PurchaseRateLogStartdate.value}"
+                                          id="id5">
+                                <af:convertDateTime pattern="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogStartdate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.PurchaseRateLogStartdate}"
+                                       shortDesc="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogStartdate.tooltip}"
+                                       id="ot6">
+                            <af:convertDateTime pattern="dd-MMM-yyyy hh:mm:ss "/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogEnddate.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogEnddate.label}"
+                               id="c7" width="150"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               rendered="false">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.PurchaseRateLogForSupplier1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.PurchaseRateLogEnddate.value}"
+                                          id="id6">
+                                <af:convertDateTime pattern="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogEnddate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.PurchaseRateLogEnddate}"
+                                       shortDesc="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogEnddate.tooltip}"
+                                       id="ot7">
+                            <af:convertDateTime pattern="dd-MMM-yyyy hh:mm:ss "/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogDetails.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogDetails.label}"
+                               id="c8"
+                               inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium; text-align:left;"
+                               align="center" width="200">
+                        <af:outputText value="#{row.PurchaseRateLogDetails}"
+                                       shortDesc="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogDetails.tooltip}"
+                                       id="ot8"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogId.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogId.label}"
+                               id="c2" width="150" rendered="false">
+                        <af:outputText value="#{row.PurchaseRateLogId}"
+                                       shortDesc="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogId.tooltip}"
+                                       id="ot2">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateLogId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateIdFk.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateIdFk.label}"
+                               id="c9" rendered="false">
+                        <af:outputText value="#{row.PurchaseRateIdFk}"
+                                       shortDesc="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateIdFk.tooltip}"
+                                       id="ot9">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.PurchaseRateLogForSupplier1.hints.PurchaseRateIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

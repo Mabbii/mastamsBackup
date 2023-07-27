@@ -1,0 +1,12 @@
+//Groovy Scripts for model.DATE_INIT_VIEW
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="DcDate")
+def DcDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47"
+                id="OpeningBalanceForOilTankerViewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OpeningStockOilTankerStorageView1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="OpeningStockOilTankerStorageView1Iterator"/>
+    <searchRegion Binds="OpeningStockOilTankerStorageView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="OpeningStockOilTankerStorageView1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="OpeningStockOilTankerStorageView1Iterator" StaticList="false" Uses="LOV_OiltRegistration"
+                  id="OiltRegistration"/>
+    <attributeValues IterBinding="OpeningStockOilTankerStorageView1Iterator" id="OilTIdFk">
+      <AttrNames>
+        <Item Value="OilTIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpeningStockOilTankerStorageView1Iterator" id="TStckTnsAmount">
+      <AttrNames>
+        <Item Value="TStckTnsAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpeningStockOilTankerStorageView1Iterator" id="TStckTnsDate">
+      <AttrNames>
+        <Item Value="TStckTnsDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpeningStockOilTankerStorageView1Iterator" id="TStckTnsId">
+      <AttrNames>
+        <Item Value="TStckTnsId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpeningStockOilTankerStorageView1Iterator" id="TankInfoIdFk">
+      <AttrNames>
+        <Item Value="TankInfoIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpeningStockOilTankerStorageView1Iterator" id="TslEvent">
+      <AttrNames>
+        <Item Value="TslEvent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpeningStockOilTankerStorageView1Iterator" id="OiltId">
+      <AttrNames>
+        <Item Value="OiltId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OpeningStockOilTankerStorageView1Iterator" id="OiltStorageFlag">
+      <AttrNames>
+        <Item Value="OiltStorageFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="OpeningStockOilTankerStorageView1Iterator" StaticList="false" Uses="LOV_TankInfoName"
+          id="TankInfoName" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="OpeningStockOilTankerStorageView1Iterator" id="TankInfoId">
+      <AttrNames>
+        <Item Value="TankInfoId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="OpeningStockOilTankerStorageView1Iterator" id="First" RequiresUpdateModel="true"
+            Action="first"/>
+    <action IterBinding="OpeningStockOilTankerStorageView1Iterator" id="Previous" RequiresUpdateModel="true"
+            Action="previous"/>
+    <action IterBinding="OpeningStockOilTankerStorageView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="OpeningStockOilTankerStorageView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="OpeningStockOilTankerStorageView1Iterator" id="OpeningStockOilTankerStorageView1">
+      <nodeDefinition DefName="model.OpeningStockOilTankerStorageView" Name="OpeningStockOilTankerStorageView10">
+        <AttrNames>
+          <Item Value="OilTIdFk"/>
+          <Item Value="TStckTnsAmount"/>
+          <Item Value="TStckTnsDate"/>
+          <Item Value="TStckTnsId"/>
+          <Item Value="TankInfoIdFk"/>
+          <Item Value="TslEvent"/>
+          <Item Value="OiltRegistration"/>
+          <Item Value="OiltId"/>
+          <Item Value="OiltStorageFlag"/>
+          <Item Value="TankInfoName"/>
+          <Item Value="TankInfoId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="OpeningStockOilTankerStorageView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

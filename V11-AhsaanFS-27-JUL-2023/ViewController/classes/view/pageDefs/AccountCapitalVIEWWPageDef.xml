@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="AccountCapitalVIEWWPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ACCAPITALView1" RangeSize="25" DataControl="VOAPPDataControl" id="ACCAPITALView1Iterator"/>
+    <searchRegion Binds="ACCAPITALView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ACCAPITALView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ACCAPITALView1Iterator" id="AcCapitalId">
+      <AttrNames>
+        <Item Value="AcCapitalId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ACCAPITALView1Iterator" id="AcCapitalName">
+      <AttrNames>
+        <Item Value="AcCapitalName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ACCAPITALView1Iterator" id="AcCapitalDetail">
+      <AttrNames>
+        <Item Value="AcCapitalDetail"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ACCAPITALView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="ACCAPITALView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="ACCAPITALView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="ACCAPITALView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="ACCAPITALView1Iterator" id="ACCAPITALView1">
+      <nodeDefinition DefName="model.ACCAPITALView" Name="ACCAPITALView10">
+        <AttrNames>
+          <Item Value="AcCapitalId"/>
+          <Item Value="AcCapitalName"/>
+          <Item Value="AcCapitalDetail"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ACCAPITALView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

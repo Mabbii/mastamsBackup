@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="prchserateomcpmpviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PurchaseRateForOMCPump1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="PurchaseRateForOMCPump1Iterator"/>
+    <searchRegion Binds="PurchaseRateForOMCPump1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PurchaseRateForOMCPump1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="PurchaseRateForOMCPump1Iterator" StaticList="false" Uses="LOV_PartyName" id="PartyName"/>
+    <listOfValues IterBinding="PurchaseRateForOMCPump1Iterator" StaticList="false" Uses="LOV_ProductShortname"
+                  id="ProductShortname"/>
+    <attributeValues IterBinding="PurchaseRateForOMCPump1Iterator" id="PurchaseRateId">
+      <AttrNames>
+        <Item Value="PurchaseRateId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForOMCPump1Iterator" id="PurchaseRateR">
+      <AttrNames>
+        <Item Value="PurchaseRateR"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForOMCPump1Iterator" id="PurchaseRateDate">
+      <AttrNames>
+        <Item Value="PurchaseRateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForOMCPump1Iterator" id="PurchaseRateStartdate">
+      <AttrNames>
+        <Item Value="PurchaseRateStartdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForOMCPump1Iterator" id="PurchaseRateEnddate">
+      <AttrNames>
+        <Item Value="PurchaseRateEnddate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForOMCPump1Iterator" id="PpartyId">
+      <AttrNames>
+        <Item Value="PpartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForOMCPump1Iterator" id="PproductId">
+      <AttrNames>
+        <Item Value="PproductId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForOMCPump1Iterator" id="PurchaseRateDetails">
+      <AttrNames>
+        <Item Value="PurchaseRateDetails"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForOMCPump1Iterator" id="PartyId">
+      <AttrNames>
+        <Item Value="PartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForOMCPump1Iterator" id="PartyCode">
+      <AttrNames>
+        <Item Value="PartyCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForOMCPump1Iterator" id="PtypeId">
+      <AttrNames>
+        <Item Value="PtypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForOMCPump1Iterator" id="ProductId">
+      <AttrNames>
+        <Item Value="ProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="PurchaseRateForOMCPump1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="PurchaseRateForOMCPump1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="PurchaseRateForOMCPump1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="PurchaseRateForOMCPump1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="PurchaseRateForOMCPump1Iterator" id="PurchaseRateForOMCPump1">
+      <nodeDefinition DefName="model.PurchaseRateForOMCPump" Name="PurchaseRateForOMCPump10">
+        <AttrNames>
+          <Item Value="PurchaseRateId"/>
+          <Item Value="PurchaseRateR"/>
+          <Item Value="PurchaseRateDate"/>
+          <Item Value="PurchaseRateStartdate"/>
+          <Item Value="PurchaseRateEnddate"/>
+          <Item Value="PpartyId"/>
+          <Item Value="PproductId"/>
+          <Item Value="PurchaseRateDetails"/>
+          <Item Value="PartyName"/>
+          <Item Value="PartyId"/>
+          <Item Value="PartyCode"/>
+          <Item Value="PtypeId"/>
+          <Item Value="ProductShortname"/>
+          <Item Value="ProductId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="PurchaseRateForOMCPump1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

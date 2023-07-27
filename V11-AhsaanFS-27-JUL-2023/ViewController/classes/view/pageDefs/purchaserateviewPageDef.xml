@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="purchaserateviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PurchaseRateForSupplier1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="PurchaseRateForSupplier1Iterator"/>
+    <searchRegion Binds="PurchaseRateForSupplier1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PurchaseRateForSupplier1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="PurchaseRateForSupplier1Iterator" StaticList="false" Uses="LOV_PartyName"
+                  id="PartyName"/>
+    <listOfValues IterBinding="PurchaseRateForSupplier1Iterator" StaticList="false" Uses="LOV_ProductShortname"
+                  id="ProductShortname"/>
+    <attributeValues IterBinding="PurchaseRateForSupplier1Iterator" id="PpartyId">
+      <AttrNames>
+        <Item Value="PpartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForSupplier1Iterator" id="PproductId">
+      <AttrNames>
+        <Item Value="PproductId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForSupplier1Iterator" id="PurchaseRateDate">
+      <AttrNames>
+        <Item Value="PurchaseRateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForSupplier1Iterator" id="PurchaseRateEnddate">
+      <AttrNames>
+        <Item Value="PurchaseRateEnddate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForSupplier1Iterator" id="PurchaseRateId">
+      <AttrNames>
+        <Item Value="PurchaseRateId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForSupplier1Iterator" id="PurchaseRateR">
+      <AttrNames>
+        <Item Value="PurchaseRateR"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForSupplier1Iterator" id="PurchaseRateStartdate">
+      <AttrNames>
+        <Item Value="PurchaseRateStartdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForSupplier1Iterator" id="PtypeId">
+      <AttrNames>
+        <Item Value="PtypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForSupplier1Iterator" id="PartyId">
+      <AttrNames>
+        <Item Value="PartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForSupplier1Iterator" id="PartyCode">
+      <AttrNames>
+        <Item Value="PartyCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurchaseRateForSupplier1Iterator" id="ProductId">
+      <AttrNames>
+        <Item Value="ProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="PurchaseRateForSupplier1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="PurchaseRateForSupplier1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="PurchaseRateForSupplier1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="PurchaseRateForSupplier1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="PurchaseRateForSupplier1Iterator" id="PurchaseRateForSupplier1">
+      <nodeDefinition DefName="model.PurchaseRateForSupplier" Name="PurchaseRateForSupplier10">
+        <AttrNames>
+          <Item Value="PurchaseRateDate"/>
+          <Item Value="PurchaseRateDetails"/>
+          <Item Value="PurchaseRateEnddate"/>
+          <Item Value="PurchaseRateR"/>
+          <Item Value="PurchaseRateStartdate"/>
+          <Item Value="PartyName"/>
+          <Item Value="ProductShortname"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="PurchaseRateForSupplier1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <attributeValues IterBinding="PurchaseRateForSupplier1Iterator" id="PurchaseRateDetails">
+      <AttrNames>
+        <Item Value="PurchaseRateDetails"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="stocklossBACKDviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="STOCK_LOSS_BACK_DATE1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="STOCK_LOSS_BACK_DATE1Iterator"/>
+    <searchRegion Binds="STOCK_LOSS_BACK_DATE1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="STOCK_LOSS_BACK_DATE1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <listOfValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" StaticList="false" Uses="LOV_CoaName1" id="CoaName1"/>
+    <listOfValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" StaticList="false" Uses="LOV_OiltRegistration"
+                  id="OiltRegistration"/>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsDate">
+      <AttrNames>
+        <Item Value="TnsDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsId">
+      <AttrNames>
+        <Item Value="TnsId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsDetail">
+      <AttrNames>
+        <Item Value="TnsDetail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsRate">
+      <AttrNames>
+        <Item Value="TnsRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsQty">
+      <AttrNames>
+        <Item Value="TnsQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsAmount">
+      <AttrNames>
+        <Item Value="TnsAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsCoaDactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaDactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsCoaCactNumber">
+      <AttrNames>
+        <Item Value="TnsCoaCactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsInfo">
+      <AttrNames>
+        <Item Value="TnsInfo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsSlipDate">
+      <AttrNames>
+        <Item Value="TnsSlipDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsSlipNo">
+      <AttrNames>
+        <Item Value="TnsSlipNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsTnsviewId">
+      <AttrNames>
+        <Item Value="TnsTnsviewId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsTnsTypeIdFk">
+      <AttrNames>
+        <Item Value="TnsTnsTypeIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="CoaActNumber1">
+      <AttrNames>
+        <Item Value="CoaActNumber1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsFormatAmount">
+      <AttrNames>
+        <Item Value="TnsFormatAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsSpellAmount">
+      <AttrNames>
+        <Item Value="TnsSpellAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsSDate">
+      <AttrNames>
+        <Item Value="TnsSDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="OiltId">
+      <AttrNames>
+        <Item Value="OiltId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="TnsStorageOiltIdFk">
+      <AttrNames>
+        <Item Value="TnsStorageOiltIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="STOCK_LOSS_BACK_DATE1">
+      <nodeDefinition DefName="model.STOCK_LOSS_BACK_DATE" Name="STOCK_LOSS_BACK_DATE10">
+        <AttrNames>
+          <Item Value="TnsDate"/>
+          <Item Value="TnsId"/>
+          <Item Value="TnsRate"/>
+          <Item Value="TnsQty"/>
+          <Item Value="TnsAmount"/>
+          <Item Value="TnsInfo"/>
+          <Item Value="TnsSlipDate"/>
+          <Item Value="TnsSlipNo"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaName1"/>
+          <Item Value="TnsFormatAmount"/>
+          <Item Value="OiltRegistration"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <action IterBinding="STOCK_LOSS_BACK_DATE1Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

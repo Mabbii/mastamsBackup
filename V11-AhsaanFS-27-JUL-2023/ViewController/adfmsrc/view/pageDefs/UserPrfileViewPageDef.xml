@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="UserPrfileViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="UserProfileVO1" RangeSize="25" DataControl="VOAPPDataControl" id="UserProfileVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="UserProfileVO1Iterator" id="UserProfileId">
+      <AttrNames>
+        <Item Value="UserProfileId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UserProfileVO1Iterator" id="UserProfileName">
+      <AttrNames>
+        <Item Value="UserProfileName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UserProfileVO1Iterator" id="UserProfileEmail">
+      <AttrNames>
+        <Item Value="UserProfileEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="UserProfileVO1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="UserProfileVO1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="UserProfileVO1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="UserProfileVO1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="UserProfileVO1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <action IterBinding="UserProfileVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="UserProfileVO1Iterator" id="UserProfileImage">
+      <AttrNames>
+        <Item Value="UserProfileImage"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

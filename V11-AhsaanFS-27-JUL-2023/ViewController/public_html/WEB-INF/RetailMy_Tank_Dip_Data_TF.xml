@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="RetailMy_Tank_Dip_Data_TF">
+    <default-activity>RetailMy_Tank_Dip_Data_View</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="RetailMy_Tank_Dip_Data_View">
+      <page>/RetailMy_Tank_Dip_Data_View.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

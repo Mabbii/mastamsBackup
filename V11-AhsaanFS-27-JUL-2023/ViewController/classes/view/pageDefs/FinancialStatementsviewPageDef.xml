@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="FinancialStatementsviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="IncomecalculateTF1" taskFlowId="/WEB-INF/IncomecalculateTF.xml#IncomecalculateTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="IncomeDetailedTF1" taskFlowId="/WEB-INF/IncomeDetailedTF.xml#IncomeDetailedTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="IncomeADJUSTMNTTF1" taskFlowId="/WEB-INF/IncomeADJUSTMNTTF.xml#IncomeADJUSTMNTTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="IncomeCalculateCustomDateToDateTF1"
+              taskFlowId="/WEB-INF/IncomeCalculateCustomDateToDateTF.xml#IncomeCalculateCustomDateToDateTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="DefaultFinincialTF1" taskFlowId="/WEB-INF/DefaultFinincialTF.xml#DefaultFinincialTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <methodAction id="CallAMTaskFlowActivity" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="CallAMTaskFlowActivity" IsViewObjectMethod="false" DataControl="VOAPPDataControl"
+                  InstanceName="bindings.CallAMTaskFlowActivity.dataControl.dataProvider">
+      <NamedData NDName="Task" NDType="int"/>
+      <NamedData NDName="userName" NDType="java.lang.String"/>
+      <NamedData NDName="sessionID" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

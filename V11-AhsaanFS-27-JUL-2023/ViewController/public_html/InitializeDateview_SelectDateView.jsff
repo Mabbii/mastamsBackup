@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="141" id="ps1">
+        <f:facet name="first">
+            <af:panelGridLayout id="pgl3">
+                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                    <af:gridCell marginStart="5px" width="50%" id="gc1">
+                        <af:panelFormLayout id="pfl1" maxColumns="2" rows="2">
+                            <af:outputText value="Select Date to Initialize" id="ot9"
+                                           inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                            <af:inputText value="#{bindings.DcId.inputValue}" label="#{bindings.DcId.hints.label}"
+                                          required="#{bindings.DcId.hints.mandatory}"
+                                          columns="#{bindings.DcId.hints.displayWidth}"
+                                          maximumLength="#{bindings.DcId.hints.precision}"
+                                          shortDesc="#{bindings.DcId.hints.tooltip}" id="it1" readOnly="true">
+                                <f:validator binding="#{bindings.DcId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.DcId.format}"/>
+                            </af:inputText>
+                            <af:inputDate value="#{bindings.DcDate.inputValue}" label="#{bindings.DcDate.hints.label}"
+                                          required="#{bindings.DcDate.hints.mandatory}"
+                                          columns="#{bindings.DcDate.hints.displayWidth}"
+                                          shortDesc="#{bindings.DcDate.hints.tooltip}" id="id1">
+                                <f:validator binding="#{bindings.DcDate.validator}"/>
+                                <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                            </af:inputDate>
+                            <af:inputDate value="#{bindings.DcDateCounter.inputValue}"
+                                          label="#{bindings.DcDateCounter.hints.label}"
+                                          required="#{bindings.DcDateCounter.hints.mandatory}"
+                                          columns="#{bindings.DcDateCounter.hints.displayWidth}"
+                                          shortDesc="#{bindings.DcDateCounter.hints.tooltip}" id="id2" rendered="false">
+                                <f:validator binding="#{bindings.DcDateCounter.validator}"/>
+                                <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                            </af:inputDate>
+                            <af:inputDate value="#{bindings.DcStartDate.inputValue}"
+                                          label="#{bindings.DcStartDate.hints.label}"
+                                          required="#{bindings.DcStartDate.hints.mandatory}"
+                                          columns="#{bindings.DcStartDate.hints.displayWidth}"
+                                          shortDesc="#{bindings.DcStartDate.hints.tooltip}" id="id3" rendered="false">
+                                <f:validator binding="#{bindings.DcStartDate.validator}"/>
+                                <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                            </af:inputDate>
+                            <af:inputDate value="#{bindings.DcEndDate.inputValue}"
+                                          label="#{bindings.DcEndDate.hints.label}"
+                                          required="#{bindings.DcEndDate.hints.mandatory}"
+                                          columns="#{bindings.DcEndDate.hints.displayWidth}"
+                                          shortDesc="#{bindings.DcEndDate.hints.tooltip}" id="id4" rendered="false">
+                                <f:validator binding="#{bindings.DcEndDate.validator}"/>
+                                <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                            </af:inputDate>
+                            <af:inputDate value="#{bindings.DcDateCounterMr.inputValue}"
+                                          label="#{bindings.DcDateCounterMr.hints.label}"
+                                          required="#{bindings.DcDateCounterMr.hints.mandatory}"
+                                          columns="#{bindings.DcDateCounterMr.hints.displayWidth}"
+                                          shortDesc="#{bindings.DcDateCounterMr.hints.tooltip}" id="id5"
+                                          rendered="false">
+                                <f:validator binding="#{bindings.DcDateCounterMr.validator}"/>
+                                <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                            </af:inputDate>
+                            <af:inputDate value="#{bindings.DcDateCounterDip.inputValue}"
+                                          label="#{bindings.DcDateCounterDip.hints.label}"
+                                          required="#{bindings.DcDateCounterDip.hints.mandatory}"
+                                          columns="#{bindings.DcDateCounterDip.hints.displayWidth}"
+                                          shortDesc="#{bindings.DcDateCounterDip.hints.tooltip}" id="id6"
+                                          rendered="false">
+                                <f:validator binding="#{bindings.DcDateCounterDip.validator}"/>
+                                <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                            </af:inputDate>
+                            <af:inputText value="#{bindings.DcFlag.inputValue}" label="#{bindings.DcFlag.hints.label}"
+                                          required="#{bindings.DcFlag.hints.mandatory}"
+                                          columns="#{bindings.DcFlag.hints.displayWidth}"
+                                          maximumLength="#{bindings.DcFlag.hints.precision}"
+                                          shortDesc="#{bindings.DcFlag.hints.tooltip}" id="it2" rendered="false">
+                                <f:validator binding="#{bindings.DcFlag.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.DcFlag.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.DcRand.inputValue}" label="#{bindings.DcRand.hints.label}"
+                                          required="#{bindings.DcRand.hints.mandatory}"
+                                          columns="#{bindings.DcRand.hints.displayWidth}"
+                                          maximumLength="#{bindings.DcRand.hints.precision}"
+                                          shortDesc="#{bindings.DcRand.hints.tooltip}" id="it3" rendered="false">
+                                <f:validator binding="#{bindings.DcRand.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.DcRand.format}"/>
+                            </af:inputText>
+                            <f:facet name="footer">
+                                <af:panelGroupLayout layout="horizontal" id="pgl1">
+                                    <af:panelGroupLayout layout="horizontal" id="pgl2">
+                                        <af:button actionListener="#{bindings.First.execute}"
+                                                   icon="#{resource['images:first_hor_ena.png']}"
+                                                   disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                                        <af:button actionListener="#{bindings.Previous.execute}"
+                                                   icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                                   disabled="#{!bindings.Previous.enabled}" partialSubmit="true"
+                                                   id="b2"/>
+                                        <af:button actionListener="#{bindings.Next.execute}"
+                                                   icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                                   disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                                        <af:button actionListener="#{bindings.Last.execute}"
+                                                   icon="#{resource['images:last_hor_ena.png']}"
+                                                   disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                                        <af:outputText value="--------------" id="ot61"/>
+                                    </af:panelGroupLayout>
+                                    <af:button text="Submit" id="b5" icon="#{resource['images:commit.png']}"
+                                               disabled="#{!bindings.Commit.enabled}"
+                                               actionListener="#{bindings.Commit.execute}"/>
+                                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                               icon="#{resource['images:add.png']}"
+                                               disabled="#{!bindings.CreateInsert.enabled}" id="b6"/>
+                                    <af:outputText value="---------------------------" id="ot62"/>
+                                    <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                               icon="#{resource['images:rollback.png']}"
+                                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                                        <af:resetActionListener/>
+                                    </af:button>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelFormLayout>
+                    </af:gridCell>
+                    <af:gridCell marginStart="30px" width="50%" marginEnd="5px" id="gc2">
+                        <af:panelFormLayout id="pfl2">
+                            <af:outputText value="Select Date for Working" id="ot11"
+                                           inlineStyle="font-size:x-large; font-style:italic; font-weight:bold;"/>
+                            <af:inputDate value="#{bindings.DateSelected.inputValue}"
+                                          label="#{bindings.DateSelected.hints.label}"
+                                          required="#{bindings.DateSelected.hints.mandatory}"
+                                          columns="#{bindings.DateSelected.hints.displayWidth}"
+                                          shortDesc="#{bindings.DateSelected.hints.tooltip}" id="id13"
+                                          autoSubmit="true">
+                                <f:validator binding="#{bindings.DateSelected.validator}"/>
+                                <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                            </af:inputDate>
+                            <af:inputText value="#{bindings.DsId.inputValue}" label="#{bindings.DsId.hints.label}"
+                                          required="#{bindings.DsId.hints.mandatory}"
+                                          columns="#{bindings.DsId.hints.displayWidth}"
+                                          maximumLength="#{bindings.DsId.hints.precision}"
+                                          shortDesc="#{bindings.DsId.hints.tooltip}" id="it4" rendered="false">
+                                <f:validator binding="#{bindings.DsId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.DsId.format}"/>
+                            </af:inputText>
+                            <f:facet name="footer">
+                                <af:panelGroupLayout id="pgl4">
+                                    <af:spacer width="100" height="10" id="s1"/>
+                                    <af:button text="Submit" id="b8" icon="#{resource['images:commit.png']}"
+                                               actionListener="#{bindings.Commit.execute}"
+                                               disabled="#{!bindings.Commit.enabled}"/>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelFormLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar">
+                    <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot24" inlineStyle="color:Maroon; font-size:large;"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.DateCounterView1.collectionModel}" var="row"
+                          rows="#{bindings.DateCounterView1.rangeSize}"
+                          emptyText="#{bindings.DateCounterView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.DateCounterView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.DateCounterView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.DateCounterView1.rangeSize}"
+                          filterModel="#{bindings.DateCounterView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.DateCounterView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3 ::b4 ::b6 :::b1 :::b2 :::b3 :::b4 :::b6 :::b5 :::b7" scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.DateCounterView1.hints.DcId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DateCounterView1.hints.DcId.label}" id="c1"
+                               inlineStyle="text-align:left;  border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.DcId}" shortDesc="#{bindings.DateCounterView1.hints.DcId.tooltip}"
+                                       id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.DateCounterView1.hints.DcId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DateCounterView1.hints.DcDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DateCounterView1.hints.DcDate.label}" id="c2"
+                               width="200" align="center"
+                               inlineStyle="text-align:left;  border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.DateCounterView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.DcDate.value}"
+                                          id="id7">
+                                <af:convertDateTime pattern="#{bindings.DateCounterView1.hints.DcDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.DcDate}"
+                                       shortDesc="#{bindings.DateCounterView1.hints.DcDate.tooltip}" id="ot2">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DateCounterView1.hints.DcDateCounter.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DateCounterView1.hints.DcDateCounter.label}"
+                               id="c3" rendered="false">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.DateCounterView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.DcDateCounter.value}"
+                                          id="id8">
+                                <af:convertDateTime pattern="#{bindings.DateCounterView1.hints.DcDateCounter.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.DcDateCounter}"
+                                       shortDesc="#{bindings.DateCounterView1.hints.DcDateCounter.tooltip}" id="ot3">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DateCounterView1.hints.DcStartDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DateCounterView1.hints.DcStartDate.label}" id="c4"
+                               rendered="false">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.DateCounterView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.DcStartDate.value}"
+                                          id="id9">
+                                <af:convertDateTime pattern="#{bindings.DateCounterView1.hints.DcStartDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.DcStartDate}"
+                                       shortDesc="#{bindings.DateCounterView1.hints.DcStartDate.tooltip}" id="ot4">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DateCounterView1.hints.DcEndDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DateCounterView1.hints.DcEndDate.label}" id="c5"
+                               rendered="false">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.DateCounterView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.DcEndDate.value}"
+                                          id="id10">
+                                <af:convertDateTime pattern="#{bindings.DateCounterView1.hints.DcEndDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.DcEndDate}"
+                                       shortDesc="#{bindings.DateCounterView1.hints.DcEndDate.tooltip}" id="ot5">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DateCounterView1.hints.DcDateCounterMr.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DateCounterView1.hints.DcDateCounterMr.label}"
+                               id="c6" rendered="false">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.DateCounterView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.DcDateCounterMr.value}"
+                                          id="id11">
+                                <af:convertDateTime pattern="#{bindings.DateCounterView1.hints.DcDateCounterMr.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.DcDateCounterMr}"
+                                       shortDesc="#{bindings.DateCounterView1.hints.DcDateCounterMr.tooltip}" id="ot6">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DateCounterView1.hints.DcDateCounterDip.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DateCounterView1.hints.DcDateCounterDip.label}"
+                               id="c7" rendered="false">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.DateCounterView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.DcDateCounterDip.value}"
+                                          id="id12">
+                                <af:convertDateTime pattern="#{bindings.DateCounterView1.hints.DcDateCounterDip.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.DcDateCounterDip}"
+                                       shortDesc="#{bindings.DateCounterView1.hints.DcDateCounterDip.tooltip}" id="ot7">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DateCounterView1.hints.DcFlag.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DateCounterView1.hints.DcFlag.label}" id="c8"
+                               rendered="false">
+                        <af:outputText value="#{row.DcFlag}"
+                                       shortDesc="#{bindings.DateCounterView1.hints.DcFlag.tooltip}" id="ot8">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.DateCounterView1.hints.DcFlag.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.DateCounterView1.hints.DcRand.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.DateCounterView1.hints.DcRand.label}" id="c9"
+                               rendered="false">
+                        <af:outputText value="#{row.DcRand}"
+                                       shortDesc="#{bindings.DateCounterView1.hints.DcRand.tooltip}" id="ot10">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.DateCounterView1.hints.DcRand.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

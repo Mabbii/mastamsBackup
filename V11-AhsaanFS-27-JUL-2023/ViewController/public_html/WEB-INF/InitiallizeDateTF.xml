@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="InitiallizeDateTF">
+    <default-activity>InitializeDateview</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="InitializeDateview">
+      <page>/InitializeDateview.jsf</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome>
+        <name>taskFlowReturn1</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>InitializeDateview</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="DataLoaderViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Data_Loader_Retail_view1" RangeSize="25" DataControl="VOAPPDataControl"
+              id="Data_Loader_Retail_view1Iterator"/>
+    <searchRegion Binds="Data_Loader_Retail_view1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="Data_Loader_Retail_view1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="Data_Loader_Retail_view1Iterator" StaticList="false" Uses="LOV_VehicleRegNo"
+                  id="VehicleRegNo"/>
+    <listOfValues IterBinding="Data_Loader_Retail_view1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <listOfValues IterBinding="Data_Loader_Retail_view1Iterator" StaticList="false" Uses="LOV_CoaName1" id="CoaName1"/>
+    <listOfValues IterBinding="Data_Loader_Retail_view1Iterator" StaticList="false" Uses="LOV_CoaName2" id="CoaName2"/>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="DlrAmt1">
+      <AttrNames>
+        <Item Value="DlrAmt1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="DlrAmt2">
+      <AttrNames>
+        <Item Value="DlrAmt2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="DlrDate">
+      <AttrNames>
+        <Item Value="DlrDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="DlrId">
+      <AttrNames>
+        <Item Value="DlrId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="DlrPartyId">
+      <AttrNames>
+        <Item Value="DlrPartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="DlrPayAmt">
+      <AttrNames>
+        <Item Value="DlrPayAmt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="DlrProdct1">
+      <AttrNames>
+        <Item Value="DlrProdct1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="DlrProdct2">
+      <AttrNames>
+        <Item Value="DlrProdct2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="DlrQty1">
+      <AttrNames>
+        <Item Value="DlrQty1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="DlrQty2">
+      <AttrNames>
+        <Item Value="DlrQty2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="DlrRate1">
+      <AttrNames>
+        <Item Value="DlrRate1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="DlrRate2">
+      <AttrNames>
+        <Item Value="DlrRate2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="DlrRecptAmt">
+      <AttrNames>
+        <Item Value="DlrRecptAmt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="DlrSlipNbr">
+      <AttrNames>
+        <Item Value="DlrSlipNbr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="DlrVehicleId">
+      <AttrNames>
+        <Item Value="DlrVehicleId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="VehicleId">
+      <AttrNames>
+        <Item Value="VehicleId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="CoaActNumber1">
+      <AttrNames>
+        <Item Value="CoaActNumber1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Data_Loader_Retail_view1Iterator" id="CoaActNumber2">
+      <AttrNames>
+        <Item Value="CoaActNumber2"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Data_Loader_Retail_view1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="Data_Loader_Retail_view1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="Data_Loader_Retail_view1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="Data_Loader_Retail_view1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="Data_Loader_Retail_view1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <tree IterBinding="Data_Loader_Retail_view1Iterator" id="Data_Loader_Retail_view1">
+      <nodeDefinition DefName="model.Data_Loader_Retail_view" Name="Data_Loader_Retail_view10">
+        <AttrNames>
+          <Item Value="DlrAmt1"/>
+          <Item Value="DlrAmt2"/>
+          <Item Value="DlrDate"/>
+          <Item Value="DlrId"/>
+          <Item Value="DlrPayAmt"/>
+          <Item Value="DlrQty1"/>
+          <Item Value="DlrQty2"/>
+          <Item Value="DlrRate1"/>
+          <Item Value="DlrRate2"/>
+          <Item Value="DlrRecptAmt"/>
+          <Item Value="DlrSlipNbr"/>
+          <Item Value="DlrVehicleId"/>
+          <Item Value="VehicleRegNo"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaName1"/>
+          <Item Value="CoaName2"/>
+          <Item Value="CoaActNumber2"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

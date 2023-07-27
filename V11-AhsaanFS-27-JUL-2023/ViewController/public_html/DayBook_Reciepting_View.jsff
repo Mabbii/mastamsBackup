@@ -1,0 +1,545 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="349" id="ps1">
+        <f:facet name="first">
+            <af:panelFormLayout id="pfl1" maxColumns="2" rows="2">
+                <af:outputText value="Receipt" id="ot1"
+                               inlineStyle="font-weight:bold; font-size:x-large; font-style:italic;"/>
+                <af:inputListOfValues id="coaNameId" popupTitle="Search and Select: #{bindings.CoaName.hints.label}"
+                                      value="#{bindings.CoaName.inputValue}" label="#{bindings.CoaName.hints.label}"
+                                      model="#{bindings.CoaName.listOfValuesModel}"
+                                      required="#{bindings.CoaName.hints.mandatory}"
+                                      columns="#{bindings.CoaName.hints.displayWidth}"
+                                      shortDesc="#{bindings.CoaName.hints.tooltip}" autoSubmit="true">
+                    <f:validator binding="#{bindings.CoaName.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputListOfValues id="coaName1Id" popupTitle="Search and Select: #{bindings.CoaName1.hints.label}"
+                                      value="#{bindings.CoaName1.inputValue}" label="#{bindings.CoaName1.hints.label}"
+                                      model="#{bindings.CoaName1.listOfValuesModel}"
+                                      required="#{bindings.CoaName1.hints.mandatory}"
+                                      columns="#{bindings.CoaName1.hints.displayWidth}"
+                                      shortDesc="#{bindings.CoaName1.hints.tooltip}" autoSubmit="true">
+                    <f:validator binding="#{bindings.CoaName1.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.CoaName1.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:inputListOfValues id="bankTnsTypeNameId"
+                                      popupTitle="Search and Select: #{bindings.BankTnsTypeName.hints.label}"
+                                      value="#{bindings.BankTnsTypeName.inputValue}"
+                                      label="#{bindings.BankTnsTypeName.hints.label}"
+                                      model="#{bindings.BankTnsTypeName.listOfValuesModel}"
+                                      required="#{bindings.BankTnsTypeName.hints.mandatory}"
+                                      columns="#{bindings.BankTnsTypeName.hints.displayWidth}"
+                                      shortDesc="#{bindings.BankTnsTypeName.hints.tooltip}" autoSubmit="true">
+                    <f:validator binding="#{bindings.BankTnsTypeName.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.BankTnsTypeName.suggestedItems}"/>
+                </af:inputListOfValues>
+                <af:outputText value="#{bindings.TnsFormatAmount.inputValue}"
+                               shortDesc="#{bindings.TnsFormatAmount.hints.tooltip}" id="it1"
+                               inlineStyle="font-size:large; font-style:italic; font-weight:bold;">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsFormatAmount.format}"/>
+                </af:outputText>
+                <af:inputText value="#{bindings.TnsAmount.inputValue}" label="#{bindings.TnsAmount.hints.label}"
+                              required="#{bindings.TnsAmount.hints.mandatory}"
+                              columns="#{bindings.TnsAmount.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsAmount.hints.precision}"
+                              shortDesc="#{bindings.TnsAmount.hints.tooltip}" id="it2" autoSubmit="true">
+                    <f:validator binding="#{bindings.TnsAmount.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsAmount.format}"/>
+                </af:inputText>
+                <af:outputText value="#{bindings.TnsSpellAmount.inputValue}"
+                               shortDesc="#{bindings.TnsSpellAmount.hints.tooltip}" id="it3"
+                               inlineStyle="font-size:large; font-style:italic; font-weight:bold;"/>
+                <af:inputText value="#{bindings.TnsInfo.inputValue}" label="#{bindings.TnsInfo.hints.label}"
+                              required="#{bindings.TnsInfo.hints.mandatory}"
+                              columns="#{bindings.TnsInfo.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsInfo.hints.precision}"
+                              shortDesc="#{bindings.TnsInfo.hints.tooltip}" id="it5" autoSubmit="true">
+                    <f:validator binding="#{bindings.TnsInfo.validator}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.TnsDate.inputValue}" label="#{bindings.TnsDate.hints.label}"
+                              required="#{bindings.TnsDate.hints.mandatory}"
+                              columns="#{bindings.TnsDate.hints.displayWidth}"
+                              shortDesc="#{bindings.TnsDate.hints.tooltip}" id="id1" autoSubmit="true">
+                    <f:validator binding="#{bindings.TnsDate.validator}"/>
+                    <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                </af:inputDate>
+                <af:inputDate value="#{bindings.TnsSlipDate.inputValue}" label="#{bindings.TnsSlipDate.hints.label}"
+                              required="#{bindings.TnsSlipDate.hints.mandatory}"
+                              columns="#{bindings.TnsSlipDate.hints.displayWidth}"
+                              shortDesc="#{bindings.TnsSlipDate.hints.tooltip}" id="id2" autoSubmit="true">
+                    <f:validator binding="#{bindings.TnsSlipDate.validator}"/>
+                    <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.TnsSlipNo.inputValue}" label="#{bindings.TnsSlipNo.hints.label}"
+                              required="#{bindings.TnsSlipNo.hints.mandatory}"
+                              columns="#{bindings.TnsSlipNo.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsSlipNo.hints.precision}"
+                              shortDesc="#{bindings.TnsSlipNo.hints.tooltip}" id="it4" autoSubmit="true">
+                    <f:validator binding="#{bindings.TnsSlipNo.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CoaActNumber.inputValue}" label="#{bindings.CoaActNumber.hints.label}"
+                              required="#{bindings.CoaActNumber.hints.mandatory}"
+                              columns="#{bindings.CoaActNumber.hints.displayWidth}"
+                              maximumLength="#{bindings.CoaActNumber.hints.precision}"
+                              shortDesc="#{bindings.CoaActNumber.hints.tooltip}" id="it6" readOnly="true">
+                    <f:validator binding="#{bindings.CoaActNumber.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CoaActNumber1.inputValue}" label="#{bindings.CoaActNumber1.hints.label}"
+                              required="#{bindings.CoaActNumber1.hints.mandatory}"
+                              columns="#{bindings.CoaActNumber1.hints.displayWidth}"
+                              maximumLength="#{bindings.CoaActNumber1.hints.precision}"
+                              shortDesc="#{bindings.CoaActNumber1.hints.tooltip}" id="it7" readOnly="true">
+                    <f:validator binding="#{bindings.CoaActNumber1.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaActNumber1.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CoaBalance.inputValue}" label="#{bindings.CoaBalance.hints.label}"
+                              required="#{bindings.CoaBalance.hints.mandatory}"
+                              columns="#{bindings.CoaBalance.hints.displayWidth}"
+                              maximumLength="#{bindings.CoaBalance.hints.precision}"
+                              shortDesc="#{bindings.CoaBalance.hints.tooltip}" id="it8" readOnly="true">
+                    <f:validator binding="#{bindings.CoaBalance.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaBalance.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CoaBalance1.inputValue}" label="#{bindings.CoaBalance1.hints.label}"
+                              required="#{bindings.CoaBalance1.hints.mandatory}"
+                              columns="#{bindings.CoaBalance1.hints.displayWidth}"
+                              maximumLength="#{bindings.CoaBalance1.hints.precision}"
+                              shortDesc="#{bindings.CoaBalance1.hints.tooltip}" id="it9" readOnly="true">
+                    <f:validator binding="#{bindings.CoaBalance1.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaBalance1.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TnsId.inputValue}" label="#{bindings.TnsId.hints.label}"
+                              required="#{bindings.TnsId.hints.mandatory}"
+                              columns="#{bindings.TnsId.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsId.hints.precision}"
+                              shortDesc="#{bindings.TnsId.hints.tooltip}" id="it10" readOnly="true">
+                    <f:validator binding="#{bindings.TnsId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TnsDetail.inputValue}" label="#{bindings.TnsDetail.hints.label}"
+                              required="#{bindings.TnsDetail.hints.mandatory}"
+                              columns="#{bindings.TnsDetail.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsDetail.hints.precision}"
+                              shortDesc="#{bindings.TnsDetail.hints.tooltip}" id="it11" rendered="false">
+                    <f:validator binding="#{bindings.TnsDetail.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TnsCoaCactNumber.inputValue}"
+                              label="#{bindings.TnsCoaCactNumber.hints.label}"
+                              required="#{bindings.TnsCoaCactNumber.hints.mandatory}"
+                              columns="#{bindings.TnsCoaCactNumber.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsCoaCactNumber.hints.precision}"
+                              shortDesc="#{bindings.TnsCoaCactNumber.hints.tooltip}"
+                              id="it12" rendered="false">
+                    <f:validator binding="#{bindings.TnsCoaCactNumber.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsCoaCactNumber.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TnsCoaDactNumber.inputValue}"
+                              label="#{bindings.TnsCoaDactNumber.hints.label}"
+                              required="#{bindings.TnsCoaDactNumber.hints.mandatory}"
+                              columns="#{bindings.TnsCoaDactNumber.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsCoaDactNumber.hints.precision}"
+                              shortDesc="#{bindings.TnsCoaDactNumber.hints.tooltip}"
+                              id="it13" rendered="false">
+                    <f:validator binding="#{bindings.TnsCoaDactNumber.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsCoaDactNumber.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TnsBankTnsTypeIdFk.inputValue}"
+                              label="#{bindings.TnsBankTnsTypeIdFk.hints.label}"
+                              required="#{bindings.TnsBankTnsTypeIdFk.hints.mandatory}"
+                              columns="#{bindings.TnsBankTnsTypeIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsBankTnsTypeIdFk.hints.precision}"
+                              shortDesc="#{bindings.TnsBankTnsTypeIdFk.hints.tooltip}" id="it14" rendered="false">
+                    <f:validator binding="#{bindings.TnsBankTnsTypeIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsBankTnsTypeIdFk.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TnsTnsTypeIdFk.inputValue}"
+                              label="#{bindings.TnsTnsTypeIdFk.hints.label}"
+                              required="#{bindings.TnsTnsTypeIdFk.hints.mandatory}"
+                              columns="#{bindings.TnsTnsTypeIdFk.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsTnsTypeIdFk.hints.precision}"
+                              shortDesc="#{bindings.TnsTnsTypeIdFk.hints.tooltip}" id="it15" rendered="false">
+                    <f:validator binding="#{bindings.TnsTnsTypeIdFk.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsTnsTypeIdFk.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.TnsTnsviewId.inputValue}" label="#{bindings.TnsTnsviewId.hints.label}"
+                              required="#{bindings.TnsTnsviewId.hints.mandatory}"
+                              columns="#{bindings.TnsTnsviewId.hints.displayWidth}"
+                              maximumLength="#{bindings.TnsTnsviewId.hints.precision}"
+                              shortDesc="#{bindings.TnsTnsviewId.hints.tooltip}" id="it16" rendered="false">
+                    <f:validator binding="#{bindings.TnsTnsviewId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.TnsTnsviewId.format}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.TnsSDate.inputValue}" label="#{bindings.TnsSDate.hints.label}"
+                              required="#{bindings.TnsSDate.hints.mandatory}"
+                              columns="#{bindings.TnsSDate.hints.displayWidth}"
+                              shortDesc="#{bindings.TnsSDate.hints.tooltip}" id="id3" rendered="false">
+                    <f:validator binding="#{bindings.TnsSDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.TnsSDate.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.CoaCode.inputValue}" label="#{bindings.CoaCode.hints.label}"
+                              required="#{bindings.CoaCode.hints.mandatory}"
+                              columns="#{bindings.CoaCode.hints.displayWidth}"
+                              maximumLength="#{bindings.CoaCode.hints.precision}"
+                              shortDesc="#{bindings.CoaCode.hints.tooltip}" id="it17" rendered="false">
+                    <f:validator binding="#{bindings.CoaCode.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaCode.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CoaBactId.inputValue}" label="#{bindings.CoaBactId.hints.label}"
+                              required="#{bindings.CoaBactId.hints.mandatory}"
+                              columns="#{bindings.CoaBactId.hints.displayWidth}"
+                              maximumLength="#{bindings.CoaBactId.hints.precision}"
+                              shortDesc="#{bindings.CoaBactId.hints.tooltip}" id="it18" rendered="false">
+                    <f:validator binding="#{bindings.CoaBactId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaBactId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CoaCode1.inputValue}" label="#{bindings.CoaCode1.hints.label}"
+                              required="#{bindings.CoaCode1.hints.mandatory}"
+                              columns="#{bindings.CoaCode1.hints.displayWidth}"
+                              maximumLength="#{bindings.CoaCode1.hints.precision}"
+                              shortDesc="#{bindings.CoaCode1.hints.tooltip}" id="it19" rendered="false">
+                    <f:validator binding="#{bindings.CoaCode1.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaCode1.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CoaPartyId.inputValue}" label="#{bindings.CoaPartyId.hints.label}"
+                              required="#{bindings.CoaPartyId.hints.mandatory}"
+                              columns="#{bindings.CoaPartyId.hints.displayWidth}"
+                              maximumLength="#{bindings.CoaPartyId.hints.precision}"
+                              shortDesc="#{bindings.CoaPartyId.hints.tooltip}" id="it20" rendered="false">
+                    <f:validator binding="#{bindings.CoaPartyId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CoaPartyId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.PtypeId.inputValue}" label="#{bindings.PtypeId.hints.label}"
+                              required="#{bindings.PtypeId.hints.mandatory}"
+                              columns="#{bindings.PtypeId.hints.displayWidth}"
+                              maximumLength="#{bindings.PtypeId.hints.precision}"
+                              shortDesc="#{bindings.PtypeId.hints.tooltip}" id="it21" rendered="false">
+                    <f:validator binding="#{bindings.PtypeId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.PtypeId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.PartyId.inputValue}" label="#{bindings.PartyId.hints.label}"
+                              required="#{bindings.PartyId.hints.mandatory}"
+                              columns="#{bindings.PartyId.hints.displayWidth}"
+                              maximumLength="#{bindings.PartyId.hints.precision}"
+                              shortDesc="#{bindings.PartyId.hints.tooltip}" id="it22" rendered="false">
+                    <f:validator binding="#{bindings.PartyId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.PartyId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.BankTnsTypeId.inputValue}" label="#{bindings.BankTnsTypeId.hints.label}"
+                              required="#{bindings.BankTnsTypeId.hints.mandatory}"
+                              columns="#{bindings.BankTnsTypeId.hints.displayWidth}"
+                              maximumLength="#{bindings.BankTnsTypeId.hints.precision}"
+                              shortDesc="#{bindings.BankTnsTypeId.hints.tooltip}" id="it23" rendered="false">
+                    <f:validator binding="#{bindings.BankTnsTypeId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.BankTnsTypeId.format}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl1">
+                        <af:panelGroupLayout layout="horizontal" id="pgl2">
+                            <af:button actionListener="#{bindings.First.execute}"
+                            icon="#{resource['images:first_hor_ena.png']}"
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                            <af:button actionListener="#{bindings.Previous.execute}"
+                            icon="#{resource['images:previoustraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                            <af:button actionListener="#{bindings.Next.execute}"
+                            icon="#{resource['images:nexttraversalarrow_ena.png']}"
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                            <af:button actionListener="#{bindings.Last.execute}"
+                            icon="#{resource['images:last_hor_ena.png']}"
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                        </af:panelGroupLayout>
+                        <af:outputText value="----------" id="ot61"/>
+                        <af:button text="Submit" id="b5" actionListener="#{bindings.Commit.execute}"
+                        icon="#{resource['images:commit.png']}"
+                                   disabled="#{!bindings.Commit.enabled}"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                        icon="#{resource['images:add.png']}"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b6"/>
+                                   <af:outputText value="-------------------" id="ot62"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                        icon="#{resource['images:rollback.png']}"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                            <af:resetActionListener/>
+                        </af:button>
+                        <af:outputText value="------------------------------------------" id="ot31"/>
+                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                   disabled="#{!bindings.Delete.enabled}" id="b8" inlineStyle="color:Red;"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelFormLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <af:table value="#{bindings.Reciept1.collectionModel}" var="row" rows="#{bindings.Reciept1.rangeSize}"
+                          emptyText="#{bindings.Reciept1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" selectedRowKeys="#{bindings.Reciept1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.Reciept1.collectionModel.makeCurrent}" rowSelection="single"
+                          fetchSize="#{bindings.Reciept1.rangeSize}"
+                          filterModel="#{bindings.Reciept1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.Reciept1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers=":::b1 :::b2 :::b3 :::b4 :::b6 :::b8" scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.Reciept1.hints.TnsDate.name}" filterable="true" sortable="true"
+                               headerText="#{bindings.Reciept1.hints.TnsDate.label}" id="c1" align="center" width="80"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.Reciept1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsDate.value}"
+                                          id="id4">
+                                <af:convertDateTime pattern="#{bindings.Reciept1.hints.TnsDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.TnsDate}" shortDesc="#{bindings.Reciept1.hints.TnsDate.tooltip}"
+                                       id="ot2">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.CoaName.name}" filterable="true" sortable="true"
+                               headerText="#{bindings.Reciept1.hints.CoaName.label}" id="c2" align="center" width="120"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.CoaName}" shortDesc="#{bindings.Reciept1.hints.CoaName.tooltip}"
+                                       id="ot3"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.Reciept1.hints.CoaName1.label}" id="c3"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;"
+                               width="200" align="center" sortable="true" filterable="true">
+                        <af:outputText value="#{row.CoaName1}" shortDesc="#{bindings.Reciept1.hints.CoaName1.tooltip}"
+                                       id="ot4"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.TnsAmount.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Reciept1.hints.TnsAmount.label}" id="c4"
+                               align="center"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.TnsAmount}" shortDesc="#{bindings.Reciept1.hints.TnsAmount.tooltip}"
+                                       id="ot5">
+                        </af:outputText>
+                    </af:column>
+					<af:column sortProperty="#{bindings.Reciept1.hints.TnsFormatAmount.name}" filterable="true"
+                               sortable="true" headerText="Formatted Amount" id="c18" align="center"
+                inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.TnsFormatAmount}"
+                                       shortDesc="#{bindings.Reciept1.hints.TnsFormatAmount.tooltip}" id="ot19">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Reciept1.hints.TnsFormatAmount.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.BankTnsTypeName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Reciept1.hints.BankTnsTypeName.label}" id="c5"
+                               align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.BankTnsTypeName}"
+                                       shortDesc="#{bindings.Reciept1.hints.BankTnsTypeName.tooltip}" id="ot6"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.TnsInfo.name}" filterable="true" sortable="true"
+                               headerText="#{bindings.Reciept1.hints.TnsInfo.label}" id="c6" align="center" width="150"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.TnsInfo}" shortDesc="#{bindings.Reciept1.hints.TnsInfo.tooltip}"
+                                       id="ot7"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.TnsSlipDate.name}" filterable="true"
+                               sortable="true" headerText="Slip Date" id="c7"
+                               align="center" width="80"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.Reciept1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsSlipDate.value}"
+                                          id="id5">
+                                <af:convertDateTime pattern="#{bindings.Reciept1.hints.TnsSlipDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.TnsSlipDate}"
+                                       shortDesc="#{bindings.Reciept1.hints.TnsSlipDate.tooltip}" id="ot8">
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.TnsSlipNo.name}" filterable="true"
+                               sortable="true" headerText="Slip No" id="c8"
+                               align="center"
+                               inlineStyle="text-align:right; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.TnsSlipNo}" shortDesc="#{bindings.Reciept1.hints.TnsSlipNo.tooltip}"
+                                       id="ot9"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.TnsDetail.name}" filterable="true" rendered="false"
+                               sortable="true" headerText="#{bindings.Reciept1.hints.TnsDetail.label}" id="c9"
+                               align="center"
+                               inlineStyle="text-align:left; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-width:medium; border-right-width:medium; border-top-width:medium; border-bottom-width:medium;">
+                        <af:outputText value="#{row.TnsDetail}" shortDesc="#{bindings.Reciept1.hints.TnsDetail.tooltip}"
+                                       id="ot10"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.TnsId.name}" filterable="true" sortable="true"
+                               headerText="#{bindings.Reciept1.hints.TnsId.label}" id="c10" rendered="false">
+                        <af:outputText value="#{row.TnsId}" shortDesc="#{bindings.Reciept1.hints.TnsId.tooltip}"
+                                       id="ot11">
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Reciept1.hints.TnsId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.TnsCoaCactNumber.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Reciept1.hints.TnsCoaCactNumber.label}" id="c11"
+                               rendered="false">
+                        <af:outputText value="#{row.TnsCoaCactNumber}"
+                                       shortDesc="#{bindings.Reciept1.hints.TnsCoaCactNumber.tooltip}" id="ot12">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Reciept1.hints.TnsCoaCactNumber.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.TnsCoaDactNumber.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Reciept1.hints.TnsCoaDactNumber.label}" id="c12"
+                               rendered="false">
+                        <af:outputText value="#{row.TnsCoaDactNumber}"
+                                       shortDesc="#{bindings.Reciept1.hints.TnsCoaDactNumber.tooltip}" id="ot13">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Reciept1.hints.TnsCoaDactNumber.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.TnsBankTnsTypeIdFk.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Reciept1.hints.TnsBankTnsTypeIdFk.label}"
+                               id="c13" rendered="false">
+                        <af:outputText value="#{row.TnsBankTnsTypeIdFk}"
+                                       shortDesc="#{bindings.Reciept1.hints.TnsBankTnsTypeIdFk.tooltip}" id="ot14">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Reciept1.hints.TnsBankTnsTypeIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.TnsTnsTypeIdFk.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Reciept1.hints.TnsTnsTypeIdFk.label}" id="c14"
+                               rendered="false">
+                        <af:outputText value="#{row.TnsTnsTypeIdFk}"
+                                       shortDesc="#{bindings.Reciept1.hints.TnsTnsTypeIdFk.tooltip}" id="ot15">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Reciept1.hints.TnsTnsTypeIdFk.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.TnsTnsviewId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Reciept1.hints.TnsTnsviewId.label}" id="c15"
+                               rendered="false">
+                        <af:outputText value="#{row.TnsTnsviewId}"
+                                       shortDesc="#{bindings.Reciept1.hints.TnsTnsviewId.tooltip}" id="ot16">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Reciept1.hints.TnsTnsviewId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.TnsSDate.name}" filterable="true" sortable="true"
+                               headerText="#{bindings.Reciept1.hints.TnsSDate.label}" id="c16" rendered="false">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.Reciept1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.TnsSDate.value}"
+                                          id="id6">
+                                <af:convertDateTime pattern="#{bindings.Reciept1.hints.TnsSDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:outputText value="#{row.TnsSDate}" shortDesc="#{bindings.Reciept1.hints.TnsSDate.tooltip}"
+                                       id="ot17">
+                            <af:convertDateTime pattern="#{bindings.Reciept1.hints.TnsSDate.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.TnsSpellAmount.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Reciept1.hints.TnsSpellAmount.label}" id="c17"
+                               rendered="false">
+                        <af:outputText value="#{row.TnsSpellAmount}"
+                                       shortDesc="#{bindings.Reciept1.hints.TnsSpellAmount.tooltip}" id="ot18"/>
+                    </af:column>
+                    
+                    <af:column sortProperty="#{bindings.Reciept1.hints.CoaCode.name}" filterable="true" sortable="true"
+                               headerText="#{bindings.Reciept1.hints.CoaCode.label}" id="c19" rendered="false">
+                        <af:outputText value="#{row.CoaCode}" shortDesc="#{bindings.Reciept1.hints.CoaCode.tooltip}"
+                                       id="ot20">
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Reciept1.hints.CoaCode.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.CoaBalance.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Reciept1.hints.CoaBalance.label}" id="c20"
+                               rendered="false">
+                        <af:outputText value="#{row.CoaBalance}"
+                                       shortDesc="#{bindings.Reciept1.hints.CoaBalance.tooltip}" id="ot21">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Reciept1.hints.CoaBalance.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.CoaBactId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Reciept1.hints.CoaBactId.label}" id="c21"
+                               rendered="false">
+                        <af:outputText value="#{row.CoaBactId}" shortDesc="#{bindings.Reciept1.hints.CoaBactId.tooltip}"
+                                       id="ot22">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Reciept1.hints.CoaBactId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.CoaActNumber.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Reciept1.hints.CoaActNumber.label}" id="c22"
+                               rendered="false">
+                        <af:outputText value="#{row.CoaActNumber}"
+                                       shortDesc="#{bindings.Reciept1.hints.CoaActNumber.tooltip}" id="ot23">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Reciept1.hints.CoaActNumber.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.CoaCode1.name}" filterable="true" sortable="true"
+                               headerText="#{bindings.Reciept1.hints.CoaCode1.label}" id="c23" rendered="false">
+                        <af:outputText value="#{row.CoaCode1}" shortDesc="#{bindings.Reciept1.hints.CoaCode1.tooltip}"
+                                       id="ot24">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Reciept1.hints.CoaCode1.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.CoaBalance1.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Reciept1.hints.CoaBalance1.label}" id="c24"
+                               rendered="false">
+                        <af:outputText value="#{row.CoaBalance1}"
+                                       shortDesc="#{bindings.Reciept1.hints.CoaBalance1.tooltip}" id="ot25">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Reciept1.hints.CoaBalance1.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.CoaPartyId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Reciept1.hints.CoaPartyId.label}" id="c25"
+                               rendered="false">
+                        <af:outputText value="#{row.CoaPartyId}"
+                                       shortDesc="#{bindings.Reciept1.hints.CoaPartyId.tooltip}" id="ot26">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Reciept1.hints.CoaPartyId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.CoaActNumber1.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Reciept1.hints.CoaActNumber1.label}" id="c26"
+                               rendered="false">
+                        <af:outputText value="#{row.CoaActNumber1}"
+                                       shortDesc="#{bindings.Reciept1.hints.CoaActNumber1.tooltip}" id="ot27">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Reciept1.hints.CoaActNumber1.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.PtypeId.name}" filterable="true" sortable="true"
+                               headerText="#{bindings.Reciept1.hints.PtypeId.label}" id="c27" rendered="false">
+                        <af:outputText value="#{row.PtypeId}" shortDesc="#{bindings.Reciept1.hints.PtypeId.tooltip}"
+                                       id="ot28">
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Reciept1.hints.PtypeId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.PartyId.name}" filterable="true" sortable="true"
+                               headerText="#{bindings.Reciept1.hints.PartyId.label}" id="c28" rendered="false">
+                        <af:outputText value="#{row.PartyId}" shortDesc="#{bindings.Reciept1.hints.PartyId.tooltip}"
+                                       id="ot29">
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Reciept1.hints.PartyId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.Reciept1.hints.BankTnsTypeId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.Reciept1.hints.BankTnsTypeId.label}" id="c29"
+                               rendered="false">
+                        <af:outputText value="#{row.BankTnsTypeId}"
+                                       shortDesc="#{bindings.Reciept1.hints.BankTnsTypeId.tooltip}" id="ot30">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.Reciept1.hints.BankTnsTypeId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+                <f:facet name="statusbar">
+                    <af:toolbar id="t2">
+                        <af:outputText value="Mastams" id="ot50"
+                                       inlineStyle="color:Maroon; font-style:italic; font-size:large;"/>
+                    </af:toolbar>
+                </f:facet>
+            </af:panelCollection>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

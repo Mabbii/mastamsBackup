@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <af:panelGridLayout id="pgl1">
+    <af:gridRow marginTop="50px" height="auto" id="gr1">
+      <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc1" halign="stretch">
+        <af:panelBox text="PanelBox1" id="pb1" background="dark">
+          <f:facet name="toolbar"/>
+          <af:panelFormLayout id="pfl1" rows="2">
+            <af:inputText value="#{bindings.OmcId.inputValue}" label="#{bindings.OmcId.hints.label}"
+                          required="#{bindings.OmcId.hints.mandatory}" readOnly="true"
+                          columns="#{bindings.OmcId.hints.displayWidth}"
+                          maximumLength="#{bindings.OmcId.hints.precision}" shortDesc="#{bindings.OmcId.hints.tooltip}"
+                          id="it1">
+              <f:validator binding="#{bindings.OmcId.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.OmcId.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.OmcName.inputValue}" label="#{bindings.OmcName.hints.label}"
+                          required="#{bindings.OmcName.hints.mandatory}" readOnly="true"
+                          columns="#{bindings.OmcName.hints.displayWidth}"
+                          maximumLength="#{bindings.OmcName.hints.precision}"
+                          shortDesc="#{bindings.OmcName.hints.tooltip}" id="it2">
+              <f:validator binding="#{bindings.OmcName.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.OmcShortname.inputValue}" label="#{bindings.OmcShortname.hints.label}"
+                          required="#{bindings.OmcShortname.hints.mandatory}" readOnly="true"
+                          columns="#{bindings.OmcShortname.hints.displayWidth}"
+                          maximumLength="#{bindings.OmcShortname.hints.precision}"
+                          shortDesc="#{bindings.OmcShortname.hints.tooltip}" id="it3">
+              <f:validator binding="#{bindings.OmcShortname.validator}"/>
+            </af:inputText>
+          </af:panelFormLayout>
+        </af:panelBox>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="50px" height="auto" id="gr2">
+      <af:gridCell marginStart="5px" width="34%" id="gc2" halign="stretch">
+        <af:panelBox text="PanelBox2" id="pb2">
+          <f:facet name="toolbar"/>
+          <dvt:pieChart id="pieChart1" var="row" value="#{bindings.BankNameView1.collectionModel}">
+            <dvt:chartLegend id="cl2"/>
+            <dvt:pieDataItem id="di2" label="#{row.BankName1}" value="#{row.BankNameId}"/>
+          </dvt:pieChart>
+        </af:panelBox>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="33%" id="gc3" halign="stretch">
+        <af:panelBox text="PanelBox3" id="pb3" background="default">
+          <f:facet name="toolbar"/>
+          <dvt:barChart id="barChart1" var="row" value="#{bindings.OilDepoView1.collectionModel}">
+            <dvt:chartLegend id="cl1"/>
+            <dvt:chartY2Axis id="cya1"/>
+            <f:facet name="dataStamp">
+              <dvt:chartDataItem id="di1" series="#{row.OildShortname}" value="#{row.OildId}" group="#{row.OildName}"/>
+            </f:facet>
+          </dvt:barChart>
+        </af:panelBox>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="gc4" halign="stretch">
+        <af:panelBox text="PanelBox4" id="pb4">
+          <f:facet name="toolbar"/>
+        </af:panelBox>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="50px" height="auto" marginBottom="5px" id="gr3">
+      <af:gridCell marginStart="5px" width="34%" id="gc5" halign="stretch">
+        <af:panelBox text="PanelBox5" id="pb5" background="medium">
+          <f:facet name="toolbar"/>
+        </af:panelBox>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="33%" id="gc6" halign="stretch">
+        <af:panelBox text="PanelBox6" id="pb6">
+          <f:facet name="toolbar"/>
+        </af:panelBox>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="gc7" halign="stretch">
+        <af:panelBox text="PanelBox7" id="pb7" background="light">
+          <f:facet name="toolbar"/>
+        </af:panelBox>
+      </af:gridCell>
+    </af:gridRow>
+  </af:panelGridLayout>
+</ui:composition>

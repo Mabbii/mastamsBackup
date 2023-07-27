@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="DayBook View" id="d1" binding="#{backingBeanScope.backing_MyHomeView.d1}"
+    smallIconSource="#{resource['images:adfdi_logo_16.png']}">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                <f:facet name="center">
+                    <af:panelStretchLayout id="psl1">
+                        <f:facet name="top">
+                            <af:toolbar id="t1">
+                                <af:button text="Purchase Supplier Fuel" id="b6"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallPurchaseSupplierFuel}"
+                                           icon="#{resource['images:supermarket (1).png']}">
+                                    <af:setPropertyListener from="PurchaseSupplierFuelFC"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"
+                                                            type="action"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s4"/>
+                                <af:button text="Journal Voucher" id="b3"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallJournalVoucher}"
+                                           icon="#{resource['images:certificate.png']}">
+                                    <af:setPropertyListener from="JournalVaucherFc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s6"/>
+                                <af:button text="Sales" id="b1"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallSales}"
+                                           icon="#{resource['images:pump.png']}">
+                                    <af:setPropertyListener from="Salesfccc" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s3"/>
+                                <af:button text="Purchase Lube" id="b2"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           icon="#{resource['images:petroleum.png']}"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallPurchaseLube}">
+                                    <af:setPropertyListener from="PurchaseSupplierLubeFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s8"/>
+                                <af:button text="Payment" id="b8"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallPaymenting}"
+                                           icon="#{resource['images:payment.png']}">
+                                           
+                                    <af:setPropertyListener from="PaymentingFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s9"/>
+                                <af:button text="Receipt" id="b9"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallReciepting}"
+                                           icon="#{resource['images:transaction.png']}">
+                                           
+                                    <af:setPropertyListener from="RecieptingFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s10"/>
+                                                              <af:button text="Expense" id="b10"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}"
+                                           actionListener="#{MainPageBean.CallExpensive}"
+                                           icon="#{resource['images:bill.png']}">
+                                           
+                                    <af:setPropertyListener from="ExpensiveFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s5"/>
+                                <af:button text="Lube Sale" id="b4" icon="#{resource['images:pump.png']}"
+                                           inlineStyle="min-width:100px; text-align:center; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; border-left-color:Maroon; border-right-color:Maroon; border-top-color:Purple; border-bottom-color:Purple; background-color:Window;"
+                                           action="#{backingBeanScope.backing_MyHomeView.ChangeSwitcher}">
+                                    <af:setPropertyListener from="SaleLubeBulkeFC" type="action"
+                                                            to="#{backingBeanScope.backing_MyHomeView.facetName}"/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s7"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="center">
+                            <af:switcher id="s1" binding="#{backingBeanScope.backing_MyHomeView.switcher}"
+                                         facetName="DefaultDayBookFC" defaultFacet="DefaultDayBookFC">
+                                <f:facet name="PurchaseSupplierFc">
+                                    <af:region value="#{bindings.PUchasefromGsupplierTF1.regionModel}" id="r1"/>
+                                </f:facet>
+                                <f:facet name="PurchaseSupplierBackDFc">
+                                    <af:region value="#{bindings.PurchaseFromSupplierBackDTF1.regionModel}" id="r2"/>
+                                </f:facet>
+                                <f:facet name="PurchaseSupplierFuelFC">
+                                    <af:region value="#{bindings.PurchaseSupplierFuel_TF1.regionModel}" id="r3"/>
+                                </f:facet>
+                                <f:facet name="PurchaseSupplierLubeFC">
+                                    <af:region value="#{bindings.PurchaseSupplierLubeTF1.regionModel}" id="r4"/>
+                                </f:facet>
+                                <f:facet name="JournalVaucherFc">
+                                    <af:region value="#{bindings.GournalVoucherTF1.regionModel}" id="r5"/>
+                                </f:facet>
+                                <f:facet name="JournalVaucherBackDFc">
+                                    <af:region value="#{bindings.BackJvouchertf1.regionModel}" id="r6"/>
+                                </f:facet>
+                                <f:facet name="StockgainFc">
+                                    <af:region value="#{bindings.stockGainTF1.regionModel}" id="r9"/>
+                                </f:facet>
+                                <f:facet name="StockLossFC">
+                                    <af:region value="#{bindings.stocklossBACKDTF1.regionModel}" id="r8"/>
+                                </f:facet>
+                                <f:facet name="Salesfccc">
+                                    <af:region value="#{bindings.saleessssTF1.regionModel}" id="r7"/>
+                                </f:facet>
+                                <f:facet name="StockTransferFc">
+                                    <af:region value="#{bindings.StockTransferTF1.regionModel}" id="r10"/>
+                                </f:facet>
+                                <f:facet name="DefaultDayBookFC">
+                                    <af:region value="#{bindings.DefaultDayBookTF1.regionModel}" id="r11"/>
+                                </f:facet>
+                                <f:facet name="PaymentingFC">
+                                    <af:region value="#{bindings.PaymentingTF1.regionModel}" id="r13"/>
+                                </f:facet>
+                                <f:facet name="RecieptingFC">
+                                    <af:region value="#{bindings.RecieptingTf1.regionModel}" id="r14"/>
+                                </f:facet>
+                                <f:facet name="ExpensiveFC">
+                                    <af:region value="#{bindings.ExpensiveTF1.regionModel}" id="r12"/>
+                                </f:facet>
+                                <f:facet name="SaleLubeBulkeFC">
+                                    <af:region value="#{bindings.Sale_Lube_BulkTF1.regionModel}" id="r15"/>
+                                </f:facet>
+                            </af:switcher>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="header">
+                <af:link text="Ahsaan Filling Station" id="ll4" action="#{PageLoadBean.RedirecttoHome}"
+                             inlineStyle="color:Maroon; font-size:x-large; font-style:italic; font-weight:bold;"/>
+                </f:facet>
+                <f:facet name="branding"/>
+                <f:facet name="status">
+                    <af:toolbar id="t2"/>
+                </f:facet>
+                <f:attribute name="headerGlobalSize" value="35"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

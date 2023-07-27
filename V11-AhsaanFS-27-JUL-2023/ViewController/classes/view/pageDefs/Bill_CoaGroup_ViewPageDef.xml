@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="Bill_CoaGroup_ViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CoaGroupView1" RangeSize="1500" DataControl="VOAPPDataControl" id="CoaGroupView1Iterator"/>
+    <iterator Binds="CoaGroupCoaMapView1" RangeSize="1500" DataControl="VOAPPDataControl"
+              id="CoaGroupCoaMapView1Iterator"/>
+    <searchRegion Binds="CoaGroupView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CoaGroupView1Query"/>
+    <searchRegion Binds="CoaGroupCoaMapView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CoaGroupCoaMapView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CoaGroupView1Iterator" id="CoaGroupId">
+      <AttrNames>
+        <Item Value="CoaGroupId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CoaGroupView1Iterator" id="CoaGroupName">
+      <AttrNames>
+        <Item Value="CoaGroupName"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CoaGroupView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="CoaGroupView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="CoaGroupView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="CoaGroupView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="CoaGroupView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+    <listOfValues IterBinding="CoaGroupCoaMapView1Iterator" StaticList="false" Uses="LOV_CoaName" id="CoaName"/>
+    <listOfValues IterBinding="CoaGroupCoaMapView1Iterator" StaticList="false" Uses="LOV_CoaGroupName"
+                  id="CoaGroupName1"/>
+    <attributeValues IterBinding="CoaGroupCoaMapView1Iterator" id="CoaGrpCoaMapId">
+      <AttrNames>
+        <Item Value="CoaGrpCoaMapId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CoaGroupCoaMapView1Iterator" id="CoaIdFk">
+      <AttrNames>
+        <Item Value="CoaIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CoaGroupCoaMapView1Iterator" id="CoaGroupIdFk">
+      <AttrNames>
+        <Item Value="CoaGroupIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CoaGroupCoaMapView1Iterator" id="CoaActNumber">
+      <AttrNames>
+        <Item Value="CoaActNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CoaGroupCoaMapView1Iterator" id="CoaGroupId1">
+      <AttrNames>
+        <Item Value="CoaGroupId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CoaGroupCoaMapView1Iterator" id="First1" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="CoaGroupCoaMapView1Iterator" id="Previous1" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="CoaGroupCoaMapView1Iterator" id="Next1" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="CoaGroupCoaMapView1Iterator" id="Last1" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="CoaGroupCoaMapView1Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <tree IterBinding="CoaGroupView1Iterator" id="CoaGroupView1">
+      <nodeDefinition DefName="model.CoaGroupView" Name="CoaGroupView10">
+        <AttrNames>
+          <Item Value="CoaGroupId"/>
+          <Item Value="CoaGroupName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CoaGroupCoaMapView1Iterator" id="CoaGroupCoaMapView1">
+      <nodeDefinition DefName="model.CoaGroupCoaMapView" Name="CoaGroupCoaMapView10">
+        <AttrNames>
+          <Item Value="CoaGrpCoaMapId"/>
+          <Item Value="CoaIdFk"/>
+          <Item Value="CoaGroupIdFk"/>
+          <Item Value="CoaName"/>
+          <Item Value="CoaActNumber"/>
+          <Item Value="CoaGroupName"/>
+          <Item Value="CoaGroupId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

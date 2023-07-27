@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="VehicleviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Vehicle1View1" RangeSize="25" DataControl="VOAPPDataControl" id="Vehicle1View1Iterator"/>
+    <searchRegion Binds="Vehicle1View1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="Vehicle1View1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="Vehicle1View1Iterator" StaticList="false" Uses="LOV_PartyName" id="PartyName"/>
+    <attributeValues IterBinding="Vehicle1View1Iterator" id="VehicleId">
+      <AttrNames>
+        <Item Value="VehicleId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Vehicle1View1Iterator" id="VehicleDetails">
+      <AttrNames>
+        <Item Value="VehicleDetails"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Vehicle1View1Iterator" id="VehicleRegNo">
+      <AttrNames>
+        <Item Value="VehicleRegNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Vehicle1View1Iterator" id="PartyIdFk">
+      <AttrNames>
+        <Item Value="PartyIdFk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Vehicle1View1Iterator" id="PartyId">
+      <AttrNames>
+        <Item Value="PartyId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Vehicle1View1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="Vehicle1View1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="Vehicle1View1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="Vehicle1View1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="Vehicle1View1Iterator" id="Vehicle1View1">
+      <nodeDefinition DefName="model.Vehicle1View" Name="Vehicle1View10">
+        <AttrNames>
+          <Item Value="VehicleId"/>
+          <Item Value="VehicleDetails"/>
+          <Item Value="VehicleRegNo"/>
+          <Item Value="PartyIdFk"/>
+          <Item Value="PartyName"/>
+          <Item Value="PartyId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Vehicle1View1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="VOAPPDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="VOAPPDataControl"/>
+  </bindings>
+</pageDefinition>

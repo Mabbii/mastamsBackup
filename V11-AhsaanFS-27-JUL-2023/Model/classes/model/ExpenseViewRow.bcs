@@ -1,0 +1,12 @@
+//Groovy Scripts for model.ExpenseView
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="ExpeDate")
+def ExpeDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+

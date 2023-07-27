@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OrderStatusType"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ORDER_STATUS_TYPE"
+  AliasName="OrderStatusType"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="OrdStatusTypeId"
+    IsNotNull="true"
+    ColumnName="ORD_STATUS_TYPE_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="ORDER_STATUS_TYPE"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="OrdStatusTypeName"
+    Precision="20"
+    ColumnName="ORD_STATUS_TYPE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORDER_STATUS_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="OrderstatustypePrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="ORDERSTATUSTYPE_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.OrderStatusType.OrdStatusTypeId"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CoaGroupEO"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="COA_GROUP"
+  AliasName="CoaGroupEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CoaGroupId"
+    ColumnName="COA_GROUP_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="COA_GROUP"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="CoaGroupName"
+    Precision="60"
+    ColumnName="COA_GROUP_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="COA_GROUP">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="CoaGroupCoaMapEO"
+    Association="model.CoaGroupCoaMapView_Assoc"
+    AssociationEnd="model.CoaGroupCoaMapView_Assoc.CoaGroupCoaMapEO"
+    AssociationOtherEnd="model.CoaGroupCoaMapView_Assoc.CoaGroupEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="BillGroupParamEO"
+    Association="model.Bill_Group_Param_Coa_grp_id_fk_Assoc"
+    AssociationEnd="model.Bill_Group_Param_Coa_grp_id_fk_Assoc.BillGroupParamEO"
+    AssociationOtherEnd="model.Bill_Group_Param_Coa_grp_id_fk_Assoc.CoaGroupEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="CoaGroupPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="COA_GROUP_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.CoaGroupEO.CoaGroupId"/>
+    </AttrArray>
+  </Key>
+</Entity>

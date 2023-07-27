@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.20.47" id="SaleSummaryViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DayBookSalesss1" RangeSize="25" DataControl="VOAPPDataControl" id="DayBookSalesss1Iterator"/>
+    <searchRegion Criteria="DayBookSalesssCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="DayBookSalesss1Iterator" id="DayBookSalesssCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DayBookSalesss1Iterator" id="DayBookSalesss1">
+      <nodeDefinition DefName="model.DayBookSalesss" Name="DayBookSalesss10">
+        <AttrNames>
+          <Item Value="DbsId"/>
+          <Item Value="ProductIdFk"/>
+          <Item Value="DbsQty"/>
+          <Item Value="DbsRate"/>
+          <Item Value="DbsAmount"/>
+          <Item Value="DcIdFk"/>
+          <Item Value="DbsDiff"/>
+          <Item Value="DbsFAmount"/>
+          <Item Value="DbsFQty"/>
+          <Item Value="DbsQtyDiff"/>
+          <Item Value="DcStartDate"/>
+          <Item Value="DcId"/>
+          <Item Value="ProductShortname"/>
+          <Item Value="ProductId"/>
+          <Item Value="DbsCashQty"/>
+          <Item Value="DbsCreditQty"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

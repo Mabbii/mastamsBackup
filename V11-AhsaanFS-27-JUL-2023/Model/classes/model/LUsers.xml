@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LUsers"
+  Version="12.2.1.20.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="L_USERS"
+  AliasName="LUsers"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="LUsersUserName"
+    Precision="50"
+    ColumnName="L_USERS_USER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="L_USERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LUsersUserId"
+    ColumnName="L_USERS_USER_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="L_USERS"
+    PrimaryKey="true"/>
+  <AccessorAttribute
+    Name="LUserSession"
+    Association="model.LUserSessionLUsersFk1Assoc"
+    AssociationEnd="model.LUserSessionLUsersFk1Assoc.LUserSession"
+    AssociationOtherEnd="model.LUserSessionLUsersFk1Assoc.LUsers"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="LUsersPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="L_USERS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.LUsers.LUsersUserId"/>
+    </AttrArray>
+  </Key>
+</Entity>

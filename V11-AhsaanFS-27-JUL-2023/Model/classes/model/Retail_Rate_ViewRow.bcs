@@ -1,0 +1,12 @@
+//Groovy Scripts for model.Retail_Rate_View
+
+package model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="RetailRateDate")
+def RetailRateDate_ExpressionScript_Expression()
+{
+adf.currentDateTime
+}
+
